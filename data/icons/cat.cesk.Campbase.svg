@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <title>Campbase</title>
+  <desc>Icona d'aplicació Campbase, tenda de campanya sobre fons groc, inspirada en GNOME Adwaita i els colors de Basecamp.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="0.75" y2="1">
+      <stop offset="0" stop-color="#ffec38"/>
+      <stop offset="0.46" stop-color="#ffe000"/>
+      <stop offset="1" stop-color="#ffc900"/>
+    </linearGradient>
+    <linearGradient id="canvasLeft" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffef8"/>
+      <stop offset="1" stop-color="#f1e5c9"/>
+    </linearGradient>
+    <linearGradient id="canvasRight" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7edd8"/>
+      <stop offset="1" stop-color="#e7d1aa"/>
+    </linearGradient>
+    <linearGradient id="tentDoor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#31404b"/>
+      <stop offset="1" stop-color="#19272f"/>
+    </linearGradient>
+    <linearGradient id="surfaceGlint" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity=".26"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="175%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <!-- Geometria adaptada a la silueta rodona i quadrada de les icones GNOME. -->
+  <rect x="14" y="18" width="228" height="225" rx="52" fill="#6d5200" opacity=".19"/>
+  <rect x="14" y="12" width="228" height="226" rx="52" fill="url(#gold)"/>
+  <path d="M67 13H189c29 0 52 23 52 52v15H15V65c0-29 23-52 52-52Z" fill="url(#surfaceGlint)"/>
+  <path d="M66 15h124c27 0 48 21 48 48" fill="none" stroke="#fff7a1" stroke-width="2.5" opacity=".62" stroke-linecap="round"/>
+
+  <!-- Ombra de contacte. -->
+  <ellipse cx="128" cy="186" rx="79" ry="10" fill="#5e4900" opacity=".21" filter="url(#shadow)"/>
+
+  <!-- Bastons creuats de la tenda, visibles a la carena. -->
+  <g stroke="#20303a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M116 58l24 25"/>
+    <path d="M140 58l-24 25"/>
+    <path d="M125 70 53 173"/>
+    <path d="M131 70 203 173"/>
+  </g>
+
+  <!-- Lona en dos plans i obertura triangular de la tenda. -->
+  <path d="M128 80 57 178h71Z" fill="url(#canvasLeft)"/>
+  <path d="M128 80 199 178h-71Z" fill="url(#canvasRight)"/>
+  <path d="M128 111c-7 24-22 49-33 67h66c-13-19-26-43-33-67Z" fill="url(#tentDoor)"/>
+  <path d="M128 111c-3 28-12 50-33 67h14c11-15 17-34 19-67Z" fill="#d9c49f" opacity=".57"/>
+  <path d="M128 111c3 28 12 50 33 67h-14c-11-15-17-34-19-67Z" fill="#d1b58e" opacity=".57"/>
+
+  <!-- Terra i cantonades de la tenda. -->
+  <g fill="none" stroke="#20303a" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M54 180h148" stroke-width="12"/>
+    <path d="m54 180-5-12" stroke-width="10"/>
+    <path d="m202 180 5-12" stroke-width="10"/>
+  </g>
+</svg>

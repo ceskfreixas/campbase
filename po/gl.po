@@ -1,0 +1,1558 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2026 Cesk Freixas
+msgid ""
+msgstr "Project-Id-Version: Campbase 0.1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: gl\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Desa"
+msgstr "Guardar"
+
+msgid "D'acord"
+msgstr "De acordo"
+
+msgid "Cancel·la"
+msgstr "Cancelar"
+
+msgid "Nom"
+msgstr "Nome"
+
+msgid "Títol"
+msgstr "Título"
+
+msgid "Descripció"
+msgstr "Descrição"
+
+msgid "Targeta"
+msgstr "Cartão"
+
+msgid "Targetes"
+msgstr "Cartões"
+
+msgid "Targeta nova"
+msgstr "Novo cartão"
+
+msgid "Crea la targeta"
+msgstr "Criar cartão"
+
+msgid "Columna"
+msgstr "Coluna"
+
+msgid "Columna nova"
+msgstr "Nova coluna"
+
+msgid "Tauler nou"
+msgstr "Novo tabuleiro"
+
+msgid "Crea un tauler"
+msgstr "Criar um tabuleiro"
+
+msgid "Crea una columna"
+msgstr "Criar uma coluna"
+
+msgid "Afegeix una targeta"
+msgstr "Adicionar um cartão"
+
+msgid "Afegeix una columna"
+msgstr "Adicionar uma coluna"
+
+msgid "Nom del projecte"
+msgstr "Nome do projeto"
+
+msgid "Edita el projecte"
+msgstr "Editar o projeto"
+
+msgid "Edita la columna"
+msgstr "Editar a coluna"
+
+msgid "Canvia el nom i el color…"
+msgstr "Mudar o nome e a cor…"
+
+msgid "Opcions de la columna"
+msgstr "Opções da coluna"
+
+msgid "Color de la columna en aquest ordinador"
+msgstr "Cor da coluna neste dispositivo"
+
+msgid "Tria una imatge…"
+msgstr "Escolher uma imagem…"
+
+msgid "Tria una imatge per al projecte"
+msgstr "Escolher uma imagem para o projeto"
+
+msgid "Treu la imatge o la icona"
+msgstr "Retirar a imagem ou o ícone"
+
+msgid "Icona d'Adwaita"
+msgstr "Ícone do Adwaita"
+
+msgid "Caràcters de la descripció"
+msgstr "Caracteres da descrição"
+
+msgid "El nom se sincronitza amb Deck. La descripció i la imatge es desen en aquest dispositiu."
+msgstr "O nome sincroniza-se com o Deck. A descrição e a imagem guardam-se neste dispositivo."
+
+msgid "Què vols treballar?"
+msgstr "Em que queres trabalhar?"
+
+msgid "Data límit"
+msgstr "Data limite"
+
+msgid "Tria la data límit"
+msgstr "Escolher a data limite"
+
+msgid "Sense data límit"
+msgstr "Sem data limite"
+
+msgid "Tria una data vàlida"
+msgstr "Escolhe uma data válida"
+
+msgid "Tria una data vàlida al calendari."
+msgstr "Escolhe uma data válida no calendário."
+
+msgid "Revisa la data"
+msgstr "Revê a data"
+
+msgid "Tria la data"
+msgstr "Escolher data"
+
+msgid "Avui"
+msgstr "Hoje"
+
+msgid "Treu la data"
+msgstr "Retirar a data"
+
+msgid "Arxiva la targeta"
+msgstr "Arquivar o cartão"
+
+msgid "Restaura la targeta"
+msgstr "Restaurar o cartão"
+
+msgid "Obre a Deck"
+msgstr "Abrir no Deck"
+
+msgid "Comentaris"
+msgstr "Comentários"
+
+msgid "Escriu un comentari…"
+msgstr "Escreve um comentário…"
+
+msgid "Envia el comentari"
+msgstr "Enviar o comentário"
+
+msgid "Encara no hi ha comentaris."
+msgstr "Ainda não há comentários."
+
+msgid "S'estan carregant els comentaris…"
+msgstr "A carregar os comentários…"
+
+msgid "Usuari de Deck"
+msgstr "Utilizador do Deck"
+
+msgid "Torna-ho a provar"
+msgstr "Tentar de novo"
+
+msgid "Vols descartar els canvis?"
+msgstr "Descartar as mudanças?"
+
+msgid "Continua editant"
+msgstr "Continuar a editar"
+
+msgid "Descarta els canvis"
+msgstr "Descartar as mudanças"
+
+msgid "La targeta encara no s'ha desat."
+msgstr "O cartão ainda não foi guardado."
+
+msgid "El projecte encara no s'ha desat."
+msgstr "O projeto ainda não foi guardado."
+
+msgid "Deixa aquí"
+msgstr "Soltar aqui"
+
+msgid "Sense títol"
+msgstr "Sem título"
+
+msgid "TAULERS"
+msgstr "TABULEIROS"
+
+msgid "Els teus taulers"
+msgstr "Os teus tabuleiros"
+
+msgid "Mostra els taulers"
+msgstr "Mostrar os tabuleiros"
+
+msgid "Amaga els taulers"
+msgstr "Ocultar os tabuleiros"
+
+msgid "Mostra o amaga els taulers"
+msgstr "Mostrar ou ocultar os tabuleiros"
+
+msgid "Mostra les targetes arxivades"
+msgstr "Mostrar os cartões arquivados"
+
+msgid "Cerca al tauler"
+msgstr "Procurar no tabuleiro"
+
+msgid "Cerca títols, descripcions o etiquetes…"
+msgstr "Procurar títulos, descrições ou etiquetas…"
+
+msgid "Menú del Campbase"
+msgstr "Menu do Campbase"
+
+msgid "Preferències"
+msgstr "Preferências"
+
+msgid "Aparença"
+msgstr "Aparência"
+
+msgid "Tema"
+msgstr "Tema"
+
+msgid "El del sistema"
+msgstr "O do sistema"
+
+msgid "Clar"
+msgstr "Claro"
+
+msgid "Fosc"
+msgstr "Escuro"
+
+msgid "Primera columna en una fila superior"
+msgstr "Primeira coluna numa linha superior"
+
+msgid "Les targetes de la primera columna s'adapten a l'amplada de la finestra."
+msgstr "Os cartões da primeira coluna adaptam-se à largura da janela."
+
+msgid "Idioma"
+msgstr "Idioma"
+
+msgid "Idioma de l'aplicació"
+msgstr "Idioma da aplicação"
+
+msgid "Automàtic (sistema)"
+msgstr "Automático (sistema)"
+
+msgid "L'idioma s'aplicarà quan tornis a obrir el Campbase."
+msgstr "O idioma aplicar-se-á quando voltares a abrir o Campbase."
+
+msgid "Si l'idioma del sistema no està disponible, es fa servir l'anglès."
+msgstr "Se o idioma do sistema não estiver disponível, utiliza-se o inglês."
+
+msgid "Dreceres de teclat"
+msgstr "Atalhos de teclado"
+
+msgid "Navegació"
+msgstr "Navegação"
+
+msgid "Aplicació"
+msgstr "Aplicação"
+
+msgid "Edició de text"
+msgstr "Edição de texto"
+
+msgid "Negreta"
+msgstr "Negrito"
+
+msgid "Cursiva"
+msgstr "Itálico"
+
+msgid "Subratllat"
+msgstr "Sublinhado"
+
+msgid "Ratllat"
+msgstr "Riscado"
+
+msgid "Desfés"
+msgstr "Desfazer"
+
+msgid "Refés"
+msgstr "Refazer"
+
+msgid "Enganxa text o una imatge"
+msgstr "Colar texto ou uma imagem"
+
+msgid "Negreta · Ctrl+B"
+msgstr "Negrito · Ctrl+B"
+
+msgid "Cursiva · Ctrl+I"
+msgstr "Itálico · Ctrl+I"
+
+msgid "Subratllat · Ctrl+U · La visualització en altres clients pot variar"
+msgstr "Sublinhado · Ctrl+U · A visualização noutros clientes pode variar"
+
+msgid "Desfés · Ctrl+Z"
+msgstr "Desfazer · Ctrl+Z"
+
+msgid "Refés · Ctrl+Maj+Z"
+msgstr "Refazer · Ctrl+Maiús+Z"
+
+msgid "Llista amb pics"
+msgstr "Lista com marcas"
+
+msgid "Llista numerada"
+msgstr "Lista numerada"
+
+msgid "Títols, citacions i codi"
+msgstr "Títulos, citações e código"
+
+msgid "Text normal"
+msgstr "Texto normal"
+
+msgid "Títol gran"
+msgstr "Título grande"
+
+msgid "Títol mitjà"
+msgstr "Título médio"
+
+msgid "Títol petit"
+msgstr "Título pequeno"
+
+msgid "Citació"
+msgstr "Citação"
+
+msgid "Codi"
+msgstr "Código"
+
+msgid "Treu el format"
+msgstr "Retirar o formato"
+
+msgid "Insereix un enllaç"
+msgstr "Inserir uma ligação"
+
+msgid "Insereix"
+msgstr "Inserir"
+
+msgid "Insereix una imatge"
+msgstr "Inserir uma imagem"
+
+msgid "Imatges"
+msgstr "Imagens"
+
+msgid "Imatge"
+msgstr "Imagem"
+
+msgid "Enganxa una imatge"
+msgstr "Colar uma imagem"
+
+msgid "Imatge enganxada.png"
+msgstr "Imagem colada.png"
+
+msgid "Sincronització"
+msgstr "Sincronização"
+
+msgid "Sincronitza amb Deck"
+msgstr "Sincronizar com o Deck"
+
+msgid "S'està sincronitzant…"
+msgstr "A sincronizar…"
+
+msgid "Actualitzat"
+msgstr "Atualizado"
+
+msgid "Canvis desats"
+msgstr "Mudanças guardadas"
+
+msgid "Pendent de sincronitzar"
+msgstr "Pendente de sincronizar"
+
+msgid "Cal revisar el canvi"
+msgstr "É preciso rever a mudança"
+
+msgid "Canvis pendents"
+msgstr "Mudanças pendentes"
+
+msgid "Tot sincronitzat"
+msgstr "Tudo sincronizado"
+
+msgid "No hi ha canvis pendents d'enviar a Deck."
+msgstr "Não há mudanças pendentes de enviar ao Deck."
+
+msgid "Revisa els canvis pendents de sincronitzar"
+msgstr "Rever as mudanças pendentes de sincronizar"
+
+msgid "Descarta el canvi"
+msgstr "Descartar a mudança"
+
+msgid "Aplica el meu canvi"
+msgstr "Aplicar a minha mudança"
+
+msgid "S'enviarà quan hi hagi connexió."
+msgstr "Enviar-se-á quando houver ligação."
+
+msgid "Canvis a la targeta"
+msgstr "Mudanças no cartão"
+
+msgid "Moviment de targeta"
+msgstr "Movimento do cartão"
+
+msgid "Arxivament"
+msgstr "Arquivamento"
+
+msgid "Canvi"
+msgstr "Mudança"
+
+msgid "Comptes en línia de GNOME"
+msgstr "Contas em linha do GNOME"
+
+msgid "Compte de Nextcloud"
+msgstr "Conta do Nextcloud"
+
+msgid "Cap compte connectat"
+msgstr "Nenhuma conta ligada"
+
+msgid "Obre Comptes en línia"
+msgstr "Abrir Contas em linha"
+
+msgid "Utilitza aquest compte"
+msgstr "Usar esta conta"
+
+msgid "S'està obrint el compte de GNOME…"
+msgstr "A abrir a conta do GNOME…"
+
+msgid "El Campbase fa servir el compte de Nextcloud configurat a GNOME. No cal introduir cap contrasenya aquí."
+msgstr "O Campbase utiliza a conta do Nextcloud configurada no GNOME. Não é preciso introduzir nenhuma palavra-passe aqui."
+
+msgid "GNOME gestiona les credencials. El Campbase només desa quin compte has seleccionat."
+msgstr "O GNOME gere as credenciais. O Campbase só guarda a conta que selecionaste."
+
+msgid "Afegeix un compte de Nextcloud a Configuració → Comptes en línia i torna a obrir aquesta finestra."
+msgstr "Adiciona uma conta do Nextcloud em Configuração → Contas em linha e volta a abrir esta janela."
+
+msgid "Mode de demostració"
+msgstr "Modo de demonstração"
+
+msgid "Connecta Nextcloud"
+msgstr "Ligar o Nextcloud"
+
+msgid "Connecta Nextcloud Deck per treballar amb els mateixos taulers que al mòbil."
+msgstr "Liga o Nextcloud Deck para trabalhar com os mesmos tabuleiros que no telemóvel."
+
+msgid "Quant al Campbase"
+msgstr "Acerca do Campbase"
+
+#, python-brace-format
+msgid "Versió {version}"
+msgstr "Versão {version}"
+
+msgid "Informació"
+msgstr "Informação"
+
+msgid "Llicència"
+msgstr "Licença"
+
+msgid "Mostra la llicència"
+msgstr "Mostrar a licença"
+
+msgid "Idiomes disponibles"
+msgstr "Idiomas disponíveis"
+
+msgid "Crèdits"
+msgstr "Créditos"
+
+msgid "Desenvolupament"
+msgstr "Desenvolvimento"
+
+msgid "Reconeixements"
+msgstr "Agradecimentos"
+
+msgid "Suport"
+msgstr "Apoio"
+
+msgid "Dona suport al Campbase"
+msgstr "Apoia o Campbase"
+
+msgid "Dona suport"
+msgstr "Dar apoio"
+
+msgid "GTK4, Adwaita, PyGObject i Comptes en línia"
+msgstr "GTK4, Adwaita, PyGObject e Contas em linha"
+
+msgid "Servidor i sincronització"
+msgstr "Servidor e sincronização"
+
+msgid "Interpretació de Markdown · BSD-3-Clause"
+msgstr "Interpretação de Markdown · BSD-3-Clause"
+
+msgid "Icones simbòliques del sistema"
+msgstr "Ícones simbólicos do sistema"
+
+msgid "Una aplicació lliure de taulers kanban, especialment dissenyada per a GNOME amb GTK4 i Adwaita. Organitza els projectes amb targetes i sincronitza'ls amb Nextcloud Deck."
+msgstr "Uma aplicação livre de tabuleiros kanban, especialmente concebida para o GNOME com GTK4 e Adwaita. Organiza os projetos com cartões e sincroniza-os com o Nextcloud Deck."
+
+msgid "Aquest compte ja no és als Comptes en línia de GNOME."
+msgstr "Esta conta já não está nas Contas em linha do GNOME."
+
+msgid "Cal revisar l'accés a Nextcloud a Configuració → Comptes en línia."
+msgstr "Revê o acesso ao Nextcloud em Configuração → Contas em linha."
+
+msgid "GNOME no ha proporcionat les credencials del compte."
+msgstr "O GNOME não forneceu as credenciais da conta."
+
+msgid "Introdueix una adreça de Nextcloud vàlida."
+msgstr "Introduz um endereço válido do Nextcloud."
+
+msgid "L'adreça de Nextcloud ha de començar per https://."
+msgstr "O endereço do Nextcloud deve começar por https://."
+
+msgid "No s'ha pogut accedir als Comptes en línia de GNOME."
+msgstr "Não foi possível aceder às Contas em linha do GNOME."
+
+msgid "Selecciona el compte de Nextcloud que vols utilitzar."
+msgstr "Seleciona a conta do Nextcloud que queres utilizar."
+
+msgid "Selecciona un compte de Nextcloud dels Comptes en línia de GNOME."
+msgstr "Seleciona uma conta do Nextcloud das Contas em linha do GNOME."
+
+msgid "Selecciona un compte de Nextcloud a Comptes en línia de GNOME."
+msgstr "Seleciona uma conta do Nextcloud nas Contas em linha do GNOME."
+
+msgid "Cal resoldre els canvis pendents abans de canviar de compte."
+msgstr "Resolve as mudanças pendentes antes de mudar de conta."
+
+msgid "No s'ha pogut connectar. Revisa el compte de Nextcloud a Comptes en línia de GNOME."
+msgstr "Não foi possível ligar. Revê a conta do Nextcloud nas Contas em linha do GNOME."
+
+msgid "No s'ha pogut obrir el compte de GNOME. Revisa els Comptes en línia."
+msgstr "Não foi possível abrir a conta do GNOME. Revê as Contas em linha."
+
+msgid "El compte de GNOME ha canviat. Torna a seleccionar-lo a les preferències."
+msgstr "A conta do GNOME mudou. Volta a selecioná-la nas Preferências."
+
+msgid "El compte no s'ha pogut autenticar. Revisa'l a Comptes en línia de GNOME."
+msgstr "Não foi possível autenticar a conta. Revê-a nas Contas em linha do GNOME."
+
+msgid "Connecta el compte de Nextcloud per sincronitzar."
+msgstr "Liga a conta do Nextcloud para sincronizar."
+
+msgid "Connecta el compte de Nextcloud."
+msgstr "Liga a conta do Nextcloud."
+
+msgid "No s'ha pogut contactar amb Nextcloud. Els canvis pendents es conserven en aquest ordinador."
+msgstr "Não foi possível contactar com o Nextcloud. As mudanças pendentes conservam-se neste dispositivo."
+
+msgid "No s'ha pogut completar la sincronització. Els canvis locals es conserven."
+msgstr "Não foi possível completar a sincronização. As mudanças locais conservam-se."
+
+msgid "No s'ha pogut sincronitzar"
+msgstr "Não foi possível sincronizar"
+
+msgid "No s'ha pogut completar l'operació."
+msgstr "Não foi possível completar a operação."
+
+msgid "No s'ha pogut completar el canvi"
+msgstr "Não foi possível completar a mudança"
+
+msgid "Nextcloud no permet aquesta operació amb el compte actual."
+msgstr "O Nextcloud não permite esta operação com a conta atual."
+
+msgid "Nextcloud no ha pogut completar l'operació."
+msgstr "O Nextcloud não pôde completar a operação."
+
+msgid "Nextcloud no ha retornat una llista de taulers vàlida."
+msgstr "O Nextcloud não devolveu uma lista válida de tabuleiros."
+
+msgid "La resposta de Nextcloud no té el format esperat."
+msgstr "A resposta do Nextcloud não tem o formato esperado."
+
+msgid "No s'han pogut llegir les columnes del tauler."
+msgstr "Não foi possível ler as colunas do tabuleiro."
+
+msgid "No s'han pogut llegir els comentaris de Deck."
+msgstr "Não foi possível ler os comentários do Deck."
+
+msgid "La targeta o el tauler ja no són a Deck. Torna a sincronitzar."
+msgstr "O cartão ou o tabuleiro já não estão no Deck. Volta a sincronizar."
+
+msgid "La targeta ha canviat a Deck. Revisa les dues versions."
+msgstr "O cartão mudou no Deck. Revê ambas as versões."
+
+msgid "El contingut d'aquesta targeta ha canviat a Deck. El teu esborrany s'ha conservat."
+msgstr "O conteúdo deste cartão mudou no Deck. O teu rascunho foi conservado."
+
+msgid "La targeta s'ha mogut a una altra columna des d'un altre dispositiu."
+msgstr "O cartão foi movido para outra coluna a partir doutro dispositivo."
+
+msgid "Deck no ha confirmat el canvi de columna. El moviment queda pendent."
+msgstr "O Deck não confirmou a mudança de coluna. O movimento fica pendente."
+
+msgid "La targeta no és a la columna esperada a Deck."
+msgstr "O cartão não está na coluna esperada no Deck."
+
+msgid "No s'ha pogut verificar la targeta a Deck."
+msgstr "Não foi possível verificar o cartão no Deck."
+
+msgid "Deck no ha confirmat tots els canvis. L'esborrany es conserva."
+msgstr "O Deck não confirmou todas as mudanças. O rascunho conserva-se."
+
+msgid "El nom del projecte ha canviat a Deck. El teu canvi es conserva."
+msgstr "O nome do projeto mudou no Deck. A tua mudança conserva-se."
+
+msgid "Deck no ha confirmat el nom del projecte."
+msgstr "O Deck não confirmou o nome do projeto."
+
+msgid "No es pot confirmar la creació. Revisa Deck abans de tornar a enviar aquesta targeta."
+msgstr "Não é possível confirmar a criação. Revê o Deck antes de voltar a enviar este cartão."
+
+msgid "No es pot confirmar si Deck ha creat la targeta. Obre Deck i comprova-ho abans de tornar-la a enviar."
+msgstr "Não é possível confirmar se o Deck criou o cartão. Abre o Deck e comprova-o antes de voltar a enviá-lo."
+
+msgid "L'enviament es va interrompre. Revisa Deck abans de tornar a crear aquesta targeta."
+msgstr "O envio interrompeu-se. Revê o Deck antes de voltar a criar este cartão."
+
+msgid "Primer cal enviar la targeta nova a Deck."
+msgstr "Primeiro é preciso enviar o novo cartão ao Deck."
+
+msgid "Afegeix una columna al tauler abans de crear la primera targeta."
+msgstr "Adiciona uma coluna ao tabuleiro antes de criar o primeiro cartão."
+
+msgid "No s'ha pogut confirmar el comentari"
+msgstr "Não foi possível confirmar o comentário"
+
+msgid " Revisa Deck abans de tornar-lo a enviar."
+msgstr " Revê o Deck antes de voltar a enviá-lo."
+
+msgid "Aquest fitxer no és una imatge vàlida."
+msgstr "Este ficheiro não é uma imagem válida."
+
+msgid "La imatge és massa gran. El límit és de 16 MB."
+msgstr "A imagem é demasiado grande. O limite é de 16 MB."
+
+msgid "La imatge és massa gran. Tria'n una de mida més petita."
+msgstr "A imagem é demasiado grande. Escolhe uma mais pequena."
+
+msgid "Tria una imatge PNG, JPEG, WebP o GIF de mida adequada."
+msgstr "Escolhe uma imagem PNG, JPEG, WebP ou GIF dum tamanho adequado."
+
+msgid "Tria una imatge o una icona SVG vàlida."
+msgstr "Escolhe uma imagem ou um ícone SVG válidos."
+
+msgid "No s'ha pogut llegir la imatge."
+msgstr "Não foi possível ler a imagem."
+
+msgid "No s'ha pogut afegir la imatge"
+msgstr "Não foi possível adicionar a imagem"
+
+msgid "No s'ha pogut enganxar la imatge"
+msgstr "Não foi possível colar a imagem"
+
+msgid "Copia una imatge compatible de menys de 16 MB i torna-ho a provar."
+msgstr "Copia uma imagem compatível de menos de 16 MB e tenta de novo."
+
+msgid "El porta-retalls no conté cap imatge compatible."
+msgstr "A área de transferência não contém nenhuma imagem compatível."
+
+msgid "La imatge local ha canviat. Torna-la a seleccionar."
+msgstr "A imagem local mudou. Volta a selecioná-la."
+
+msgid "La imatge no és al servidor de Nextcloud del compte."
+msgstr "A imagem não está no servidor do Nextcloud da conta."
+
+msgid "No s'ha pogut carregar la imatge de Nextcloud."
+msgstr "Não foi possível carregar a imagem do Nextcloud."
+
+msgid "Nextcloud no ha retornat una imatge compatible."
+msgstr "O Nextcloud não devolveu uma imagem compatível."
+
+msgid "Deck no ha confirmat l'adjunt de la imatge."
+msgstr "O Deck não confirmou o anexo da imagem."
+
+msgid "No s'ha trobat una imatge pendent d'enviar. L'esborrany es conserva."
+msgstr "Não se encontrou uma imagem pendente de enviar. O rascunho conserva-se."
+
+msgid " · No s'ha pogut carregar"
+msgstr " · Não foi possível carregar"
+
+#, python-brace-format
+msgid "Nextcloud ha retornat un error ({code})."
+msgstr "O Nextcloud devolveu um erro ({code})."
+
+#, python-brace-format
+msgid "Darrera sincronització: {time}"
+msgstr "Última sincronização: {time}"
+
+msgid "Vermell"
+msgstr "Vermelho"
+
+msgid "Corall"
+msgstr "Coral"
+
+msgid "Taronja"
+msgstr "Laranja"
+
+msgid "Ambre"
+msgstr "Âmbar"
+
+msgid "Groc"
+msgstr "Amarelo"
+
+msgid "Llima"
+msgstr "Lima"
+
+msgid "Verd"
+msgstr "Verde"
+
+msgid "Verd fosc"
+msgstr "Verde escuro"
+
+msgid "Turquesa"
+msgstr "Turquesa"
+
+msgid "Blau cel"
+msgstr "Azul celeste"
+
+msgid "Blau"
+msgstr "Azul"
+
+msgid "Indi"
+msgstr "Índigo"
+
+msgid "Violeta"
+msgstr "Violeta"
+
+msgid "Malva"
+msgstr "Malva"
+
+msgid "Rosa"
+msgstr "Rosa"
+
+msgid "Gris"
+msgstr "Cinzento"
+
+msgid "Tauler"
+msgstr "Tabuleiro"
+
+msgid "Carpeta"
+msgstr "Pasta"
+
+msgid "Documents"
+msgstr "Documentos"
+
+msgid "Casa"
+msgstr "Casa"
+
+msgid "Preferit"
+msgstr "Favorito"
+
+msgid "Estrella"
+msgstr "Estrela"
+
+msgid "Nit"
+msgstr "Noite"
+
+msgid "Sol"
+msgstr "Sol"
+
+msgid "Comunitat"
+msgstr "Comunidade"
+
+msgid "Equip"
+msgstr "Equipa"
+
+msgid "Disseny"
+msgstr "Desenho"
+
+msgid "Construcció"
+msgstr "Construção"
+
+msgid "Eines"
+msgstr "Ferramentas"
+
+msgid "Ciència"
+msgstr "Ciência"
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "Fotografia"
+msgstr "Fotografia"
+
+msgid "Àudio"
+msgstr "Áudio"
+
+msgid "Vídeo"
+msgstr "Vídeo"
+
+msgid "Correu"
+msgstr "Correio"
+
+msgid "Calendari"
+msgstr "Calendário"
+
+msgid "Textos"
+msgstr "Textos"
+
+msgid "Idees"
+msgstr "Ideias"
+
+msgid "Important"
+msgstr "Importante"
+
+msgid "Música"
+msgstr "Música"
+
+msgid "Pel·lícules"
+msgstr "Filmes"
+
+msgid "Baixades"
+msgstr "Descargas"
+
+msgid "Benestar"
+msgstr "Bem-estar"
+
+msgid "Veu"
+msgstr "Voz"
+
+msgid "Informàtica"
+msgstr "Informática"
+
+msgid "Telèfon"
+msgstr "Telefone"
+
+msgid "Llocs"
+msgstr "Lugares"
+
+msgid "Referències"
+msgstr "Referências"
+
+msgid "Impressió"
+msgstr "Impressão"
+
+msgid "Configuració"
+msgstr "Configuração"
+
+msgid "Triatge"
+msgstr "Triagem"
+
+msgid "En preparació"
+msgstr "Em preparação"
+
+msgid "Per implementar"
+msgstr "Por implementar"
+
+msgid "Fet"
+msgstr "Feito"
+
+msgid "Una idea per al projecte"
+msgstr "Uma ideia para o projeto"
+
+msgid "Disseny de la portada"
+msgstr "Desenho da capa"
+
+msgid "Revisió dels textos"
+msgstr "Revisão dos textos"
+
+msgid "Proposta de col·laboració"
+msgstr "Proposta de colaboração"
+
+msgid "Preparar la primera versió"
+msgstr "Preparar a primeira versão"
+
+msgid "Documentació de la comunitat"
+msgstr "Documentação da comunidade"
+
+msgid "Sincronització amb Deck"
+msgstr "Sincronização com o Deck"
+
+msgid "Disseny de la icona"
+msgstr "Desenho do ícone"
+
+msgid "Triar el nom: Campbase"
+msgstr "Escolher o nome: Campbase"
+
+msgid "El nostre campament"
+msgstr "O nosso acampamento"
+
+msgid "Un espai compartit per concretar la idea i fer-la avançar."
+msgstr "Um espaço partilhado para concretizar a ideia e fazê-la avançar."
+
+msgid "Campbase · Taulers kanban per a GNOME"
+msgstr "Campbase · Tabuleiros kanban para o GNOME"
+
+msgid "Obre un tauler de demostració sense dades reals ni connexió"
+msgstr "Abrir um tabuleiro de demonstração sem dados reais nem ligação"
+
+msgid "Copia"
+msgstr "Copia"
+
+msgid "Retalla"
+msgstr "Corta"
+
+msgid "Selecciona-ho tot"
+msgstr "Seleciona todo"
+
+msgid "Tanca el diàleg o la cerca"
+msgstr "Fecha o diálogo ou a pesquisa"
+
+msgid "Revisa-ho"
+msgstr "Revê"
+
+msgid "Etiquetes"
+msgstr "Etiquetas"
+
+msgid "Etiqueta nova"
+msgstr "Etiqueta nova"
+
+msgid "Crea l'etiqueta"
+msgstr "Cria a etiqueta"
+
+msgid "Nom de l'etiqueta"
+msgstr "Nome da etiqueta"
+
+msgid "Color"
+msgstr "Cor"
+
+msgid "Encara no hi ha etiquetes en aquest tauler."
+msgstr "Este quadro ainda não tem etiquetas."
+
+msgid "Disponible per a totes les targetes d'aquest tauler."
+msgstr "Disponível para todos os cartões deste quadro."
+
+msgid "S'està creant l'etiqueta…"
+msgstr "A criar a etiqueta…"
+
+msgid "Deck no ha confirmat les etiquetes. El canvi es conserva."
+msgstr "Deck não confirmou as etiquetas. A mudança conserva-se."
+
+msgid "Revisa el nom i el color de l'etiqueta."
+msgstr "Revê o nome e a cor da etiqueta."
+
+msgid "No s'ha pogut confirmar l'etiqueta nova. Sincronitza abans de tornar-ho a provar."
+msgstr "Não foi possível confirmar a etiqueta nova. Sincroniza antes de tentares de novo."
+
+msgid "En iniciar l'aplicació"
+msgstr "Ao iniciar a aplicação"
+
+msgid "Aquestes opcions s'apliquen quan tornes a obrir el Campbase."
+msgstr "Estas opções aplicam-se quando voltares a abrir o Campbase."
+
+msgid "Últim tauler utilitzat"
+msgstr "Último quadro utilizado"
+
+msgid "Tauler d'inici"
+msgstr "Quadro inicial"
+
+msgid "Tauler no disponible"
+msgstr "Quadro não disponível"
+
+msgid "Mostra la barra lateral"
+msgstr "Mostra a barra lateral"
+
+msgid "Sincronització automàtica"
+msgstr "Sincronização automática"
+
+msgid "Amb l'opció desactivada, sincronitza amb F5 o amb el botó de sincronització."
+msgstr "Com a opção desativada, sincroniza com F5 ou com o botão de sincronização."
+
+msgid "Interval de sincronització"
+msgstr "Intervalo de sincronização"
+
+msgid "30 segons"
+msgstr "30 segundos"
+
+msgid "45 segons"
+msgstr "45 segundos"
+
+msgid "1 minut"
+msgstr "1 minuto"
+
+msgid "2 minuts"
+msgstr "2 minutos"
+
+msgid "5 minuts"
+msgstr "5 minutos"
+
+msgid "10 minuts"
+msgstr "10 minutos"
+
+msgid "Sincronització manual"
+msgstr "Sincronização manual"
+
+msgid "Prem F5 per sincronitzar amb Deck."
+msgstr "Preme F5 para sincronizares com Deck."
+
+msgid "No s'ha pogut verificar el tauler a Deck."
+msgstr "Não foi possível verificar o quadro em Deck."
+
+msgid "L'idioma s'aplica immediatament."
+msgstr "O idioma aplica-se imediatamente."
+
+msgid "Màxim de columnes per fila"
+msgstr "Máximo de colunas por fila"
+
+msgid "Les columnes es reparteixen l'amplada disponible."
+msgstr "As colunas repartem a largura disponível."
+
+msgid "Automàtic"
+msgstr "Automático"
+
+msgid "Codi font"
+msgstr "Código-fonte"
+
+msgid "Errors i suggeriments"
+msgstr "Erros e sugestões"
+
+msgid "Obre"
+msgstr "Abre"
+
+msgid "Llicència del Campbase"
+msgstr "Licença do Campbase"
+
+msgid "GNU GPL, versió 3 o posterior"
+msgstr "GNU GPL, versão 3 ou posterior"
+
+msgid "Pots utilitzar, estudiar, modificar i redistribuir el Campbase d'acord amb aquesta llicència."
+msgstr "Podes utilizar, estudar, modificar e redistribuir o Campbase de acordo com esta licença."
+
+msgid "Llicència al web"
+msgstr "Licença na web"
+
+msgid "Avís del Campbase"
+msgstr "Aviso do Campbase"
+
+msgid "Condicions de la llicència"
+msgstr "Condições da licença"
+
+msgid "Crea una targeta"
+msgstr "Cria um cartão"
+
+msgid "Copia la versió"
+msgstr "Copia a versão"
+
+msgid "Novetats de la versió"
+msgstr "Novidades da versão"
+
+msgid "Primera versió del Campbase, el teu campament base per organitzar projectes."
+msgstr "Primeira versão do Campbase, o teu acampamento base para organizares projetos."
+
+msgid "Taulers i targetes"
+msgstr "Quadros e cartões"
+
+msgid "Organitza els projectes amb columnes, targetes, etiquetes i dates límit. Escriu descripcions amb format i imatges, i participa en els comentaris."
+msgstr "Organiza os projetos com colunas, cartões, etiquetas e datas-limite. Escreve descrições com formatação e imagens e participa nos comentários."
+
+msgid "Sincronització amb Nextcloud Deck"
+msgstr "Sincronização com Nextcloud Deck"
+
+msgid "Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis sense connexió i sincronitza'ls de manera automàtica o manual."
+msgstr "Liga a conta através das Contas em linha do GNOME. Conserva as mudanças sem ligação e sincroniza-as de forma automática ou manual."
+
+msgid "Un espai al teu gust"
+msgstr "Um espaço ao teu gosto"
+
+msgid "Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral. Pots situar la primera columna en una fila superior."
+msgstr "Escolhe a aparência, as colunas por fila, o quadro inicial e a barra lateral. Podes colocar a primeira coluna numa fila superior."
+
+msgid "Sis idiomes, integrats a GNOME"
+msgstr "Seis idiomas, integrados no GNOME"
+
+msgid "Interfície amb GTK4 i Adwaita, dreceres de teclat i canvi immediat entre català, euskera, gallec AGAL, castellà, occità aranès i anglès."
+msgstr "Interface com GTK4 e Adwaita, atalhos de teclado e mudança imediata entre catalão, basco, galego AGAL, castelhano, occitano aranês e inglês."
+
+msgid "No s'ha pogut verificar el compte per un problema de connexió. Torna-ho a provar."
+msgstr "Não foi possível verificar a conta por um problema de ligação. Tenta novamente."
+
+#, python-brace-format
+msgid "{count} targeta"
+msgid_plural "{count} targetes"
+msgstr[0] "{count} cartão"
+msgstr[1] "{count} cartões"
+
+#, python-brace-format
+msgid "{count} targeta arxivada"
+msgid_plural "{count} targetes arxivades"
+msgstr[0] "{count} cartão arquivado"
+msgstr[1] "{count} cartões arquivados"
+
+#, python-brace-format
+msgid "{count} canvi pendent"
+msgid_plural "{count} canvis pendents"
+msgstr[0] "{count} mudança pendente"
+msgstr[1] "{count} mudanças pendentes"
+
+msgid "Actualitza les notificacions"
+msgstr "Atualiza as notificações"
+
+msgid "Aquest membre deixarà de tenir accés a través d'aquesta compartició."
+msgstr "Este membro deixará de ter acesso através desta partilha."
+
+msgid "Aquí veuràs comparticions, comentaris, mencions i assignacions dels teus taulers."
+msgstr "Aqui verás partilhas, comentários, menções e atribuições dos teus tabuleiros."
+
+msgid "Cerca un membre…"
+msgstr "Procura um membro…"
+
+msgid "Cerca un usuari pel nom o identificador…"
+msgstr "Procura um utilizador polo nome ou identificador…"
+
+msgid "Cerca usuaris"
+msgstr "Procura utilizadores"
+
+msgid "Cita un membre del tauler"
+msgstr "Menciona um membro do tabuleiro"
+
+msgid "Comentaris nous: {count}"
+msgstr "Comentários novos: {count}"
+
+msgid "Comparteix"
+msgstr "Partilha"
+
+msgid "Comparteix el tauler"
+msgstr "Partilha o tabuleiro"
+
+msgid "Comparteix el tauler per assignar targetes als seus membres."
+msgstr "Partilha o tabuleiro para atribuir cartões aos seus membros."
+
+msgid "Convida usuaris del mateix servidor de Nextcloud."
+msgstr "Convida utilizadores do mesmo servidor de Nextcloud."
+
+msgid "Creat per {name} (@{username})"
+msgstr "Criado por {name} (@{username})"
+
+msgid "Deck no ha confirmat els permisos. Torna a carregar els membres."
+msgstr "Deck não confirmou as permissões. Volta a carregar os membros."
+
+msgid "Deck no ha confirmat la compartició. Revisa els membres abans de tornar-ho a provar."
+msgstr "Deck não confirmou a partilha. Revê os membros antes de voltares a tentar."
+
+msgid "Deck no ha confirmat les assignacions. El canvi es conserva."
+msgstr "Deck não confirmou as atribuições. A mudança conserva-se."
+
+msgid "Desa els permisos"
+msgstr "Guarda as permissões"
+
+msgid "Els avisos depenen de les notificacions i de l'activitat habilitades a Nextcloud."
+msgstr "Os avisos dependem das notificações e da atividade ativadas em Nextcloud."
+
+msgid "Escriu almenys dos caràcters per cercar."
+msgstr "Escreve polo menos dous carateres para procurar."
+
+msgid "Hora"
+msgstr "Hora"
+
+msgid "Hora local"
+msgstr "Hora local"
+
+msgid "Hora límit"
+msgstr "Hora limite"
+
+msgid "L'autoria no consta a Deck."
+msgstr "A autoria não consta em Deck."
+
+msgid "Membres del tauler"
+msgstr "Membros do tabuleiro"
+
+msgid "Minut"
+msgstr "Minuto"
+
+msgid "No hi ha membres que coincideixin amb la cerca."
+msgstr "Não há membros que coincidam com a procura."
+
+msgid "No hi ha notificacions"
+msgstr "Não há notificações"
+
+msgid "No s'ha trobat cap usuari."
+msgstr "Não se encontrou nengum utilizador."
+
+msgid "No s'han pogut actualitzar tots els avisos. Es mostra la informació desada."
+msgstr "Não foi possível atualizar todos os avisos. Mostra-se a informação guardada."
+
+msgid "No tens permís per compartir aquest tauler."
+msgstr "Não tes permissão para partilhar este tabuleiro."
+
+msgid "Nom d'usuari"
+msgstr "Nome de utilizador"
+
+msgid "Nom visible"
+msgstr "Nome visível"
+
+msgid "Notificacions"
+msgstr "Notificações"
+
+msgid "Persones assignades"
+msgstr "Pessoas atribuídas"
+
+msgid "Pot compartir el tauler"
+msgstr "Pode partilhar o tabuleiro"
+
+msgid "Pot editar targetes"
+msgstr "Pode editar cartões"
+
+msgid "Pot gestionar el tauler"
+msgstr "Pode gerir o tabuleiro"
+
+msgid "Propietari · @{username}"
+msgstr "Proprietário · @{username}"
+
+msgid "Propietari: {name} (@{username})"
+msgstr "Proprietário: {name} (@{username})"
+
+msgid "Retira l'accés"
+msgstr "Retira o acesso"
+
+msgid "S'estan actualitzant els membres…"
+msgstr "A atualizar os membros…"
+
+msgid "S'estan actualitzant les notificacions…"
+msgstr "A atualizar as notificações…"
+
+msgid "S'estan cercant usuaris…"
+msgstr "A procurar utilizadores…"
+
+msgid "Vols retirar l'accés?"
+msgstr "Queres retirar o acesso?"
+
+msgid "Permís inicial"
+msgstr "Permissão inicial"
+
+msgid "Només lectura"
+msgstr "Só leitura"
+
+msgid "Tria una icona d'Adwaita"
+msgstr "Escolhe uma icona de Adwaita"
+
+msgid "Col·laboració als taulers"
+msgstr "Colaboração nos tabuleiros"
+
+msgid "Comparteix taulers, gestiona els permisos, assigna targetes i cita membres als comentaris. Consulta els avisos de Deck i l'activitat disponible des de Notificacions."
+msgstr "Partilha tabuleiros, gere as permissões, atribui cartões e menciona membros nos comentários. Consulta os avisos de Deck e a atividade disponível nas Notificações."
+
+msgid "Dates i identitat"
+msgstr "Datas e identidade"
+
+msgid "Tria l'hora límit en hora local. Identifica els autors dels comentaris amb nom, icona, data i hora, i consulta el nom d'usuari del compte a Preferències."
+msgstr "Escolhe a hora limite em hora local. Identifica os autores dos comentários com nome, icona, data e hora, e consulta o nome de utilizador da conta nas Preferências."
+
+msgid "Tria les persones assignades"
+msgstr "Escolhe as pessoas atribuídas"
+
+msgid "{count} persones"
+msgstr "{count} pessoas"
+
+msgid "Sense assignar"
+msgstr "Sem atribuir"
+
+msgid "Responsable del tauler: {name}"
+msgstr "Responsável do tabuleiro: {name}"
+
+msgid "Responsable · {username}"
+msgstr "Responsável · {username}"
+
+msgid "Assigna a"
+msgstr "Atribui a"
+
+msgid "T'has assignat la targeta «{title}»."
+msgstr "Atribuíste-te o cartão «{title}»."
+
+msgid "T'has mencionat a la targeta «{title}»."
+msgstr "Mencionaste-te no cartão «{title}»."
+
+msgid "Has comentat la targeta «{title}»."
+msgstr "Comentaste o cartão «{title}»."
+
+msgid "Esborra l'avís"
+msgstr "Apaga o aviso"
+
+msgid "Esborra tots els avisos"
+msgstr "Apaga todos os avisos"
+
+msgid "Esborra-ho tot"
+msgstr "Apaga tudo"
+
+msgid "No s'han pogut carregar els avisos"
+msgstr "Não foi possível carregar os avisos"
+
+msgid "S'esborraran els avisos que es mostren a la llista."
+msgstr "Apagarão-se os avisos mostrados na lista."
+
+msgid "S'estan esborrant els avisos…"
+msgstr "A apagar os avisos…"
+
+msgid "Torna-ho a provar amb el botó d'actualització."
+msgstr "Volta a tentar co botão de atualizar."
+
+msgid "Vols esborrar tots els avisos?"
+msgstr "Queres apagar todos os avisos?"
+
+msgid "Compte connectat"
+msgstr "Conta ligada"
+
+msgid "Nom d'usuari: {username}"
+msgstr "Nome de utilizador: {username}"
+
+msgid "Detalls"
+msgstr "Detalhes"
+
+msgid "Cerca pel nom o identificador. També pots provar el correu complet si el servidor ho permet."
+msgstr "Procura polo nome ou identificador. Também podes provar o endereço de correio completo se o servidor o permitir."
+
+msgid "No s'ha pogut trobar el comentari indicat."
+msgstr "Não foi possível encontrar o comentário indicado."
+
+msgid "No s'ha pogut obrir el destí de l'avís."
+msgstr "Não foi possível abrir o destino do aviso."
+
+msgid "Pot ser que s'hagi eliminat o que ja no hi tinguis accés."
+msgstr "Pode ter sido eliminado ou podes já não ter acesso."
+
+msgid "Notificacions a mà"
+msgstr "Notificações à mão"
+
+msgid "Comparteix taulers i gestiona els permisos. Identifica els participants amb la seva imatge, assigna targetes i cita membres amb @, amb suggeriments i mencions ressaltades. Reacciona als comentaris amb sis emojis. Es desen com a respostes amb una menció per avisar-ne l'autor; Campbase les agrupa i altres clients les mostren com a comentaris."
+msgstr "Partilha quadros e gere as permissões. Identifica os participantes pola sua imagem, atribui cartões e menciona membros com @, com sugestões e menções realçadas. Reage aos comentários com seis emojis. Guardam-se como respostas com uma menção para avisar o autor; o Campbase agrupa-as e outros clientes mostram-nas como comentários."
+
+msgid "Consulta comentaris, mencions, assignacions i comparticions, també de les teves accions. Obre el lloc relacionat amb cada avís i esborra'ls individualment o tots de cop."
+msgstr "Consulta comentários, menções, atribuições e partilhas, também das tuas próprias ações. Abre o lugar relacionado com cada aviso e apaga-os individualmente ou todos de uma vez."
+
+msgid "Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis sense connexió i sincronitza'ls de manera automàtica o manual. Les lectures són més àgils i els avisos s'actualitzen sense interrompre la sincronització de les targetes."
+msgstr "Liga a conta através das Contas em linha do GNOME. Conserva as alterações sem ligação e sincroniza-as de forma automática ou manual. As leituras são mais ágeis e os avisos atualizam-se sem interromper a sincronização dos cartões."
+
+msgid "Personalitza la imatge o la icona dels projectes. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral, i situa la primera columna en una fila superior."
+msgstr "Personaliza a imagem ou o ícone dos projetos. Escolhe a aparência, as colunas por fila, o quadro inicial e a barra lateral, e coloca a primeira coluna numa fila superior."
+
+msgid "Atura"
+msgstr "Para"
+
+msgid "Canvia el color"
+msgstr "Muda a cor"
+
+msgid "Canvia el nom"
+msgstr "Muda o nome"
+
+msgid "Deck no ha confirmat que s'hagi esborrat la targeta."
+msgstr "O Deck não confirmou que o cartão tenha sido apagado."
+
+msgid "El comentari s'esborrarà de Nextcloud Deck. Aquesta acció no es pot desfer."
+msgstr "O comentário será apagado do Nextcloud Deck. Esta ação não pode ser desfeita."
+
+msgid "Esborra"
+msgstr "Apaga"
+
+msgid "Esborra el comentari"
+msgstr "Apaga o comentário"
+
+msgid "Esborra la targeta"
+msgstr "Apaga o cartão"
+
+msgid "Esborra les targetes arxivades"
+msgstr "Apaga os cartões arquivados"
+
+msgid "La targeta ja no està arxivada. No s'ha esborrat."
+msgstr "O cartão já não está arquivado. Não foi apagado."
+
+msgid "La targeta s'ha esborrat de Deck. Els canvis locals s'han conservat."
+msgstr "O cartão foi apagado do Deck. As alterações locais foram conservadas."
+
+msgid "La targeta s'ha mogut a una altra columna. No s'ha esborrat."
+msgstr "O cartão foi movido para outra coluna. Não foi apagado."
+
+msgid "Nextcloud no ha confirmat que s'hagi esborrat el comentari."
+msgstr "O Nextcloud não confirmou que o comentário tenha sido apagado."
+
+msgid "No s'ha pogut esborrar el comentari"
+msgstr "Não foi possível apagar o comentário"
+
+msgid "No s'han pogut esborrar totes les targetes"
+msgstr "Não foi possível apagar todos os cartões"
+
+msgid "No tens permís per esborrar targetes d'aquest tauler."
+msgstr "Não tens permissão para apagar cartões deste quadro."
+
+msgid "Resol els canvis pendents d'aquestes targetes abans d'esborrar-les."
+msgstr "Resolve as alterações pendentes destes cartões antes de os apagar."
+
+msgid "S'esborraran aquestes targetes de Nextcloud Deck. Les targetes actives es conservaran."
+msgstr "Estes cartões serão apagados do Nextcloud Deck. Os cartões ativos serão conservados."
+
+msgid "S'està aturant…"
+msgstr "A parar…"
+
+msgid "Targeta arxivada"
+msgstr "Cartão arquivado"
+
+msgid "Targetes arxivades: {count}"
+msgstr "Cartões arquivados: {count}"
+
+msgid "Targetes esborrades: {count} / {total}"
+msgstr "Cartões apagados: {count} / {total}"
+
+msgid "Vols esborrar aquest comentari?"
+msgstr "Queres apagar este comentário?"
+
+msgid "Organitza els projectes amb columnes, targetes, etiquetes i dates límit. Escriu descripcions amb format i imatges, participa en els comentaris i esborra els teus quan calgui. Consulta el recompte de comentaris al costat del títol, sense afegir una fila a la targeta."
+msgstr "Organiza os projetos com colunas, cartões, etiquetas e datas-limite. Escreve descrições com formato e imagens, participa nos comentários e apaga os teus quando for preciso. Consulta o número de comentários ao lado do título, sem acrescentar uma fila ao cartão."
+
+msgid "Personalitza els projectes i canvia el nom o el color de cada columna per separat. Mostra les targetes arxivades per columna i restaura-les o esborra-les individualment o en grup. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr "Personaliza os projetos e muda o nome ou a cor de cada coluna por separado. Mostra os cartões arquivados por coluna e restaura-os ou apaga-os individualmente ou em grupo. Escolhe a aparência, as colunas por fila, o quadro inicial e a barra lateral."
+
+msgid "Amaga les arxivades"
+msgstr "Oculta as arquivadas"
+
+msgid "Arxivades"
+msgstr "Arquivadas"
+
+msgid "Columnes: {columns} · Targetes: {cards}"
+msgstr "Colunas: {columns} · Cartões: {cards}"
+
+msgid "Deck no ha confirmat que s'hagi esborrat el tauler."
+msgstr "Deck não confirmou que o quadro foi eliminado."
+
+msgid "El tauler s'ha esborrat de Deck. Els canvis locals s'han conservat."
+msgstr "O quadro foi eliminado de Deck. As alterações locais foram conservadas."
+
+msgid "Esborra el tauler"
+msgstr "Elimina o quadro"
+
+msgid "Esborra les arxivades visibles"
+msgstr "Elimina as arquivadas visíveis"
+
+msgid "Esborra totes les arxivades"
+msgstr "Elimina todas as arquivadas"
+
+msgid "Mostra les arxivades"
+msgstr "Mostra as arquivadas"
+
+msgid "No s'ha pogut esborrar el tauler"
+msgstr "Não foi possível eliminar o quadro"
+
+msgid "Només el propietari pot esborrar aquest tauler."
+msgstr "Só o proprietário pode eliminar este quadro."
+
+msgid "Resol els canvis pendents d'aquest tauler abans d'esborrar-lo."
+msgstr "Resolve as alterações pendentes deste quadro antes de o eliminares."
+
+msgid "S'esborrarà el tauler de Nextcloud Deck, amb les columnes i les targetes que conté."
+msgstr "O quadro será eliminado de Nextcloud Deck, com as colunas e os cartões que contém."
+
+msgid "S'està esborrant el tauler…"
+msgstr "A eliminar o quadro…"
+
+msgid "Personalitza els projectes i canvia el nom o el color de cada columna per separat. Consulta les arxivades en una secció pròpia i restaura-les o esborra-les individualment o en grup. Esborra els taulers dels quals ets propietari des de la barra lateral. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr "Personaliza os projetos e muda o nome ou a cor de cada coluna por separado. Consulta as arquivadas numa secção própria e restaura-as ou elimina-as individualmente ou em grupo. Elimina os quadros dos quais és proprietário a partir da barra lateral. Escolhe a aparência, as colunas por fila, o quadro inicial e a barra lateral."
+
+msgid "Arrossega la targeta"
+msgstr "Arrasta o cartão"
+
+msgid "Interfície més clara"
+msgstr "Uma interface mais clara"
+
+msgid "Personalitza els projectes i canvia el nom o el color de cada columna per separat. A la secció d'arxivades, restaura o esborra cada targeta des dels seus controls, o esborra-les en grup. Mostra-les i amaga-les sense tornar a l'inici del tauler. Esborra els taulers propis des de la barra lateral. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr "Personaliza os projetos e muda o nome ou a cor de cada coluna por separado. Na secção de arquivadas, restaura ou elimina cada cartão a partir dos seus controlos, ou elimina-os em grupo. Mostra-as e oculta-as sem voltares ao início do quadro. Elimina os quadros próprios a partir da barra lateral. Escolhe a aparência, as colunas por fila, o quadro inicial e a barra lateral."
+
+msgid "Arrossega i arxiva les targetes amb els controls que apareixen en passar-hi el cursor. Menús amb separadors i dreceres visibles, modals ajustats al contingut i una icona d'enllaç més clara. Papereres de targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un tauler. Capçaleres de columna sense tooltips d'autoria i avatar d'usuari al peu de l'editor de targetes."
+msgstr "Arrasta e arquiva os cartões com os controlos que aparecem ao passares o cursor. Menus com separadores e atalhos visíveis, diálogos ajustados ao conteúdo e um ícone de ligação mais claro. Botões de lixo de cartões e quadros em vermelho e um botão para cancelares a eliminação de um quadro. Cabeçalhos de coluna sem dicas de autoria e avatar de utilizador ao pé do editor de cartões."
+
+msgid "Autor: {name} (@{username})"
+msgstr "Autor: {name} (@{username})"
+
+msgid "Responsable: {name} (@{username})"
+msgstr "Responsável: {name} (@{username})"
+
+msgid "Controls de targeta"
+msgstr "Controlos dos cartões"
+
+msgid "Arxiva i arrossega les targetes amb els controls de la dreta, en aquest ordre. Els avatars dels assignats cedeixen el lloc als controls amb una transició suau, també a les arxivades. Els títols aprofiten millor l'amplada. L'avatar al peu de l'editor identifica l'autor o el responsable. Un marcador mostra on deixar anar cada targeta. Els avatars es mantenen durant la sincronització. La vista es manté fixa mentre arrossegues una targeta."
+msgstr "Arquiva e arrasta os cartões com os controlos da direita, por essa ordem. Os avatares das pessoas atribuídas cedem o lugar aos controlos com uma transição suave, também nos cartões arquivados. Os títulos aproveitam melhor a largura. O avatar ao pé do editor identifica o autor ou o responsável. Um marcador indica onde soltar cada cartão. Os avatares mantêm-se durante a sincronização. A vista mantém-se fixa enquanto arrastas um cartão."
+
+msgid "Menús amb separadors i dreceres visibles, modals ajustats al contingut i una icona d'enllaç més clara. Marges coherents en compartir taulers, tant durant la càrrega com amb els membres i els resultats de cerca. Papereres de targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un tauler. Capçaleres de columna sense tooltips d'autoria."
+msgstr "Menus com separadores e atalhos visíveis, diálogos ajustados ao conteúdo e um ícone de ligação mais claro. Margens coerentes ao partilhares quadros, tanto durante o carregamento como com os membros e os resultados da pesquisa. Botões de lixo de cartões e quadros em vermelho e um botão para cancelares a eliminação de um quadro. Cabeçalhos de coluna sem dicas de autoria."
+
+msgid "Deixa anar aquí"
+msgstr "Solta aqui"
+
+msgid "Acció desfeta"
+msgstr "Ação desfeita"
+
+msgid "Aquesta acció ja no es pot desfer."
+msgstr "Esta ação já não se pode desfazer."
+
+msgid "Arrossega-hi una targeta per arxivar-la."
+msgstr "Arrasta um cartão para aqui para o arquivares."
+
+msgid "Assignades a mi"
+msgstr "Atribuídas a mim"
+
+msgid "La targeta ha canviat. Els altres canvis es conserven."
+msgstr "O cartão mudou. As outras alterações conservam-se."
+
+msgid "Les excepcions de cada columna es conserven. Al menú de la columna pots tornar a seguir la preferència general."
+msgstr "As exceções de cada coluna conservam-se. No seu menu podes voltar a seguir a preferência geral."
+
+msgid "Mostra les targetes arxivades per defecte"
+msgstr "Mostra os cartões arquivados por defeito"
+
+msgid "No s'ha pogut desfer l'acció. Els canvis es conserven."
+msgstr "Não foi possível desfazer a ação. As alterações conservam-se."
+
+msgid "Segueix la preferència general"
+msgstr "Segue a preferência geral"
+
+msgid "Targeta moguda"
+msgstr "Cartão movido"
+
+msgid "Targeta restaurada"
+msgstr "Cartão restaurado"
+
+msgid "Arxivades i filtres"
+msgstr "Arquivadas e filtros"
+
+msgid "Tria si les arxivades es mostren per defecte i conserva les excepcions de cada columna. Arrossega una targeta a la zona d'arxivades per arxivar-la, també quan és buida. Desfés els moviments i els arxivaments recents. Filtra les targetes amb «Assignades a mi»."
+msgstr "Escolhe se as arquivadas aparecem por defeito e conserva as exceções de cada coluna. Arrasta um cartão para a zona de arquivadas para o arquivares, mesmo quando está vazia. Desfaz os movimentos e arquivamentos recentes. Filtra os cartões com «Atribuídas a mim»."
+
+msgid "S'aplica a totes les columnes i elimina les excepcions. Després pots mostrar-les o amagar-les a cada columna."
+msgstr "Aplica-se a todas as colunas e elimina as exceções. Depois podes mostrá-las ou ocultá-las em cada coluna."
+
+msgid "Mostra o amaga les arxivades a totes les columnes i ajusta-les després per separat. Arrossega-les entre columnes, restaura-les deixant-les a la zona normal i desfés els canvis recents. El filtre «Assignades a mi» és al costat de les accions del tauler. Les actualitzacions mantenen la posició de lectura."
+msgstr "Mostra ou oculta as arquivadas em todas as colunas e ajusta-as depois por separado. Arrasta-as entre colunas, restaura-as largando-as na zona normal e desfaz as mudanças recentes. O filtro «Atribuídas a mim» está ao lado das ações do quadro. As atualizações mantêm a posição de leitura."
+
+msgid "Vista del tauler"
+msgstr "Vista do quadro"
+
+msgid "Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis sense connexió i sincronitza'ls de manera automàtica o manual. Les lectures són més àgils i els avisos s'actualitzen sense interrompre la sincronització de les targetes. Els moviments d'arxivades poden continuar després d'una interrupció de la connexió. Els moviments cap a les arxivades actualitzen només les targetes necessàries, sense restaurar-les temporalment."
+msgstr "Liga a conta através das Contas em linha do GNOME. Conserva as alterações sem ligação e sincroniza-as de forma automática ou manual. As leituras são mais ágeis e os avisos atualizam-se sem interromper a sincronização dos cartões. Os movimentos de cartões arquivados podem continuar após uma interrupção da ligação. Os movimentos para os cartões arquivados atualizam só os cartões necessários, sem os restaurar temporariamente."
+
+msgid "Menús amb separadors i dreceres visibles, modals ajustats al contingut i una icona d'enllaç més clara. Marges coherents en compartir taulers, tant durant la càrrega com amb els membres i els resultats de cerca. Papereres de targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un tauler. Capçaleres de columna sense tooltips d'autoria. Preferències separa el tema de la vista del tauler. En arrossegar cap a les arxivades, es mostra només el marcador necessari. Els menús de columna es mantenen oberts mentre arriben actualitzacions. Tanca Notificacions clicant fora del modal."
+msgstr "Menus com separadores e atalhos visíveis, diálogos ajustados ao conteúdo e um ícone de ligação mais claro. Margens coerentes ao partilhares quadros, tanto durante o carregamento como com os membros e os resultados da pesquisa. Botões de lixo de cartões e quadros em vermelho e um botão para cancelares a eliminação de um quadro. Cabeçalhos de coluna sem dicas de autoria. As Preferências separam o tema da vista do quadro. Ao arrastar para os cartões arquivados, só se mostra o marcador necessário. Os menus de coluna mantêm-se abertos enquanto chegam atualizações. Fecha as Notificações clicando fora do diálogo."
+
+#, python-brace-format
+msgid "{count} comentari"
+msgid_plural "{count} comentaris"
+msgstr[0] "{count} comentário"
+msgstr[1] "{count} comentários"
+
+msgid "Reacciona al comentari"
+msgstr "Reage ao comentário"
+
+msgid "M'agrada"
+msgstr "Gústame"
+
+msgid "M'encanta"
+msgstr "Encántame"
+
+msgid "Em fa riure"
+msgstr "Fai-me rir"
+
+msgid "Celebrem-ho"
+msgstr "Celebremo-lo"
+
+msgid "Ho estic mirant"
+msgstr "Estou a olhar"
+
+msgid "Gràcies"
+msgstr "Grazas"
+
+msgid "No s'ha pogut confirmar la reacció"
+msgstr "Não foi possível confirmar a reação"
+
+msgid " Revisa els comentaris abans de tornar-ho a provar."
+msgstr " Revê os comentários antes de tentares de novo."
+
+msgid "Nextcloud no ha confirmat la resposta al comentari."
+msgstr "O Nextcloud não confirmou a resposta ao comentário."
+
+msgid "{name} ha reaccionat {emoji} a un comentari de «{title}»."
+msgstr "{name} reagiu {emoji} a um comentário de «{title}»."
+
+msgid "Has reaccionat {emoji} a un comentari de «{title}»."
+msgstr "Reagiches {emoji} a um comentário de «{title}»."
+
+msgid "Has reaccionat {emoji} al teu comentari de «{title}»."
+msgstr "Reagiches {emoji} ao teu comentário de «{title}»."

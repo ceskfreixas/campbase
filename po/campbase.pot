@@ -1,0 +1,2034 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-28 19:18+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: campbase/__main__.py:22
+msgid "Triatge"
+msgstr ""
+
+#: campbase/__main__.py:22
+msgid "Una idea per al projecte"
+msgstr ""
+
+#: campbase/__main__.py:22
+msgid "Disseny de la portada"
+msgstr ""
+
+#: campbase/__main__.py:22
+msgid "Revisió dels textos"
+msgstr ""
+
+#: campbase/__main__.py:22
+msgid "Proposta de col·laboració"
+msgstr ""
+
+#: campbase/__main__.py:23
+msgid "En preparació"
+msgstr ""
+
+#: campbase/__main__.py:23
+msgid "Preparar la primera versió"
+msgstr ""
+
+#: campbase/__main__.py:23
+msgid "Documentació de la comunitat"
+msgstr ""
+
+#: campbase/__main__.py:24
+msgid "Per implementar"
+msgstr ""
+
+#: campbase/__main__.py:24
+msgid "Sincronització amb Deck"
+msgstr ""
+
+#: campbase/__main__.py:24
+msgid "Disseny de la icona"
+msgstr ""
+
+#: campbase/__main__.py:24
+msgid "Fet"
+msgstr ""
+
+#: campbase/__main__.py:24
+msgid "Triar el nom: Campbase"
+msgstr ""
+
+#: campbase/__main__.py:32
+msgid "Un espai compartit per concretar la idea i fer-la avançar."
+msgstr ""
+
+#: campbase/__main__.py:35
+msgid "El nostre campament"
+msgstr ""
+
+#: campbase/__main__.py:66
+msgid "Campbase · Taulers kanban per a GNOME"
+msgstr ""
+
+#: campbase/__main__.py:67
+msgid "Obre un tauler de demostració sense dades reals ni connexió"
+msgstr ""
+
+#: campbase/about.py:19 campbase/about.py:55
+msgid "Detalls"
+msgstr ""
+
+#: campbase/about.py:23
+msgid ""
+"Una aplicació lliure de taulers kanban, especialment dissenyada per a GNOME "
+"amb GTK4 i Adwaita. Organitza els projectes amb targetes i sincronitza'ls "
+"amb Nextcloud Deck."
+msgstr ""
+
+#: campbase/about.py:26
+msgid "Idiomes disponibles"
+msgstr ""
+
+#: campbase/about.py:27
+msgid "Codi font"
+msgstr ""
+
+#: campbase/about.py:37 campbase/window.py:157
+msgid "Quant al Campbase"
+msgstr ""
+
+#: campbase/about.py:47
+msgid "Copia la versió"
+msgstr ""
+
+#: campbase/about.py:50 campbase/about.py:60 campbase/release_dialog.py:20
+#, python-brace-format
+msgid "Versió {version}"
+msgstr ""
+
+#: campbase/about.py:54 campbase/choosers.py:35
+msgid "Informació"
+msgstr ""
+
+#: campbase/about.py:59 campbase/release_dialog.py:15
+msgid "Novetats de la versió"
+msgstr ""
+
+#: campbase/about.py:64
+msgid "Llicència"
+msgstr ""
+
+#: campbase/about.py:65
+msgid "Mostra la llicència"
+msgstr ""
+
+#: campbase/about.py:68
+msgid "Errors i suggeriments"
+msgstr ""
+
+#: campbase/about.py:70
+msgid "Crèdits"
+msgstr ""
+
+#: campbase/about.py:72
+msgid "Desenvolupament"
+msgstr ""
+
+#: campbase/about.py:74
+msgid "Reconeixements"
+msgstr ""
+
+#: campbase/about.py:75
+msgid "GTK4, Adwaita, PyGObject i Comptes en línia"
+msgstr ""
+
+#: campbase/about.py:76
+msgid "Servidor i sincronització"
+msgstr ""
+
+#: campbase/about.py:77
+msgid "Interpretació de Markdown · BSD-3-Clause"
+msgstr ""
+
+#: campbase/about.py:78
+msgid "Icones simbòliques del sistema"
+msgstr ""
+
+#: campbase/about.py:81
+msgid "Suport"
+msgstr ""
+
+#: campbase/about.py:82
+msgid "Dona suport al Campbase"
+msgstr ""
+
+#: campbase/account.py:32
+msgid "Introdueix una adreça de Nextcloud vàlida."
+msgstr ""
+
+#: campbase/account.py:34
+msgid "L'adreça de Nextcloud ha de començar per https://."
+msgstr ""
+
+#: campbase/account.py:57
+msgid "No s'ha pogut accedir als Comptes en línia de GNOME."
+msgstr ""
+
+#: campbase/account.py:100
+msgid "Aquest compte ja no és als Comptes en línia de GNOME."
+msgstr ""
+
+#: campbase/account.py:117
+msgid ""
+"No s'ha pogut verificar el compte per un problema de connexió. Torna-ho a "
+"provar."
+msgstr ""
+
+#: campbase/account.py:118
+msgid "Cal revisar l'accés a Nextcloud a Configuració → Comptes en línia."
+msgstr ""
+
+#: campbase/account.py:120
+msgid "GNOME no ha proporcionat les credencials del compte."
+msgstr ""
+
+#: campbase/account.py:132
+msgid "Selecciona el compte de Nextcloud que vols utilitzar."
+msgstr ""
+
+#: campbase/account.py:138
+msgid "Selecciona un compte de Nextcloud dels Comptes en línia de GNOME."
+msgstr ""
+
+#: campbase/active_cards.py:17
+msgid "Arrossega la targeta"
+msgstr ""
+
+#: campbase/active_cards.py:20 campbase/card_dialog.py:104
+msgid "Arxiva la targeta"
+msgstr ""
+
+#: campbase/alerts.py:10 campbase/clipboard.py:73 campbase/project.py:249
+#: campbase/rich_text.py:251
+msgid "D'acord"
+msgstr ""
+
+#: campbase/archived_cards.py:23 campbase/card_dialog.py:104
+msgid "Restaura la targeta"
+msgstr ""
+
+#: campbase/archived_cards.py:26 campbase/card_deletion.py:35
+#: campbase/card_dialog.py:108
+msgid "Esborra la targeta"
+msgstr ""
+
+#: campbase/archived_cards.py:40
+msgid "Arxivades"
+msgstr ""
+
+#: campbase/archived_cards.py:42
+msgid "Esborra les arxivades visibles"
+msgstr ""
+
+#: campbase/archived_cards.py:42
+msgid "Esborra totes les arxivades"
+msgstr ""
+
+#: campbase/archived_cards.py:64
+msgid "Arrossega-hi una targeta per arxivar-la."
+msgstr ""
+
+#: campbase/assets.py:33 campbase/assets.py:47 campbase/assets.py:55
+msgid "La imatge és massa gran. El límit és de 16 MB."
+msgstr ""
+
+#: campbase/assets.py:36
+msgid "Aquest fitxer no és una imatge vàlida."
+msgstr ""
+
+#: campbase/assets.py:41
+msgid "Tria una imatge PNG, JPEG, WebP o GIF de mida adequada."
+msgstr ""
+
+#: campbase/assets.py:41
+msgid "Tria una imatge o una icona SVG vàlida."
+msgstr ""
+
+#: campbase/assets.py:50
+msgid "No s'ha pogut llegir la imatge."
+msgstr ""
+
+#: campbase/assets.py:51 campbase/rich_text.py:256 campbase/rich_text.py:262
+#: campbase/rich_text.py:283
+msgid "Imatge"
+msgstr ""
+
+#: campbase/board_deletion.py:26 campbase/board_deletion.py:38
+msgid "Esborra el tauler"
+msgstr ""
+
+#: campbase/board_deletion.py:43 campbase/comments.py:148
+#: campbase/notifications.py:138 campbase/rich_text.py:211
+#: campbase/sharing.py:166
+msgid "Cancel·la"
+msgstr ""
+
+#: campbase/board_deletion.py:46 campbase/card_deletion.py:42
+#: campbase/comments.py:149
+msgid "Esborra"
+msgstr ""
+
+#: campbase/board_deletion.py:55
+#, python-brace-format
+msgid "Columnes: {columns} · Targetes: {cards}"
+msgstr ""
+
+#: campbase/board_deletion.py:56
+msgid ""
+"S'esborrarà el tauler de Nextcloud Deck, amb les columnes i les targetes que "
+"conté."
+msgstr ""
+
+#: campbase/board_deletion.py:68 campbase/board_deletion.py:89
+msgid "Resol els canvis pendents d'aquest tauler abans d'esborrar-lo."
+msgstr ""
+
+#: campbase/board_deletion.py:86
+msgid "S'està esborrant el tauler…"
+msgstr ""
+
+#: campbase/board_deletion.py:98
+msgid "No s'ha pogut esborrar el tauler"
+msgstr ""
+
+#: campbase/card_deletion.py:23 campbase/card_deletion.py:64
+msgid "Resol els canvis pendents d'aquestes targetes abans d'esborrar-les."
+msgstr ""
+
+#: campbase/card_deletion.py:35
+msgid "Esborra les targetes arxivades"
+msgstr ""
+
+#: campbase/card_deletion.py:49
+#, python-brace-format
+msgid "Targetes arxivades: {count}"
+msgstr ""
+
+#: campbase/card_deletion.py:50
+msgid ""
+"S'esborraran aquestes targetes de Nextcloud Deck. Les targetes actives es "
+"conservaran."
+msgstr ""
+
+#: campbase/card_deletion.py:66
+msgid "No tens permís per esborrar targetes d'aquest tauler."
+msgstr ""
+
+#: campbase/card_deletion.py:83
+msgid "Atura"
+msgstr ""
+
+#: campbase/card_deletion.py:94 campbase/card_deletion.py:106
+#, python-brace-format
+msgid "Targetes esborrades: {count} / {total}"
+msgstr ""
+
+#: campbase/card_deletion.py:99
+msgid "S'està aturant…"
+msgstr ""
+
+#: campbase/card_deletion.py:105
+msgid "No s'han pogut esborrar totes les targetes"
+msgstr ""
+
+#: campbase/card_dialog.py:21 campbase/card_dialog.py:22
+msgid "Targeta"
+msgstr ""
+
+#: campbase/card_dialog.py:21 campbase/card_dialog.py:22
+#: campbase/dialogs.py:179 campbase/shortcuts.py:17
+msgid "Targeta nova"
+msgstr ""
+
+#: campbase/card_dialog.py:33 campbase/dialogs.py:29 campbase/dialogs.py:55
+#: campbase/project.py:132
+msgid "Desa"
+msgstr ""
+
+#: campbase/card_dialog.py:33
+msgid "Crea la targeta"
+msgstr ""
+
+#: campbase/card_dialog.py:47
+msgid "Títol"
+msgstr ""
+
+#: campbase/card_dialog.py:48
+msgid "Què vols treballar?"
+msgstr ""
+
+#: campbase/card_dialog.py:55
+msgid "Columna"
+msgstr ""
+
+#: campbase/card_dialog.py:79 campbase/project.py:167
+msgid "Descripció"
+msgstr ""
+
+#: campbase/card_dialog.py:92
+msgid "Comentaris"
+msgstr ""
+
+#: campbase/card_dialog.py:116
+msgid "Obre a Deck"
+msgstr ""
+
+#: campbase/card_dialog.py:177 campbase/project.py:254
+msgid "Vols descartar els canvis?"
+msgstr ""
+
+#: campbase/card_dialog.py:177
+msgid "La targeta encara no s'ha desat."
+msgstr ""
+
+#: campbase/card_dialog.py:178 campbase/project.py:255
+msgid "Continua editant"
+msgstr ""
+
+#: campbase/card_dialog.py:179 campbase/project.py:256
+msgid "Descarta els canvis"
+msgstr ""
+
+#: campbase/card_dialog.py:196
+msgid "Revisa la data"
+msgstr ""
+
+#: campbase/card_dialog.py:196
+msgid "Tria una data vàlida al calendari."
+msgstr ""
+
+#: campbase/card_movement.py:14 campbase/undo.py:15
+msgid "Aquesta acció ja no es pot desfer."
+msgstr ""
+
+#: campbase/card_movement.py:22 campbase/deck.py:187 campbase/deck.py:206
+msgid "La targeta s'ha mogut a una altra columna des d'un altre dispositiu."
+msgstr ""
+
+#: campbase/card_movement.py:28 campbase/card_movement.py:36
+#: campbase/card_movement.py:67 campbase/deck.py:224 campbase/deck.py:228
+msgid ""
+"El contingut d'aquesta targeta ha canviat a Deck. El teu esborrany s'ha "
+"conservat."
+msgstr ""
+
+#: campbase/card_movement.py:59 campbase/deck.py:194 campbase/deck.py:246
+msgid "Deck no ha confirmat tots els canvis. L'esborrany es conserva."
+msgstr ""
+
+#: campbase/choosers.py:14
+msgid "Tauler"
+msgstr ""
+
+#: campbase/choosers.py:15
+msgid "Carpeta"
+msgstr ""
+
+#: campbase/choosers.py:16
+msgid "Documents"
+msgstr ""
+
+#: campbase/choosers.py:17
+msgid "Casa"
+msgstr ""
+
+#: campbase/choosers.py:18
+msgid "Preferit"
+msgstr ""
+
+#: campbase/choosers.py:19
+msgid "Estrella"
+msgstr ""
+
+#: campbase/choosers.py:20
+msgid "Nit"
+msgstr ""
+
+#: campbase/choosers.py:21
+msgid "Sol"
+msgstr ""
+
+#: campbase/choosers.py:22
+msgid "Comunitat"
+msgstr ""
+
+#: campbase/choosers.py:23
+msgid "Equip"
+msgstr ""
+
+#: campbase/choosers.py:24
+msgid "Disseny"
+msgstr ""
+
+#: campbase/choosers.py:25
+msgid "Construcció"
+msgstr ""
+
+#: campbase/choosers.py:26
+msgid "Eines"
+msgstr ""
+
+#: campbase/choosers.py:27
+msgid "Ciència"
+msgstr ""
+
+#: campbase/choosers.py:28
+msgid "Internet"
+msgstr ""
+
+#: campbase/choosers.py:29
+msgid "Fotografia"
+msgstr ""
+
+#: campbase/choosers.py:30
+msgid "Àudio"
+msgstr ""
+
+#: campbase/choosers.py:31
+msgid "Vídeo"
+msgstr ""
+
+#: campbase/choosers.py:32
+msgid "Correu"
+msgstr ""
+
+#: campbase/choosers.py:33
+msgid "Calendari"
+msgstr ""
+
+#: campbase/choosers.py:34
+msgid "Textos"
+msgstr ""
+
+#: campbase/choosers.py:36
+msgid "Idees"
+msgstr ""
+
+#: campbase/choosers.py:37
+msgid "Important"
+msgstr ""
+
+#: campbase/choosers.py:38 campbase/project.py:232 campbase/rich_text.py:235
+msgid "Imatges"
+msgstr ""
+
+#: campbase/choosers.py:39
+msgid "Música"
+msgstr ""
+
+#: campbase/choosers.py:40
+msgid "Pel·lícules"
+msgstr ""
+
+#: campbase/choosers.py:41
+msgid "Baixades"
+msgstr ""
+
+#: campbase/choosers.py:42
+msgid "Benestar"
+msgstr ""
+
+#: campbase/choosers.py:43
+msgid "Veu"
+msgstr ""
+
+#: campbase/choosers.py:44
+msgid "Informàtica"
+msgstr ""
+
+#: campbase/choosers.py:45
+msgid "Telèfon"
+msgstr ""
+
+#: campbase/choosers.py:46
+msgid "Llocs"
+msgstr ""
+
+#: campbase/choosers.py:47
+msgid "Referències"
+msgstr ""
+
+#: campbase/choosers.py:48
+msgid "Impressió"
+msgstr ""
+
+#: campbase/choosers.py:49
+msgid "Configuració"
+msgstr ""
+
+#: campbase/clipboard.py:19
+msgid "Enganxa una imatge"
+msgstr ""
+
+#: campbase/clipboard.py:59
+msgid "El porta-retalls no conté cap imatge compatible."
+msgstr ""
+
+#: campbase/clipboard.py:61
+msgid "La imatge és massa gran. Tria'n una de mida més petita."
+msgstr ""
+
+#: campbase/clipboard.py:62
+msgid "Imatge enganxada.png"
+msgstr ""
+
+#: campbase/clipboard.py:71
+msgid "No s'ha pogut enganxar la imatge"
+msgstr ""
+
+#: campbase/clipboard.py:72
+msgid "Copia una imatge compatible de menys de 16 MB i torna-ho a provar."
+msgstr ""
+
+#: campbase/collaboration.py:120 campbase/collaboration.py:134
+#: campbase/sharing.py:100
+msgid "No tens permís per compartir aquest tauler."
+msgstr ""
+
+#: campbase/collaboration.py:127
+msgid ""
+"Deck no ha confirmat la compartició. Revisa els membres abans de tornar-ho a "
+"provar."
+msgstr ""
+
+#: campbase/collaboration.py:140
+msgid "Deck no ha confirmat els permisos. Torna a carregar els membres."
+msgstr ""
+
+#: campbase/collaboration.py:157
+msgid "Deck no ha confirmat les assignacions. El canvi es conserva."
+msgstr ""
+
+#: campbase/column_menu.py:13
+msgid "Opcions de la columna"
+msgstr ""
+
+#: campbase/column_menu.py:20 campbase/widgets.py:194 campbase/widgets.py:199
+msgid "Afegeix una targeta"
+msgstr ""
+
+#: campbase/column_menu.py:21 campbase/window.py:619
+msgid "Canvia el nom"
+msgstr ""
+
+#: campbase/column_menu.py:22 campbase/dialogs.py:52
+msgid "Canvia el color"
+msgstr ""
+
+#: campbase/column_menu.py:23
+msgid "Amaga les arxivades"
+msgstr ""
+
+#: campbase/column_menu.py:23
+msgid "Mostra les arxivades"
+msgstr ""
+
+#: campbase/comments.py:41
+msgid "S'estan carregant els comentaris…"
+msgstr ""
+
+#: campbase/comments.py:48
+msgid "Encara no hi ha comentaris."
+msgstr ""
+
+#: campbase/comments.py:54
+msgid "Torna-ho a provar"
+msgstr ""
+
+#: campbase/comments.py:61
+msgid "Escriu un comentari…"
+msgstr ""
+
+#: campbase/comments.py:64
+msgid "Cita un membre del tauler"
+msgstr ""
+
+#: campbase/comments.py:70
+msgid "Cerca un membre…"
+msgstr ""
+
+#: campbase/comments.py:79
+msgid "Envia el comentari"
+msgstr ""
+
+#: campbase/comments.py:109
+msgid "Usuari de Deck"
+msgstr ""
+
+#: campbase/comments.py:119
+msgid "Esborra el comentari"
+msgstr ""
+
+#: campbase/comments.py:135
+msgid "No s'ha pogut trobar el comentari indicat."
+msgstr ""
+
+#: campbase/comments.py:146
+msgid "Vols esborrar aquest comentari?"
+msgstr ""
+
+#: campbase/comments.py:147
+msgid ""
+"El comentari s'esborrarà de Nextcloud Deck. Aquesta acció no es pot desfer."
+msgstr ""
+
+#: campbase/comments.py:171
+msgid "No s'ha pogut esborrar el comentari"
+msgstr ""
+
+#: campbase/comments.py:201
+msgid "No hi ha membres que coincideixin amb la cerca."
+msgstr ""
+
+#: campbase/comments.py:228 campbase/deck.py:325
+msgid "No s'ha pogut confirmar el comentari"
+msgstr ""
+
+#: campbase/comments.py:229
+msgid " Revisa Deck abans de tornar-lo a enviar."
+msgstr ""
+
+#: campbase/date_picker.py:15 campbase/date_picker.py:16
+msgid "Data límit"
+msgstr ""
+
+#: campbase/date_picker.py:20
+msgid "Hora límit"
+msgstr ""
+
+#: campbase/date_picker.py:20
+msgid "Hora local"
+msgstr ""
+
+#: campbase/date_picker.py:25
+msgid "Hora"
+msgstr ""
+
+#: campbase/date_picker.py:25
+msgid "Minut"
+msgstr ""
+
+#: campbase/date_picker.py:37
+msgid "Tria la data límit"
+msgstr ""
+
+#: campbase/date_picker.py:48
+msgid "Avui"
+msgstr ""
+
+#: campbase/date_picker.py:51
+msgid "Treu la data"
+msgstr ""
+
+#: campbase/date_picker.py:55
+msgid "Tria la data"
+msgstr ""
+
+#: campbase/date_picker.py:69 campbase/date_picker.py:111
+msgid "Tria una data vàlida"
+msgstr ""
+
+#: campbase/date_picker.py:69 campbase/date_picker.py:111
+msgid "Sense data límit"
+msgstr ""
+
+#: campbase/deck.py:75
+msgid ""
+"El compte de GNOME ha canviat. Torna a seleccionar-lo a les preferències."
+msgstr ""
+
+#: campbase/deck.py:99
+msgid ""
+"El compte no s'ha pogut autenticar. Revisa'l a Comptes en línia de GNOME."
+msgstr ""
+
+#: campbase/deck.py:100
+msgid "Nextcloud no permet aquesta operació amb el compte actual."
+msgstr ""
+
+#: campbase/deck.py:101
+msgid "La targeta o el tauler ja no són a Deck. Torna a sincronitzar."
+msgstr ""
+
+#: campbase/deck.py:102 campbase/deck.py:103
+msgid "La targeta ha canviat a Deck. Revisa les dues versions."
+msgstr ""
+
+#: campbase/deck.py:105
+#, python-brace-format
+msgid "Nextcloud ha retornat un error ({code})."
+msgstr ""
+
+#: campbase/deck.py:107
+msgid ""
+"No s'ha pogut contactar amb Nextcloud. Els canvis pendents es conserven en "
+"aquest ordinador."
+msgstr ""
+
+#: campbase/deck.py:115
+msgid "Nextcloud no ha pogut completar l'operació."
+msgstr ""
+
+#: campbase/deck.py:119 campbase/deck.py:200 campbase/updates.py:41
+msgid "La resposta de Nextcloud no té el format esperat."
+msgstr ""
+
+#: campbase/deck.py:130
+msgid "Nextcloud no ha retornat una llista de taulers vàlida."
+msgstr ""
+
+#: campbase/deck.py:135
+msgid "No s'han pogut llegir les columnes del tauler."
+msgstr ""
+
+#: campbase/deck.py:162
+msgid "No s'ha pogut verificar el tauler a Deck."
+msgstr ""
+
+#: campbase/deck.py:172
+msgid "No s'ha pogut verificar la targeta a Deck."
+msgstr ""
+
+#: campbase/deck.py:211
+msgid "Deck no ha confirmat el canvi de columna. El moviment queda pendent."
+msgstr ""
+
+#: campbase/deck.py:214
+msgid "La targeta no és a la columna esperada a Deck."
+msgstr ""
+
+#: campbase/deck.py:220 campbase/storage.py:80
+msgid "La targeta s'ha esborrat de Deck. Els canvis locals s'han conservat."
+msgstr ""
+
+#: campbase/deck.py:277
+msgid "Deck no ha confirmat les etiquetes. El canvi es conserva."
+msgstr ""
+
+#: campbase/deck.py:284
+msgid "Revisa el nom i el color de l'etiqueta."
+msgstr ""
+
+#: campbase/deck.py:292
+msgid ""
+"No s'ha pogut confirmar l'etiqueta nova. Sincronitza abans de tornar-ho a "
+"provar."
+msgstr ""
+
+#: campbase/deck.py:299
+msgid ""
+"No es pot confirmar la creació. Revisa Deck abans de tornar a enviar aquesta "
+"targeta."
+msgstr ""
+
+#: campbase/deck.py:307
+msgid "No s'han pogut llegir els comentaris de Deck."
+msgstr ""
+
+#: campbase/deck.py:334 campbase/deck.py:337
+msgid "Nextcloud no ha confirmat que s'hagi esborrat el comentari."
+msgstr ""
+
+#: campbase/deck.py:347
+msgid "La targeta ja no està arxivada. No s'ha esborrat."
+msgstr ""
+
+#: campbase/deck.py:349
+msgid "La targeta s'ha mogut a una altra columna. No s'ha esborrat."
+msgstr ""
+
+#: campbase/deck.py:358
+msgid "Deck no ha confirmat que s'hagi esborrat la targeta."
+msgstr ""
+
+#: campbase/deck.py:368
+msgid "Només el propietari pot esborrar aquest tauler."
+msgstr ""
+
+#: campbase/deck.py:377
+msgid "Deck no ha confirmat que s'hagi esborrat el tauler."
+msgstr ""
+
+#: campbase/deck.py:388
+msgid "El nom del projecte ha canviat a Deck. El teu canvi es conserva."
+msgstr ""
+
+#: campbase/deck.py:393
+msgid "Deck no ha confirmat el nom del projecte."
+msgstr ""
+
+#: campbase/deck.py:400
+msgid "La imatge no és al servidor de Nextcloud del compte."
+msgstr ""
+
+#: campbase/deck.py:406
+msgid "No s'ha pogut carregar la imatge de Nextcloud."
+msgstr ""
+
+#: campbase/deck.py:408
+msgid "Nextcloud no ha retornat una imatge compatible."
+msgstr ""
+
+#: campbase/deck.py:413
+msgid "La imatge local ha canviat. Torna-la a seleccionar."
+msgstr ""
+
+#: campbase/deck.py:429
+msgid "Deck no ha confirmat l'adjunt de la imatge."
+msgstr ""
+
+#: campbase/dialogs.py:35
+msgid "Nom"
+msgstr ""
+
+#: campbase/dialogs.py:61
+msgid "Color de la columna en aquest ordinador"
+msgstr ""
+
+#: campbase/dialogs.py:72 campbase/dialogs.py:73 campbase/preferences.py:116
+#: campbase/window.py:329
+msgid "Comptes en línia de GNOME"
+msgstr ""
+
+#: campbase/dialogs.py:80
+msgid ""
+"El Campbase fa servir el compte de Nextcloud configurat a GNOME. No cal "
+"introduir cap contrasenya aquí."
+msgstr ""
+
+#: campbase/dialogs.py:85 campbase/preferences.py:102
+msgid "Compte de Nextcloud"
+msgstr ""
+
+#: campbase/dialogs.py:91
+msgid "Obre Comptes en línia"
+msgstr ""
+
+#: campbase/dialogs.py:101
+msgid "Utilitza aquest compte"
+msgstr ""
+
+#: campbase/dialogs.py:105
+msgid ""
+"Afegeix un compte de Nextcloud a Configuració → Comptes en línia i torna a "
+"obrir aquesta finestra."
+msgstr ""
+
+#: campbase/dialogs.py:111
+msgid "Cal resoldre els canvis pendents abans de canviar de compte."
+msgstr ""
+
+#: campbase/dialogs.py:117 campbase/window.py:412
+msgid "S'està obrint el compte de GNOME…"
+msgstr ""
+
+#: campbase/dialogs.py:151
+msgid ""
+"No s'ha pogut connectar. Revisa el compte de Nextcloud a Comptes en línia de "
+"GNOME."
+msgstr ""
+
+#: campbase/dialogs.py:163 campbase/dialogs.py:164 campbase/window.py:154
+msgid "Canvis pendents"
+msgstr ""
+
+#: campbase/dialogs.py:171
+msgid "Tot sincronitzat"
+msgstr ""
+
+#: campbase/dialogs.py:172
+msgid "No hi ha canvis pendents d'enviar a Deck."
+msgstr ""
+
+#: campbase/dialogs.py:179
+msgid "Moviment de targeta"
+msgstr ""
+
+#: campbase/dialogs.py:179
+msgid "Canvis a la targeta"
+msgstr ""
+
+#: campbase/dialogs.py:179
+msgid "Arxivament"
+msgstr ""
+
+#: campbase/dialogs.py:179 campbase/project.py:146
+msgid "Nom del projecte"
+msgstr ""
+
+#: campbase/dialogs.py:183
+msgid "Canvi"
+msgstr ""
+
+#: campbase/dialogs.py:187
+msgid "S'enviarà quan hi hagi connexió."
+msgstr ""
+
+#: campbase/dialogs.py:189
+msgid "Descarta el canvi"
+msgstr ""
+
+#: campbase/dialogs.py:194
+msgid "Aplica el meu canvi"
+msgstr ""
+
+#: campbase/dragging.py:254
+msgid "Deixa anar aquí"
+msgstr ""
+
+#: campbase/labels.py:24
+msgid "Etiquetes"
+msgstr ""
+
+#: campbase/labels.py:25 campbase/labels.py:81 campbase/labels.py:82
+msgid "Etiqueta nova"
+msgstr ""
+
+#: campbase/labels.py:35
+msgid "Encara no hi ha etiquetes en aquest tauler."
+msgstr ""
+
+#: campbase/labels.py:86
+msgid "Crea l'etiqueta"
+msgstr ""
+
+#: campbase/labels.py:92
+msgid "Nom de l'etiqueta"
+msgstr ""
+
+#: campbase/labels.py:95
+msgid "Color"
+msgstr ""
+
+#: campbase/labels.py:100
+msgid "Disponible per a totes les targetes d'aquest tauler."
+msgstr ""
+
+#: campbase/labels.py:126
+msgid "S'està creant l'etiqueta…"
+msgstr ""
+
+#: campbase/license.py:21 campbase/license.py:22
+msgid "Llicència del Campbase"
+msgstr ""
+
+#: campbase/license.py:28
+msgid "GNU GPL, versió 3 o posterior"
+msgstr ""
+
+#: campbase/license.py:29
+msgid ""
+"Pots utilitzar, estudiar, modificar i redistribuir el Campbase d'acord amb "
+"aquesta llicència."
+msgstr ""
+
+#: campbase/license.py:31
+msgid "Llicència al web"
+msgstr ""
+
+#: campbase/license.py:40
+msgid "Avís del Campbase"
+msgstr ""
+
+#: campbase/license.py:45
+msgid "Condicions de la llicència"
+msgstr ""
+
+#: campbase/notifications.py:17 campbase/window.py:144
+msgid "Notificacions"
+msgstr ""
+
+#: campbase/notifications.py:22
+msgid "Actualitza les notificacions"
+msgstr ""
+
+#: campbase/notifications.py:24
+msgid "Esborra tots els avisos"
+msgstr ""
+
+#: campbase/notifications.py:32
+msgid ""
+"Els avisos depenen de les notificacions i de l'activitat habilitades a "
+"Nextcloud."
+msgstr ""
+
+#: campbase/notifications.py:55
+msgid ""
+"No s'han pogut actualitzar tots els avisos. Es mostra la informació desada."
+msgstr ""
+
+#: campbase/notifications.py:60
+msgid "No s'han pogut carregar els avisos"
+msgstr ""
+
+#: campbase/notifications.py:60
+msgid "No hi ha notificacions"
+msgstr ""
+
+#: campbase/notifications.py:62
+msgid "Torna-ho a provar amb el botó d'actualització."
+msgstr ""
+
+#: campbase/notifications.py:63
+msgid ""
+"Aquí veuràs comparticions, comentaris, mencions i assignacions dels teus "
+"taulers."
+msgstr ""
+
+#: campbase/notifications.py:93
+msgid "Esborra l'avís"
+msgstr ""
+
+#: campbase/notifications.py:123 campbase/notifications.py:149
+msgid "S'estan actualitzant les notificacions…"
+msgstr ""
+
+#: campbase/notifications.py:129
+msgid "S'estan esborrant els avisos…"
+msgstr ""
+
+#: campbase/notifications.py:136
+msgid "Vols esborrar tots els avisos?"
+msgstr ""
+
+#: campbase/notifications.py:137
+msgid "S'esborraran els avisos que es mostren a la llista."
+msgstr ""
+
+#: campbase/notifications.py:139
+msgid "Esborra-ho tot"
+msgstr ""
+
+#: campbase/people.py:43
+#, python-brace-format
+msgid "Creat per {name} (@{username})"
+msgstr ""
+
+#: campbase/people.py:46
+#, python-brace-format
+msgid "Propietari: {name} (@{username})"
+msgstr ""
+
+#: campbase/people.py:47 campbase/people.py:57
+msgid "L'autoria no consta a Deck."
+msgstr ""
+
+#: campbase/people.py:53
+#, python-brace-format
+msgid "Autor: {name} (@{username})"
+msgstr ""
+
+#: campbase/people.py:56
+#, python-brace-format
+msgid "Responsable: {name} (@{username})"
+msgstr ""
+
+#: campbase/people.py:83
+msgid "Assigna a"
+msgstr ""
+
+#: campbase/people.py:91 campbase/people.py:125
+msgid "Tria les persones assignades"
+msgstr ""
+
+#: campbase/people.py:112
+msgid "Comparteix el tauler per assignar targetes als seus membres."
+msgstr ""
+
+#: campbase/people.py:123
+#, python-brace-format
+msgid "{count} persones"
+msgstr ""
+
+#: campbase/people.py:123
+msgid "Sense assignar"
+msgstr ""
+
+#: campbase/preferences.py:13 campbase/preferences.py:14
+#: campbase/shortcuts.py:16 campbase/window.py:155
+msgid "Preferències"
+msgstr ""
+
+#: campbase/preferences.py:23
+msgid "Idioma"
+msgstr ""
+
+#: campbase/preferences.py:25
+msgid "Idioma de l'aplicació"
+msgstr ""
+
+#: campbase/preferences.py:25 campbase/preferences.py:36
+msgid "Automàtic (sistema)"
+msgstr ""
+
+#: campbase/preferences.py:31
+msgid "L'idioma s'aplica immediatament."
+msgstr ""
+
+#: campbase/preferences.py:31
+msgid "Si l'idioma del sistema no està disponible, es fa servir l'anglès."
+msgstr ""
+
+#: campbase/preferences.py:35
+msgid "Aparença"
+msgstr ""
+
+#: campbase/preferences.py:36
+msgid "Tema"
+msgstr ""
+
+#: campbase/preferences.py:36
+msgid "Clar"
+msgstr ""
+
+#: campbase/preferences.py:36
+msgid "Fosc"
+msgstr ""
+
+#: campbase/preferences.py:45
+msgid "Vista del tauler"
+msgstr ""
+
+#: campbase/preferences.py:46
+msgid "Primera columna en una fila superior"
+msgstr ""
+
+#: campbase/preferences.py:46
+msgid ""
+"Les targetes de la primera columna s'adapten a l'amplada de la finestra."
+msgstr ""
+
+#: campbase/preferences.py:50
+msgid "Màxim de columnes per fila"
+msgstr ""
+
+#: campbase/preferences.py:51
+msgid "Les columnes es reparteixen l'amplada disponible."
+msgstr ""
+
+#: campbase/preferences.py:52
+msgid "Automàtic"
+msgstr ""
+
+#: campbase/preferences.py:58
+msgid "Mostra les targetes arxivades per defecte"
+msgstr ""
+
+#: campbase/preferences.py:59
+msgid ""
+"S'aplica a totes les columnes i elimina les excepcions. Després pots mostrar-"
+"les o amagar-les a cada columna."
+msgstr ""
+
+#: campbase/preferences.py:67
+msgid "En iniciar l'aplicació"
+msgstr ""
+
+#: campbase/preferences.py:67
+msgid "Aquestes opcions s'apliquen quan tornes a obrir el Campbase."
+msgstr ""
+
+#: campbase/preferences.py:70
+msgid "Últim tauler utilitzat"
+msgstr ""
+
+#: campbase/preferences.py:75
+msgid "Tauler no disponible"
+msgstr ""
+
+#: campbase/preferences.py:76
+msgid "Tauler d'inici"
+msgstr ""
+
+#: campbase/preferences.py:80
+msgid "Mostra la barra lateral"
+msgstr ""
+
+#: campbase/preferences.py:87
+msgid "Sincronització"
+msgstr ""
+
+#: campbase/preferences.py:88
+msgid "Sincronització automàtica"
+msgstr ""
+
+#: campbase/preferences.py:88
+msgid ""
+"Amb l'opció desactivada, sincronitza amb F5 o amb el botó de sincronització."
+msgstr ""
+
+#: campbase/preferences.py:91
+msgid "30 segons"
+msgstr ""
+
+#: campbase/preferences.py:91
+msgid "45 segons"
+msgstr ""
+
+#: campbase/preferences.py:91
+msgid "1 minut"
+msgstr ""
+
+#: campbase/preferences.py:91
+msgid "2 minuts"
+msgstr ""
+
+#: campbase/preferences.py:91
+msgid "5 minuts"
+msgstr ""
+
+#: campbase/preferences.py:91
+msgid "10 minuts"
+msgstr ""
+
+#: campbase/preferences.py:92
+msgid "Interval de sincronització"
+msgstr ""
+
+#: campbase/preferences.py:101
+msgid "Compte connectat"
+msgstr ""
+
+#: campbase/preferences.py:102
+msgid "Cap compte connectat"
+msgstr ""
+
+#: campbase/preferences.py:113
+#, python-brace-format
+msgid "Nom d'usuari: {username}"
+msgstr ""
+
+#: campbase/preferences.py:116
+msgid ""
+"GNOME gestiona les credencials. El Campbase només desa quin compte has "
+"seleccionat."
+msgstr ""
+
+#: campbase/project.py:40 campbase/project.py:124 campbase/project.py:125
+msgid "Edita el projecte"
+msgstr ""
+
+#: campbase/project.py:74
+msgid "Crea una targeta"
+msgstr ""
+
+#: campbase/project.py:75 campbase/window.py:546
+msgid "Crea una columna"
+msgstr ""
+
+#: campbase/project.py:76 campbase/sharing.py:19
+msgid "Comparteix el tauler"
+msgstr ""
+
+#: campbase/project.py:89 campbase/project.py:91
+msgid "Assignades a mi"
+msgstr ""
+
+#: campbase/project.py:112
+#, python-brace-format
+msgid "Responsable del tauler: {name}"
+msgstr ""
+
+#: campbase/project.py:153
+msgid "Tria una imatge…"
+msgstr ""
+
+#: campbase/project.py:156
+msgid "Treu la imatge o la icona"
+msgstr ""
+
+#: campbase/project.py:160
+msgid "Tria una icona d'Adwaita"
+msgstr ""
+
+#: campbase/project.py:178
+msgid "Caràcters de la descripció"
+msgstr ""
+
+#: campbase/project.py:180
+msgid ""
+"El nom se sincronitza amb Deck. La descripció i la imatge es desen en aquest "
+"dispositiu."
+msgstr ""
+
+#: campbase/project.py:231
+msgid "Tria una imatge per al projecte"
+msgstr ""
+
+#: campbase/project.py:248 campbase/rich_text.py:250
+msgid "No s'ha pogut afegir la imatge"
+msgstr ""
+
+#: campbase/project.py:254
+msgid "El projecte encara no s'ha desat."
+msgstr ""
+
+#: campbase/releases.py:10
+msgid ""
+"Primera versió del Campbase, el teu campament base per organitzar projectes."
+msgstr ""
+
+#: campbase/releases.py:15
+msgid "Taulers i targetes"
+msgstr ""
+
+#: campbase/releases.py:16
+msgid ""
+"Organitza els projectes amb columnes, targetes, etiquetes i dates límit. "
+"Escriu descripcions amb format i imatges, participa en els comentaris i "
+"esborra els teus quan calgui."
+msgstr ""
+
+#: campbase/releases.py:17
+msgid "Col·laboració als taulers"
+msgstr ""
+
+#: campbase/releases.py:18
+msgid ""
+"Comparteix taulers i gestiona els permisos. Identifica els participants amb "
+"la seva imatge, assigna targetes i cita membres amb @, amb suggeriments i "
+"mencions ressaltades."
+msgstr ""
+
+#: campbase/releases.py:19
+msgid "Notificacions a mà"
+msgstr ""
+
+#: campbase/releases.py:20
+msgid ""
+"Consulta comentaris, mencions, assignacions i comparticions, també de les "
+"teves accions. Obre el lloc relacionat amb cada avís i esborra'ls "
+"individualment o tots de cop."
+msgstr ""
+
+#: campbase/releases.py:21
+msgid "Dates i identitat"
+msgstr ""
+
+#: campbase/releases.py:22
+msgid ""
+"Tria l'hora límit en hora local. Identifica els autors dels comentaris amb "
+"nom, icona, data i hora, i consulta el nom d'usuari del compte a "
+"Preferències."
+msgstr ""
+
+#: campbase/releases.py:23
+msgid "Sincronització amb Nextcloud Deck"
+msgstr ""
+
+#: campbase/releases.py:24
+msgid ""
+"Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis "
+"sense connexió i sincronitza'ls de manera automàtica o manual. Les lectures "
+"són més àgils i els avisos s'actualitzen sense interrompre la sincronització "
+"de les targetes. Els moviments d'arxivades poden continuar després d'una "
+"interrupció de la connexió."
+msgstr ""
+
+#: campbase/releases.py:25
+msgid "Un espai al teu gust"
+msgstr ""
+
+#: campbase/releases.py:26
+msgid ""
+"Personalitza els projectes i canvia el nom o el color de cada columna per "
+"separat. A la secció d'arxivades, restaura o esborra cada targeta des dels "
+"seus controls, o esborra-les en grup. Mostra-les i amaga-les sense tornar a "
+"l'inici del tauler. Esborra els taulers propis des de la barra lateral. Tria "
+"l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr ""
+
+#: campbase/releases.py:27
+msgid "Arxivades i filtres"
+msgstr ""
+
+#: campbase/releases.py:28
+msgid ""
+"Mostra o amaga les arxivades a totes les columnes i ajusta-les després per "
+"separat. Arrossega-les entre columnes, restaura-les deixant-les a la zona "
+"normal i desfés els canvis recents. El filtre «Assignades a mi» és al costat "
+"de les accions del tauler. Les actualitzacions mantenen la posició de "
+"lectura."
+msgstr ""
+
+#: campbase/releases.py:29
+msgid "Controls de targeta"
+msgstr ""
+
+#: campbase/releases.py:30
+msgid ""
+"Arxiva i arrossega les targetes amb els controls de la dreta, en aquest "
+"ordre. Els avatars dels assignats cedeixen el lloc als controls amb una "
+"transició suau, també a les arxivades. Els títols aprofiten millor "
+"l'amplada. L'avatar al peu de l'editor identifica l'autor o el responsable. "
+"Un marcador mostra on deixar anar cada targeta."
+msgstr ""
+
+#: campbase/releases.py:31
+msgid "Interfície més clara"
+msgstr ""
+
+#: campbase/releases.py:32
+msgid ""
+"Menús amb separadors i dreceres visibles, modals ajustats al contingut i una "
+"icona d'enllaç més clara. Marges coherents en compartir taulers, tant durant "
+"la càrrega com amb els membres i els resultats de cerca. Papereres de "
+"targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un "
+"tauler. Capçaleres de columna sense tooltips d'autoria. Preferències separa "
+"el tema de la vista del tauler. En arrossegar cap a les arxivades, es mostra "
+"només el marcador necessari."
+msgstr ""
+
+#: campbase/releases.py:33
+msgid "Sis idiomes, integrats a GNOME"
+msgstr ""
+
+#: campbase/releases.py:34
+msgid ""
+"Interfície amb GTK4 i Adwaita, dreceres de teclat i canvi immediat entre "
+"català, euskera, gallec AGAL, castellà, occità aranès i anglès."
+msgstr ""
+
+#: campbase/rich_text.py:64
+msgid "Negreta · Ctrl+B"
+msgstr ""
+
+#: campbase/rich_text.py:65
+msgid "Cursiva · Ctrl+I"
+msgstr ""
+
+#: campbase/rich_text.py:66
+msgid "Subratllat · Ctrl+U · La visualització en altres clients pot variar"
+msgstr ""
+
+#: campbase/rich_text.py:67
+msgid "Ratllat"
+msgstr ""
+
+#: campbase/rich_text.py:68
+msgid "Llista amb pics"
+msgstr ""
+
+#: campbase/rich_text.py:69
+msgid "Llista numerada"
+msgstr ""
+
+#: campbase/rich_text.py:70 campbase/rich_text.py:208
+msgid "Insereix un enllaç"
+msgstr ""
+
+#: campbase/rich_text.py:71 campbase/rich_text.py:234
+msgid "Insereix una imatge"
+msgstr ""
+
+#: campbase/rich_text.py:72
+msgid "Desfés · Ctrl+Z"
+msgstr ""
+
+#: campbase/rich_text.py:73
+msgid "Refés · Ctrl+Maj+Z"
+msgstr ""
+
+#: campbase/rich_text.py:79
+msgid "Títols, citacions i codi"
+msgstr ""
+
+#: campbase/rich_text.py:83
+msgid "Text normal"
+msgstr ""
+
+#: campbase/rich_text.py:83
+msgid "Títol gran"
+msgstr ""
+
+#: campbase/rich_text.py:84
+msgid "Títol mitjà"
+msgstr ""
+
+#: campbase/rich_text.py:84
+msgid "Títol petit"
+msgstr ""
+
+#: campbase/rich_text.py:85
+msgid "Citació"
+msgstr ""
+
+#: campbase/rich_text.py:85
+msgid "Codi"
+msgstr ""
+
+#: campbase/rich_text.py:86
+msgid "Treu el format"
+msgstr ""
+
+#: campbase/rich_text.py:211
+msgid "Insereix"
+msgstr ""
+
+#: campbase/rich_text.py:283
+msgid " · No s'ha pogut carregar"
+msgstr ""
+
+#: campbase/sharing.py:29
+msgid "Convida usuaris del mateix servidor de Nextcloud."
+msgstr ""
+
+#: campbase/sharing.py:31
+msgid "Cerca un usuari pel nom o identificador…"
+msgstr ""
+
+#: campbase/sharing.py:36
+msgid "Cerca usuaris"
+msgstr ""
+
+#: campbase/sharing.py:39
+msgid ""
+"Cerca pel nom o identificador. També pots provar el correu complet si el "
+"servidor ho permet."
+msgstr ""
+
+#: campbase/sharing.py:42
+msgid "Permís inicial"
+msgstr ""
+
+#: campbase/sharing.py:43
+msgid "Només lectura"
+msgstr ""
+
+#: campbase/sharing.py:43 campbase/sharing.py:88
+msgid "Pot editar targetes"
+msgstr ""
+
+#: campbase/sharing.py:52
+msgid "Membres del tauler"
+msgstr ""
+
+#: campbase/sharing.py:71
+#, python-brace-format
+msgid "Responsable · {username}"
+msgstr ""
+
+#: campbase/sharing.py:83 campbase/sharing.py:167
+msgid "Retira l'accés"
+msgstr ""
+
+#: campbase/sharing.py:88
+msgid "Pot compartir el tauler"
+msgstr ""
+
+#: campbase/sharing.py:88
+msgid "Pot gestionar el tauler"
+msgstr ""
+
+#: campbase/sharing.py:92
+msgid "Desa els permisos"
+msgstr ""
+
+#: campbase/sharing.py:122
+msgid "S'estan actualitzant els membres…"
+msgstr ""
+
+#: campbase/sharing.py:140
+msgid "Escriu almenys dos caràcters per cercar."
+msgstr ""
+
+#: campbase/sharing.py:144
+msgid "S'estan cercant usuaris…"
+msgstr ""
+
+#: campbase/sharing.py:150
+msgid "No s'ha trobat cap usuari."
+msgstr ""
+
+#: campbase/sharing.py:155
+msgid "Comparteix"
+msgstr ""
+
+#: campbase/sharing.py:164
+msgid "Vols retirar l'accés?"
+msgstr ""
+
+#: campbase/sharing.py:165
+msgid "Aquest membre deixarà de tenir accés a través d'aquesta compartició."
+msgstr ""
+
+#: campbase/shortcuts.py:10 campbase/shortcuts.py:16 campbase/window.py:156
+msgid "Dreceres de teclat"
+msgstr ""
+
+#: campbase/shortcuts.py:15
+msgid "Navegació"
+msgstr ""
+
+#: campbase/shortcuts.py:15
+msgid "Mostra o amaga els taulers"
+msgstr ""
+
+#: campbase/shortcuts.py:15 campbase/window.py:142
+msgid "Cerca al tauler"
+msgstr ""
+
+#: campbase/shortcuts.py:15 campbase/window.py:132 campbase/window.py:134
+#: campbase/window.py:393
+msgid "Sincronitza amb Deck"
+msgstr ""
+
+#: campbase/shortcuts.py:16
+msgid "Aplicació"
+msgstr ""
+
+#: campbase/shortcuts.py:16
+msgid "Tanca el diàleg o la cerca"
+msgstr ""
+
+#: campbase/shortcuts.py:17
+msgid "Targetes"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Edició de text"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Negreta"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Cursiva"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Subratllat"
+msgstr ""
+
+#: campbase/shortcuts.py:18 campbase/window.py:593
+msgid "Desfés"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Refés"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Copia"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Retalla"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Selecciona-ho tot"
+msgstr ""
+
+#: campbase/shortcuts.py:18
+msgid "Enganxa text o una imatge"
+msgstr ""
+
+#: campbase/storage.py:37
+msgid ""
+"L'enviament es va interrompre. Revisa Deck abans de tornar a crear aquesta "
+"targeta."
+msgstr ""
+
+#: campbase/storage.py:111
+msgid "El tauler s'ha esborrat de Deck. Els canvis locals s'han conservat."
+msgstr ""
+
+#: campbase/sync.py:40
+msgid "Connecta el compte de Nextcloud per sincronitzar."
+msgstr ""
+
+#: campbase/sync.py:67
+msgid ""
+"No s'ha pogut completar la sincronització. Els canvis locals es conserven."
+msgstr ""
+
+#: campbase/sync.py:121
+msgid ""
+"No es pot confirmar si Deck ha creat la targeta. Obre Deck i comprova-ho "
+"abans de tornar-la a enviar."
+msgstr ""
+
+#: campbase/sync.py:152
+msgid "Primer cal enviar la targeta nova a Deck."
+msgstr ""
+
+#: campbase/sync.py:167
+msgid "No s'ha trobat una imatge pendent d'enviar. L'esborrany es conserva."
+msgstr ""
+
+#: campbase/sync.py:193
+msgid "No s'ha pogut desfer l'acció. Els canvis es conserven."
+msgstr ""
+
+#: campbase/sync.py:209
+msgid "Connecta el compte de Nextcloud."
+msgstr ""
+
+#: campbase/sync.py:221
+msgid "No s'ha pogut completar l'operació."
+msgstr ""
+
+#: campbase/undo.py:26
+msgid "La targeta ha canviat. Els altres canvis es conserven."
+msgstr ""
+
+#: campbase/updates.py:120
+#, python-brace-format
+msgid "Comentaris nous: {count}"
+msgstr ""
+
+#: campbase/updates.py:122
+#, python-brace-format
+msgid "T'has assignat la targeta «{title}»."
+msgstr ""
+
+#: campbase/updates.py:123
+#, python-brace-format
+msgid "T'has mencionat a la targeta «{title}»."
+msgstr ""
+
+#: campbase/updates.py:124
+#, python-brace-format
+msgid "Has comentat la targeta «{title}»."
+msgstr ""
+
+#: campbase/widgets.py:83
+msgid "Sense títol"
+msgstr ""
+
+#: campbase/widgets.py:91 campbase/widgets.py:92 campbase/window.py:560
+#: campbase/window.py:580
+msgid "Targeta arxivada"
+msgstr ""
+
+#: campbase/widgets.py:95
+msgid "Cal revisar el canvi"
+msgstr ""
+
+#: campbase/widgets.py:95
+msgid "Pendent de sincronitzar"
+msgstr ""
+
+#: campbase/widgets.py:137
+msgid "Vermell"
+msgstr ""
+
+#: campbase/widgets.py:137
+msgid "Corall"
+msgstr ""
+
+#: campbase/widgets.py:137
+msgid "Taronja"
+msgstr ""
+
+#: campbase/widgets.py:137
+msgid "Ambre"
+msgstr ""
+
+#: campbase/widgets.py:138
+msgid "Groc"
+msgstr ""
+
+#: campbase/widgets.py:138
+msgid "Llima"
+msgstr ""
+
+#: campbase/widgets.py:138
+msgid "Verd"
+msgstr ""
+
+#: campbase/widgets.py:138
+msgid "Verd fosc"
+msgstr ""
+
+#: campbase/widgets.py:139
+msgid "Turquesa"
+msgstr ""
+
+#: campbase/widgets.py:139
+msgid "Blau cel"
+msgstr ""
+
+#: campbase/widgets.py:139
+msgid "Blau"
+msgstr ""
+
+#: campbase/widgets.py:139
+msgid "Indi"
+msgstr ""
+
+#: campbase/widgets.py:140
+msgid "Violeta"
+msgstr ""
+
+#: campbase/widgets.py:140
+msgid "Malva"
+msgstr ""
+
+#: campbase/widgets.py:140
+msgid "Rosa"
+msgstr ""
+
+#: campbase/widgets.py:140
+msgid "Gris"
+msgstr ""
+
+#: campbase/window.py:91
+msgid "TAULERS"
+msgstr ""
+
+#: campbase/window.py:92
+msgid "Crea un tauler"
+msgstr ""
+
+#: campbase/window.py:127 campbase/window.py:468
+msgid "Mostra els taulers"
+msgstr ""
+
+#: campbase/window.py:160
+msgid "Menú del Campbase"
+msgstr ""
+
+#: campbase/window.py:165
+msgid "Cerca títols, descripcions o etiquetes…"
+msgstr ""
+
+#: campbase/window.py:170
+msgid "Revisa-ho"
+msgstr ""
+
+#: campbase/window.py:180
+msgid "Els teus taulers"
+msgstr ""
+
+#: campbase/window.py:181
+msgid ""
+"Connecta Nextcloud Deck per treballar amb els mateixos taulers que al mòbil."
+msgstr ""
+
+#: campbase/window.py:182
+msgid "Connecta Nextcloud"
+msgstr ""
+
+#: campbase/window.py:236
+#, python-brace-format
+msgid "{count} targeta"
+msgid_plural "{count} targetes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: campbase/window.py:329
+msgid "Mode de demostració"
+msgstr ""
+
+#: campbase/window.py:393 campbase/window.py:414
+msgid "S'està sincronitzant…"
+msgstr ""
+
+#: campbase/window.py:410
+msgid "Revisa els canvis pendents de sincronitzar"
+msgstr ""
+
+#: campbase/window.py:416
+#, python-brace-format
+msgid "{count} canvi pendent"
+msgid_plural "{count} canvis pendents"
+msgstr[0] ""
+msgstr[1] ""
+
+#: campbase/window.py:420
+msgid "No s'ha pogut sincronitzar"
+msgstr ""
+
+#: campbase/window.py:423
+msgid "Sincronització manual"
+msgstr ""
+
+#: campbase/window.py:425
+msgid "Prem F5 per sincronitzar amb Deck."
+msgstr ""
+
+#: campbase/window.py:428
+msgid "Actualitzat"
+msgstr ""
+
+#: campbase/window.py:428
+msgid "Canvis desats"
+msgstr ""
+
+#: campbase/window.py:432
+#, python-brace-format
+msgid "Darrera sincronització: {time}"
+msgstr ""
+
+#: campbase/window.py:468
+msgid "Amaga els taulers"
+msgstr ""
+
+#: campbase/window.py:529 campbase/window.py:541
+msgid "No s'ha pogut obrir el destí de l'avís."
+msgstr ""
+
+#: campbase/window.py:542
+msgid "Pot ser que s'hagi eliminat o que ja no hi tinguis accés."
+msgstr ""
+
+#: campbase/window.py:546
+msgid "Afegeix una columna al tauler abans de crear la primera targeta."
+msgstr ""
+
+#: campbase/window.py:560 campbase/window.py:580
+msgid "Targeta restaurada"
+msgstr ""
+
+#: campbase/window.py:578
+msgid "Targeta moguda"
+msgstr ""
+
+#: campbase/window.py:595
+msgid "Acció desfeta"
+msgstr ""
+
+#: campbase/window.py:606
+msgid "Tauler nou"
+msgstr ""
+
+#: campbase/window.py:611
+msgid "Columna nova"
+msgstr ""
+
+#: campbase/window.py:635
+msgid "No s'ha pogut completar el canvi"
+msgstr ""
+
+#: campbase/window.py:645
+msgid "Selecciona un compte de Nextcloud a Comptes en línia de GNOME."
+msgstr ""
+
+#: campbase/window.py:649
+msgid "No s'ha pogut obrir el compte de GNOME. Revisa els Comptes en línia."
+msgstr ""

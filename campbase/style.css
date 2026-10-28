@@ -1,0 +1,116 @@
+.board-body { padding: 24px; }
+.board-actions > button { min-height: 24px; padding: 6px 12px; margin: 0; }
+.board-title { font-size: 28px; font-weight: 800; }
+.board-description { opacity: .72; }
+.board-column { padding: 14px; border-radius: 14px; background: alpha(@window_fg_color, .025); }
+.board-column.triage { padding: 14px; }
+.board-column.tint-3584e4 { background-color: alpha(#3584e4, .08); }
+.board-column.tint-2190a4 { background-color: alpha(#2190a4, .08); }
+.board-column.tint-e98d26 { background-color: alpha(#e98d26, .08); }
+.board-column.tint-9141ac { background-color: alpha(#9141ac, .08); }
+.board-column.tint-33a56c { background-color: alpha(#33a56c, .08); }
+.board-column.tint-d56199 { background-color: alpha(#d56199, .08); }
+.board-column.tint-77767b { background-color: alpha(#77767b, .08); }
+.board-column flowboxchild { padding: 0; border: 0; background: transparent; }
+.workflow-grid > flowboxchild { padding: 0; border: 0; background: transparent; }
+.campbase-card { padding: 14px; border-radius: 12px; background: @card_bg_color; color: @card_fg_color; border: 1px solid alpha(@window_fg_color, .08); box-shadow: 0 1px 2px alpha(black, .035); }
+.campbase-card:hover { background: mix(@card_bg_color, @window_fg_color, .035); }
+.campbase-card:focus-visible { outline: 2px solid @accent_color; outline-offset: 2px; }
+.card-title { font-weight: 600; font-size: 15px; }
+.card-sync-pending { opacity: .55; }
+.card-sync-warning { color: @warning_color; }
+.card-archived .card-title { font-weight: 400; opacity: .75; }
+.archived-tile .campbase-card { background: mix(@card_bg_color, @window_bg_color, .55); color: alpha(@card_fg_color, .8); box-shadow: none; }
+.archived-tile .card-title { opacity: 1; }
+.archived-tile .campbase-card:hover { background: mix(@card_bg_color, @window_fg_color, .04); }
+.hover-action { opacity: 0; }
+.card-controls, .card-assignees { transition: opacity 150ms ease; }
+.has-card-controls:hover .card-assignees, .has-card-controls.keyboard-actions .card-assignees { opacity: 0; }
+.archived-tile:hover .hover-action, .archived-tile.keyboard-actions .hover-action,
+.active-tile:hover .hover-action, .active-tile.keyboard-actions .hover-action,
+.board-list row:hover .hover-action, .board-list row:focus-within .hover-action { opacity: 1; }
+.archived-section > box > label { color: alpha(@window_fg_color, .65); }
+.archived-section.archive-drop-active { background: alpha(@accent_bg_color, .14); outline: 2px dashed @accent_color; outline-offset: 4px; border-radius: 8px; }
+.column-color { font-size: 22px; font-weight: 900; }
+.count-badge { border-radius: 8px; padding: 2px 7px; background: alpha(@window_fg_color, .06); font-size: 12px; }
+.tag { border-radius: 5px; padding: 2px 6px; background: alpha(@accent_bg_color, .13); color: @accent_color; font-size: 11px; }
+.add-card { opacity: .7; }
+.sidebar-title { font-size: 12px; font-weight: 700; opacity: .65; }
+.board-list row { padding: 6px; margin: 2px 8px; border-radius: 9px; }
+.sync-status { font-size: 12px; opacity: .7; }
+.account-footer { padding: 10px 12px; border-radius: 10px; }
+.account-name { font-size: 12px; font-weight: 600; }
+.sync-ok { color: @success_color; }
+.sync-warning { color: @warning_color; }
+.project-emoji { font-size: 38px; }
+.color-choices > flowboxchild, .icon-choices > flowboxchild { padding: 0; }
+button.color-swatch { min-width: 30px; min-height: 30px; padding: 0; border-radius: 50%; background-image: none; color: white; border: 1px solid alpha(black, .18); box-shadow: none; }
+button.color-swatch:checked { outline: 2px solid @accent_color; outline-offset: 3px; }
+button.color-swatch.swatch-3584e4 { background-color: #3584e4; }
+button.color-swatch.swatch-2190a4 { background-color: #2190a4; }
+button.color-swatch.swatch-e98d26 { background-color: #e98d26; }
+button.color-swatch.swatch-9141ac { background-color: #9141ac; }
+button.color-swatch.swatch-33a56c { background-color: #33a56c; }
+button.color-swatch.swatch-d56199 { background-color: #d56199; }
+button.color-swatch.swatch-77767b { background-color: #77767b; }
+button.project-icon-choice { min-width: 28px; min-height: 38px; padding: 0; }
+button.project-icon-choice:checked { color: @accent_color; outline: 2px solid @accent_color; outline-offset: 0; }
+.format-toolbar { padding: 5px; border-spacing: 2px; }
+.rich-editor { border: 1px solid alpha(@window_fg_color, .12); border-radius: 10px; }
+.description-editor { padding: 12px; border-radius: 8px; background: @view_bg_color; }
+.comment { padding: 12px; border-radius: 10px; background: alpha(@window_fg_color, .04); }
+
+.campbase-card.drag-source { opacity: .25; border-style: dashed; }
+.drag-preview { padding: 6px; border-radius: 14px; background: @card_bg_color; color: @card_fg_color; box-shadow: 0 6px 18px alpha(black, .3); }
+.board-column.drop-active { outline: 2px solid alpha(@accent_color, .45); outline-offset: -2px; }
+.drop-placeholder { border: 2px dashed @accent_color; border-radius: 12px; background: alpha(@accent_bg_color, .14); }
+.drop-placeholder-label { color: @accent_color; font-weight: 600; }
+
+.board-column.tint-e01b24 { background-color: alpha(#e01b24, .08); }
+button.color-swatch.swatch-e01b24 { background-color: #e01b24; }
+
+.board-column.tint-f66151 { background-color: alpha(#f66151, .08); }
+button.color-swatch.swatch-f66151 { background-color: #f66151; }
+
+.board-column.tint-c64600 { background-color: alpha(#c64600, .08); }
+button.color-swatch.swatch-c64600 { background-color: #c64600; }
+
+.board-column.tint-c7a600 { background-color: alpha(#c7a600, .08); }
+button.color-swatch.swatch-c7a600 { background-color: #c7a600; }
+
+.board-column.tint-7a9c29 { background-color: alpha(#7a9c29, .08); }
+button.color-swatch.swatch-7a9c29 { background-color: #7a9c29; }
+
+.board-column.tint-26734d { background-color: alpha(#26734d, .08); }
+button.color-swatch.swatch-26734d { background-color: #26734d; }
+
+.board-column.tint-62a0ea { background-color: alpha(#62a0ea, .08); }
+button.color-swatch.swatch-62a0ea { background-color: #62a0ea; }
+
+.board-column.tint-613583 { background-color: alpha(#613583, .08); }
+button.color-swatch.swatch-613583 { background-color: #613583; }
+
+.board-column.tint-c061cb { background-color: alpha(#c061cb, .08); }
+button.color-swatch.swatch-c061cb { background-color: #c061cb; }
+
+button.color-swatch.swatch-c7a600, button.color-swatch.swatch-62a0ea { color: #1e1e1e; }
+.column-menu:focus { outline: none; }
+
+.support-heart { color: @error_color; }
+.label-choices > flowboxchild { padding: 0; }
+button.label-choice { min-height: 24px; padding: 4px 8px; }
+.fixed-columns .board-column { padding: 10px; }
+.fixed-columns .column-header > flowboxchild { padding: 0; }
+.fixed-columns .campbase-card { padding: 10px; }
+.card-metadata > flowboxchild { padding: 0; }
+.license-web-link { padding-left: 0; padding-right: 0; }
+
+.notification-badge { min-width: 20px; min-height: 20px; padding: 0; border-radius: 9999px; background: @accent_bg_color; color: @accent_fg_color; font-size: 11px; font-weight: 700; }
+.notification-body { font-weight: 400; opacity: .8; }
+.notification-time { font-weight: 400; }
+.notification-row { border-radius: 12px; }
+.notification-row:hover { background: alpha(@window_fg_color, .08); }
+.notification-row > button:hover, .notification-row > button:active { background: transparent; }
+.notification-row > button.notification-delete:hover { background: alpha(@window_fg_color, .10); }
+.notification-row > button.notification-delete:active { background: alpha(@window_fg_color, .16); }
+.notification-target { outline: 2px solid alpha(@accent_color, .55); outline-offset: 3px; border-radius: 8px; }

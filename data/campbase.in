@@ -1,0 +1,3 @@
+#!/bin/sh
+export PYTHONPATH="@pkgdatadir@${PYTHONPATH:+:$PYTHONPATH}"
+exec python3 -m campbase "$@"

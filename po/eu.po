@@ -1,0 +1,1558 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: 2026 Cesk Freixas
+msgid ""
+msgstr "Project-Id-Version: Campbase 0.1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Desa"
+msgstr "Gorde"
+
+msgid "D'acord"
+msgstr "Ados"
+
+msgid "Cancel·la"
+msgstr "Utzi"
+
+msgid "Nom"
+msgstr "Izena"
+
+msgid "Títol"
+msgstr "Izenburua"
+
+msgid "Descripció"
+msgstr "Deskribapena"
+
+msgid "Targeta"
+msgstr "Txartela"
+
+msgid "Targetes"
+msgstr "Txartelak"
+
+msgid "Targeta nova"
+msgstr "Txartel berria"
+
+msgid "Crea la targeta"
+msgstr "Sortu txartela"
+
+msgid "Columna"
+msgstr "Zutabea"
+
+msgid "Columna nova"
+msgstr "Zutabe berria"
+
+msgid "Tauler nou"
+msgstr "Taula berria"
+
+msgid "Crea un tauler"
+msgstr "Sortu taula bat"
+
+msgid "Crea una columna"
+msgstr "Sortu zutabe bat"
+
+msgid "Afegeix una targeta"
+msgstr "Gehitu txartel bat"
+
+msgid "Afegeix una columna"
+msgstr "Gehitu zutabe bat"
+
+msgid "Nom del projecte"
+msgstr "Proiektuaren izena"
+
+msgid "Edita el projecte"
+msgstr "Editatu proiektua"
+
+msgid "Edita la columna"
+msgstr "Editatu zutabea"
+
+msgid "Canvia el nom i el color…"
+msgstr "Aldatu izena eta kolorea…"
+
+msgid "Opcions de la columna"
+msgstr "Zutabearen aukerak"
+
+msgid "Color de la columna en aquest ordinador"
+msgstr "Zutabearen kolorea gailu honetan"
+
+msgid "Tria una imatge…"
+msgstr "Aukeratu irudi bat…"
+
+msgid "Tria una imatge per al projecte"
+msgstr "Aukeratu proiektuaren irudia"
+
+msgid "Treu la imatge o la icona"
+msgstr "Kendu irudia edo ikonoa"
+
+msgid "Icona d'Adwaita"
+msgstr "Adwaita ikonoa"
+
+msgid "Caràcters de la descripció"
+msgstr "Deskribapenaren karaktereak"
+
+msgid "El nom se sincronitza amb Deck. La descripció i la imatge es desen en aquest dispositiu."
+msgstr "Izena Deckekin sinkronizatzen da. Deskribapena eta irudia gailu honetan gordetzen dira."
+
+msgid "Què vols treballar?"
+msgstr "Zertan egin nahi duzu lan?"
+
+msgid "Data límit"
+msgstr "Muga-data"
+
+msgid "Tria la data límit"
+msgstr "Aukeratu muga-data"
+
+msgid "Sense data límit"
+msgstr "Muga-datarik gabe"
+
+msgid "Tria una data vàlida"
+msgstr "Aukeratu baliozko data bat"
+
+msgid "Tria una data vàlida al calendari."
+msgstr "Aukeratu baliozko data bat egutegian."
+
+msgid "Revisa la data"
+msgstr "Egiaztatu data"
+
+msgid "Tria la data"
+msgstr "Aukeratu data"
+
+msgid "Avui"
+msgstr "Gaur"
+
+msgid "Treu la data"
+msgstr "Kendu data"
+
+msgid "Arxiva la targeta"
+msgstr "Artxibatu txartela"
+
+msgid "Restaura la targeta"
+msgstr "Leheneratu txartela"
+
+msgid "Obre a Deck"
+msgstr "Ireki Decken"
+
+msgid "Comentaris"
+msgstr "Iruzkinak"
+
+msgid "Escriu un comentari…"
+msgstr "Idatzi iruzkin bat…"
+
+msgid "Envia el comentari"
+msgstr "Bidali iruzkina"
+
+msgid "Encara no hi ha comentaris."
+msgstr "Oraindik ez dago iruzkinik."
+
+msgid "S'estan carregant els comentaris…"
+msgstr "Iruzkinak kargatzen…"
+
+msgid "Usuari de Deck"
+msgstr "Deck erabiltzailea"
+
+msgid "Torna-ho a provar"
+msgstr "Saiatu berriro"
+
+msgid "Vols descartar els canvis?"
+msgstr "Baztertu aldaketak?"
+
+msgid "Continua editant"
+msgstr "Jarraitu editatzen"
+
+msgid "Descarta els canvis"
+msgstr "Baztertu aldaketak"
+
+msgid "La targeta encara no s'ha desat."
+msgstr "Txartela ez da oraindik gorde."
+
+msgid "El projecte encara no s'ha desat."
+msgstr "Proiektua ez da oraindik gorde."
+
+msgid "Deixa aquí"
+msgstr "Jaregin hemen"
+
+msgid "Sense títol"
+msgstr "Izenbururik gabe"
+
+msgid "TAULERS"
+msgstr "TAULAK"
+
+msgid "Els teus taulers"
+msgstr "Zure taulak"
+
+msgid "Mostra els taulers"
+msgstr "Erakutsi taulak"
+
+msgid "Amaga els taulers"
+msgstr "Ezkutatu taulak"
+
+msgid "Mostra o amaga els taulers"
+msgstr "Erakutsi edo ezkutatu taulak"
+
+msgid "Mostra les targetes arxivades"
+msgstr "Erakutsi artxibatutako txartelak"
+
+msgid "Cerca al tauler"
+msgstr "Bilatu taulan"
+
+msgid "Cerca títols, descripcions o etiquetes…"
+msgstr "Bilatu izenburuak, deskribapenak edo etiketak…"
+
+msgid "Menú del Campbase"
+msgstr "Campbase menua"
+
+msgid "Preferències"
+msgstr "Hobespenak"
+
+msgid "Aparença"
+msgstr "Itxura"
+
+msgid "Tema"
+msgstr "Gaia"
+
+msgid "El del sistema"
+msgstr "Sistemakoa"
+
+msgid "Clar"
+msgstr "Argia"
+
+msgid "Fosc"
+msgstr "Iluna"
+
+msgid "Primera columna en una fila superior"
+msgstr "Lehen zutabea goiko errenkadan"
+
+msgid "Les targetes de la primera columna s'adapten a l'amplada de la finestra."
+msgstr "Lehen zutabeko txartelak leihoaren zabalerara egokitzen dira."
+
+msgid "Idioma"
+msgstr "Hizkuntza"
+
+msgid "Idioma de l'aplicació"
+msgstr "Aplikazioaren hizkuntza"
+
+msgid "Automàtic (sistema)"
+msgstr "Automatikoa (sistema)"
+
+msgid "L'idioma s'aplicarà quan tornis a obrir el Campbase."
+msgstr "Hizkuntza Campbase berriro irekitzean aldatuko da."
+
+msgid "Si l'idioma del sistema no està disponible, es fa servir l'anglès."
+msgstr "Sistemaren hizkuntza erabilgarri ez badago, ingelesa erabiltzen da."
+
+msgid "Dreceres de teclat"
+msgstr "Teklatuko lasterbideak"
+
+msgid "Navegació"
+msgstr "Nabigazioa"
+
+msgid "Aplicació"
+msgstr "Aplikazioa"
+
+msgid "Edició de text"
+msgstr "Testu-edizioa"
+
+msgid "Negreta"
+msgstr "Lodia"
+
+msgid "Cursiva"
+msgstr "Etzana"
+
+msgid "Subratllat"
+msgstr "Azpimarra"
+
+msgid "Ratllat"
+msgstr "Marratua"
+
+msgid "Desfés"
+msgstr "Desegin"
+
+msgid "Refés"
+msgstr "Berregin"
+
+msgid "Enganxa text o una imatge"
+msgstr "Itsatsi testua edo irudi bat"
+
+msgid "Negreta · Ctrl+B"
+msgstr "Lodia · Ctrl+B"
+
+msgid "Cursiva · Ctrl+I"
+msgstr "Etzana · Ctrl+I"
+
+msgid "Subratllat · Ctrl+U · La visualització en altres clients pot variar"
+msgstr "Azpimarra · Ctrl+U · Beste bezeroetan desberdin ager daiteke"
+
+msgid "Desfés · Ctrl+Z"
+msgstr "Desegin · Ctrl+Z"
+
+msgid "Refés · Ctrl+Maj+Z"
+msgstr "Berregin · Ctrl+Maius+Z"
+
+msgid "Llista amb pics"
+msgstr "Buletdun zerrenda"
+
+msgid "Llista numerada"
+msgstr "Zenbakidun zerrenda"
+
+msgid "Títols, citacions i codi"
+msgstr "Izenburuak, aipuak eta kodea"
+
+msgid "Text normal"
+msgstr "Testu arrunta"
+
+msgid "Títol gran"
+msgstr "Izenburu handia"
+
+msgid "Títol mitjà"
+msgstr "Izenburu ertaina"
+
+msgid "Títol petit"
+msgstr "Izenburu txikia"
+
+msgid "Citació"
+msgstr "Aipua"
+
+msgid "Codi"
+msgstr "Kodea"
+
+msgid "Treu el format"
+msgstr "Kendu formatua"
+
+msgid "Insereix un enllaç"
+msgstr "Txertatu esteka"
+
+msgid "Insereix"
+msgstr "Txertatu"
+
+msgid "Insereix una imatge"
+msgstr "Txertatu irudia"
+
+msgid "Imatges"
+msgstr "Irudiak"
+
+msgid "Imatge"
+msgstr "Irudia"
+
+msgid "Enganxa una imatge"
+msgstr "Itsatsi irudi bat"
+
+msgid "Imatge enganxada.png"
+msgstr "Itsatsitako irudia.png"
+
+msgid "Sincronització"
+msgstr "Sinkronizazioa"
+
+msgid "Sincronitza amb Deck"
+msgstr "Sinkronizatu Deckekin"
+
+msgid "S'està sincronitzant…"
+msgstr "Sinkronizatzen…"
+
+msgid "Actualitzat"
+msgstr "Eguneratuta"
+
+msgid "Canvis desats"
+msgstr "Aldaketak gordeta"
+
+msgid "Pendent de sincronitzar"
+msgstr "Sinkronizatzeko zain"
+
+msgid "Cal revisar el canvi"
+msgstr "Aldaketa berrikusi behar da"
+
+msgid "Canvis pendents"
+msgstr "Zain dauden aldaketak"
+
+msgid "Tot sincronitzat"
+msgstr "Dena sinkronizatuta"
+
+msgid "No hi ha canvis pendents d'enviar a Deck."
+msgstr "Ez dago Deckera bidaltzeko aldaketarik zain."
+
+msgid "Revisa els canvis pendents de sincronitzar"
+msgstr "Berrikusi sinkronizatzeko zain dauden aldaketak"
+
+msgid "Descarta el canvi"
+msgstr "Baztertu aldaketa"
+
+msgid "Aplica el meu canvi"
+msgstr "Aplikatu nire aldaketa"
+
+msgid "S'enviarà quan hi hagi connexió."
+msgstr "Konexioa dagoenean bidaliko da."
+
+msgid "Canvis a la targeta"
+msgstr "Txartelaren aldaketak"
+
+msgid "Moviment de targeta"
+msgstr "Txartelaren mugimendua"
+
+msgid "Arxivament"
+msgstr "Artxibatzea"
+
+msgid "Canvi"
+msgstr "Aldaketa"
+
+msgid "Comptes en línia de GNOME"
+msgstr "GNOMEren lineako kontuak"
+
+msgid "Compte de Nextcloud"
+msgstr "Nextcloud kontua"
+
+msgid "Cap compte connectat"
+msgstr "Ez dago konturik konektatuta"
+
+msgid "Obre Comptes en línia"
+msgstr "Ireki lineako kontuak"
+
+msgid "Utilitza aquest compte"
+msgstr "Erabili kontu hau"
+
+msgid "S'està obrint el compte de GNOME…"
+msgstr "GNOME kontua irekitzen…"
+
+msgid "El Campbase fa servir el compte de Nextcloud configurat a GNOME. No cal introduir cap contrasenya aquí."
+msgstr "Campbaseek GNOMEn konfiguratutako Nextcloud kontua erabiltzen du. Ez duzu pasahitzik sartu behar hemen."
+
+msgid "GNOME gestiona les credencials. El Campbase només desa quin compte has seleccionat."
+msgstr "GNOMEk kudeatzen ditu kredentzialak. Campbaseek hautatutako kontua soilik gordetzen du."
+
+msgid "Afegeix un compte de Nextcloud a Configuració → Comptes en línia i torna a obrir aquesta finestra."
+msgstr "Gehitu Nextcloud kontu bat Ezarpenak → Lineako kontuak atalean, eta ireki leiho hau berriro."
+
+msgid "Mode de demostració"
+msgstr "Erakustaldi modua"
+
+msgid "Connecta Nextcloud"
+msgstr "Konektatu Nextcloud"
+
+msgid "Connecta Nextcloud Deck per treballar amb els mateixos taulers que al mòbil."
+msgstr "Konektatu Nextcloud Deck mugikorreko taula berberekin lan egiteko."
+
+msgid "Quant al Campbase"
+msgstr "Campbasei buruz"
+
+#, python-brace-format
+msgid "Versió {version}"
+msgstr "{version} bertsioa"
+
+msgid "Informació"
+msgstr "Informazioa"
+
+msgid "Llicència"
+msgstr "Lizentzia"
+
+msgid "Mostra la llicència"
+msgstr "Erakutsi lizentzia"
+
+msgid "Idiomes disponibles"
+msgstr "Hizkuntza erabilgarriak"
+
+msgid "Crèdits"
+msgstr "Kredituak"
+
+msgid "Desenvolupament"
+msgstr "Garapena"
+
+msgid "Reconeixements"
+msgstr "Eskerrak"
+
+msgid "Suport"
+msgstr "Babesa"
+
+msgid "Dona suport al Campbase"
+msgstr "Babestu Campbase"
+
+msgid "Dona suport"
+msgstr "Babestu"
+
+msgid "GTK4, Adwaita, PyGObject i Comptes en línia"
+msgstr "GTK4, Adwaita, PyGObject eta lineako kontuak"
+
+msgid "Servidor i sincronització"
+msgstr "Zerbitzaria eta sinkronizazioa"
+
+msgid "Interpretació de Markdown · BSD-3-Clause"
+msgstr "Markdown interpretazioa · BSD-3-Clause"
+
+msgid "Icones simbòliques del sistema"
+msgstr "Sistemaren ikono sinbolikoak"
+
+msgid "Una aplicació lliure de taulers kanban, especialment dissenyada per a GNOME amb GTK4 i Adwaita. Organitza els projectes amb targetes i sincronitza'ls amb Nextcloud Deck."
+msgstr "Kanban taulen aplikazio librea, GNOMErako bereziki diseinatua GTK4 eta Adwaitarekin. Antolatu proiektuak txartelen bidez eta sinkronizatu Nextcloud Deckekin."
+
+msgid "Aquest compte ja no és als Comptes en línia de GNOME."
+msgstr "Kontu hau jada ez dago GNOMEren lineako kontuetan."
+
+msgid "Cal revisar l'accés a Nextcloud a Configuració → Comptes en línia."
+msgstr "Egiaztatu Nextclouderako sarbidea Ezarpenak → Lineako kontuak atalean."
+
+msgid "GNOME no ha proporcionat les credencials del compte."
+msgstr "GNOMEk ez ditu kontuaren kredentzialak eman."
+
+msgid "Introdueix una adreça de Nextcloud vàlida."
+msgstr "Sartu baliozko Nextcloud helbide bat."
+
+msgid "L'adreça de Nextcloud ha de començar per https://."
+msgstr "Nextcloud helbideak https:// hasiera izan behar du."
+
+msgid "No s'ha pogut accedir als Comptes en línia de GNOME."
+msgstr "Ezin izan da GNOMEren lineako kontuetara sartu."
+
+msgid "Selecciona el compte de Nextcloud que vols utilitzar."
+msgstr "Hautatu erabili nahi duzun Nextcloud kontua."
+
+msgid "Selecciona un compte de Nextcloud dels Comptes en línia de GNOME."
+msgstr "Hautatu Nextcloud kontu bat GNOMEren lineako kontuetan."
+
+msgid "Selecciona un compte de Nextcloud a Comptes en línia de GNOME."
+msgstr "Hautatu Nextcloud kontu bat GNOMEren lineako kontuetan."
+
+msgid "Cal resoldre els canvis pendents abans de canviar de compte."
+msgstr "Ebatzi zain dauden aldaketak kontuz aldatu aurretik."
+
+msgid "No s'ha pogut connectar. Revisa el compte de Nextcloud a Comptes en línia de GNOME."
+msgstr "Ezin izan da konektatu. Egiaztatu Nextcloud kontua GNOMEren lineako kontuetan."
+
+msgid "No s'ha pogut obrir el compte de GNOME. Revisa els Comptes en línia."
+msgstr "Ezin izan da GNOME kontua ireki. Egiaztatu lineako kontuak."
+
+msgid "El compte de GNOME ha canviat. Torna a seleccionar-lo a les preferències."
+msgstr "GNOME kontua aldatu da. Hautatu berriro hobespenetan."
+
+msgid "El compte no s'ha pogut autenticar. Revisa'l a Comptes en línia de GNOME."
+msgstr "Ezin izan da kontua autentifikatu. Egiaztatu GNOMEren lineako kontuetan."
+
+msgid "Connecta el compte de Nextcloud per sincronitzar."
+msgstr "Konektatu Nextcloud kontua sinkronizatzeko."
+
+msgid "Connecta el compte de Nextcloud."
+msgstr "Konektatu Nextcloud kontua."
+
+msgid "No s'ha pogut contactar amb Nextcloud. Els canvis pendents es conserven en aquest ordinador."
+msgstr "Ezin izan da Nextcloudekin harremanetan jarri. Zain dauden aldaketak gailu honetan gordetzen dira."
+
+msgid "No s'ha pogut completar la sincronització. Els canvis locals es conserven."
+msgstr "Ezin izan da sinkronizazioa osatu. Aldaketa lokalak gordetzen dira."
+
+msgid "No s'ha pogut sincronitzar"
+msgstr "Ezin izan da sinkronizatu"
+
+msgid "No s'ha pogut completar l'operació."
+msgstr "Ezin izan da eragiketa osatu."
+
+msgid "No s'ha pogut completar el canvi"
+msgstr "Ezin izan da aldaketa osatu"
+
+msgid "Nextcloud no permet aquesta operació amb el compte actual."
+msgstr "Nextcloudek ez du eragiketa hau baimentzen uneko kontuarekin."
+
+msgid "Nextcloud no ha pogut completar l'operació."
+msgstr "Nextcloudek ezin izan du eragiketa osatu."
+
+msgid "Nextcloud no ha retornat una llista de taulers vàlida."
+msgstr "Nextcloudek ez du baliozko taula-zerrendarik itzuli."
+
+msgid "La resposta de Nextcloud no té el format esperat."
+msgstr "Nextclouden erantzunak ez du espero zen formatua."
+
+msgid "No s'han pogut llegir les columnes del tauler."
+msgstr "Ezin izan dira taularen zutabeak irakurri."
+
+msgid "No s'han pogut llegir els comentaris de Deck."
+msgstr "Ezin izan dira Decken iruzkinak irakurri."
+
+msgid "La targeta o el tauler ja no són a Deck. Torna a sincronitzar."
+msgstr "Txartela edo taula ez dago jada Decken. Sinkronizatu berriro."
+
+msgid "La targeta ha canviat a Deck. Revisa les dues versions."
+msgstr "Txartela aldatu da Decken. Berrikusi bi bertsioak."
+
+msgid "El contingut d'aquesta targeta ha canviat a Deck. El teu esborrany s'ha conservat."
+msgstr "Txartel honen edukia aldatu da Decken. Zure zirriborroa gorde da."
+
+msgid "La targeta s'ha mogut a una altra columna des d'un altre dispositiu."
+msgstr "Txartela beste zutabe batera mugitu da beste gailu batetik."
+
+msgid "Deck no ha confirmat el canvi de columna. El moviment queda pendent."
+msgstr "Deckek ez du zutabe-aldaketa berretsi. Mugimendua zain geratu da."
+
+msgid "La targeta no és a la columna esperada a Deck."
+msgstr "Txartela ez dago espero zen zutabean Decken."
+
+msgid "No s'ha pogut verificar la targeta a Deck."
+msgstr "Ezin izan da txartela egiaztatu Decken."
+
+msgid "Deck no ha confirmat tots els canvis. L'esborrany es conserva."
+msgstr "Deckek ez ditu aldaketa guztiak berretsi. Zirriborroa gordetzen da."
+
+msgid "El nom del projecte ha canviat a Deck. El teu canvi es conserva."
+msgstr "Proiektuaren izena aldatu da Decken. Zure aldaketa gordetzen da."
+
+msgid "Deck no ha confirmat el nom del projecte."
+msgstr "Deckek ez du proiektuaren izena berretsi."
+
+msgid "No es pot confirmar la creació. Revisa Deck abans de tornar a enviar aquesta targeta."
+msgstr "Ezin izan da sorrera berretsi. Egiaztatu Deck txartel hau berriro bidali aurretik."
+
+msgid "No es pot confirmar si Deck ha creat la targeta. Obre Deck i comprova-ho abans de tornar-la a enviar."
+msgstr "Ezin izan da berretsi Deckek txartela sortu duen. Ireki Deck eta egiaztatu berriro bidali aurretik."
+
+msgid "L'enviament es va interrompre. Revisa Deck abans de tornar a crear aquesta targeta."
+msgstr "Bidalketa eten egin zen. Egiaztatu Deck txartel hau berriro sortu aurretik."
+
+msgid "Primer cal enviar la targeta nova a Deck."
+msgstr "Bidali txartel berria Deckera lehenik."
+
+msgid "Afegeix una columna al tauler abans de crear la primera targeta."
+msgstr "Gehitu zutabe bat taulan lehen txartela sortu aurretik."
+
+msgid "No s'ha pogut confirmar el comentari"
+msgstr "Ezin izan da iruzkina berretsi"
+
+msgid " Revisa Deck abans de tornar-lo a enviar."
+msgstr " Egiaztatu Deck berriro bidali aurretik."
+
+msgid "Aquest fitxer no és una imatge vàlida."
+msgstr "Fitxategi hau ez da baliozko irudi bat."
+
+msgid "La imatge és massa gran. El límit és de 16 MB."
+msgstr "Irudia handiegia da. Muga 16 MB da."
+
+msgid "La imatge és massa gran. Tria'n una de mida més petita."
+msgstr "Irudia handiegia da. Aukeratu txikiago bat."
+
+msgid "Tria una imatge PNG, JPEG, WebP o GIF de mida adequada."
+msgstr "Aukeratu tamaina egokiko PNG, JPEG, WebP edo GIF irudi bat."
+
+msgid "Tria una imatge o una icona SVG vàlida."
+msgstr "Aukeratu baliozko irudi edo SVG ikono bat."
+
+msgid "No s'ha pogut llegir la imatge."
+msgstr "Ezin izan da irudia irakurri."
+
+msgid "No s'ha pogut afegir la imatge"
+msgstr "Ezin izan da irudia gehitu"
+
+msgid "No s'ha pogut enganxar la imatge"
+msgstr "Ezin izan da irudia itsatsi"
+
+msgid "Copia una imatge compatible de menys de 16 MB i torna-ho a provar."
+msgstr "Kopiatu 16 MB baino txikiagoa den irudi bateragarri bat eta saiatu berriro."
+
+msgid "El porta-retalls no conté cap imatge compatible."
+msgstr "Arbelak ez du irudi bateragarririk."
+
+msgid "La imatge local ha canviat. Torna-la a seleccionar."
+msgstr "Irudi lokala aldatu da. Hautatu berriro."
+
+msgid "La imatge no és al servidor de Nextcloud del compte."
+msgstr "Irudia ez dago kontuaren Nextcloud zerbitzarian."
+
+msgid "No s'ha pogut carregar la imatge de Nextcloud."
+msgstr "Ezin izan da Nextcloud irudia kargatu."
+
+msgid "Nextcloud no ha retornat una imatge compatible."
+msgstr "Nextcloudek ez du irudi bateragarririk itzuli."
+
+msgid "Deck no ha confirmat l'adjunt de la imatge."
+msgstr "Deckek ez du irudiaren eranskina berretsi."
+
+msgid "No s'ha trobat una imatge pendent d'enviar. L'esborrany es conserva."
+msgstr "Ezin izan da bidaltzeko zain dagoen irudi bat aurkitu. Zirriborroa gordetzen da."
+
+msgid " · No s'ha pogut carregar"
+msgstr " · Ezin izan da kargatu"
+
+#, python-brace-format
+msgid "Nextcloud ha retornat un error ({code})."
+msgstr "Nextcloudek errore bat itzuli du ({code})."
+
+#, python-brace-format
+msgid "Darrera sincronització: {time}"
+msgstr "Azken sinkronizazioa: {time}"
+
+msgid "Vermell"
+msgstr "Gorria"
+
+msgid "Corall"
+msgstr "Korala"
+
+msgid "Taronja"
+msgstr "Laranja"
+
+msgid "Ambre"
+msgstr "Anbarra"
+
+msgid "Groc"
+msgstr "Horia"
+
+msgid "Llima"
+msgstr "Lima"
+
+msgid "Verd"
+msgstr "Berdea"
+
+msgid "Verd fosc"
+msgstr "Berde iluna"
+
+msgid "Turquesa"
+msgstr "Turkesa"
+
+msgid "Blau cel"
+msgstr "Zeru-urdina"
+
+msgid "Blau"
+msgstr "Urdina"
+
+msgid "Indi"
+msgstr "Indigoa"
+
+msgid "Violeta"
+msgstr "Bioleta"
+
+msgid "Malva"
+msgstr "Malba"
+
+msgid "Rosa"
+msgstr "Arrosa"
+
+msgid "Gris"
+msgstr "Grisa"
+
+msgid "Tauler"
+msgstr "Taula"
+
+msgid "Carpeta"
+msgstr "Karpeta"
+
+msgid "Documents"
+msgstr "Dokumentuak"
+
+msgid "Casa"
+msgstr "Etxea"
+
+msgid "Preferit"
+msgstr "Gogokoa"
+
+msgid "Estrella"
+msgstr "Izarra"
+
+msgid "Nit"
+msgstr "Gaua"
+
+msgid "Sol"
+msgstr "Eguzkia"
+
+msgid "Comunitat"
+msgstr "Komunitatea"
+
+msgid "Equip"
+msgstr "Taldea"
+
+msgid "Disseny"
+msgstr "Diseinua"
+
+msgid "Construcció"
+msgstr "Eraikuntza"
+
+msgid "Eines"
+msgstr "Tresnak"
+
+msgid "Ciència"
+msgstr "Zientzia"
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "Fotografia"
+msgstr "Argazkilaritza"
+
+msgid "Àudio"
+msgstr "Audioa"
+
+msgid "Vídeo"
+msgstr "Bideoa"
+
+msgid "Correu"
+msgstr "Posta"
+
+msgid "Calendari"
+msgstr "Egutegia"
+
+msgid "Textos"
+msgstr "Testuak"
+
+msgid "Idees"
+msgstr "Ideiak"
+
+msgid "Important"
+msgstr "Garrantzitsua"
+
+msgid "Música"
+msgstr "Musika"
+
+msgid "Pel·lícules"
+msgstr "Filmak"
+
+msgid "Baixades"
+msgstr "Deskargak"
+
+msgid "Benestar"
+msgstr "Ongizatea"
+
+msgid "Veu"
+msgstr "Ahotsa"
+
+msgid "Informàtica"
+msgstr "Informatika"
+
+msgid "Telèfon"
+msgstr "Telefonoa"
+
+msgid "Llocs"
+msgstr "Lekuak"
+
+msgid "Referències"
+msgstr "Erreferentziak"
+
+msgid "Impressió"
+msgstr "Inprimatzea"
+
+msgid "Configuració"
+msgstr "Ezarpenak"
+
+msgid "Triatge"
+msgstr "Sailkapena"
+
+msgid "En preparació"
+msgstr "Prestatzen"
+
+msgid "Per implementar"
+msgstr "Inplementatzeko"
+
+msgid "Fet"
+msgstr "Eginda"
+
+msgid "Una idea per al projecte"
+msgstr "Proiekturako ideia bat"
+
+msgid "Disseny de la portada"
+msgstr "Azalaren diseinua"
+
+msgid "Revisió dels textos"
+msgstr "Testuen berrikuspena"
+
+msgid "Proposta de col·laboració"
+msgstr "Lankidetza-proposamena"
+
+msgid "Preparar la primera versió"
+msgstr "Prestatu lehen bertsioa"
+
+msgid "Documentació de la comunitat"
+msgstr "Komunitatearen dokumentazioa"
+
+msgid "Sincronització amb Deck"
+msgstr "Deckekin sinkronizatzea"
+
+msgid "Disseny de la icona"
+msgstr "Ikonoaren diseinua"
+
+msgid "Triar el nom: Campbase"
+msgstr "Izena aukeratu: Campbase"
+
+msgid "El nostre campament"
+msgstr "Gure kanpalekua"
+
+msgid "Un espai compartit per concretar la idea i fer-la avançar."
+msgstr "Ideia zehaztu eta aurrera eramateko gune partekatua."
+
+msgid "Campbase · Taulers kanban per a GNOME"
+msgstr "Campbase · GNOMErako kanban taulak"
+
+msgid "Obre un tauler de demostració sense dades reals ni connexió"
+msgstr "Ireki erakustaldi-taula bat benetako daturik edo konexiorik gabe"
+
+msgid "Copia"
+msgstr "Kopiatu"
+
+msgid "Retalla"
+msgstr "Ebaki"
+
+msgid "Selecciona-ho tot"
+msgstr "Hautatu dena"
+
+msgid "Tanca el diàleg o la cerca"
+msgstr "Itxi elkarrizketa edo bilaketa"
+
+msgid "Revisa-ho"
+msgstr "Berrikusi"
+
+msgid "Etiquetes"
+msgstr "Etiketak"
+
+msgid "Etiqueta nova"
+msgstr "Etiketa berria"
+
+msgid "Crea l'etiqueta"
+msgstr "Sortu etiketa"
+
+msgid "Nom de l'etiqueta"
+msgstr "Etiketaren izena"
+
+msgid "Color"
+msgstr "Kolorea"
+
+msgid "Encara no hi ha etiquetes en aquest tauler."
+msgstr "Taula honek ez du etiketarik oraindik."
+
+msgid "Disponible per a totes les targetes d'aquest tauler."
+msgstr "Taula honetako txartel guztietarako erabilgarri."
+
+msgid "S'està creant l'etiqueta…"
+msgstr "Etiketa sortzen…"
+
+msgid "Deck no ha confirmat les etiquetes. El canvi es conserva."
+msgstr "Deck-ek ez ditu etiketak berretsi. Aldaketa gorde da."
+
+msgid "Revisa el nom i el color de l'etiqueta."
+msgstr "Berrikusi etiketaren izena eta kolorea."
+
+msgid "No s'ha pogut confirmar l'etiqueta nova. Sincronitza abans de tornar-ho a provar."
+msgstr "Ezin izan da etiketa berria berretsi. Sinkronizatu berriro saiatu aurretik."
+
+msgid "En iniciar l'aplicació"
+msgstr "Abiaraztean"
+
+msgid "Aquestes opcions s'apliquen quan tornes a obrir el Campbase."
+msgstr "Aukera hauek Campbase berriro irekitzean aplikatuko dira."
+
+msgid "Últim tauler utilitzat"
+msgstr "Erabilitako azken taula"
+
+msgid "Tauler d'inici"
+msgstr "Hasierako taula"
+
+msgid "Tauler no disponible"
+msgstr "Taula ez dago erabilgarri"
+
+msgid "Mostra la barra lateral"
+msgstr "Erakutsi alboko barra"
+
+msgid "Sincronització automàtica"
+msgstr "Sinkronizazio automatikoa"
+
+msgid "Amb l'opció desactivada, sincronitza amb F5 o amb el botó de sincronització."
+msgstr "Desgaituta dagoenean, erabili F5 edo sinkronizatzeko botoia."
+
+msgid "Interval de sincronització"
+msgstr "Sinkronizazio-tartea"
+
+msgid "30 segons"
+msgstr "30 segundo"
+
+msgid "45 segons"
+msgstr "45 segundo"
+
+msgid "1 minut"
+msgstr "Minutu bat"
+
+msgid "2 minuts"
+msgstr "2 minutu"
+
+msgid "5 minuts"
+msgstr "5 minutu"
+
+msgid "10 minuts"
+msgstr "10 minutu"
+
+msgid "Sincronització manual"
+msgstr "Eskuzko sinkronizazioa"
+
+msgid "Prem F5 per sincronitzar amb Deck."
+msgstr "Sakatu F5 Deck-ekin sinkronizatzeko."
+
+msgid "No s'ha pogut verificar el tauler a Deck."
+msgstr "Ezin izan da taula Deck-en egiaztatu."
+
+msgid "L'idioma s'aplica immediatament."
+msgstr "Hizkuntza berehala aldatzen da."
+
+msgid "Màxim de columnes per fila"
+msgstr "Gehieneko zutabe kopurua errenkadako"
+
+msgid "Les columnes es reparteixen l'amplada disponible."
+msgstr "Zutabeek eskuragarri dagoen zabalera banatzen dute."
+
+msgid "Automàtic"
+msgstr "Automatikoa"
+
+msgid "Codi font"
+msgstr "Iturburu-kodea"
+
+msgid "Errors i suggeriments"
+msgstr "Erroreak eta iradokizunak"
+
+msgid "Obre"
+msgstr "Ireki"
+
+msgid "Llicència del Campbase"
+msgstr "Campbase-en lizentzia"
+
+msgid "GNU GPL, versió 3 o posterior"
+msgstr "GNU GPL, 3. bertsioa edo berriagoa"
+
+msgid "Pots utilitzar, estudiar, modificar i redistribuir el Campbase d'acord amb aquesta llicència."
+msgstr "Campbase erabili, aztertu, aldatu eta birbanatu dezakezu lizentzia honen arabera."
+
+msgid "Llicència al web"
+msgstr "Lizentzia sarean"
+
+msgid "Avís del Campbase"
+msgstr "Campbase-en oharra"
+
+msgid "Condicions de la llicència"
+msgstr "Lizentziaren baldintzak"
+
+msgid "Crea una targeta"
+msgstr "Sortu txartel bat"
+
+msgid "Copia la versió"
+msgstr "Kopiatu bertsioa"
+
+msgid "Novetats de la versió"
+msgstr "Bertsioaren berrikuntzak"
+
+msgid "Primera versió del Campbase, el teu campament base per organitzar projectes."
+msgstr "Campbase-ren lehen bertsioa, proiektuak antolatzeko zure oinarrizko kanpalekua."
+
+msgid "Taulers i targetes"
+msgstr "Taulak eta txartelak"
+
+msgid "Organitza els projectes amb columnes, targetes, etiquetes i dates límit. Escriu descripcions amb format i imatges, i participa en els comentaris."
+msgstr "Antolatu proiektuak zutabe, txartel, etiketa eta epemugekin. Idatzi formatudun eta irudidun deskribapenak, eta parte hartu iruzkinetan."
+
+msgid "Sincronització amb Nextcloud Deck"
+msgstr "Nextcloud Deck-ekin sinkronizatzea"
+
+msgid "Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis sense connexió i sincronitza'ls de manera automàtica o manual."
+msgstr "Konektatu kontua GNOMEren lineako kontuen bidez. Gorde aldaketak lineaz kanpo eta sinkronizatu automatikoki edo eskuz."
+
+msgid "Un espai al teu gust"
+msgstr "Zure neurriko gunea"
+
+msgid "Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral. Pots situar la primera columna en una fila superior."
+msgstr "Aukeratu itxura, errenkadako zutabeak, hasierako taula eta alboko barra. Lehen zutabea goiko errenkada bereizi batean jar dezakezu."
+
+msgid "Sis idiomes, integrats a GNOME"
+msgstr "Sei hizkuntza, GNOMEn integratuta"
+
+msgid "Interfície amb GTK4 i Adwaita, dreceres de teclat i canvi immediat entre català, euskera, gallec AGAL, castellà, occità aranès i anglès."
+msgstr "GTK4 eta Adwaita interfazea, teklatuko lasterbideak eta berehalako aldaketa katalanaren, euskararen, AGAL galizieraren, gaztelaniaren, Arango okzitanieraren eta ingelesaren artean."
+
+msgid "No s'ha pogut verificar el compte per un problema de connexió. Torna-ho a provar."
+msgstr "Ezin izan da kontua egiaztatu konexio-arazo bat dela eta. Saiatu berriro."
+
+#, python-brace-format
+msgid "{count} targeta"
+msgid_plural "{count} targetes"
+msgstr[0] "{count} txartel"
+msgstr[1] "{count} txartel"
+
+#, python-brace-format
+msgid "{count} targeta arxivada"
+msgid_plural "{count} targetes arxivades"
+msgstr[0] "Artxibatutako {count} txartel"
+msgstr[1] "Artxibatutako {count} txartel"
+
+#, python-brace-format
+msgid "{count} canvi pendent"
+msgid_plural "{count} canvis pendents"
+msgstr[0] "{count} aldaketa zain"
+msgstr[1] "{count} aldaketa zain"
+
+msgid "Actualitza les notificacions"
+msgstr "Eguneratu jakinarazpenak"
+
+msgid "Aquest membre deixarà de tenir accés a través d'aquesta compartició."
+msgstr "Kide honek partekatze honen bidezko sarbidea galduko du."
+
+msgid "Aquí veuràs comparticions, comentaris, mencions i assignacions dels teus taulers."
+msgstr "Zure tauletako partekatzeak, iruzkinak, aipamenak eta esleipenak hemen agertuko dira."
+
+msgid "Cerca un membre…"
+msgstr "Bilatu kide bat…"
+
+msgid "Cerca un usuari pel nom o identificador…"
+msgstr "Bilatu erabiltzailea izenaren edo identifikatzailearen arabera…"
+
+msgid "Cerca usuaris"
+msgstr "Bilatu erabiltzaileak"
+
+msgid "Cita un membre del tauler"
+msgstr "Aipatu taulako kide bat"
+
+msgid "Comentaris nous: {count}"
+msgstr "Iruzkin berriak: {count}"
+
+msgid "Comparteix"
+msgstr "Partekatu"
+
+msgid "Comparteix el tauler"
+msgstr "Partekatu taula"
+
+msgid "Comparteix el tauler per assignar targetes als seus membres."
+msgstr "Partekatu taula bere kideei txartelak esleitzeko."
+
+msgid "Convida usuaris del mateix servidor de Nextcloud."
+msgstr "Gonbidatu Nextcloud zerbitzari bereko erabiltzaileak."
+
+msgid "Creat per {name} (@{username})"
+msgstr "Sortzailea: {name} (@{username})"
+
+msgid "Deck no ha confirmat els permisos. Torna a carregar els membres."
+msgstr "Deck-ek ez ditu baimenak berretsi. Kargatu berriro kideak."
+
+msgid "Deck no ha confirmat la compartició. Revisa els membres abans de tornar-ho a provar."
+msgstr "Deck-ek ez du partekatzea berretsi. Egiaztatu kideak berriro saiatu aurretik."
+
+msgid "Deck no ha confirmat les assignacions. El canvi es conserva."
+msgstr "Deck-ek ez ditu esleipenak berretsi. Aldaketa gorde da."
+
+msgid "Desa els permisos"
+msgstr "Gorde baimenak"
+
+msgid "Els avisos depenen de les notificacions i de l'activitat habilitades a Nextcloud."
+msgstr "Abisuak Nextcloud-en gaitutako jakinarazpenen eta jardueraren araberakoak dira."
+
+msgid "Escriu almenys dos caràcters per cercar."
+msgstr "Idatzi gutxienez bi karaktere bilatzeko."
+
+msgid "Hora"
+msgstr "Ordua"
+
+msgid "Hora local"
+msgstr "Tokiko ordua"
+
+msgid "Hora límit"
+msgstr "Muga-ordua"
+
+msgid "L'autoria no consta a Deck."
+msgstr "Egiletza ez dago Deck-en eskuragarri."
+
+msgid "Membres del tauler"
+msgstr "Taulako kideak"
+
+msgid "Minut"
+msgstr "Minutua"
+
+msgid "No hi ha membres que coincideixin amb la cerca."
+msgstr "Ez dago bilaketarekin bat datorren kiderik."
+
+msgid "No hi ha notificacions"
+msgstr "Ez dago jakinarazpenik"
+
+msgid "No s'ha trobat cap usuari."
+msgstr "Ez da erabiltzailerik aurkitu."
+
+msgid "No s'han pogut actualitzar tots els avisos. Es mostra la informació desada."
+msgstr "Ezin izan dira abisu guztiak eguneratu. Gordetako informazioa erakusten da."
+
+msgid "No tens permís per compartir aquest tauler."
+msgstr "Ez duzu taula hau partekatzeko baimenik."
+
+msgid "Nom d'usuari"
+msgstr "Erabiltzaile-izena"
+
+msgid "Nom visible"
+msgstr "Bistaratze-izena"
+
+msgid "Notificacions"
+msgstr "Jakinarazpenak"
+
+msgid "Persones assignades"
+msgstr "Esleitutako pertsonak"
+
+msgid "Pot compartir el tauler"
+msgstr "Taula parteka dezake"
+
+msgid "Pot editar targetes"
+msgstr "Txartelak edita ditzake"
+
+msgid "Pot gestionar el tauler"
+msgstr "Taula kudea dezake"
+
+msgid "Propietari · @{username}"
+msgstr "Jabea · @{username}"
+
+msgid "Propietari: {name} (@{username})"
+msgstr "Jabea: {name} (@{username})"
+
+msgid "Retira l'accés"
+msgstr "Kendu sarbidea"
+
+msgid "S'estan actualitzant els membres…"
+msgstr "Kideak eguneratzen…"
+
+msgid "S'estan actualitzant les notificacions…"
+msgstr "Jakinarazpenak eguneratzen…"
+
+msgid "S'estan cercant usuaris…"
+msgstr "Erabiltzaileak bilatzen…"
+
+msgid "Vols retirar l'accés?"
+msgstr "Sarbidea kendu nahi duzu?"
+
+msgid "Permís inicial"
+msgstr "Hasierako baimena"
+
+msgid "Només lectura"
+msgstr "Irakurtzeko soilik"
+
+msgid "Tria una icona d'Adwaita"
+msgstr "Aukeratu Adwaita ikono bat"
+
+msgid "Col·laboració als taulers"
+msgstr "Tauletako lankidetza"
+
+msgid "Comparteix taulers, gestiona els permisos, assigna targetes i cita membres als comentaris. Consulta els avisos de Deck i l'activitat disponible des de Notificacions."
+msgstr "Partekatu taulak, kudeatu baimenak, esleitu txartelak eta aipatu kideak iruzkinetan. Kontsultatu Deck-en abisuak eta eskuragarri dagoen jarduera Jakinarazpenetan."
+
+msgid "Dates i identitat"
+msgstr "Datak eta identitatea"
+
+msgid "Tria l'hora límit en hora local. Identifica els autors dels comentaris amb nom, icona, data i hora, i consulta el nom d'usuari del compte a Preferències."
+msgstr "Ezarri muga-ordua tokiko orduan. Identifikatu iruzkinen egileak izenaren, ikonoaren, dataren eta orduaren bidez, eta kontsultatu kontuaren erabiltzaile-izena Hobespenetan."
+
+msgid "Tria les persones assignades"
+msgstr "Aukeratu esleitutako pertsonak"
+
+msgid "{count} persones"
+msgstr "{count} pertsona"
+
+msgid "Sense assignar"
+msgstr "Esleitu gabe"
+
+msgid "Responsable del tauler: {name}"
+msgstr "Taularen arduraduna: {name}"
+
+msgid "Responsable · {username}"
+msgstr "Arduraduna · {username}"
+
+msgid "Assigna a"
+msgstr "Esleitu honi"
+
+msgid "T'has assignat la targeta «{title}»."
+msgstr "«{title}» txartela zeure buruari esleitu diozu."
+
+msgid "T'has mencionat a la targeta «{title}»."
+msgstr "Zeure burua aipatu duzu «{title}» txartelean."
+
+msgid "Has comentat la targeta «{title}»."
+msgstr "«{title}» txartelean iruzkindu duzu."
+
+msgid "Esborra l'avís"
+msgstr "Ezabatu abisua"
+
+msgid "Esborra tots els avisos"
+msgstr "Ezabatu abisu guztiak"
+
+msgid "Esborra-ho tot"
+msgstr "Ezabatu dena"
+
+msgid "No s'han pogut carregar els avisos"
+msgstr "Ezin izan dira abisuak kargatu"
+
+msgid "S'esborraran els avisos que es mostren a la llista."
+msgstr "Zerrendan agertzen diren abisuak ezabatuko dira."
+
+msgid "S'estan esborrant els avisos…"
+msgstr "Abisuak ezabatzen…"
+
+msgid "Torna-ho a provar amb el botó d'actualització."
+msgstr "Saiatu berriro eguneratzeko botoiarekin."
+
+msgid "Vols esborrar tots els avisos?"
+msgstr "Abisu guztiak ezabatu nahi dituzu?"
+
+msgid "Compte connectat"
+msgstr "Konektatutako kontua"
+
+msgid "Nom d'usuari: {username}"
+msgstr "Erabiltzaile-izena: {username}"
+
+msgid "Detalls"
+msgstr "Xehetasunak"
+
+msgid "Cerca pel nom o identificador. També pots provar el correu complet si el servidor ho permet."
+msgstr "Bilatu izenaren edo identifikatzailearen arabera. Helbide elektroniko osoa ere proba dezakezu zerbitzariak baimentzen badu."
+
+msgid "No s'ha pogut trobar el comentari indicat."
+msgstr "Ezin izan da adierazitako iruzkina aurkitu."
+
+msgid "No s'ha pogut obrir el destí de l'avís."
+msgstr "Ezin izan da jakinarazpenaren helmuga ireki."
+
+msgid "Pot ser que s'hagi eliminat o que ja no hi tinguis accés."
+msgstr "Agian ezabatu egin da edo dagoeneko ez duzu sarbiderik."
+
+msgid "Notificacions a mà"
+msgstr "Jakinarazpenak eskura"
+
+msgid "Comparteix taulers i gestiona els permisos. Identifica els participants amb la seva imatge, assigna targetes i cita membres amb @, amb suggeriments i mencions ressaltades. Reacciona als comentaris amb sis emojis. Es desen com a respostes amb una menció per avisar-ne l'autor; Campbase les agrupa i altres clients les mostren com a comentaris."
+msgstr "Partekatu taulak eta kudeatu baimenak. Identifikatu parte-hartzaileak beren irudiekin, esleitu txartelak eta aipatu kideak @ erabiliz, iradokizunekin eta aipamen nabarmenduekin. Erreakzionatu iruzkinei sei emojirekin. Erantzun gisa gordetzen dira, egilea aipatzen dute jakinarazteko; Campbase-k multzokatu egiten ditu eta beste bezeroek iruzkin gisa erakusten dituzte."
+
+msgid "Consulta comentaris, mencions, assignacions i comparticions, també de les teves accions. Obre el lloc relacionat amb cada avís i esborra'ls individualment o tots de cop."
+msgstr "Kontsultatu iruzkinak, aipamenak, esleipenak eta partekatzeak, baita zure ekintzenak ere. Ireki abisu bakoitzari dagokion lekua eta ezabatu banaka edo guztiak batera."
+
+msgid "Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis sense connexió i sincronitza'ls de manera automàtica o manual. Les lectures són més àgils i els avisos s'actualitzen sense interrompre la sincronització de les targetes."
+msgstr "Konektatu kontua GNOMEren lineako kontuetatik. Gorde aldaketak konexiorik gabe eta sinkronizatu automatikoki edo eskuz. Datuak azkarrago irakurtzen dira eta jakinarazpenak txartelen sinkronizazioa eten gabe eguneratzen dira."
+
+msgid "Personalitza la imatge o la icona dels projectes. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral, i situa la primera columna en una fila superior."
+msgstr "Pertsonalizatu proiektuen irudia edo ikonoa. Aukeratu itxura, errenkadako zutabeak, hasierako taula eta alboko barra, eta kokatu lehen zutabea goiko errenkada batean."
+
+msgid "Atura"
+msgstr "Gelditu"
+
+msgid "Canvia el color"
+msgstr "Aldatu kolorea"
+
+msgid "Canvia el nom"
+msgstr "Aldatu izena"
+
+msgid "Deck no ha confirmat que s'hagi esborrat la targeta."
+msgstr "Deck-ek ez du baieztatu txartela ezabatu denik."
+
+msgid "El comentari s'esborrarà de Nextcloud Deck. Aquesta acció no es pot desfer."
+msgstr "Iruzkina Nextcloud Deck-etik ezabatuko da. Ekintza hau ezin da desegin."
+
+msgid "Esborra"
+msgstr "Ezabatu"
+
+msgid "Esborra el comentari"
+msgstr "Ezabatu iruzkina"
+
+msgid "Esborra la targeta"
+msgstr "Ezabatu txartela"
+
+msgid "Esborra les targetes arxivades"
+msgstr "Ezabatu artxibatutako txartelak"
+
+msgid "La targeta ja no està arxivada. No s'ha esborrat."
+msgstr "Txartela ez dago jada artxibatuta. Ez da ezabatu."
+
+msgid "La targeta s'ha esborrat de Deck. Els canvis locals s'han conservat."
+msgstr "Txartela Deck-etik ezabatu da. Tokiko aldaketak gorde dira."
+
+msgid "La targeta s'ha mogut a una altra columna. No s'ha esborrat."
+msgstr "Txartela beste zutabe batera mugitu da. Ez da ezabatu."
+
+msgid "Nextcloud no ha confirmat que s'hagi esborrat el comentari."
+msgstr "Nextcloud-ek ez du baieztatu iruzkina ezabatu denik."
+
+msgid "No s'ha pogut esborrar el comentari"
+msgstr "Ezin izan da iruzkina ezabatu"
+
+msgid "No s'han pogut esborrar totes les targetes"
+msgstr "Ezin izan dira txartel guztiak ezabatu"
+
+msgid "No tens permís per esborrar targetes d'aquest tauler."
+msgstr "Ez duzu taula honetako txartelak ezabatzeko baimenik."
+
+msgid "Resol els canvis pendents d'aquestes targetes abans d'esborrar-les."
+msgstr "Ebatzi txartel hauen zain dauden aldaketak ezabatu aurretik."
+
+msgid "S'esborraran aquestes targetes de Nextcloud Deck. Les targetes actives es conservaran."
+msgstr "Txartel hauek Nextcloud Deck-etik ezabatuko dira. Txartel aktiboak gordeko dira."
+
+msgid "S'està aturant…"
+msgstr "Gelditzen…"
+
+msgid "Targeta arxivada"
+msgstr "Artxibatutako txartela"
+
+msgid "Targetes arxivades: {count}"
+msgstr "Artxibatutako txartelak: {count}"
+
+msgid "Targetes esborrades: {count} / {total}"
+msgstr "Ezabatutako txartelak: {count} / {total}"
+
+msgid "Vols esborrar aquest comentari?"
+msgstr "Iruzkin hau ezabatu nahi duzu?"
+
+msgid "Organitza els projectes amb columnes, targetes, etiquetes i dates límit. Escriu descripcions amb format i imatges, participa en els comentaris i esborra els teus quan calgui. Consulta el recompte de comentaris al costat del títol, sense afegir una fila a la targeta."
+msgstr "Antolatu proiektuak zutabeekin, txartelekin, etiketekin eta epemugekin. Idatzi deskribapenak formatuarekin eta irudiekin, parte hartu iruzkinetan eta ezabatu zureak behar duzunean. Ikusi iruzkin kopurua izenburuaren ondoan, txartelari lerro bat gehitu gabe."
+
+msgid "Personalitza els projectes i canvia el nom o el color de cada columna per separat. Mostra les targetes arxivades per columna i restaura-les o esborra-les individualment o en grup. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr "Pertsonalizatu proiektuak eta aldatu zutabe bakoitzaren izena edo kolorea bereizita. Erakutsi artxibatutako txartelak zutabeka eta berrezarri edo ezabatu banaka edo taldean. Aukeratu itxura, errenkadako zutabeak, hasierako taula eta alboko barra."
+
+msgid "Amaga les arxivades"
+msgstr "Ezkutatu artxibatutakoak"
+
+msgid "Arxivades"
+msgstr "Artxibatuta"
+
+msgid "Columnes: {columns} · Targetes: {cards}"
+msgstr "Zutabeak: {columns} · Txartelak: {cards}"
+
+msgid "Deck no ha confirmat que s'hagi esborrat el tauler."
+msgstr "Deck-ek ez du baieztatu taula ezabatu denik."
+
+msgid "El tauler s'ha esborrat de Deck. Els canvis locals s'han conservat."
+msgstr "Taula Deck-etik ezabatu da. Tokiko aldaketak gorde dira."
+
+msgid "Esborra el tauler"
+msgstr "Ezabatu taula"
+
+msgid "Esborra les arxivades visibles"
+msgstr "Ezabatu ikusgai dauden artxibatutako txartelak"
+
+msgid "Esborra totes les arxivades"
+msgstr "Ezabatu artxibatutako txartel guztiak"
+
+msgid "Mostra les arxivades"
+msgstr "Erakutsi artxibatutakoak"
+
+msgid "No s'ha pogut esborrar el tauler"
+msgstr "Ezin izan da taula ezabatu"
+
+msgid "Només el propietari pot esborrar aquest tauler."
+msgstr "Jabeak bakarrik ezaba dezake taula hau."
+
+msgid "Resol els canvis pendents d'aquest tauler abans d'esborrar-lo."
+msgstr "Ebatzi taula honen zain dauden aldaketak ezabatu aurretik."
+
+msgid "S'esborrarà el tauler de Nextcloud Deck, amb les columnes i les targetes que conté."
+msgstr "Taula Nextcloud Deck-etik ezabatuko da, dituen zutabe eta txartelekin batera."
+
+msgid "S'està esborrant el tauler…"
+msgstr "Taula ezabatzen…"
+
+msgid "Personalitza els projectes i canvia el nom o el color de cada columna per separat. Consulta les arxivades en una secció pròpia i restaura-les o esborra-les individualment o en grup. Esborra els taulers dels quals ets propietari des de la barra lateral. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr "Pertsonalizatu proiektuak eta aldatu zutabe bakoitzaren izena edo kolorea bereizita. Ikusi artxibatutako txartelak beren atalean eta leheneratu edo ezabatu banaka edo taldeka. Ezabatu zure taulak alboko barratik. Aukeratu itxura, errenkadako zutabeak, hasierako taula eta alboko barra."
+
+msgid "Arrossega la targeta"
+msgstr "Arrastatu txartela"
+
+msgid "Interfície més clara"
+msgstr "Interfaze argiagoa"
+
+msgid "Personalitza els projectes i canvia el nom o el color de cada columna per separat. A la secció d'arxivades, restaura o esborra cada targeta des dels seus controls, o esborra-les en grup. Mostra-les i amaga-les sense tornar a l'inici del tauler. Esborra els taulers propis des de la barra lateral. Tria l'aparença, les columnes per fila, el tauler d'inici i la barra lateral."
+msgstr "Pertsonalizatu proiektuak eta aldatu zutabe bakoitzaren izena edo kolorea bereizita. Artxibatutakoen atalean, leheneratu edo ezabatu txartel bakoitza bere kontroletatik, edo ezabatu taldeka. Erakutsi eta ezkutatu taularen hasierara itzuli gabe. Ezabatu zure taulak alboko barratik. Aukeratu itxura, errenkadako zutabeak, hasierako taula eta alboko barra."
+
+msgid "Arrossega i arxiva les targetes amb els controls que apareixen en passar-hi el cursor. Menús amb separadors i dreceres visibles, modals ajustats al contingut i una icona d'enllaç més clara. Papereres de targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un tauler. Capçaleres de columna sense tooltips d'autoria i avatar d'usuari al peu de l'editor de targetes."
+msgstr "Arrastatu eta artxibatu txartelak erakuslea gainean jartzean agertzen diren kontrolekin. Bereizleak eta lasterbide ikusgarriak dituzten menuak, edukira egokitutako elkarrizketa-koadroak eta estekaren ikono argiagoa. Txartelen eta taulen zakarrontzi-botoiak gorriz, eta taula ezabatzea bertan behera uzteko botoia. Zutabeen goiburuek ez dute egiletzari buruzko argibiderik erakusten, eta erabiltzailearen avatarra txartel-editorearen behealdean dago."
+
+msgid "Autor: {name} (@{username})"
+msgstr "Egilea: {name} (@{username})"
+
+msgid "Responsable: {name} (@{username})"
+msgstr "Arduraduna: {name} (@{username})"
+
+msgid "Controls de targeta"
+msgstr "Txartelen kontrolak"
+
+msgid "Arxiva i arrossega les targetes amb els controls de la dreta, en aquest ordre. Els avatars dels assignats cedeixen el lloc als controls amb una transició suau, també a les arxivades. Els títols aprofiten millor l'amplada. L'avatar al peu de l'editor identifica l'autor o el responsable. Un marcador mostra on deixar anar cada targeta. Els avatars es mantenen durant la sincronització. La vista es manté fixa mentre arrossegues una targeta."
+msgstr "Artxibatu eta arrastatu txartelak eskuineko kontrolekin, ordena horretan. Esleitutako pertsonen avatarrek kontrolei uzten diete lekua trantsizio leun batekin, baita artxibatutako txarteletan ere. Izenburuek hobeto erabiltzen dute erabilgarri dagoen zabalera. Editorearen behealdeko avatarrak egilea edo arduraduna identifikatzen du. Markatzaile batek txartel bakoitza non askatu adierazten du. Avatarrek ikusgai jarraitzen dute sinkronizatzean. Ikuspegia finko mantentzen da txartel bat arrastatzean."
+
+msgid "Menús amb separadors i dreceres visibles, modals ajustats al contingut i una icona d'enllaç més clara. Marges coherents en compartir taulers, tant durant la càrrega com amb els membres i els resultats de cerca. Papereres de targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un tauler. Capçaleres de columna sense tooltips d'autoria."
+msgstr "Bereizleak eta lasterbide ikusgarriak dituzten menuak, edukira egokitutako elkarrizketa-koadroak eta estekaren ikono argiagoa. Marjina koherenteak taulak partekatzean, kargatzean zein kideak eta bilaketa-emaitzak erakustean. Txartelen eta taulen zakarrontzi-botoiak gorriz, eta taula ezabatzea bertan behera uzteko botoia. Zutabeen goiburuek ez dute egiletzari buruzko argibiderik erakusten."
+
+msgid "Deixa anar aquí"
+msgstr "Askatu hemen"
+
+msgid "Acció desfeta"
+msgstr "Ekintza desegin da"
+
+msgid "Aquesta acció ja no es pot desfer."
+msgstr "Ekintza hau ezin da gehiago desegin."
+
+msgid "Arrossega-hi una targeta per arxivar-la."
+msgstr "Arrastatu txartel bat hona artxibatzeko."
+
+msgid "Assignades a mi"
+msgstr "Niri esleitutakoak"
+
+msgid "La targeta ha canviat. Els altres canvis es conserven."
+msgstr "Txartela aldatu da. Beste aldaketak gorde dira."
+
+msgid "Les excepcions de cada columna es conserven. Al menú de la columna pots tornar a seguir la preferència general."
+msgstr "Zutabe bakoitzaren salbuespenak gordetzen dira. Bere menutik lehentasun orokorra erabil dezakezu berriro."
+
+msgid "Mostra les targetes arxivades per defecte"
+msgstr "Erakutsi artxibatutako txartelak lehenespenez"
+
+msgid "No s'ha pogut desfer l'acció. Els canvis es conserven."
+msgstr "Ezin izan da ekintza desegin. Aldaketak gorde dira."
+
+msgid "Segueix la preferència general"
+msgstr "Erabili lehentasun orokorra"
+
+msgid "Targeta moguda"
+msgstr "Txartela mugitu da"
+
+msgid "Targeta restaurada"
+msgstr "Txartela leheneratu da"
+
+msgid "Arxivades i filtres"
+msgstr "Artxibatutakoak eta iragazkiak"
+
+msgid "Tria si les arxivades es mostren per defecte i conserva les excepcions de cada columna. Arrossega una targeta a la zona d'arxivades per arxivar-la, també quan és buida. Desfés els moviments i els arxivaments recents. Filtra les targetes amb «Assignades a mi»."
+msgstr "Erabaki artxibatutako txartelak lehenespenez erakutsi behar diren, zutabe bakoitzaren salbuespenak mantenduz. Arrastatu txartel bat artxibatutakoen eremura artxibatzeko, baita hutsik dagoenean ere. Desegin azken mugimenduak eta artxibatzeak. Iragazi txartelak «Niri esleitutakoak» aukerarekin."
+
+msgid "S'aplica a totes les columnes i elimina les excepcions. Després pots mostrar-les o amagar-les a cada columna."
+msgstr "Zutabe guztiei aplikatzen zaie eta salbuespenak kentzen ditu. Ondoren, zutabe bakoitzean erakutsi edo ezkutatu ditzakezu."
+
+msgid "Mostra o amaga les arxivades a totes les columnes i ajusta-les després per separat. Arrossega-les entre columnes, restaura-les deixant-les a la zona normal i desfés els canvis recents. El filtre «Assignades a mi» és al costat de les accions del tauler. Les actualitzacions mantenen la posició de lectura."
+msgstr "Erakutsi edo ezkutatu artxibatutako txartelak zutabe guztietan, eta doitu zutabe bakoitza banaka. Arrastatu txartel artxibatuak zutabeen artean, leheneratu eremu normalean askatuz eta desegin azken aldaketak. «Niri esleitutakoak» iragazkia taularen ekintzen ondoan dago. Eguneratzeek irakurketa-kokapena mantentzen dute."
+
+msgid "Vista del tauler"
+msgstr "Taularen ikuspegia"
+
+msgid "Connecta el compte des de Comptes en línia de GNOME. Conserva els canvis sense connexió i sincronitza'ls de manera automàtica o manual. Les lectures són més àgils i els avisos s'actualitzen sense interrompre la sincronització de les targetes. Els moviments d'arxivades poden continuar després d'una interrupció de la connexió. Els moviments cap a les arxivades actualitzen només les targetes necessàries, sense restaurar-les temporalment."
+msgstr "Konektatu kontua GNOMEren lineako kontuetatik. Gorde aldaketak konexiorik gabe eta sinkronizatu automatikoki edo eskuz. Datuak azkarrago irakurtzen dira eta jakinarazpenak txartelen sinkronizazioa eten gabe eguneratzen dira. Artxibatutako txartelen mugimenduek jarrai dezakete konexioa eten ondoren. Artxibora mugitzean, aldatu behar diren txartelak soilik eguneratzen dira, aldi baterako leheneratu gabe."
+
+msgid "Menús amb separadors i dreceres visibles, modals ajustats al contingut i una icona d'enllaç més clara. Marges coherents en compartir taulers, tant durant la càrrega com amb els membres i els resultats de cerca. Papereres de targetes i taulers en vermell i un botó per cancel·lar l'esborrament d'un tauler. Capçaleres de columna sense tooltips d'autoria. Preferències separa el tema de la vista del tauler. En arrossegar cap a les arxivades, es mostra només el marcador necessari. Els menús de columna es mantenen oberts mentre arriben actualitzacions. Tanca Notificacions clicant fora del modal."
+msgstr "Bereizleak eta lasterbide ikusgarriak dituzten menuak, edukira egokitutako elkarrizketa-koadroak eta estekaren ikono argiagoa. Marjina koherenteak taulak partekatzean, kargatzean zein kideak eta bilaketa-emaitzak erakustean. Txartelen eta taulen zakarrontzi-botoiak gorriz, eta taula ezabatzea bertan behera uzteko botoia. Zutabeen goiburuek ez dute egiletzari buruzko argibiderik erakusten. Hobespenetan, gaia eta taularen ikuspegia bereizita daude. Artxibora arrastatzean, behar den kokapen-marka bakarrik agertzen da. Zutabeen menuek irekita jarraitzen dute eguneraketak iristean. Itxi Jakinarazpenak elkarrizketa-koadrotik kanpo klik eginez."
+
+#, python-brace-format
+msgid "{count} comentari"
+msgid_plural "{count} comentaris"
+msgstr[0] "Iruzkin {count}"
+msgstr[1] "{count} iruzkin"
+
+msgid "Reacciona al comentari"
+msgstr "Erreakzionatu iruzkinari"
+
+msgid "M'agrada"
+msgstr "Atsegin dut"
+
+msgid "M'encanta"
+msgstr "Izugarri gustatzen zait"
+
+msgid "Em fa riure"
+msgstr "Barregarria da"
+
+msgid "Celebrem-ho"
+msgstr "Ospatu dezagun"
+
+msgid "Ho estic mirant"
+msgstr "Begiratzen ari naiz"
+
+msgid "Gràcies"
+msgstr "Eskerrik asko"
+
+msgid "No s'ha pogut confirmar la reacció"
+msgstr "Ezin izan da erreakzioa baieztatu"
+
+msgid " Revisa els comentaris abans de tornar-ho a provar."
+msgstr " Begiratu iruzkinak berriro saiatu aurretik."
+
+msgid "Nextcloud no ha confirmat la resposta al comentari."
+msgstr "Nextcloud-ek ez du iruzkinaren erantzuna baieztatu."
+
+msgid "{name} ha reaccionat {emoji} a un comentari de «{title}»."
+msgstr "{name} erabiltzaileak {emoji} erreakzionatu dio «{title}» txarteleko iruzkin bati."
+
+msgid "Has reaccionat {emoji} a un comentari de «{title}»."
+msgstr "{emoji} erreakzionatu diozu «{title}» txarteleko iruzkin bati."
+
+msgid "Has reaccionat {emoji} al teu comentari de «{title}»."
+msgstr "{emoji} erreakzionatu diozu «{title}» txarteleko zure iruzkinari."

@@ -1,0 +1,51 @@
+{
+  "app-id": "cat.cesk.Campbase",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "sdk": "org.gnome.Sdk",
+  "command": "campbase",
+  "finish-args": [
+    "--share=network",
+    "--share=ipc",
+    "--socket=wayland",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--talk-name=org.gnome.OnlineAccounts",
+    "--talk-name=org.gnome.Settings"
+  ],
+  "modules": [
+    {
+      "name": "python3-mistune",
+      "buildsystem": "simple",
+      "build-commands": [
+        "pip3 install --no-deps --no-index --prefix=/app mistune-3.4.0-py3-none-any.whl"
+      ],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://files.pythonhosted.org/packages/2c/f7/021d590d52c1ac28e3290311776854c6a1c927fa3fb4b25ce74caf937a3d/mistune-3.4.0-py3-none-any.whl",
+          "sha256": "d03cec4c8620f21517a996d82d14f3b59c30d79bda2cc6c56bd32b839f18ce6b"
+        }
+      ]
+    },
+    {
+      "name": "campbase",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "dir",
+          "path": ".",
+          "skip": [
+            ".git",
+            ".flatpak-builder",
+            "build",
+            "__pycache__",
+            ".qa",
+            ".venv"
+          ]
+        }
+      ]
+    }
+  ],
+  "separate-locales": false
+}

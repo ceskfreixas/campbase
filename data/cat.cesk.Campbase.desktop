@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Application
+Name=Campbase
+GenericName=Kanban boards
+Comment=Organize projects and synchronize cards with Nextcloud Deck
+Exec=campbase
+Icon=cat.cesk.Campbase
+Terminal=false
+StartupNotify=true
+Categories=GNOME;GTK;Office;ProjectManagement;
+Keywords=kanban;boards;cards;projects;nextcloud;deck;
+GenericName[ca]=Taulers kanban
+Comment[ca]=Organitza els projectes amb targetes i columnes i sincronitza’ls amb Nextcloud Deck.
+GenericName[eu]=Kanban taulak
+Comment[eu]=Antolatu proiektuak txartel eta zutabeekin eta sinkronizatu Nextcloud Deck-ekin.
+GenericName[gl]=Quadros kanban
+Comment[gl]=Organiza os projetos com cartões e colunas e sincroniza-os com Nextcloud Deck.
+GenericName[es]=Tableros kanban
+Comment[es]=Organiza los proyectos con tarjetas y columnas y sincronízalos con Nextcloud Deck.
+GenericName[oc]=Taulèrs kanban
+Comment[oc]=Organiza es projèctes damb tarjes e colomnes e sincroniza-les damb Nextcloud Deck.

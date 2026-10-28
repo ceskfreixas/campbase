@@ -1,0 +1,141 @@
+# Campbase
+
+[English](README.md)
+
+El Campbase és una app kanban nativa de GNOME, feta amb GTK4 i libadwaita i
+sincronitzada amb **Nextcloud Deck**. Organitza projectes amb targetes i columnes,
+treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
+
+**Versió actual: 0.1.0 — primera versió de desenvolupament.**
+
+[Codi font](https://github.com/ceskfreixas/campbase) ·
+[Errors i suggeriments](https://github.com/ceskfreixas/campbase/issues) ·
+[Dona suport al projecte](https://ceskfreixas.aixeta.cat/ca/subscriptions)
+
+## Què hi pots fer
+
+- Organitzar taulers adaptables, situar la primera columna en una fila superior
+  i triar un màxim d'1 a 6 columnes per fila. **Fet** és una columna normal.
+- Crear, editar, arrossegar, ordenar, arxivar i restaurar targetes; cercar títols,
+  descripcions i etiquetes; crear i canviar el nom de taulers i columnes.
+- Mostrar les arxivades independentment a cada columna i esborrar-les individualment
+  o en grup des d'una secció pròpia, amb confirmació. El nom i el color de columna
+  tenen accions separades. Esborrar els taulers propis des de la barra lateral.
+- Triar a Preferències si les arxivades es mostren a totes les columnes i reiniciar
+  les excepcions; després, ajustar cada columna per separat. Arrossegar-hi una targeta per arxivar-la, també
+  quan la secció és buida.
+- Desfer un moviment o arxivament recent des del missatge de confirmació,
+  també després de sincronitzar-lo. Moure les arxivades i restaurar-les deixant-les
+  a la zona normal. Filtrar amb **Assignades a mi**, al costat de les accions del
+  tauler. Conservar la posició de lectura quan s'actualitza la vista.
+- Mantenir la vista fixa durant l'arrossegament, els menús de columna oberts
+  mentre arriben actualitzacions i els avatars dels assignats durant la sincronització.
+  Consultar un recompte discret de comentaris al costat del títol, sense afegir cap fila.
+- Compartir taulers amb usuaris del mateix servidor de Nextcloud. Triar accés
+  de lectura o edició, gestionar permisos i retirar una compartició directa.
+- Assignar targetes als membres del tauler i veure'n les icones al tauler.
+  Les assignacions es conserven també en els esborranys sense connexió.
+- Reaccionar als comentaris amb sis emojis. Campbase agrupa aquestes respostes
+  breus i esmenta l'autor per avisar-lo amb el sistema de notificacions de Deck.
+  Altres clients les mostren i les compten com a comentaris normals. Els avisos
+  respecten les opcions de notificació del destinatari a Nextcloud.
+- Llegir i escriure comentaris amb icona, nom, usuari, data i hora. El selector
+  **@** permet citar els membres amb el format de Nextcloud i ressalta les mencions.
+  Cada autor pot esborrar els seus comentaris amb confirmació.
+- Consultar les notificacions de Deck, l'activitat disponible i els comentaris
+  pendents, i obrir directament la secció de la targeta o el comentari corresponent.
+- Utilitzar etiquetes i triar la data límit amb un calendari i una hora local.
+- Escriure descripcions amb negreta, cursiva, subratllat, ratllat, títols, llistes,
+  citacions, codi, enllaços i imatges; enganxar imatges i desfer o refer l'edició.
+- Editar el nom del projecte, posar-hi una descripció curta, una imatge o una de
+  les 32 icones d'Adwaita. Triar entre 16 colors per a les columnes.
+- Sincronitzar automàticament o amb **F5**, treballar amb una memòria cau local
+  i revisar els conflictes sense perdre els canvis pendents.
+- Configurar el tauler d'inici, la barra lateral i el tema; consultar les dreceres.
+  Preferències separa el tema a **Aparença** i les opcions de disposició i arxivades
+  a **Vista del tauler**.
+
+La interfície està disponible en **català, euskera, gallec AGAL, castellà, occità
+aranès i anglès**. L'idioma es detecta automàticament, amb l'anglès com a alternativa.
+Pots canviar-lo a l'instant des de Preferències sense perdre els esborranys oberts.
+
+## Comptes, col·laboració i sincronització
+
+El Campbase utilitza el compte de **Comptes en línia de GNOME**. A Preferències
+s'hi mostren el nom d'usuari real de Nextcloud i el nom visible. No cal introduir
+ni desar una contrasenya pròpia dins de l'app.
+
+Les comparticions i els permisos requereixen connexió. Les edicions de targetes i
+les assignacions es conserven a la cua de canvis. Si desactives la sincronització
+automàtica, esperen fins que premis F5. Per defecte se sincronitza cada 45 segons;
+pots triar intervals d'entre 30 segons i 10 minuts.
+
+Les autoassignacions, les mencions a un mateix i els comentaris propis també
+generen avisos locals quan Deck confirma l'acció.
+
+Les notificacions depenen dels avisos i de l'activitat habilitats al servidor.
+Es consulten com a màxim un cop per minut durant la sincronització habitual;
+des de la secció de notificacions pots actualitzar-les immediatament. L'app no
+s'executa en segon pla quan està tancada. Aquesta versió comparteix taulers dins
+del mateix servidor; no inclou comparticions federades entre servidors.
+
+L'autoria de les creacions fetes amb el Campbase es desa localment i es pot
+completar amb l'activitat disponible de Deck. Quan no consta el creador d'un
+element antic, es mostra el propietari que ofereix Deck o s'indica que l'autoria
+no està disponible. No s'atribueixen les columnes antigues al compte connectat.
+
+Les descripcions, les imatges del projecte i els colors de columna són locals,
+perquè Deck no ofereix camps sincronitzables per a aquesta presentació. El nom
+del projecte, les targetes, les etiquetes, les assignacions i els comentaris sí
+que es desen a Nextcloud. El subratllat es desa amb `<u>` i pot variar en altres
+clients; el contingut HTML mai no s'executa.
+
+## Dreceres
+
+| Acció | Drecera |
+|---|---|
+| Mostra o amaga els taulers | F9 |
+| Cerca al tauler | Ctrl+F |
+| Sincronitza | F5 o Ctrl+R |
+| Targeta nova | Ctrl+N |
+| Preferències | Ctrl+P o Ctrl+, |
+| Totes les dreceres | Ctrl+? |
+
+## Instal·lació i proves
+
+El projecte es publica com a codi font i inclou un manifest Flatpak. Encara no
+està publicat a Flathub.
+
+```sh
+flatpak-builder --user --install --force-clean build cat.cesk.Campbase.json
+flatpak run cat.cesk.Campbase
+```
+
+Per treballar des del codi font, consulta les dependències del [README anglès](README.md).
+El mode de demostració utilitza dades de prova i una memòria cau temporal, sense
+accedir a comptes reals:
+
+```sh
+python3 scripts/compile_translations.py
+python3 -m campbase --demo
+python3 -m unittest discover -s tests -v
+```
+
+Les dades privades del Flatpak es desen a `~/.var/app/cat.cesk.Campbase/`. Les
+credencials les gestiona GNOME i les peticions autenticades no segueixen
+redireccions. Les proves d'escriptura utilitzen un servidor HTTP local de prova.
+
+Encara no hi ha gestió general de tots els adjunts, edició o eliminació
+d'etiquetes ni una paperera pròpia.
+
+## Projecte i llicència
+
+El Campbase és programari lliure sota **GPL-3.0-or-later**. Consulta [LICENSE](LICENSE)
+i [NOTICE](NOTICE). Copyright © 2026 Cesk Freixas. Les metadades són CC0-1.0;
+les dependències mantenen les seves llicències. Les icones del sistema són d'Adwaita.
+És una app independent, sense vinculació oficial amb Nextcloud ni GNOME.
+
+A «Quant al Campbase» trobaràs les novetats de la versió, els crèdits, la web de
+Cesk Freixas i un enllaç per donar suport al projecte. Les novetats es mantenen a
+`campbase/releases.py` i s'exporten amb `scripts/release_notes.py`. El procés de
+cada versió està recollit a [AGENTS.md](AGENTS.md).

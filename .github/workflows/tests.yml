@@ -1,0 +1,42 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y python3-gi gir1.2-gtk-4.0 gir1.2-adw-1 xvfb python3-venv libxtst6 gettext
+      - run: /usr/bin/python3 -m venv --system-site-packages .venv && .venv/bin/pip install -r requirements.txt
+      - run: python3 scripts/compile_translations.py
+      - run: .venv/bin/python -m unittest discover -s tests -v
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/ui_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/rich_text_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/selectors_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/interactions_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_ARCHIVE_DROP=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
+      - name: Check archived-card dragging
+        run: |
+          for archive in 0 1; do
+            xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_ARCHIVED_SOURCE=1 CAMPBASE_ARCHIVE_DROP=$archive PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py || exit 1
+          done
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/refinement_smoke.py
+      - run: |
+          for lang in ca eu gl es oc en; do
+            xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=$lang PYTHONPATH=. .venv/bin/python tests/languages_smoke.py || exit 1
+          done
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/labels_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/preferences_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/live_language_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/column_layout_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/license_smoke.py
+      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/collaboration_smoke.py
+      - name: Check archive, collaboration and dialog workflows
+        run: |
+          failed=0
+          for test in archive_preferences_drop archived_columns board_deletion card_controls comment_deletion dialog_layout notification_navigation workspace_refresh sync_interaction reactions; do
+            xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=.:tests .venv/bin/python tests/${test}_smoke.py || failed=1
+          done
+          exit "$failed"
