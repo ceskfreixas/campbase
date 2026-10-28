@@ -13,6 +13,7 @@ from .about import about_dialog
 from .account import Account
 from .assets import Assets
 from .avatars import AvatarLoader
+from .comment_count_loader import CommentCountLoader
 from .dragging import DragSession
 from .project import board_header
 from .deck import Deck
@@ -56,6 +57,7 @@ class Window(Adw.ApplicationWindow):
         self._manual_account_sync = False
         self.engine = SyncEngine(store, self.account, GLib.idle_add, self.sync_changed)
         self.avatar_loader = AvatarLoader(self)
+        self.comment_counts = CommentCountLoader(self)
         if "startup_sidebar" not in settings:
             self.store.set_setting("startup_sidebar", settings.get("sidebar", False))
             settings = self.store.settings()
@@ -248,6 +250,7 @@ class Window(Adw.ApplicationWindow):
         self.refresh_archive_sections()
 
     def refresh_archive_sections(self, stack_id=None):
+        self.comment_counts.last_refresh = None
         self.scroll_position.prepare((self.board_id, self.query, self.only_mine))
         def refresh(widget):
             if isinstance(widget, Column):
@@ -266,6 +269,7 @@ class Window(Adw.ApplicationWindow):
         else:
             ui.text(self.board_count_label, 'text', self.card_count_text())
             self.scroll_position.restore()
+        self.comment_counts.refresh(self.snapshot, self.board_id)
 
     def filter_mine(self, button):
         self.only_mine = button.get_active()
@@ -293,7 +297,7 @@ class Window(Adw.ApplicationWindow):
             return "#e98d26"
         return "#9141ac"
 
-    def render(self):
+    def render(self, snapshot=None):
         if self.dragged_card:
             self._render_after_drag = True
             return
@@ -301,7 +305,7 @@ class Window(Adw.ApplicationWindow):
             return
         self._rendering = True
         try:
-            self.snapshot = self.store.view()
+            self.snapshot = snapshot if snapshot is not None else self.store.view()
             boards = self.snapshot.get("boards", [])
             if boards and self._startup_board_pending:
                 preferred = self.store.settings().get("startup_board_id") or self._last_board_id
@@ -369,6 +373,7 @@ class Window(Adw.ApplicationWindow):
             self._rendering = False
             self.update_status()
             self.update_notification_badge()
+            self.comment_counts.refresh(self.snapshot, self.board_id)
 
     def retranslate(self):
         if self.engine.closed:
@@ -437,13 +442,15 @@ class Window(Adw.ApplicationWindow):
         self.banner.set_revealed(bool(self.engine.error) and not self.demo)
 
     def sync_changed(self):
-        if self.store.view() != self.snapshot:
+        fresh = self.store.view()
+        if fresh != self.snapshot:
             if self._open_column_menu and self._open_column_menu.get_mapped():
                 self._render_after_menu = True
             else:
-                self.render()
+                self.render(snapshot=fresh)
         self.update_status()
         self.update_notification_badge()
+        self.comment_counts.refresh(fresh, self.board_id)
         return GLib.SOURCE_REMOVE
 
     def column_menu_closed(self, menu):
@@ -728,5 +735,6 @@ class Window(Adw.ApplicationWindow):
         if self._sync_feedback_timer:
             GLib.source_remove(self._sync_feedback_timer)
         self.avatar_loader.close()
+        self.comment_counts.close()
         self.engine.close()
         return False

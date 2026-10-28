@@ -299,13 +299,30 @@ class Deck(CollaborationAPI):
             raise ConflictError(_("No es pot confirmar la creació. Revisa Deck abans de tornar a enviar aquesta targeta."))
         return self.get_card(board_id, stack_id, result["id"]) if result.get("stackId") is None else dict(result, boardId=board_id)
 
-    def comments(self, card_id, offset=0):
-        result = self.request("GET", f"/cards/{card_id}/comments?limit=50"+(f'&offset={int(offset)}' if offset else ''), ocs=True)
+    def comments(self, card_id, offset=0, *, limit=50):
+        result = self.request("GET", f"/cards/{card_id}/comments?limit={int(limit)}"+(f'&offset={int(offset)}' if offset else ''), ocs=True)
         if result is None:
             return []
         if not isinstance(result, list) or any(not isinstance(item, dict) for item in result):
             raise DeckError(_("No s'han pogut llegir els comentaris de Deck."))
         return result
+
+    def comment_summary(self, card_id, expected_total, keep_reading=lambda: True):
+        from .comment_reactions import reaction
+        seen, text_count = set(), 0
+        for offset in range(0, expected_total, 200):
+            if not keep_reading():
+                return None
+            page = self.comments(card_id, offset, limit=200)
+            for item in page:
+                key = item.get('id')
+                if key is None or str(key) in seen:
+                    return None
+                seen.add(str(key))
+                text_count += reaction(item) is None
+            if len(page) < 200:
+                break
+        return text_count if len(seen) == expected_total else None
 
     def comments_for_update(self, card_id, target):
         from .update_targets import matches_comment

@@ -101,7 +101,9 @@ class CommentsPanel(Gtk.Box):
         # A short first page is the complete count. A notification may load a
         # later page, and must never overwrite the server's total with its size.
         if not self.window.demo and not error and not self.target and len(result or []) < 50:
-            self.window.store.comment_count(self.board_id, self.card['id'], count=len(result or []))
+            from .comment_reactions import reaction
+            self.window.store.comment_count(self.board_id, self.card['id'], count=len(result or []),
+                                            text_count=sum(reaction(item) is None for item in result or []))
         if not error:
             self.window.sync_changed()
         if error:

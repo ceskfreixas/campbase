@@ -156,7 +156,11 @@ class Store:
 
     def operations(self):
         with self.connect() as db:
-            rows = db.execute("SELECT * FROM outbox ORDER BY id").fetchall()
+            return self._operations(db)
+
+    @staticmethod
+    def _operations(db):
+        rows = db.execute("SELECT * FROM outbox ORDER BY id").fetchall()
         return [dict(row) | {"payload": json.loads(row["payload"])} for row in rows]
 
     def enqueue(self, kind, payload, undo=None):
@@ -323,26 +327,24 @@ class Store:
                 db.execute("DELETE FROM outbox WHERE id=?", (operation["id"],))
 
     def view(self):
-        return self.project(self.get("snapshot", {"boards": [], "stacks": {}}), self.operations())
-
-    def comment_count(self, board_id, card_id, *, count=None, delta=0):
-        """Refresh just a confirmed comment count without replacing card drafts."""
+        from .comment_counts import decorate
         with self.connect() as db:
-            db.execute('BEGIN IMMEDIATE')
-            row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()
-            if row is None:
-                return
-            snapshot = json.loads(row[0])
-            for stack in snapshot.get('stacks', {}).get(str(board_id), []):
-                for card in stack.get('cards', []):
-                    if card['id'] == card_id:
-                        previous = card.get('commentsCount')
-                        if count is not None or isinstance(previous, int):
-                            updated = max(0, count if count is not None else previous+delta)
-                            if updated != previous:
-                                card['commentsCount'] = updated
-                                self._put(db, 'snapshot', snapshot)
-                        return
+            db.execute('BEGIN')
+            state = {row['key']: row['value'] for row in db.execute(
+                "SELECT key,value FROM state WHERE key IN ('snapshot','comment_counts')")}
+            operations = self._operations(db)
+        snapshot = json.loads(state.get('snapshot', '{"boards":[],"stacks":{}}'))
+        return decorate(self.project(snapshot, operations), json.loads(state.get('comment_counts', '{}')))
+
+    def comment_count(self, board_id, card_id, *, count=None, delta=0, text_count=None, reaction_delta=0):
+        """Refresh just a confirmed comment count without replacing card drafts."""
+        from .comment_counts import change_count
+        change_count(self, board_id, card_id, count=count, delta=delta,
+                     text_count=text_count, reaction_delta=reaction_delta)
+
+    def comment_summary(self, board_id, card_id, total, text, revision):
+        from .comment_counts import confirm_summary
+        return confirm_summary(self, board_id, card_id, total, text, revision)
 
     @staticmethod
     def project(snapshot, operations):

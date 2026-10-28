@@ -31,6 +31,7 @@ work with other people and keep the same boards available in the Android Deck ap
   Dragging keeps the viewport fixed. Column menus remain open when background
   updates arrive, and assignee avatars stay visible during synchronization.
   A compact comment count appears beside the title without adding another row.
+  Campbase excludes emoji reactions from this count using cached background reads.
 - Share boards with users on the same Nextcloud server. Choose initial read or
   edit access, manage edit/share/management permissions and remove direct access.
 - Assign cards to board members. See assignees on the board and edit them in the

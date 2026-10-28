@@ -50,10 +50,14 @@ with tempfile.TemporaryDirectory() as folder:
  assert badge.get_parent() is heading and first_card.card_widget.get_child().get_first_child() is heading
  ok,t=title.compute_bounds(first_card);assert ok
  ok,c=badge.compute_bounds(first_card);assert ok
- assert abs(t.origin.y+t.size.height/2-c.origin.y-c.size.height/2)<1
- for part in (badge.get_first_child(),badge.get_last_child()):
-  ok,p=part.compute_bounds(first_card);assert ok
-  assert abs(c.origin.y+c.size.height/2-p.origin.y-p.size.height/2)<1
+ def ink_center(text):
+  ok,b=text.compute_bounds(first_card);assert ok
+  _,y=text.get_layout_offsets();ink,_=text.get_layout().get_pixel_extents()
+  return b.origin.y+y+ink.y+ink.height/2
+ target_center=ink_center(title)
+ assert abs(target_center-ink_center(badge.get_last_child()))<=1
+ ok,p=badge.get_first_child().compute_bounds(first_card);assert ok
+ assert abs(target_center-p.origin.y-p.size.height/2)<=1
  adjustment=w.scroll.get_vadjustment();ok,bounds=column.compute_bounds(w.board_body);assert ok
  adjustment.set_value(bounds.origin.y-80);settle();position=adjustment.get_value();assert position>200
  for visible in (True,False,True):

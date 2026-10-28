@@ -98,10 +98,12 @@ class Card(Gtk.Button):
             ui.accessible(indicator, [Gtk.AccessibleProperty.LABEL], [status])
             indicator.add_css_class("card-sync-warning" if card.get("_blocked") else "card-sync-pending")
             heading.append(indicator)
-        count = card.get('commentsCount')
+        count = card.get('_textCommentsCount', card.get('commentsCount') if window.demo else None)
         if isinstance(count, int) and count > 0:
             text = ngettext("{count} comentari", "{count} comentaris", count).format(count=count)
-            comments = ui.create(Gtk.Box, spacing=3, valign=Gtk.Align.CENTER, tooltip_text=text)
+            # Caption ink sits above its line-box centre. This optical offset
+            # aligns the small glyphs with the title, including wrapped titles.
+            comments = ui.create(Gtk.Box, spacing=3, valign=Gtk.Align.CENTER, margin_top=4, tooltip_text=text)
             comments.add_css_class('card-comment-count')
             comments.add_css_class('dim-label')
             ui.accessible(comments, [Gtk.AccessibleProperty.LABEL], [text])

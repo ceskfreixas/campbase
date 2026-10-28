@@ -238,7 +238,7 @@ Status-only changes update the header without rebuilding the board. A changed
 snapshot waits for an open column menu to close before replacing its widgets.
 Mouse/programmatic focus does not hide assignees; hover and visible keyboard
 focus reveal the contextual controls. The comment counter sits beside the card
-title, using the server's commentsCount without per-card requests. Confirmed
+title, keeping the server's raw commentsCount separately from classified totals. Confirmed
 comment additions/deletions adjust the cached total; a complete first page can
 refresh it, while paginated notification results never replace it with page size.
 
@@ -255,7 +255,8 @@ an allowlisted emoji and an exact mention of the original author. They remain
 ordinary comments on the server, preserving interoperability and native mention
 notifications without an administrator-installed extension. Campbase groups only
 exact emoji/author replies with a server-confirmed replyTo parent; arbitrary
-text remains visible. Counts include these replies. Each user can remove their
+text remains visible. Other Deck clients count these replies; Campbase excludes
+them from its card counter. Each user can remove their
 own reaction by deleting their own reply; no other user's reaction is deleted.
 A lost write response triggers a read, never an automatic second POST. Reaction
 notifications navigate to the parent and highlighted reaction group, even when
@@ -266,3 +267,17 @@ Notifications alone attaches a capture-phase click controller to its parent
 window while presented. A primary click outside the dialog content closes it
 and claims the event, preventing the underlying board from acting on that click.
 A child confirmation dialog takes precedence. The controller is removed on close.
+
+Comment classification reads run on a separate two-worker pool, with at most two
+pending jobs. Only visible cards with comments are read, with 200 comments per
+page. Results are cached for five minutes, invalidated immediately when the raw
+total changes, and updated locally after confirmed comment/reaction writes.
+Card moves and unrelated lastModified changes do not trigger new count requests.
+Repeated status updates coalesce before reading the cache. Failures back off for
+one minute; account/board changes and closure cancel remaining pages and discard
+old results. A complete page count must match the expected raw total before it
+can be cached. Until classification is known, no misleading combined total is
+shown. Pagination still cannot provide an atomic server snapshot; a net-zero
+change in comment/reaction membership is reconciled by the next cache refresh.
+Snapshot, outbox and count projection use one SQLite read transaction, and an
+already-read snapshot is passed through to rendering instead of decoded twice.

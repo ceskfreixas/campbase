@@ -54,6 +54,13 @@ try:
         assert reply['message']=='👍 @bob' and reply['replyTo']['id']=='1'
         assert len(group_comments(server.comments)[0])==2
         assert store.view()['stacks']['1'][0]['cards'][0]['commentsCount']==3
+        assert store.view()['stacks']['1'][0]['cards'][0]['_textCommentsCount']==2
+        assert panel.comments.get_first_child().get_last_child().get_margin_top()==7
+        # A fresh cache also classifies existing replies without opening comments.
+        from campbase.comment_count_loader import CommentCountLoader
+        window.comment_counts.close();window.comment_counts=CommentCountLoader(window)
+        store.put('comment_counts',{});window.render()
+        settle(lambda:store.view()['stacks']['1'][0]['cards'][0].get('_textCommentsCount')==2)
         target={'section':'comments','comment_id':str(reply['id'])}
         panel.target=target;panel.display(server.comments,None)
         assert panel.target_widget is panel.comments.get_first_child()

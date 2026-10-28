@@ -129,7 +129,7 @@ class AccountDialog(Adw.Dialog):
                 window.engine.api = Deck(candidate)
                 window.account_loading = False
                 if not same:
-                    for key, empty in [('creators', {}), ('updates', {}), ('updates_read', []), ('profile', {}), ('local_notices', []), ('updates_hidden', [])]:
+                    for key, empty in [('creators', {}), ('updates', {}), ('updates_read', []), ('profile', {}), ('local_notices', []), ('updates_hidden', []), ('comment_counts', {})]:
                         window.store.put(key, empty)
                     window.store.put("board_metadata", {})
                     window.store.set_setting("colors", {})

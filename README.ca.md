@@ -31,6 +31,7 @@ treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 - Mantenir la vista fixa durant l'arrossegament, els menús de columna oberts
   mentre arriben actualitzacions i els avatars dels assignats durant la sincronització.
   Consultar un recompte discret de comentaris al costat del títol, sense afegir cap fila.
+  Aquest recompte exclou les reaccions i es calcula en segon pla amb memòria cau.
 - Compartir taulers amb usuaris del mateix servidor de Nextcloud. Triar accés
   de lectura o edició, gestionar permisos i retirar una compartició directa.
 - Assignar targetes als membres del tauler i veure'n les icones al tauler.
