@@ -30,7 +30,7 @@ class CommentCountLoader:
         if signature == self.last_refresh:
             return
         self.last_refresh = signature
-        visible = {card['id'] for stack in stacks for card in self.window.filtered_cards(stack)}
+        visible = {card['id'] for stack in stacks for card in self.window.matching_cards(stack)}
         self.visible_ids = frozenset(visible)
         cards = [card for card in cards if card['id'] in visible]
         if not cards:

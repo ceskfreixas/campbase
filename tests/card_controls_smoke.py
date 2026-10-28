@@ -5,6 +5,7 @@ import gi
 gi.require_version('Gtk','4.0');gi.require_version('Adw','1')
 from gi.repository import Adw,Gtk,Gdk,GLib
 import tempfile,time
+from unittest.mock import patch
 from pathlib import Path
 from campbase.storage import Store
 from campbase.window import Window
@@ -36,6 +37,9 @@ with tempfile.TemporaryDirectory() as folder:
  remember_creator(store,'card',2001,owner)
  w=Window(app,store,True);w.set_default_size(1000,700);w.present();settle()
  column=next(c for c in descendants(w) if isinstance(c,Column) and c.stack['id']==20)
+ with patch.object(store,'settings',wraps=store.settings) as settings:
+  w.matching_cards(column.stack)
+  assert settings.call_count==1
  menu=column.get_first_child().get_last_child();first_card=column.drop.widgets[0]
  assert isinstance(first_card,ActiveCard)
  controls=first_card.drag_handle.get_parent()

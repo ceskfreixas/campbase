@@ -222,21 +222,27 @@ class Window(Adw.ApplicationWindow):
     def find_card(self, card_id):
         return next((c for s in self.stacks() for c in s.get("cards", []) if c["id"] == card_id), None)
 
-    def filtered_cards(self, stack):
-        cards = [c for c in stack.get('cards', []) if not c.get('archived') or self.shows_archived(stack['id'])]
+    def matching_cards(self, stack):
+        cards = stack.get('cards') or []
+        # Read this column's preference once, not once for every archived card.
+        if any(card.get('archived') for card in cards) and not self.shows_archived(stack['id']):
+            cards = [card for card in cards if not card.get('archived')]
         if self.only_mine:
             from .collaboration import assignment_ids
             uid = current_person(self)['uid']
             cards = [card for card in cards if uid and uid in assignment_ids(card.get('assignedUsers'))]
         if self.query:
             cards = [c for c in cards if self.query in (c.get("title", "") + " " + (c.get("description") or "") + " " + " ".join(t.get("title", "") for t in c.get("labels") or [])).casefold()]
-        return sorted(cards, key=lambda c: (bool(c.get('archived')), c.get('order', 0), c['id']))
+        return cards
+
+    def filtered_cards(self, stack):
+        return sorted(self.matching_cards(stack), key=lambda c: (bool(c.get('archived')), c.get('order', 0), c['id']))
 
     def shows_archived(self, stack_id):
         return archives_visible(self.store.settings(), stack_id)
 
     def card_count_text(self):
-        count = sum(len(self.filtered_cards(stack)) for stack in self.stacks())
+        count = sum(len(self.matching_cards(stack)) for stack in self.stacks())
         return ngettext('{count} targeta', '{count} targetes', count).format(count=count)
 
     def show_archived(self, stack_id, visible):

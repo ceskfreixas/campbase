@@ -90,7 +90,7 @@ class BackgroundCountTests(unittest.TestCase):
         self.engine = SyncEngine(self.store, dispatch=lambda fn,*args:self.callbacks.put((fn,args)))
         self.engine.api = self.api
         self.window = SimpleNamespace(engine=self.engine,store=self.store,demo=False,board_id=1,
-                                      query='',only_mine=False,filtered_cards=lambda stack:stack['cards'])
+                                      query='',only_mine=False,matching_cards=lambda stack:stack['cards'])
         self.loader = CommentCountLoader(self.window)
         def cleanup():
             self.release.set();self.loader.close();self.loader.executor.shutdown(wait=True)
