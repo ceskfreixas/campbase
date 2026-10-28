@@ -115,7 +115,9 @@ try:
    # editor immediately must not turn this synthetic press into a double-click.
    sx,sy=s.origin.x+40,s.origin.y+s.size.height/2
    tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if archive_drop else 4)
-  motion(sx,sy);button(True);motion(sx+24,sy+5);settle(.2)
+  motion(sx,sy);button(True);motion(sx+24,sy+5)
+  deadline=time.monotonic()+2
+  while not w.dragged_card and time.monotonic()<deadline:settle(.05)
   assert w.dragged_card and w.dragged_card['id']==101
   assert source.has_css_class('drag-source')
   drag=(source.handle_drag if use_handle else source.drag).controller.get_drag();assert drag
