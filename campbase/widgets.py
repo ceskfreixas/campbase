@@ -100,19 +100,8 @@ class Card(Gtk.Button):
             heading.append(indicator)
         count = card.get('_textCommentsCount', card.get('commentsCount') if window.demo else None)
         if isinstance(count, int) and count > 0:
-            text = ngettext("{count} comentari", "{count} comentaris", count).format(count=count)
-            # Caption ink sits above its line-box centre. This optical offset
-            # aligns the small glyphs with the title, including wrapped titles.
-            comments = ui.create(Gtk.Box, spacing=3, valign=Gtk.Align.CENTER, margin_top=4, tooltip_text=text)
-            comments.add_css_class('card-comment-count')
-            comments.add_css_class('dim-label')
-            ui.accessible(comments, [Gtk.AccessibleProperty.LABEL], [text])
-            # An odd-sized icon shares the caption digits' half-pixel ink centre.
-            comments.append(Gtk.Image(icon_name='cat.cesk.Campbase-comments-symbolic', pixel_size=13,
-                                      valign=Gtk.Align.CENTER))
-            comments.append(label(str(count) if count < 100 else '99+', 'caption',
-                                  valign=Gtk.Align.CENTER, yalign=.5))
-            heading.append(comments)
+            from .comment_badge import comment_badge
+            heading.append(comment_badge(count))
         box.append(heading)
         metadata = (Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, column_spacing=6, row_spacing=4,
                                 min_children_per_line=1, max_children_per_line=4, valign=Gtk.Align.CENTER)

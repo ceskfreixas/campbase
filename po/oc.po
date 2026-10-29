@@ -1572,5 +1572,5 @@ msgstr "Ligam copiat."
 msgid "Enllaços i selecció"
 msgstr "Ligams e seleccion"
 
-msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
-msgstr "Còpia eth ligam d'un tablèu entà enviar-lo as membres autorizadi. Eth selector de reaccions se daurís sense cap emoji seleccionat. Mès espaci entre era casa de seleccion e er avatar en assignar targetes, e recompte de comentaris alinhat damb era icòna. Eth ligam de supòrt seguís era lengua dera aplicacion."
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació. Els botons d'edició i de reaccions mantenen un estat neutre, i el botó de copiar conserva marges verticals."
+msgstr "Còpia eth ligam d'un tablèu entà enviar-lo as membres autorizadi. Eth selector de reaccions se daurís sense cap emoji seleccionat. Mès espaci entre era casa de seleccion e er avatar en assignar targetes, e recompte de comentaris alinhat damb era icòna. Eth ligam de supòrt seguís era lengua dera aplicacion. Es botons d'edicion e de reaccions manten un estat neutre, e eth boton de copiar consèrve marges verticaus."

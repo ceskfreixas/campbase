@@ -17,7 +17,7 @@ def sections():
         (_("Col·laboració als taulers"),
          _("Comparteix taulers i gestiona els permisos. Identifica els participants amb la seva imatge, assigna targetes i cita membres amb @, amb suggeriments i mencions ressaltades. Reacciona als comentaris amb sis emojis. Es desen com a respostes amb una menció per avisar-ne l'autor; Campbase les agrupa i altres clients les mostren com a comentaris. Més espai i una icona més clara per reaccionar als comentaris.")),
         (_("Enllaços i selecció"),
-         _("Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació.")),
+         _("Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació. Els botons d'edició i de reaccions mantenen un estat neutre, i el botó de copiar conserva marges verticals.")),
         (_("Notificacions a mà"),
          _("Consulta comentaris, mencions, assignacions i comparticions, també de les teves accions. Obre el lloc relacionat amb cada avís i esborra'ls individualment o tots de cop.")),
         (_("Dates i identitat"),

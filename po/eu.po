@@ -1572,5 +1572,5 @@ msgstr "Esteka kopiatu da."
 msgid "Enllaços i selecció"
 msgstr "Estekak eta hautapena"
 
-msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
-msgstr "Kopiatu taula baten esteka baimendutako kideei bidaltzeko. Erreakzioen hautatzailea emojirik hautatu gabe irekitzen da. Tarte handiagoa dago kontrol-laukiaren eta abatarraren artean txartelak esleitzean, eta iruzkin kopurua ikonoarekin lerrokatuta dago. Laguntza-estekak aplikazioaren hizkuntza jarraitzen du."
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació. Els botons d'edició i de reaccions mantenen un estat neutre, i el botó de copiar conserva marges verticals."
+msgstr "Kopiatu taula baten esteka baimendutako kideei bidaltzeko. Erreakzioen hautatzailea emojirik hautatu gabe irekitzen da. Tarte handiagoa dago kontrol-laukiaren eta abatarraren artean txartelak esleitzean, eta iruzkin kopurua ikonoarekin lerrokatuta dago. Laguntza-estekak aplikazioaren hizkuntza jarraitzen du. Editatzeko eta erreakzionatzeko botoiek egoera neutroa mantentzen dute, eta kopiatzeko botoiak tarteak ditu goian eta behean."

@@ -54,15 +54,26 @@ with tempfile.TemporaryDirectory() as folder:
  assert badge.get_parent() is heading and first_card.card_widget.get_child().get_first_child() is heading
  ok,t=title.compute_bounds(first_card);assert ok
  ok,c=badge.compute_bounds(first_card);assert ok
- def ink_center(text):
-  ok,b=text.compute_bounds(first_card);assert ok
+ def ink_center(text,root=first_card):
+  ok,b=text.compute_bounds(root);assert ok
   _,y=text.get_layout_offsets();ink,_=text.get_layout().get_pixel_extents()
   return b.origin.y+y+ink.y+ink.height/2
  target_center=ink_center(title)
  assert abs(target_center-ink_center(badge.get_last_child()))<=1
  ok,p=badge.get_first_child().compute_bounds(first_card);assert ok
  assert abs(target_center-p.origin.y-p.size.height/2)<=1
- assert abs(ink_center(badge.get_last_child())-p.origin.y-p.size.height/2)<=.5
+ assert abs(ink_center(badge.get_last_child())-p.origin.y-p.size.height*7/16)<=.5
+ # Cantarell has different line metrics from the isolated display's Sans font.
+ settings=Gtk.Settings.get_default();original_font=settings.get_property('gtk-font-name')
+ settings.set_property('gtk-font-name','Cantarell 11')
+ for count in (2,12,123):
+  sample=ActiveCard(dict(first_card.card,commentsCount=count),w)
+  w.board_body.append(sample);settle()
+  counter=next(node for node in descendants(sample) if node.has_css_class('card-comment-count'))
+  _,image=counter.get_first_child().compute_bounds(sample)
+  assert abs(ink_center(counter.get_last_child(),sample)-image.origin.y-image.size.height*7/16)<=.5
+  w.board_body.remove(sample)
+ settings.set_property('gtk-font-name',original_font);settle()
  adjustment=w.scroll.get_vadjustment();ok,bounds=column.compute_bounds(w.board_body);assert ok
  adjustment.set_value(bounds.origin.y-80);settle();position=adjustment.get_value();assert position>200
  for visible in (True,False,True):

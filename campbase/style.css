@@ -97,6 +97,8 @@ button.color-swatch.swatch-c7a600, button.color-swatch.swatch-62a0ea { color: #1
 .column-menu:focus { outline: none; }
 
 .support-heart { color: @error_color; }
+.project-edit:not(:hover):not(:active):not(:focus-visible),
+.reaction-selector > button:checked:not(:focus-visible) { background: transparent; box-shadow: none; }
 .label-choices > flowboxchild { padding: 0; }
 button.label-choice { min-height: 24px; padding: 4px 8px; }
 .fixed-columns .board-column { padding: 10px; }

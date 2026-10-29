@@ -1572,5 +1572,5 @@ msgstr "Enlace copiado."
 msgid "Enllaços i selecció"
 msgstr "Enlaces y selección"
 
-msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
-msgstr "Copia el enlace de un tablero para enviarlo a los miembros autorizados. El selector de reacciones se abre sin ningún emoji seleccionado. Más espacio entre la casilla y el avatar al asignar tarjetas, y el recuento de comentarios alineado con su icono. El enlace de apoyo sigue el idioma de la aplicación."
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació. Els botons d'edició i de reaccions mantenen un estat neutre, i el botó de copiar conserva marges verticals."
+msgstr "Copia el enlace de un tablero para enviarlo a los miembros autorizados. El selector de reacciones se abre sin ningún emoji seleccionado. Más espacio entre la casilla y el avatar al asignar tarjetas, y el recuento de comentarios alineado con su icono. El enlace de apoyo sigue el idioma de la aplicación. Los botones de edición y reacciones mantienen un estado neutro, y el botón de copiar conserva márgenes verticales."

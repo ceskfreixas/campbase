@@ -2,10 +2,11 @@
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 """Shared emoji replies, own-reaction removal and direct notification navigation."""
 import copy, http.server, tempfile, threading, time
+from pathlib import Path
 from types import SimpleNamespace
 import gi
 gi.require_version('Gtk', '4.0');gi.require_version('Adw', '1')
-from gi.repository import Adw, Gtk, GLib
+from gi.repository import Adw, Gdk, Gtk, GLib
 from test_collaboration import Fixture, USERS
 from campbase.storage import Store
 from campbase.window import Window
@@ -14,6 +15,8 @@ from campbase.comment_reactions import group_comments
 from campbase.reaction_widgets import react
 
 app=Adw.Application(application_id='cat.cesk.Campbase.ReactionCheck');app.register(None)
+css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
+Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle(until=lambda:True):
     end=time.monotonic()+5
     while time.monotonic()<end:
@@ -49,11 +52,13 @@ try:
         # navigation still reaches the choices after deliberately moving focus.
         picker=own_controls.get_last_child();picker.popup();settle()
         popover=picker.get_popover();choices=popover.get_child()
+        assert picker.has_css_class('reaction-selector') and not picker.get_has_tooltip()
         assert popover.has_focus()
         assert not choices.get_first_child().has_focus() and not server.writes
         assert popover.child_focus(Gtk.DirectionType.TAB_FORWARD)
         assert choices.get_first_child().has_focus()
         popover.popdown();settle()
+        assert picker.get_has_tooltip()
         panel.entry.set_text('Esborrany conservat')
         parent=copy.deepcopy(server.comments[0])
         react(panel,parent,'👍',[])

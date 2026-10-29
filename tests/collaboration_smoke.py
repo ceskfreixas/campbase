@@ -112,6 +112,10 @@ try:
     loading_height=share.content_box.get_height()
     settle(lambda:not share.busy);settle()
     assert share.content_box.get_height()<loading_height
+    assert share.copy_button.get_valign()==Gtk.Align.CENTER
+    assert share.copy_button.get_margin_top()==share.copy_button.get_margin_bottom()==8
+    ok,copy_bounds=share.copy_button.compute_bounds(share.link_row);assert ok
+    assert copy_bounds.origin.y>=8 and share.link_row.get_height()-copy_bounds.origin.y-copy_bounds.size.height>=8
     writes=len(server.writes);share.copy_button.emit('clicked');copied=[]
     clipboard=share.copy_button.get_clipboard()
     clipboard.read_text_async(None,lambda item,result:copied.append(item.read_text_finish(result)))

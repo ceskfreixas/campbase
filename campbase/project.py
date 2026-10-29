@@ -41,6 +41,7 @@ def project_heading(window, board, metadata):
                        lambda *_unused: ProjectDialog(window, board).present(window))
     edit.set_sensitive(window.demo or board.get('permissions', {}).get('PERMISSION_MANAGE', True))
     edit.add_css_class("flat")
+    edit.add_css_class('project-edit')
     edit.set_valign(Gtk.Align.CENTER)
     row.append(edit)
     return row

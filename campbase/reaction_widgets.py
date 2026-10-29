@@ -20,11 +20,14 @@ def focus_picker(popover):
 def selector(panel, parent, rows):
     button = ui.create(Gtk.MenuButton, icon_name='cat.cesk.Campbase-reaction-symbolic', tooltip_text=_("Reacciona al comentari"))
     button.add_css_class('flat')
+    button.add_css_class('reaction-selector')
     # Keep keyboard navigation available without making the first emoji look
     # selected. Enter must not choose a reaction just because the menu opened.
     popover = Gtk.Popover(focusable=True)
     ui.accessible(popover, [Gtk.AccessibleProperty.LABEL], [_("Reacciona al comentari")])
     popover.connect('map', lambda item: GLib.idle_add(focus_picker, item))
+    popover.connect('map', lambda *_unused: button.set_has_tooltip(False))
+    popover.connect('unmap', lambda *_unused: button.set_has_tooltip(True))
     button.set_popover(popover)
     choices = Gtk.Box(spacing=4, margin_top=8, margin_bottom=8, margin_start=8, margin_end=8)
     titles = (_("M'agrada"), _("M'encanta"), _("Em fa riure"), _("Celebrem-ho"), _("Ho estic mirant"), _("Gràcies"))

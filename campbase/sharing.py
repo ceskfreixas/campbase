@@ -33,6 +33,9 @@ class SharingDialog(Adw.Dialog):
             subtitle=_("Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."),
             subtitle_lines=0)
         self.copy_button = icon_button('edit-copy-symbolic', _("Copia l'enllaç"), self.copy_link)
+        self.copy_button.set_valign(Gtk.Align.CENTER)
+        self.copy_button.set_margin_top(8)
+        self.copy_button.set_margin_bottom(8)
         self.copy_button.set_sensitive(bool(window.account) and board['id'] > 0 and not window.demo)
         self.link_row.add_suffix(self.copy_button)
         link_group = Adw.PreferencesGroup()
