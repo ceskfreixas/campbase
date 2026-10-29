@@ -71,6 +71,9 @@ les assignacions es conserven a la cua de canvis. Si desactives la sincronitzaci
 automàtica, esperen fins que premis F5. Per defecte se sincronitza cada 45 segons;
 pots triar intervals d'entre 30 segons i 10 minuts.
 
+Des de Comparteix el tauler pots copiar-ne l'enllaç per als membres autoritzats.
+L'enllaç no dona accés a nous usuaris ni fa públic el tauler.
+
 Les autoassignacions, les mencions a un mateix i els comentaris propis també
 generen avisos locals quan Deck confirma l'acció.
 

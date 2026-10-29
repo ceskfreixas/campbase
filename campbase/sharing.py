@@ -9,6 +9,7 @@ from .dialog_widgets import dialog_form, fit_dialog_contents, scroll_to_widget
 from .widgets import label, clear, icon_button
 from .people import identity, avatar
 from .alerts import message
+from .links import board_url
 
 PERMISSIONS = ('permissionEdit', 'permissionShare', 'permissionManage')
 
@@ -28,6 +29,15 @@ class SharingDialog(Adw.Dialog):
         intro.append(label(board['title'], 'title-3', xalign=0, wrap=True))
         intro.append(label(_("Convida usuaris del mateix servidor de Nextcloud."), 'dim-label', xalign=0, wrap=True))
         self.form.append(intro)
+        self.link_row = ui.create(Adw.ActionRow, title=_("Enllaç del tauler"),
+            subtitle=_("Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."),
+            subtitle_lines=0)
+        self.copy_button = icon_button('edit-copy-symbolic', _("Copia l'enllaç"), self.copy_link)
+        self.copy_button.set_sensitive(bool(window.account) and board['id'] > 0 and not window.demo)
+        self.link_row.add_suffix(self.copy_button)
+        link_group = Adw.PreferencesGroup()
+        link_group.add(self.link_row)
+        self.form.append(link_group)
         self.search = ui.create(Gtk.SearchEntry, placeholder_text=_("Cerca un usuari pel nom o identificador…"))
         self.search.connect('activate', self.search_users)
         search_line = Gtk.Box(spacing=8)
@@ -109,6 +119,11 @@ class SharingDialog(Adw.Dialog):
         ui.text(self.status, 'text', value)
         self.status.set_visible(bool(value))
         self.fit_contents()
+
+    def copy_link(self, *_unused):
+        if self.window.account and self.board['id'] > 0 and not self.window.demo:
+            self.copy_button.get_clipboard().set(board_url(self.window.account.server, self.board['id']))
+            self.set_status(_("Enllaç copiat."))
 
     def fit_contents(self):
         fit_dialog_contents(self)

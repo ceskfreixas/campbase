@@ -62,6 +62,7 @@ with tempfile.TemporaryDirectory() as folder:
  assert abs(target_center-ink_center(badge.get_last_child()))<=1
  ok,p=badge.get_first_child().compute_bounds(first_card);assert ok
  assert abs(target_center-p.origin.y-p.size.height/2)<=1
+ assert abs(ink_center(badge.get_last_child())-p.origin.y-p.size.height/2)<=.5
  adjustment=w.scroll.get_vadjustment();ok,bounds=column.compute_bounds(w.board_body);assert ok
  adjustment.set_value(bounds.origin.y-80);settle();position=adjustment.get_value();assert position>200
  for visible in (True,False,True):

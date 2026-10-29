@@ -16,6 +16,8 @@ def sections():
          _("Organitza els projectes amb columnes, targetes, etiquetes i dates límit. Escriu descripcions amb format i imatges, participa en els comentaris i esborra els teus quan calgui. Consulta el recompte de comentaris al costat del títol, sense afegir una fila a la targeta. El recompte del Campbase exclou les reaccions i queda centrat amb el títol.")),
         (_("Col·laboració als taulers"),
          _("Comparteix taulers i gestiona els permisos. Identifica els participants amb la seva imatge, assigna targetes i cita membres amb @, amb suggeriments i mencions ressaltades. Reacciona als comentaris amb sis emojis. Es desen com a respostes amb una menció per avisar-ne l'autor; Campbase les agrupa i altres clients les mostren com a comentaris. Més espai i una icona més clara per reaccionar als comentaris.")),
+        (_("Enllaços i selecció"),
+         _("Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació.")),
         (_("Notificacions a mà"),
          _("Consulta comentaris, mencions, assignacions i comparticions, també de les teves accions. Obre el lloc relacionat amb cada avís i esborra'ls individualment o tots de cop.")),
         (_("Dates i identitat"),

@@ -281,3 +281,22 @@ shown. Pagination still cannot provide an atomic server snapshot; a net-zero
 change in comment/reaction membership is reconciled by the next cache refresh.
 Snapshot, outbox and count projection use one SQLite read transaction, and an
 already-read snapshot is passed through to rendering instead of decoded twice.
+
+### Board links and optional communication services
+
+The sharing dialog copies the authenticated Deck web route
+`/index.php/apps/deck/board/{boardId}`, preserving a Nextcloud subdirectory.
+Copying a link performs no request and does not change an ACL, create a public
+share, or invite its recipient. The recipient still needs board access.
+
+Federated board sharing requires Deck 1.18 or newer and the server's federation
+configuration; Deck 1.17.x does not support it. This preview's member search
+remains limited to users on the same server.
+
+Private and group messaging would require an enabled Nextcloud Talk service.
+Campbase does not currently integrate Talk or emulate private messages through
+board comments. On managed installations, adding or updating those services is
+controlled by the Nextcloud provider.
+
+The support link resolves the current UI language at activation time, including
+when the About dialog remains open during a language change.

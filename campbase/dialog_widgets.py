@@ -17,7 +17,7 @@ def external_row(title, uri, subtitle=None):
                     subtitle=subtitle if subtitle is not None else uri.removeprefix('https://'),
                     tooltip_text=uri, activatable=True)
     row.add_suffix(Gtk.Image(icon_name='adw-external-link-symbolic'))
-    row.connect('activated', lambda item: Gtk.UriLauncher.new(uri).launch(item.get_root(), None, None))
+    row.connect('activated', lambda item: Gtk.UriLauncher.new(ui.render(uri)).launch(item.get_root(), None, None))
     return row
 
 

@@ -138,6 +138,15 @@ with tempfile.TemporaryDirectory() as d:
    row.emit('activated')
    launcher.assert_called_once_with(row.get_tooltip_text())
    launcher.return_value.launch.assert_called_once_with(w,None,None)
+ # Support destinations update even when About stays open across languages.
+ from campbase import i18n
+ support=next(row for row in external_rows(about.get_child()) if 'aixeta.cat' in row.get_tooltip_text())
+ for language in ('es','en','eu','gl','oc','ca'):
+  i18n.change_language(language);settle()
+  expected=f'https://ceskfreixas.aixeta.cat/{language}/subscriptions'
+  assert support.get_tooltip_text()==expected
+  with patch('campbase.dialog_widgets.Gtk.UriLauncher.new') as launcher:
+   support.emit('activated');launcher.assert_called_once_with(expected)
  about.force_close();settle()
  # Single-line and metadata-heavy cards stay vertically balanced.
  for extra in ({},{'duedate':'2027-02-03','labels':[{'title':'Etiqueta'}],'_pending':True}):

@@ -107,7 +107,8 @@ class Card(Gtk.Button):
             comments.add_css_class('card-comment-count')
             comments.add_css_class('dim-label')
             ui.accessible(comments, [Gtk.AccessibleProperty.LABEL], [text])
-            comments.append(Gtk.Image(icon_name='cat.cesk.Campbase-comments-symbolic', pixel_size=12,
+            # An odd-sized icon shares the caption digits' half-pixel ink centre.
+            comments.append(Gtk.Image(icon_name='cat.cesk.Campbase-comments-symbolic', pixel_size=13,
                                       valign=Gtk.Align.CENTER))
             comments.append(label(str(count) if count < 100 else '99+', 'caption',
                                   valign=Gtk.Align.CENTER, yalign=.5))

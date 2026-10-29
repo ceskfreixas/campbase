@@ -1556,3 +1556,21 @@ msgstr "You reacted {emoji} to a comment on “{title}”."
 
 msgid "Has reaccionat {emoji} al teu comentari de «{title}»."
 msgstr "You reacted {emoji} to your comment on “{title}”."
+
+msgid "Enllaç del tauler"
+msgstr "Board link"
+
+msgid "Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."
+msgstr "Only members with permission can access it. The link does not invite users or make the board public."
+
+msgid "Copia l'enllaç"
+msgstr "Copy link"
+
+msgid "Enllaç copiat."
+msgstr "Link copied."
+
+msgid "Enllaços i selecció"
+msgstr "Links and selection"
+
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
+msgstr "Copy a board link to send it to authorised members. The reaction picker opens without an emoji selected. More space between the checkbox and avatar when assigning cards, and comment counts aligned with their icon. The support link follows the app language."

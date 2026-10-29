@@ -1556,3 +1556,21 @@ msgstr "{emoji} erreakzionatu diozu «{title}» txarteleko iruzkin bati."
 
 msgid "Has reaccionat {emoji} al teu comentari de «{title}»."
 msgstr "{emoji} erreakzionatu diozu «{title}» txarteleko zure iruzkinari."
+
+msgid "Enllaç del tauler"
+msgstr "Taularen esteka"
+
+msgid "Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."
+msgstr "Baimena duten kideak soilik sar daitezke. Estekak ez ditu erabiltzaileak gonbidatzen eta ez du taula publiko egiten."
+
+msgid "Copia l'enllaç"
+msgstr "Kopiatu esteka"
+
+msgid "Enllaç copiat."
+msgstr "Esteka kopiatu da."
+
+msgid "Enllaços i selecció"
+msgstr "Estekak eta hautapena"
+
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
+msgstr "Kopiatu taula baten esteka baimendutako kideei bidaltzeko. Erreakzioen hautatzailea emojirik hautatu gabe irekitzen da. Tarte handiagoa dago kontrol-laukiaren eta abatarraren artean txartelak esleitzean, eta iruzkin kopurua ikonoarekin lerrokatuta dago. Laguntza-estekak aplikazioaren hizkuntza jarraitzen du."

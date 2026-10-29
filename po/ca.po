@@ -1556,3 +1556,21 @@ msgstr "Has reaccionat {emoji} a un comentari de «{title}»."
 
 msgid "Has reaccionat {emoji} al teu comentari de «{title}»."
 msgstr "Has reaccionat {emoji} al teu comentari de «{title}»."
+
+msgid "Enllaç del tauler"
+msgstr "Enllaç del tauler"
+
+msgid "Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."
+msgstr "Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."
+
+msgid "Copia l'enllaç"
+msgstr "Copia l'enllaç"
+
+msgid "Enllaç copiat."
+msgstr "Enllaç copiat."
+
+msgid "Enllaços i selecció"
+msgstr "Enllaços i selecció"
+
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
+msgstr "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."

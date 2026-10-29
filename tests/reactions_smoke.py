@@ -45,6 +45,15 @@ try:
         own_controls=panel.comments.get_last_child().get_first_child().get_last_child()
         assert isinstance(own_controls.get_first_child(),Gtk.Button)
         assert isinstance(own_controls.get_last_child(),Gtk.MenuButton)
+        # Opening a picker must not focus or activate its first emoji. Keyboard
+        # navigation still reaches the choices after deliberately moving focus.
+        picker=own_controls.get_last_child();picker.popup();settle()
+        popover=picker.get_popover();choices=popover.get_child()
+        assert popover.has_focus()
+        assert not choices.get_first_child().has_focus() and not server.writes
+        assert popover.child_focus(Gtk.DirectionType.TAB_FORWARD)
+        assert choices.get_first_child().has_focus()
+        popover.popdown();settle()
         panel.entry.set_text('Esborrany conservat')
         parent=copy.deepcopy(server.comments[0])
         react(panel,parent,'👍',[])

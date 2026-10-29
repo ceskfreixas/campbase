@@ -10,7 +10,7 @@ work with other people and keep the same boards available in the Android Deck ap
 
 [Source](https://github.com/ceskfreixas/campbase) ·
 [Issues and suggestions](https://github.com/ceskfreixas/campbase/issues) ·
-[Support the project](https://ceskfreixas.aixeta.cat/ca/subscriptions)
+[Support the project](https://ceskfreixas.aixeta.cat/en/subscriptions)
 
 ## Features
 
@@ -66,6 +66,8 @@ Use the same Nextcloud account and server as other Deck clients. Sharing and
 permission changes are explicit online operations. Card edits and assignment
 changes use the durable outbox; with automatic sync disabled they wait for F5.
 Campbase checks server permissions and confirms writes before clearing drafts.
+The sharing dialog can copy a board link for existing authorised members;
+copying it neither grants access nor makes the board public.
 
 The connected account's canonical Nextcloud username and display name appear in
 Preferences. Creation performed through Campbase is recorded locally; available

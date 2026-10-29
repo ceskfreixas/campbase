@@ -21,6 +21,15 @@ class LanguageTests(unittest.TestCase):
     def tearDown(self):
         i18n.configure()
 
+    def test_support_link_follows_live_language_and_board_links_preserve_subdirectories(self):
+        from campbase.links import support_url, board_url
+        live = i18n.Message(support_url)
+        for language in i18n.LANGUAGES:
+            i18n.configure(language, user_choice=True)
+            self.assertEqual(live.render(), f'https://ceskfreixas.aixeta.cat/{language}/subscriptions')
+        self.assertEqual(board_url('https://cloud.example.invalid/nextcloud/', 12),
+                         'https://cloud.example.invalid/nextcloud/index.php/apps/deck/board/12')
+
     def test_system_languages_and_english_fallback(self):
         for tag,expected in [('ca_ES.UTF-8','ca'),('eu_ES','eu'),('gl_ES@agal','gl'),('es_MX','es'),('oc_ES@aranese','oc'),('en_GB','en'),('fr_FR','en'),('de_DE','en'),('C.UTF-8','en')]:
             self.assertEqual(i18n.system_language({'LANG':tag}),expected)

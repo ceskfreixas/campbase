@@ -6,7 +6,8 @@ from gi.repository import Adw, Gtk
 from . import APP_ID, VERSION, SOURCE_URL, ISSUES_URL, COPYRIGHT
 from .license import LicenseDialog
 from .release_dialog import ReleaseNotesDialog
-from .i18n import _, LANGUAGES
+from .i18n import _, LANGUAGES, Message
+from .links import support_url
 from .widgets import label
 from .dialog_widgets import dialog_form, external_row
 
@@ -80,7 +81,7 @@ def about_dialog():
     form.append(acknowledgements)
     support = ui.create(Adw.PreferencesGroup, title=_("Suport"))
     support_row = external_row(_("Dona suport al Campbase"),
-                               'https://ceskfreixas.aixeta.cat/ca/subscriptions',
+                               Message(support_url),
                                subtitle='ceskfreixas.aixeta.cat')
     heart = Gtk.Image(icon_name='emote-love-symbolic',pixel_size=24)
     heart.add_css_class('support-heart');support_row.add_prefix(heart)

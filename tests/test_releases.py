@@ -28,5 +28,5 @@ class ReleaseTests(unittest.TestCase):
                 result = subprocess.run([sys.executable, str(ROOT / 'scripts/release_notes.py'),
                                          '--language', language], check=True, capture_output=True, text=True)
                 self.assertIn('Campbase', result.stdout)
-                self.assertEqual(result.stdout.count('\n- **'), 10)
+                self.assertEqual(result.stdout.count('\n- **'), 11)
                 self.assertIn('Nextcloud Deck', result.stdout)

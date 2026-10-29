@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 """Small reaction selector and shared reply-backed reaction chips."""
-from gi.repository import Gtk
+from gi.repository import GLib, Gtk
 from . import localization as ui
 from .i18n import _
 from .comment_reactions import EMOJIS, reaction, reaction_message
@@ -10,10 +10,21 @@ from .alerts import message
 from .updates import record_own_reaction
 
 
+def focus_picker(popover):
+    # GTK assigns child focus after mapping; reset it before the next frame.
+    if popover.get_mapped() and popover.get_root():
+        popover.get_root().set_focus(popover)
+    return GLib.SOURCE_REMOVE
+
+
 def selector(panel, parent, rows):
     button = ui.create(Gtk.MenuButton, icon_name='cat.cesk.Campbase-reaction-symbolic', tooltip_text=_("Reacciona al comentari"))
     button.add_css_class('flat')
-    popover = Gtk.Popover()
+    # Keep keyboard navigation available without making the first emoji look
+    # selected. Enter must not choose a reaction just because the menu opened.
+    popover = Gtk.Popover(focusable=True)
+    ui.accessible(popover, [Gtk.AccessibleProperty.LABEL], [_("Reacciona al comentari")])
+    popover.connect('map', lambda item: GLib.idle_add(focus_picker, item))
     button.set_popover(popover)
     choices = Gtk.Box(spacing=4, margin_top=8, margin_bottom=8, margin_start=8, margin_end=8)
     titles = (_("M'agrada"), _("M'encanta"), _("Em fa riure"), _("Celebrem-ho"), _("Ho estic mirant"), _("Gràcies"))

@@ -1556,3 +1556,21 @@ msgstr "As reaccionat {emoji} a un comentari de «{title}»."
 
 msgid "Has reaccionat {emoji} al teu comentari de «{title}»."
 msgstr "As reaccionat {emoji} ath tòn comentari de «{title}»."
+
+msgid "Enllaç del tauler"
+msgstr "Ligam deth tablèu"
+
+msgid "Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."
+msgstr "Sonque i pòden accedir es membres damb permís. Eth ligam non convide usatgèrs ne hè public eth tablèu."
+
+msgid "Copia l'enllaç"
+msgstr "Còpia eth ligam"
+
+msgid "Enllaç copiat."
+msgstr "Ligam copiat."
+
+msgid "Enllaços i selecció"
+msgstr "Ligams e seleccion"
+
+msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació."
+msgstr "Còpia eth ligam d'un tablèu entà enviar-lo as membres autorizadi. Eth selector de reaccions se daurís sense cap emoji seleccionat. Mès espaci entre era casa de seleccion e er avatar en assignar targetes, e recompte de comentaris alinhat damb era icòna. Eth ligam de supòrt seguís era lengua dera aplicacion."

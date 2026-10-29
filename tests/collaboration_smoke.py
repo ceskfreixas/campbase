@@ -112,6 +112,12 @@ try:
     loading_height=share.content_box.get_height()
     settle(lambda:not share.busy);settle()
     assert share.content_box.get_height()<loading_height
+    writes=len(server.writes);share.copy_button.emit('clicked');copied=[]
+    clipboard=share.copy_button.get_clipboard()
+    clipboard.read_text_async(None,lambda item,result:copied.append(item.read_text_finish(result)))
+    settle(lambda:bool(copied))
+    assert copied==[f'{api.server}/index.php/apps/deck/board/1'] and len(server.writes)==writes
+    share.set_status('');settle()
     server.board_delay=0
     window.demo=True
     content=share.content_box;ok,bounds=share.form.get_last_child().compute_bounds(content);assert ok
@@ -148,6 +154,7 @@ try:
     width = solo.assignees.get_width()
     solo.assignees.menu.popup();settle()
     name = solo.assignees.buttons['alice'].get_child().get_last_child()
+    assert solo.assignees.buttons['alice'].get_child().get_margin_start()==8
     assert name.get_layout().get_line_count() == 1
     assert solo.assignees.popover.get_width() > solo.assignees.menu.get_width()
     assert solo.assignees.get_width() == width

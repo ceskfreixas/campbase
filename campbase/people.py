@@ -100,7 +100,7 @@ class AssigneeSelector(Gtk.Box):
                           margin_top=12, margin_bottom=12, margin_start=12, margin_end=12)
         for uid, user in self.users.items():
             button = Gtk.CheckButton(tooltip_text='@'+uid)
-            line = Gtk.Box(spacing=8)
+            line = Gtk.Box(spacing=8, margin_start=8)
             line.append(avatar(window, user, 24))
             line.append(label(user['displayname'], xalign=0, wrap=True, wrap_mode=Pango.WrapMode.WORD_CHAR, max_width_chars=32))
             button.set_child(line)
