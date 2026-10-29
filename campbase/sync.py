@@ -114,9 +114,7 @@ class SyncEngine:
                     if operation is None:
                         continue
                     result = self.perform(operation)
-                from .updates import own_assignment_notice
-                notice = own_assignment_notice(self.store, self.api, operation, result)
-                self.store.complete(operation, result, notice=notice)
+                self.store.complete(operation, result)
                 self.notify()
             except OfflineError:
                 if creation_attempted and operation["kind"] == "create":

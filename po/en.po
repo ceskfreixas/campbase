@@ -1767,3 +1767,42 @@ msgstr "Sharing, comments, mentions, assignments and Talk notifications appear h
 
 msgid "Invitacions agrupades per servidor i enllaç del tauler visible. Els avisos de Talk apareixen a Notificacions i obren la conversa, segons les preferències de Talk, sense afegir consultes periòdiques."
 msgstr "Invitations grouped by server and a visible board link. Talk alerts appear in Notifications and open the conversation, following Talk preferences without additional periodic requests."
+
+msgid "{name} t'ha enviat un missatge a «{conversation}»."
+msgstr "{name} sent you a message in “{conversation}”."
+
+msgid "{name} t'ha enviat un missatge."
+msgstr "{name} sent you a message."
+
+msgid "{name} ha reaccionat {emoji} al teu comentari de la targeta «{title}»."
+msgstr "{name} reacted {emoji} to your comment on card “{title}”."
+
+msgid "{name} t'ha mencionat en un comentari de la targeta «{title}»."
+msgstr "{name} mentioned you in a comment on card “{title}”."
+
+msgid "{name} t'ha assignat la targeta «{title}»."
+msgstr "{name} assigned you card “{title}”."
+
+msgid "{name} ha compartit el tauler «{title}» amb tu."
+msgstr "{name} shared board “{title}” with you."
+
+msgid "La targeta «{title}» del tauler «{board}» ha arribat al venciment."
+msgstr "Card “{title}” on board “{board}” has reached its due date."
+
+msgid "Els avisos segueixen les preferències de notificacions de Deck i Talk a Nextcloud."
+msgstr "Alerts follow your Deck and Talk notification preferences in Nextcloud."
+
+msgid "Mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk."
+msgstr "Mentions, reactions to your comments, assignments, due dates, boards shared with you and Talk messages."
+
+msgid "Notificacions centrades en els avisos que et demanen atenció, amb un redactat coherent. Les accions pròpies i els canvis rutinaris del tauler ja no omplen la bústia."
+msgstr "Notifications focus on alerts that need your attention, with consistent wording. Your own actions and routine board changes no longer fill the inbox."
+
+msgid "S'estan carregant les converses…"
+msgstr "Loading conversations…"
+
+msgid "Converses mostra un indicador de càrrega mentre espera la resposta. Notificacions presenta només els avisos rellevants, amb textos unificats i sense la frase explicativa del peu."
+msgstr "Conversations shows a loading indicator while waiting for a response. Notifications displays relevant alerts with consistent wording and no explanatory footer."
+
+msgid "Rep mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk. Obre directament el lloc relacionat amb cada avís. Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia."
+msgstr "Receive mentions, reactions to your comments, assignments, due dates, boards shared with you and Talk messages. Open the relevant place directly from each alert. Your own actions and routine board changes do not fill the inbox."

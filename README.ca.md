@@ -47,8 +47,9 @@ treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 - Llegir i escriure comentaris amb icona, nom, usuari, data i hora. El selector
   **@** permet citar els membres amb el format de Nextcloud i ressalta les mencions.
   Cada autor pot esborrar els seus comentaris amb confirmació.
-- Consultar les notificacions de Deck, l'activitat disponible i els comentaris
-  pendents, i obrir directament la secció de la targeta o el comentari corresponent.
+- Consultar mencions, reaccions als teus comentaris, assignacions, venciments,
+  taulers compartits amb tu i missatges de Talk, amb accés directe al lloc relacionat.
+  Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia.
 - Utilitzar etiquetes i triar la data límit amb un calendari i una hora local.
 - Escriure descripcions amb negreta, cursiva, subratllat, ratllat, títols, llistes,
   citacions, codi, enllaços i imatges; enganxar imatges i desfer o refer l'edició.
@@ -80,8 +81,8 @@ Les invitacions locals i federades comparteixen una secció amb un selector de
 servidor i un únic permís inicial.
 L'enllaç no dona accés a nous usuaris ni fa públic el tauler.
 
-Les autoassignacions, les mencions a un mateix i els comentaris propis també
-generen avisos locals quan Deck confirma l'acció.
+L'activitat de Deck només es consulta com a evidència d'autoria; no es mostra
+com a notificacions. Les accions pròpies tampoc no generen avisos locals.
 
 Notificacions també inclou els avisos natius de Talk i obre la conversa corresponent.
 Els avisos segueixen les preferències de Deck, Talk i Activitat del servidor;

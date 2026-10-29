@@ -8,7 +8,7 @@ from unittest.mock import Mock
 from campbase.comment_reactions import reaction_message, reaction, group_comments, reaction_preview
 from campbase.deck import Deck, DeckError
 from campbase.storage import Store
-from campbase.updates import entries, record_own_reaction
+from campbase.updates import entries
 from campbase.update_targets import destination, matches_comment
 from campbase.i18n import configure
 
@@ -60,6 +60,5 @@ class ReactionTests(unittest.TestCase):
             row = entries(store)[0]
             self.assertIn('ha reaccionat 👍', str(row['title']))
             self.assertTrue(matches_comment(self.reply, destination(row)))
-            record_own_reaction(store, 1, {'id': 99, 'title': 'Prova'}, self.parent, self.reply, '👍')
-            own = next(row for row in entries(store) if row['key'].startswith('local:'))
-            self.assertEqual(destination(own)['comment_id'], '2')
+            store.record_notice({'key': 'local:reaction:2', 'event': 'own-reaction', 'title': 'Prova'})
+            self.assertEqual(len(entries(store)), 1)

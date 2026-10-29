@@ -118,8 +118,10 @@ try:
     share.force_close();settle()
 
     window.demo=True
-    store.record_notice({'key':'local:comment:99:6','event':'self-mentioned','board_id':1,'card_id':99,
-                         'comment_id':'6','title':'Targeta de prova','body':'@alice hola!'})
+    store.put('updates',{'notifications':[{'notification_id':1,'app':'deck','object_type':'card','object_id':'99',
+        'subject':'Mention','message':'@alice hola!','subjectRichParameters':{
+            'user':{'id':'bob','name':'Robert'},'deck-card':{'id':'99','name':'Targeta de prova'},
+            'deck-board':{'id':'1','name':'Equip'}}}]})
     inbox=NotificationsDialog(window);inbox.present(window);settle()
     row=inbox.list.get_first_child()
     assert row.has_css_class('notification-row')

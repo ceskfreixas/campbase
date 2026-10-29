@@ -7,7 +7,6 @@ from .i18n import _
 from .comment_reactions import EMOJIS, reaction, reaction_message
 from .people import current_person
 from .alerts import message
-from .updates import record_own_reaction
 
 
 def focus_picker(popover):
@@ -81,7 +80,6 @@ def react(panel, parent, emoji, rows):
         else:
             result = api.add_comment(panel.card['id'], reaction_message(parent, emoji), parent_id=parent['id'])
             panel.window.store.comment_count(panel.board_id, panel.card['id'], delta=1, reaction_delta=1)
-            record_own_reaction(panel.window.store, panel.board_id, panel.card, parent, result, emoji)
     def done(_result, error):
         panel.reacting = False
         panel.comments.set_sensitive(True)

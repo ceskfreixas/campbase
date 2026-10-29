@@ -2225,3 +2225,42 @@ msgstr ""
 
 msgid "Invitacions agrupades per servidor i enllaç del tauler visible. Els avisos de Talk apareixen a Notificacions i obren la conversa, segons les preferències de Talk, sense afegir consultes periòdiques."
 msgstr ""
+
+msgid "{name} t'ha enviat un missatge a «{conversation}»."
+msgstr ""
+
+msgid "{name} t'ha enviat un missatge."
+msgstr ""
+
+msgid "{name} ha reaccionat {emoji} al teu comentari de la targeta «{title}»."
+msgstr ""
+
+msgid "{name} t'ha mencionat en un comentari de la targeta «{title}»."
+msgstr ""
+
+msgid "{name} t'ha assignat la targeta «{title}»."
+msgstr ""
+
+msgid "{name} ha compartit el tauler «{title}» amb tu."
+msgstr ""
+
+msgid "La targeta «{title}» del tauler «{board}» ha arribat al venciment."
+msgstr ""
+
+msgid "Els avisos segueixen les preferències de notificacions de Deck i Talk a Nextcloud."
+msgstr ""
+
+msgid "Mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk."
+msgstr ""
+
+msgid "Notificacions centrades en els avisos que et demanen atenció, amb un redactat coherent. Les accions pròpies i els canvis rutinaris del tauler ja no omplen la bústia."
+msgstr ""
+
+msgid "S'estan carregant les converses…"
+msgstr ""
+
+msgid "Converses mostra un indicador de càrrega mentre espera la resposta. Notificacions presenta només els avisos rellevants, amb textos unificats i sense la frase explicativa del peu."
+msgstr ""
+
+msgid "Rep mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk. Obre directament el lloc relacionat amb cada avís. Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia."
+msgstr ""

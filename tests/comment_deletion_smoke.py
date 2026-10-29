@@ -63,7 +63,7 @@ try:
    store.record_notice({'key':f'local:comment:99:{comment_id}','event':'own-comment','board_id':1,'card_id':99,'title':'Prova'})
   server.comment_delete_error=503
   panel.delete_comment(own);settle(lambda:not panel.deleting);settle()
-  assert len(server.comments)==3 and len(entries(store))==2
+  assert len(server.comments)==3 and not entries(store)
   assert panel.entry.get_text()=='Esborrany de comentari conservat'
   error=window.get_visible_dialog();assert isinstance(error,Adw.AlertDialog);error.force_close();settle()
   server.comment_delete_error=0
@@ -73,7 +73,8 @@ try:
   assert not any(isinstance(w,Gtk.Button) and w.get_tooltip_text()=='Esborra el comentari'
                  for w in descendants(panel.comments))
   assert panel.entry.get_text()=='Esborrany de comentari conservat'
-  assert [row['key'] for row in entries(store)]==['local:comment:99:2']
+  assert not entries(store)
+  assert [row['key'] for row in store.get('local_notices')]==['local:comment:99:2']
   assert store.operations()[0]['id']==draft
   assert store.view()['stacks']['1'][0]['cards'][0]['commentsCount']==2
   # A full page or a targeted older page is not a total comment count.

@@ -25,12 +25,18 @@ class ConversationsDialog(Adw.Dialog):
         self.content_box = outer
         header = Adw.HeaderBar()
         header.pack_start(icon_button('adw-external-link-symbolic', _("Obre a Talk"), self.open_talk))
-        header.pack_end(icon_button('view-refresh-symbolic', _("Actualitza"), self.load))
+        self.refresh_button = icon_button('view-refresh-symbolic', _("Actualitza"), self.load)
+        header.pack_end(self.refresh_button)
         outer.append(header)
         self.form = dialog_form()
         self.form.append(label(_("Missatgeria amb Nextcloud Talk"), 'heading', xalign=0, wrap=True))
         self.status = label('', 'dim-label', xalign=0, wrap=True, visible=False)
         self.form.append(self.status)
+        self.loading = Gtk.Box(spacing=12, halign=Gtk.Align.CENTER, visible=False)
+        self.spinner = Gtk.Spinner(width_request=24, height_request=24)
+        self.loading.append(self.spinner)
+        self.loading.append(label(_("S'estan carregant les converses…"), 'dim-label', wrap=True))
+        self.form.append(self.loading)
         self.groups = ui.create(Adw.PreferencesGroup, title=_("Xat del tauler"))
         self.form.append(self.groups)
         self.people = ui.create(Adw.PreferencesGroup, title=_("Missatges directes"))
@@ -43,6 +49,7 @@ class ConversationsDialog(Adw.Dialog):
         outer.append(self.scroller)
         self.set_child(outer)
         ui.on_change(self.fit_contents)
+        self.connect('closed', lambda *_: self.spinner.set_spinning(False))
         self.load()
 
     def fit_contents(self):
@@ -53,13 +60,27 @@ class ConversationsDialog(Adw.Dialog):
         self.status.set_visible(bool(text))
         fit_dialog_contents(self)
 
+    def set_loading(self, active):
+        self.loading.set_visible(active)
+        self.spinner.set_spinning(active)
+        self.refresh_button.set_sensitive(not active)
+        if active and not self.rows:
+            for group in (self.groups, self.people, self.inbox):
+                group.set_visible(False)
+        self.fit_contents()
+
     def load(self, *_unused, after_error=None):
+        if self.worker.busy or not self.worker.active():
+            return
+        self.set_status('')
+        self.set_loading(True)
         def read():
             self.talk.capabilities()
             return self.worker.api.check_board(self.board['id']), self.worker.api.profile(), self.talk.conversations()
         self.worker.run(read, lambda result, error: self.loaded(result, error, after_error))
 
     def loaded(self, result, error, after_error=None):
+        self.set_loading(False)
         if error:
             self.set_status(error)
             return

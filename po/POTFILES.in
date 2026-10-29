@@ -2,6 +2,7 @@ campbase/__init__.py
 campbase/__main__.py
 campbase/about.py
 campbase/account.py
+campbase/notification_text.py
 campbase/active_cards.py
 campbase/alerts.py
 campbase/archive_drop.py

@@ -38,8 +38,6 @@ class NotificationsDialog(Adw.Dialog):
         self.form.append(self.status)
         self.list = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self.form.append(self.list)
-        self.form.append(label(_("Els avisos depenen de les notificacions i de l'activitat habilitades a Nextcloud."),
-                               'dim-label', xalign=0, wrap=True))
         outer.append(Gtk.ScrolledWindow(child=self.form, vexpand=True, propagate_natural_height=True,
                                         max_content_height=600, hscrollbar_policy=Gtk.PolicyType.NEVER))
         self.set_child(outer)
@@ -75,7 +73,7 @@ class NotificationsDialog(Adw.Dialog):
         self.list.set_visible(True)
         clear(self.list)
         rows = entries(self.window.store)
-        errors = self.window.store.get('updates', {}).get('errors', {})
+        errors = self.window.store.get('updates', {}).get('errors', {}).get('notifications')
         problem = error or (_("No s'han pogut actualitzar tots els avisos. Es mostra la informació desada.") if errors else '')
         self.set_status(problem)
         self.clear_button.set_sensitive(bool(rows) and not self.busy)
@@ -84,7 +82,7 @@ class NotificationsDialog(Adw.Dialog):
                 title=_("No s'han pogut carregar els avisos") if problem else _("No hi ha notificacions"),
                 icon_name='network-error-symbolic' if problem else 'preferences-system-notifications-symbolic',
                 description=_("Torna-ho a provar amb el botó d'actualització.") if problem else
-                    _("Aquí veuràs comparticions, comentaris, mencions, assignacions i avisos de Talk.")))
+                    _("Mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk.")))
         for item in rows:
             row = Gtk.Box()
             row.add_css_class('notification-row')

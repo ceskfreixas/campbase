@@ -1767,3 +1767,42 @@ msgstr "Ací veiràs comparticions, comentaris, mencions, assignacions e avisi d
 
 msgid "Invitacions agrupades per servidor i enllaç del tauler visible. Els avisos de Talk apareixen a Notificacions i obren la conversa, segons les preferències de Talk, sense afegir consultes periòdiques."
 msgstr "Invitacions agropades per servidor e ligam deth taulèr visible. Es avisi de Talk apareishen en Notificacions e daurissen era convèrsa, segontes es preferéncies de Talk, sense híger consultes periodiques."
+
+msgid "{name} t'ha enviat un missatge a «{conversation}»."
+msgstr "{name} t'a enviat un messatge en «{conversation}»."
+
+msgid "{name} t'ha enviat un missatge."
+msgstr "{name} t'a enviat un messatge."
+
+msgid "{name} ha reaccionat {emoji} al teu comentari de la targeta «{title}»."
+msgstr "{name} a reaccionat {emoji} ath tòn comentari dera carta «{title}»."
+
+msgid "{name} t'ha mencionat en un comentari de la targeta «{title}»."
+msgstr "{name} t'a mencionat en un comentari dera carta «{title}»."
+
+msgid "{name} t'ha assignat la targeta «{title}»."
+msgstr "{name} t'a assignat era carta «{title}»."
+
+msgid "{name} ha compartit el tauler «{title}» amb tu."
+msgstr "{name} a compartit eth taulèr «{title}» damb tu."
+
+msgid "La targeta «{title}» del tauler «{board}» ha arribat al venciment."
+msgstr "Era carta «{title}» deth taulèr «{board}» a arribat ath venciment."
+
+msgid "Els avisos segueixen les preferències de notificacions de Deck i Talk a Nextcloud."
+msgstr "Es avisi seguissen es preferéncies de notificacions de Deck e Talk en Nextcloud."
+
+msgid "Mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk."
+msgstr "Mencions, reaccions as tòns comentaris, assignacions, venciments, taulèrs compartits damb tu e messatges de Talk."
+
+msgid "Notificacions centrades en els avisos que et demanen atenció, amb un redactat coherent. Les accions pròpies i els canvis rutinaris del tauler ja no omplen la bústia."
+msgstr "Notificacions centrades en es avisi que demanen era tua atencion, damb un tèxte coerent. Es accions pròpries e es cambiaments abituaus deth taulèr ja non aumplissen era boèta."
+
+msgid "S'estan carregant les converses…"
+msgstr "S'estan cargant es convèrses…"
+
+msgid "Converses mostra un indicador de càrrega mentre espera la resposta. Notificacions presenta només els avisos rellevants, amb textos unificats i sense la frase explicativa del peu."
+msgstr "Convèrses mòstre un indicador de carga mentre demore era responsa. Notificacions presente sonque es avisi pertinents, damb tèxtes unificadi e sense era frasa explicativa deth pè."
+
+msgid "Rep mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk. Obre directament el lloc relacionat amb cada avís. Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia."
+msgstr "Recep mencions, reaccions as tòns comentaris, assignacions, venciments, taulèrs compartits damb tu e messatges de Talk. Daurís dirèctament eth lòc restacat damb cada avís. Es accions pròpries e es cambiaments abituaus deth taulèr non aumplissen era boèta."

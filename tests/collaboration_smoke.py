@@ -229,7 +229,7 @@ try:
     editor.comments.entry.set_text('@alice un comentari propi')
     editor.comments.submit()
     settle(lambda: editor.comments.send.get_sensitive() and not editor.comments.entry.get_text())
-    assert any(row.get('event') == 'self-mentioned' for row in entries(store))
+    assert not any(row.get('event') == 'self-mentioned' for row in entries(store))
     editor.save();settle()
     pending=store.operations()[-1]
     assert assignment_ids(pending['payload']['changes']['assignedUsers'])=={'bob'}
@@ -244,16 +244,18 @@ try:
     assert abs(t.origin.y+t.size.height/2-a.origin.y-a.size.height/2)<2
     assert not any('/assignUser' in path for _,path,_ in server.writes)
     notice=NotificationsDialog(window);notice.present(window);settle()
-    assert len(entries(store))==3
+    assert len(entries(store))==1
     notice.activate(next(row for row in entries(store) if row.get('notice_id')))
     settle(lambda:any(method=='DELETE' and '/notifications/1?' in path for method,path,_ in server.writes))
     settle()
     assert next(row for row in entries(store) if row.get('notice_id'))['read']
+    state=store.get('updates',{})
+    state['notifications']=[{'notification_id':9,'app':'deck','object_type':'card','object_id':'99',
+        'subject':'Mention','message':'@alice revisa-ho','subjectRichParameters':{
+            'user':{'id':'bob','name':'Robert'},'deck-card':{'id':'99','name':'Prova'}}}]
+    store.put('updates',state)
     inbox=NotificationsDialog(window);inbox.present(window);settle()
     assert any(widget.has_css_class('notification-body') for widget in descendants(inbox))
-    local = next(row for row in entries(store) if row.get('event') == 'self-mentioned')
-    inbox.erase([local]);settle(lambda:not inbox.busy);settle()
-    assert not any(row.get('event') == 'self-mentioned' for row in entries(store))
     inbox.erase(entries(store));settle(lambda:not inbox.busy);settle()
     assert not entries(store) and not inbox.clear_button.get_sensitive()
     assert not window.notification_count.get_visible()
@@ -261,15 +263,17 @@ try:
         inbox.display(error);settle()
         box=inbox.get_child();scroll=box.get_last_child();adjustment=scroll.get_vadjustment()
         adjustment.set_value(adjustment.get_upper()-adjustment.get_page_size());settle()
-        ok,bounds=inbox.form.get_last_child().compute_bounds(box);assert ok
+        ok,bounds=(inbox.list if inbox.list.get_visible() else inbox.status).compute_bounds(box);assert ok
         assert abs(box.get_height()-bounds.origin.y-bounds.size.height-24)<2
     empty_height = inbox.get_child().get_height()
     inbox.working('Càrrega de prova');settle()
     assert inbox.get_child().get_height() < empty_height
-    box=inbox.get_child();ok,bounds=inbox.form.get_last_child().compute_bounds(box);assert ok
+    box=inbox.get_child();ok,bounds=(inbox.list if inbox.list.get_visible() else inbox.status).compute_bounds(box);assert ok
     assert abs(box.get_height()-bounds.origin.y-bounds.size.height-24)<2
     inbox.finished(None,None);settle()
-    store.record_notice({'key': 'local:new', 'event': 'own-comment', 'title': 'Nova prova'})
+    state=store.get('updates',{})
+    state['notifications']=[{'notification_id':10,'app':'deck','subject':'New invitation'}]
+    store.put('updates',state)
     window.update_notification_badge();settle()
     assert window.notification_count.get_visible()
     assert window.notification_count.get_width()==window.notification_count.get_height()

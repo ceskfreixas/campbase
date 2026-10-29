@@ -29,7 +29,7 @@ class API(CollaborationAPI):
     def check_board(self,_id):return copy.deepcopy(self.board)
     def request(self,method,path,body=None,**kwargs):
         if method!='GET':self.writes.append((method,path,body))
-        if path.startswith('/capabilities'):return {'capabilities':{'deck':{'version':'1.18.6'},'spreed':{'features':['conversation-v4','room-description']}}}
+        if path.startswith('/capabilities'):time.sleep(getattr(self,'load_delay',0));return {'capabilities':{'deck':{'version':'1.18.6'},'spreed':{'features':['conversation-v4','room-description']}}}
         if path=='/config':return {'federationEnabled':True}
         if method=='POST' and path.endswith('/acl'):raise OfflineError('Synthetic interrupted invitation')
         if path.startswith('/room?'):return [self.room]
@@ -62,8 +62,17 @@ with tempfile.TemporaryDirectory() as directory:
     api=API();store.put('snapshot',{'boards':[api.board],'stacks':{'1':[]}})
     window=Window(app,store,True);window.present();settle()
     window.engine.api=api;window.account=SimpleNamespace(server=api.server,username='alice',goa_id='test');window.demo=False
+    api.load_delay=.2
     inbox=ConversationsDialog(window,api.board);inbox.present(window)
+    assert inbox.loading.get_visible() and inbox.spinner.get_spinning()
+    assert not inbox.refresh_button.get_sensitive() and not inbox.groups.get_visible()
     settle(lambda:len(inbox.rows)>0)
+    assert not inbox.loading.get_visible() and not inbox.spinner.get_spinning()
+    assert inbox.refresh_button.get_sensitive()
+    api.load_delay=0
+    inbox.loaded(None,'Synthetic connection error')
+    assert not inbox.loading.get_visible() and inbox.refresh_button.get_sensitive()
+    inbox.set_status('')
     def layout():
         end=time.monotonic()+.25
         while time.monotonic()<end:

@@ -19,7 +19,7 @@ from campbase.deck import Deck, DeckError
 from campbase.due_dates import same_due
 from campbase.storage import Store
 from campbase.sync import SyncEngine
-from campbase.updates import collect_updates, entries, mark_read, own_assignment_notice, record_own_comment, erase_entries
+from campbase.updates import collect_updates, entries, mark_read, erase_entries
 
 USERS = [{'uid': 'alice', 'displayname': 'Alícia'}, {'uid': 'bob', 'displayname': 'Robert'},
          {'uid': 'carol', 'displayname': 'Carolina'}]
@@ -295,7 +295,7 @@ class CollaborationTests(unittest.TestCase):
 
     def test_feeds_filter_other_apps_and_read_marks_survive_restart(self):
         collect_updates(self.api, self.store)
-        self.assertEqual(len(entries(self.store)), 2)
+        self.assertEqual(len(entries(self.store)), 1)
         self.assertNotIn('Private unrelated mail', str(self.store.get('updates')))
         mark_read(self.store, 'n:1')
         self.assertTrue(next(row for row in entries(Store(self.directory.name)) if row['key'] == 'n:1')['read'])
@@ -307,25 +307,18 @@ class CollaborationTests(unittest.TestCase):
         self.assertEqual(self.server.writes[-1][0], 'DELETE')
         self.assertIn('/notifications/1?', self.server.writes[-1][1])
 
-    def test_confirmed_self_assignment_creates_one_persistent_local_notice(self):
+    def test_confirmed_self_assignment_does_not_fill_the_inbox(self):
         self.store.put('profile', {**USERS[0], 'account': 'test'})
-        changes = {'assignedUsers': [{'type': 0, 'participant': USERS[0]}]}
-        op_id = self.store.enqueue('update', {'board_id': 1, 'card_id': 99, 'stack_id': 10,
-                                            'changes': changes, 'base': {'assignedUsers': []}})
-        operation = self.store.operations()[0]
-        self.assertIsNone(own_assignment_notice(self.store, self.api, operation, self.server.card))
+        self.store.enqueue('update', {'board_id': 1, 'card_id': 99, 'stack_id': 10,
+            'changes': {'assignedUsers': [{'type': 0, 'participant': USERS[0]}]},
+            'base': {'assignedUsers': []}})
         engine = SyncEngine(self.store)
         self.addCleanup(engine.close)
         engine.api = self.api
         engine._send_pending()
-        notice = self.store.get('local_notices')[0]
-        self.store.record_notice(notice)
-        reopened = Store(self.directory.name)
-        self.assertEqual(len(entries(reopened)), 1)
-        self.assertEqual(entries(reopened)[0]['event'], 'self-assigned')
-        self.assertFalse(reopened.operations())
-        mark_read(reopened, notice['key'])
-        self.assertTrue(entries(reopened)[0]['read'])
+        self.assertFalse(self.store.operations())
+        self.assertFalse(self.store.get('local_notices'))
+        self.assertFalse(entries(Store(self.directory.name)))
 
     def test_failed_self_assignment_does_not_create_a_notification(self):
         self.store.put('profile', {**USERS[0], 'account': 'test'})
@@ -340,16 +333,10 @@ class CollaborationTests(unittest.TestCase):
         self.assertEqual(self.store.operations()[0]['state'], 'blocked')
         self.assertFalse(entries(self.store))
 
-    def test_own_comments_and_self_mentions_are_not_suppressed_or_duplicated(self):
-        result = self.api.add_comment(99, '@alice revisa-ho')
-        record_own_comment(self.store, 1, self.server.card, result)
-        record_own_comment(self.store, 1, self.server.card, result)
-        self.assertEqual(len(entries(self.store)), 1)
-        self.assertEqual(entries(self.store)[0]['event'], 'self-mentioned')
-        result = self.api.add_comment(99, 'Un comentari propi')
-        record_own_comment(self.store, 1, self.server.card, result)
-        self.assertEqual({row['event'] for row in entries(self.store)}, {'self-mentioned', 'own-comment'})
-        self.assertTrue(all(row['card_id'] == 99 for row in entries(self.store)))
+    def test_legacy_own_actions_and_unread_summaries_are_not_notifications(self):
+        self.store.record_notice({'key': 'local:comment:99:1', 'event': 'self-mentioned', 'title': 'Old'})
+        self.store.put('updates', {'comments': [{'key': 'comments:99:3', 'count': 2, 'title': 'Old'}]})
+        self.assertFalse(entries(self.store))
 
     def test_older_comment_notification_reads_the_matching_page(self):
         self.server.comments = [{'id': str(index), 'message': f'Comment {index}'} for index in range(120, 0, -1)]
@@ -389,7 +376,7 @@ class CollaborationTests(unittest.TestCase):
         self.assertFalse(self.server.writes)
         collect_updates(self.api, self.store, force=True)
         self.assertEqual([row['key'] for row in entries(Store(self.directory.name))], ['n:1'])
-        self.assertFalse(self.store.get('local_notices'))
+        self.assertEqual(self.store.get('local_notices'), [local])
 
     def test_clear_all_only_deletes_the_displayed_deck_notifications(self):
         collect_updates(self.api, self.store)
@@ -402,7 +389,7 @@ class CollaborationTests(unittest.TestCase):
         collect_updates(self.api, self.store, force=True)
         self.assertFalse(entries(self.store))
         self.store.record_notice({'key': 'local:new', 'event': 'own-comment', 'title': 'Nou'})
-        self.assertEqual(len(entries(self.store)), 1)
+        self.assertFalse(entries(self.store))
 
     def test_failed_notification_delete_preserves_that_notification(self):
         collect_updates(self.api, self.store)
@@ -422,7 +409,7 @@ class CollaborationTests(unittest.TestCase):
         state = collect_updates(self.api, self.store, snapshot)
         self.assertEqual(state['errors'], {})
         self.assertTrue(state['unavailable']['activity'])
-        self.assertEqual({row['key'] for row in entries(self.store)}, {'n:1', 'comments:99:3'})
+        self.assertEqual({row['key'] for row in entries(self.store)}, {'n:1'})
         self.assertFalse(self.server.writes)
 
     def test_reopening_inbox_reuses_cache_and_unavailable_services_back_off(self):

@@ -8,7 +8,6 @@ from .people import timestamp, avatar, current_person
 from .collaboration import members, mention_token, display_comment, comment_tokens
 from .mention_style import MentionStyle, board_tokens
 from .update_targets import matches_comment
-from .updates import record_own_comment
 from .mentions import MentionCompletion, mention_fragment
 
 from .alerts import message
@@ -255,6 +254,5 @@ class CommentsPanel(Gtk.Box):
         def post(api):
             result = api.add_comment(self.card['id'], text)
             self.window.store.comment_count(board_id, self.card['id'], delta=1)
-            record_own_comment(self.window.store, board_id, self.card, result)
             return result
         self.window.engine.run(post, done)

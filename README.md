@@ -47,9 +47,10 @@ work with other people and keep the same boards available in the Android Deck ap
 - Comments with avatars, display names, usernames and local dates/times. The **@**
   picker inserts highlighted native Nextcloud mentions for board members. Authors
   can delete their own comments after confirmation.
-- A notification inbox for Deck sharing, mentions and assignments, plus available
-  board activity and unread comments. Open the referenced card section or comment directly.
-  Confirmed self-assignments, self-mentions and own comments also create local alerts.
+- A notification inbox for mentions, reactions to your comments, assignments,
+  due dates, boards shared with you and Talk messages. Open the referenced card
+  section or conversation directly. Routine board activity and your own actions
+  do not fill the inbox.
 - Card labels and a native calendar with a local due time. The server-confirmation
   check includes the time, not just the calendar day.
 - Rich descriptions with bold, italic, underline, strikethrough, headings, lists,
@@ -57,7 +58,7 @@ work with other people and keep the same boards available in the Android Deck ap
 - Editable project names; local descriptions, images and a 32-icon Adwaita picker.
   Sixteen column colors with subtle background tints.
 - Automatic or manual synchronization, persistent offline cache, a durable outbox
-  and explicit conflict review. **F5** synchronizes and shows activity.
+  and explicit conflict review. **F5** synchronizes and refreshes notifications.
 - GNOME Online Accounts integration, a configurable startup board/sidebar,
   system/light/dark themes and a discoverable keyboard shortcut reference.
   Preferences separates the theme under Appearance from the Board view controls.
@@ -80,6 +81,7 @@ that evidence show their server owner, or unavailable authorship. Campbase does
 not guess a column's creator from its current board owner.
 
 The inbox includes native Talk alerts and opens their conversation directly.
+Activity reads provide authorship evidence only; they do not become inbox alerts.
 Notifications follow the Deck, Talk and Activity settings enabled on the server;
 Talk alerts reuse the existing notification feed without extra periodic requests. Optional feed failures do not discard card edits. Feeds refresh at
 most once a minute during regular synchronization, or immediately from the inbox.

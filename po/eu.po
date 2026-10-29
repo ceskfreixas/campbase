@@ -1767,3 +1767,42 @@ msgstr "Hemen partekatzeak, iruzkinak, aipamenak, esleipenak eta Talk jakinarazp
 
 msgid "Invitacions agrupades per servidor i enllaç del tauler visible. Els avisos de Talk apareixen a Notificacions i obren la conversa, segons les preferències de Talk, sense afegir consultes periòdiques."
 msgstr "Gonbidapenak zerbitzariaren arabera taldekatuta eta taularen esteka ikusgai. Talk abisuak Jakinarazpenetan agertzen dira eta elkarrizketa irekitzen dute, Talk hobespenen arabera, aldizkako eskaera gehiago egin gabe."
+
+msgid "{name} t'ha enviat un missatge a «{conversation}»."
+msgstr "{name} erabiltzaileak mezu bat bidali dizu «{conversation}» elkarrizketan."
+
+msgid "{name} t'ha enviat un missatge."
+msgstr "{name} erabiltzaileak mezu bat bidali dizu."
+
+msgid "{name} ha reaccionat {emoji} al teu comentari de la targeta «{title}»."
+msgstr "{name} erabiltzaileak {emoji} erreakzioa gehitu dio «{title}» txarteleko zure iruzkinari."
+
+msgid "{name} t'ha mencionat en un comentari de la targeta «{title}»."
+msgstr "{name} erabiltzaileak «{title}» txarteleko iruzkin batean aipatu zaitu."
+
+msgid "{name} t'ha assignat la targeta «{title}»."
+msgstr "{name} erabiltzaileak «{title}» txartela esleitu dizu."
+
+msgid "{name} ha compartit el tauler «{title}» amb tu."
+msgstr "{name} erabiltzaileak «{title}» taula partekatu du zurekin."
+
+msgid "La targeta «{title}» del tauler «{board}» ha arribat al venciment."
+msgstr "«{board}» taulako «{title}» txartelaren epemuga iritsi da."
+
+msgid "Els avisos segueixen les preferències de notificacions de Deck i Talk a Nextcloud."
+msgstr "Abisuek Nextcloud-eko Deck eta Talk jakinarazpenen hobespenei jarraitzen diete."
+
+msgid "Mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk."
+msgstr "Aipamenak, zure iruzkinen erreakzioak, esleipenak, epemugak, zurekin partekatutako taulak eta Talk mezuak."
+
+msgid "Notificacions centrades en els avisos que et demanen atenció, amb un redactat coherent. Les accions pròpies i els canvis rutinaris del tauler ja no omplen la bústia."
+msgstr "Jakinarazpenek zure arreta behar duten abisuak erakusten dituzte, testu koherentearekin. Zure ekintzek eta taularen ohiko aldaketek ez dute sarrera-ontzia betetzen."
+
+msgid "S'estan carregant les converses…"
+msgstr "Elkarrizketak kargatzen…"
+
+msgid "Converses mostra un indicador de càrrega mentre espera la resposta. Notificacions presenta només els avisos rellevants, amb textos unificats i sense la frase explicativa del peu."
+msgstr "Elkarrizketak atalak karga-adierazlea erakusten du erantzunaren zain dagoen bitartean. Jakinarazpenak atalak abisu garrantzitsuak soilik erakusten ditu, testu bateratuekin eta oineko azalpenik gabe."
+
+msgid "Rep mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk. Obre directament el lloc relacionat amb cada avís. Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia."
+msgstr "Jaso aipamenak, zure iruzkinen erreakzioak, esleipenak, epemugak, zurekin partekatutako taulak eta Talk mezuak. Ireki zuzenean abisu bakoitzari dagokion tokia. Zure ekintzek eta taularen ohiko aldaketek ez dute sarrera-ontzia betetzen."
