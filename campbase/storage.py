@@ -158,6 +158,12 @@ class Store:
         with self.connect() as db:
             return self._operations(db)
 
+    def operation(self, op_id):
+        """Reload one durable operation without decoding the entire outbox."""
+        with self.connect() as db:
+            row = db.execute('SELECT * FROM outbox WHERE id=?', (op_id,)).fetchone()
+            return dict(row) | {'payload': json.loads(row['payload'])} if row else None
+
     @staticmethod
     def _operations(db):
         rows = db.execute("SELECT * FROM outbox ORDER BY id").fetchall()

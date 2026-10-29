@@ -23,16 +23,15 @@ class CommentCountLoader:
             return
         now = time.time()
         stacks = snapshot.get('stacks', {}).get(str(board_id), [])
+        visible = {card['id'] for stack in stacks for card in self.window.matching_cards(stack)}
         cards = [card for stack in stacks for card in stack.get('cards') or []
-                 if isinstance(card.get('commentsCount'), int) and card['commentsCount'] > 0]
-        signature = (id(api), board_id, self.window.query, self.window.only_mine, int(now//60),
+                 if card['id'] in visible and isinstance(card.get('commentsCount'), int) and card['commentsCount'] > 0]
+        signature = (id(api), board_id, frozenset(visible), int(now//60),
                      tuple((card['id'], card['commentsCount']) for card in cards))
         if signature == self.last_refresh:
             return
         self.last_refresh = signature
-        visible = {card['id'] for stack in stacks for card in self.window.matching_cards(stack)}
         self.visible_ids = frozenset(visible)
-        cards = [card for card in cards if card['id'] in visible]
         if not cards:
             return
         records = self.window.store.get('comment_counts', {})
@@ -53,21 +52,28 @@ class CommentCountLoader:
             self.executor.submit(self.read, api, board_id, card['id'], version, key)
 
     def read(self, api, board_id, card_id, version, key):
+        cancelled = False
+        def keep_reading():
+            nonlocal cancelled
+            valid = (not self.closed and api is self.window.engine.api and board_id == self.window.board_id
+                     and card_id in self.visible_ids)
+            cancelled |= not valid
+            return valid
         try:
-            result = api.comment_summary(card_id, version[0], keep_reading=lambda:
-                not self.closed and api is self.window.engine.api and board_id == self.window.board_id
-                and card_id in self.visible_ids)
+            result = api.comment_summary(card_id, version[0], keep_reading=keep_reading)
         except Exception:
             result = None
-        self.window.engine.dispatch(self.finished, api, board_id, card_id, version, key, result)
+        self.window.engine.dispatch(self.finished, api, board_id, card_id, version, key, result, cancelled)
 
-    def finished(self, api, board_id, card_id, version, key, result):
+    def finished(self, api, board_id, card_id, version, key, result, cancelled=False):
         with self.lock:
             self.pending.discard(key)
             self.last_refresh = None
-            if result is None:
+            if result is None and not cancelled:
                 self.failed[key] = (version, time.time()+60)
         if self.closed or api is not self.window.engine.api or self.window.engine.account_changing:
+            if not self.closed and not self.window.engine.account_changing:
+                self.window.engine.notify()
             return False
         if result is not None:
             self.window.store.comment_summary(board_id, card_id, version[0], result, version[1])

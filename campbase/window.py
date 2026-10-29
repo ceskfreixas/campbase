@@ -506,6 +506,16 @@ class Window(Adw.ApplicationWindow):
 
     def open_update(self, row, refreshed=False):
         target = destination(row)
+        if target.get('talk_token'):
+            from .talk import Talk
+            from .chat import ChatDialog
+            def opened(room, error):
+                if error:
+                    message(self, _("No s'ha pogut obrir la conversa."), error)
+                else:
+                    ChatDialog(self, room).present(self)
+            self.engine.run_updates(lambda api: Talk(api).conversation(target['talk_token']), opened)
+            return
         link = row.get('link') or ''
         board_id, card_id = target.get('board_id'), target.get('card_id')
         self.query = ''

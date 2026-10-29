@@ -54,6 +54,39 @@ class ReadPerformanceTests(unittest.TestCase):
         self.assertIs(result[0][0], result[0][1])
         self.assertIsNot(main, result[0][0])
 
+    def test_batch_reloads_only_the_current_operation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            store = Store(directory)
+            for card in range(30):
+                store.enqueue('update', {'board_id': 1, 'card_id': card+1, 'stack_id': 10,
+                                         'changes': {'title': 'Synthetic update'}})
+            store.operations = Mock(wraps=store.operations)
+            store.operation = Mock(wraps=store.operation)
+            engine = SyncEngine(store)
+            engine.api = self.api()
+            engine.perform = Mock(side_effect=lambda operation: {
+                'id': operation['payload']['card_id'], 'stackId': 10, 'title': 'Confirmed'})
+            try:
+                engine._send_pending()
+                self.assertEqual(store.operations.call_count, 1)
+                self.assertEqual(store.operation.call_count, 30)
+                self.assertEqual(engine.perform.call_count, 30)
+                self.assertFalse(store.operations())
+            finally:
+                engine.close()
+
+    def test_equivalent_due_time_and_unchanged_assignees_need_only_one_read(self):
+        api = self.api()
+        assigned = [{'type': 0, 'participant': {'uid': 'alice'}}]
+        card = {'id': 99, 'stackId': 10, 'title': 'Synthetic card',
+                'duedate': '2026-12-01T14:30:00Z', 'assignedUsers': assigned}
+        api.request = Mock(return_value=card)
+        result = api.update_card(1, 10, 99,
+            {'duedate': '2026-12-01T15:30:00+01:00', 'assignedUsers': assigned},
+            {'duedate': card['duedate'], 'assignedUsers': assigned})
+        self.assertEqual(result, card)
+        api.request.assert_called_once_with('GET', '/boards/1/stacks/10/cards/99')
+
     def test_parallel_activity_and_local_creations_do_not_lose_authors(self):
         with tempfile.TemporaryDirectory() as directory:
             store = Store(directory)

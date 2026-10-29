@@ -34,6 +34,10 @@ treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
   Aquest recompte exclou les reaccions i es calcula en segon pla amb memòria cau.
 - Compartir taulers amb usuaris del mateix servidor de Nextcloud. Triar accés
   de lectura o edició, gestionar permisos i retirar una compartició directa.
+- Convidar usuaris d'altres servidors amb l'identificador federat quan tots dos
+  servidors tinguin Deck 1.18 o posterior i la compartició federada habilitada.
+- Obrir les converses de Talk des del tauler, enviar missatges directes als
+  membres del servidor i convidar-los explícitament a un xat privat del tauler.
 - Assignar targetes als membres del tauler i veure'n les icones al tauler.
   Les assignacions es conserven també en els esborranys sense connexió.
 - Reaccionar als comentaris amb sis emojis. Campbase agrupa aquestes respostes
@@ -71,17 +75,33 @@ les assignacions es conserven a la cua de canvis. Si desactives la sincronitzaci
 automàtica, esperen fins que premis F5. Per defecte se sincronitza cada 45 segons;
 pots triar intervals d'entre 30 segons i 10 minuts.
 
-Des de Comparteix el tauler pots copiar-ne l'enllaç per als membres autoritzats.
+Des de Comparteix el tauler pots veure i copiar l'enllaç per als membres autoritzats.
+Les invitacions locals i federades comparteixen una secció amb un selector de
+servidor i un únic permís inicial.
 L'enllaç no dona accés a nous usuaris ni fa públic el tauler.
 
 Les autoassignacions, les mencions a un mateix i els comentaris propis també
 generen avisos locals quan Deck confirma l'acció.
 
-Les notificacions depenen dels avisos i de l'activitat habilitats al servidor.
+Notificacions també inclou els avisos natius de Talk i obre la conversa corresponent.
+Els avisos segueixen les preferències de Deck, Talk i Activitat del servidor;
+Talk aprofita la consulta existent, sense afegir peticions periòdiques.
 Es consulten com a màxim un cop per minut durant la sincronització habitual;
 des de la secció de notificacions pots actualitzar-les immediatament. L'app no
-s'executa en segon pla quan està tancada. Aquesta versió comparteix taulers dins
-del mateix servidor; no inclou comparticions federades entre servidors.
+s'executa en segon pla quan està tancada.
+
+La compartició federada passa pel servidor connectat; el Campbase no envia les
+credencials al servidor del destinatari. Cal una configuració d'administrador
+i versions compatibles de Deck als dos servidors.
+
+La missatgeria requereix Nextcloud Talk amb l'API de converses v4. Els participants
+del xat es gestionen a Talk: canviar els permisos del tauler no els afegeix ni els
+retira automàticament. El responsable confirma els membres locals abans de crear
+el grup; els canvis posteriors i els participants remots es gestionen a Talk.
+Els esborranys es conserven localment i els enviaments dubtosos no es repeteixen
+automàticament. Els missatges i els avisos utilitzen Talk, sense crear comentaris
+a Deck. Les lectures del xat només s'executen mentre el modal és obert i no
+aturen la sincronització de les targetes.
 
 L'autoria de les creacions fetes amb el Campbase es desa localment i es pot
 completar amb l'activitat disponible de Deck. Quan no consta el creador d'un

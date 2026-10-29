@@ -12,6 +12,8 @@ def introduction():
 
 def sections():
     return [
+        (_("Compartició federada i converses"),
+         _("Convida usuaris d'altres servidors amb el seu identificador federat quan Deck ho permet. Obre les converses de Talk des del tauler, escriu missatges directes als membres i crea un xat de grup. Els participants del xat es gestionen a Talk. Els esborranys es conserven i els enviaments dubtosos es revisen abans de repetir-los. Accions del tauler agrupades, icona de conversa pròpia i modal de Converses ajustat al contingut. Les lectures del xat no endarrereixen els enviaments. S'eviten confirmacions repetides, les cues grans es llegeixen amb menys cost i els recomptes s'actualitzen de seguida quan es mostren les arxivades.") + " " + _("Invitacions agrupades per servidor i enllaç del tauler visible. Els avisos de Talk apareixen a Notificacions i obren la conversa, segons les preferències de Talk, sense afegir consultes periòdiques.")),
         (_("Taulers i targetes"),
          _("Organitza els projectes amb columnes, targetes, etiquetes i dates límit. Escriu descripcions amb format i imatges, participa en els comentaris i esborra els teus quan calgui. Consulta el recompte de comentaris al costat del títol, sense afegir una fila a la targeta. El recompte del Campbase exclou les reaccions i queda centrat amb el títol.")),
         (_("Col·laboració als taulers"),

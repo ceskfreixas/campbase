@@ -40,8 +40,10 @@ def collect_updates(api, store, snapshot=None, force=False):
             if not isinstance(rows, list):
                 raise DeckError(_("La resposta de Nextcloud no té el format esperat."))
             id_key = 'notification_id' if key == 'notifications' else 'activity_id'
-            state[key] = [row for row in rows if isinstance(row, dict) and row.get('app') == 'deck' and
-                          isinstance(row.get(id_key), int)]
+            apps = {'deck', 'spreed'} if key == 'notifications' else {'deck'}
+            state[key] = [row for row in rows if isinstance(row, dict) and row.get('app') in apps
+                          and isinstance(row.get(id_key), int)
+                          and (row.get('app') != 'spreed' or destination(row).get('talk_token'))]
             unavailable.pop(key, None)
             retry.pop(key, None)
         except ServiceUnavailable:
@@ -116,7 +118,7 @@ def entries(store):
     for item in state.get('notifications', []):
         from .comment_reactions import reaction_preview
         rich = item.get('subjectRichParameters') or {}
-        emoji = reaction_preview(item.get('message'))
+        emoji = reaction_preview(item.get('message')) if item.get('app') != 'spreed' else None
         title = item.get('subject') or ''
         if emoji and isinstance(rich, dict) and isinstance(rich.get('user'), dict):
             title = _("{name} ha reaccionat {emoji} a un comentari de «{title}».").format(
@@ -125,7 +127,8 @@ def entries(store):
         rows.append({**destination(item), 'key': f'n:{item["notification_id"]}', 'notice_id': item['notification_id'],
                      'title': title, 'body': item.get('message') or '',
                      'datetime': item.get('datetime', ''), 'link': item.get('link') or '',
-                     'kind': item.get('object_type'), 'object_id': item.get('object_id'), 'icon': 'preferences-system-notifications-symbolic'})
+                     'app': item.get('app'), 'kind': item.get('object_type'), 'object_id': item.get('object_id'),
+                     'icon': 'cat.cesk.Campbase-conversations-symbolic' if item.get('app') == 'spreed' else 'preferences-system-notifications-symbolic'})
     for item in state.get('activity', []):
         # The user's activity settings decide which server events are available.
         rows.append({**destination(item), 'key': f'a:{item["activity_id"]}', 'title': item.get('subject') or '',

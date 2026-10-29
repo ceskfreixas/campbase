@@ -112,6 +112,16 @@ try:
     loading_height=share.content_box.get_height()
     settle(lambda:not share.busy);settle()
     assert share.content_box.get_height()<loading_height
+    assert share.link_row.get_subtitle()==f'{api.server}/index.php/apps/deck/board/1'
+    assert not share.invitation_stack.get_vhomogeneous()
+    share.search.set_text('draft')
+    share.remote.set_text('someone@remote.example.invalid')
+    writes_before_switch=len(server.writes)
+    share.invitation_stack.set_visible_child_name('remote');settle()
+    assert share.remote.get_mapped() and not share.search.get_mapped()
+    share.invitation_stack.set_visible_child_name('local');settle()
+    assert share.search.get_text()=='draft' and share.remote.get_text()=='someone@remote.example.invalid'
+    assert len(server.writes)==writes_before_switch
     assert share.copy_button.get_valign()==Gtk.Align.CENTER
     assert share.copy_button.get_margin_top()==share.copy_button.get_margin_bottom()==8
     ok,copy_bounds=share.copy_button.compute_bounds(share.link_row);assert ok
@@ -148,6 +158,10 @@ try:
         ok,bounds=share.form.get_last_child().compute_bounds(content);assert ok
         assert abs(content.get_height()-bounds.origin.y-bounds.size.height-24)<2
     share.set_status('Prova de connexió');settle()
+    # Federation adds a collapsible section. When a status line makes the form
+    # exceed the dialog's height cap, check the bottom margin at the scroll end.
+    adjustment=share.scroller.get_vadjustment()
+    adjustment.set_value(adjustment.get_upper()-adjustment.get_page_size());settle()
     content=share.content_box;ok,bounds=share.form.get_last_child().compute_bounds(content);assert ok
     assert abs(content.get_height()-bounds.origin.y-bounds.size.height-24)<2
     share.force_close();settle()

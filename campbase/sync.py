@@ -88,7 +88,7 @@ class SyncEngine:
                 blocked_cards.add(card_key)
                 continue
             # An earlier create may have remapped this operation's card ID.
-            operation = next((o for o in self.store.operations() if o["id"] == operation["id"]), None)
+            operation = self.store.operation(operation['id'])
             if not operation:
                 continue
             creation_attempted = False
@@ -110,7 +110,9 @@ class SyncEngine:
                 if operation["kind"] == "create" and (operation["payload"].get("images") or operation["payload"].get("labels") or operation["payload"].get("assignedUsers")):
                     self.store.complete(operation, result, stage_followups=True)
                     self.notify()
-                    operation = next(o for o in self.store.operations() if o["id"] == operation["id"])
+                    operation = self.store.operation(operation['id'])
+                    if operation is None:
+                        continue
                     result = self.perform(operation)
                 from .updates import own_assignment_notice
                 notice = own_assignment_notice(self.store, self.api, operation, result)

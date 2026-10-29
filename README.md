@@ -34,6 +34,10 @@ work with other people and keep the same boards available in the Android Deck ap
   Campbase excludes emoji reactions from this count using cached background reads.
 - Share boards with users on the same Nextcloud server. Choose initial read or
   edit access, manage edit/share/management permissions and remove direct access.
+- Invite people on other servers using their federated ID when Deck 1.18 or
+  later and federated sharing are enabled on both servers.
+- Open Nextcloud Talk conversations from the board, message local members
+  directly and explicitly invite them into a private board group chat.
 - Assign cards to board members. See assignees on the board and edit them in the
   card dialog; assignment drafts are retained offline.
 - React to comments with six familiar emojis. Campbase groups these readable
@@ -75,12 +79,26 @@ creation activity can supply authorship for other objects. Older objects without
 that evidence show their server owner, or unavailable authorship. Campbase does
 not guess a column's creator from its current board owner.
 
-Notifications depend on the Deck notifications and Activity settings enabled on
-the server. Optional feed failures do not discard card edits. Feeds refresh at
+The inbox includes native Talk alerts and opens their conversation directly.
+Notifications follow the Deck, Talk and Activity settings enabled on the server;
+Talk alerts reuse the existing notification feed without extra periodic requests. Optional feed failures do not discard card edits. Feeds refresh at
 most once a minute during regular synchronization, or immediately from the inbox.
 Card synchronization defaults to 45 seconds, with 30-second to 10-minute intervals
 or manual mode available in Preferences. Campbase does not run a background daemon
-when closed. Cross-server federated sharing is outside this preview's scope.
+when closed.
+
+Federated board invitations go through the connected Nextcloud server; Campbase
+never sends account credentials to the recipient's server. Enabling federation
+requires an administrator and compatible Deck installations on both sides.
+
+Messaging requires Nextcloud Talk with the v4 conversation API. Group chat
+participants are managed independently in Talk: changing a board ACL does not
+automatically add or remove chat participants. The board owner confirms the
+initial local member list before creating a group; later membership changes,
+including remote Talk participants, are managed in Talk. Drafts stay in the
+private local cache. An uncertain send is not automatically retried. Messages
+and notifications use Talk, not synthetic Deck comments. Chat polling only runs
+while its dialog is open and does not block card synchronization.
 
 ## Install and run
 

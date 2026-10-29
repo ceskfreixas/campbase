@@ -122,3 +122,23 @@ class BackgroundCountTests(unittest.TestCase):
         self.engine.api=SimpleNamespace(server=self.api.server,username='bob')
         self.release.set();self.loader.executor.shutdown(wait=True);self.flush()
         self.assertEqual(self.store.get('comment_counts',{}),{})
+
+    def test_showing_archived_cards_starts_counts_without_waiting_for_the_next_minute(self):
+        self.window.matching_cards=lambda stack:[]
+        self.loader.refresh(self.snapshot,1)
+        self.assertFalse(self.calls)
+        self.window.matching_cards=lambda stack:stack['cards']
+        self.loader.refresh(self.snapshot,1)
+        self.assertTrue(self.started.wait(1))
+
+    def test_visibility_cancellation_does_not_apply_network_error_backoff(self):
+        self.loader.refresh(self.snapshot,1);self.assertTrue(self.started.wait(1))
+        self.window.matching_cards=lambda stack:[];self.loader.refresh(self.snapshot,1)
+        self.release.set();deadline=time.monotonic()+2
+        while self.loader.pending and time.monotonic()<deadline:
+            self.flush();time.sleep(.005)
+        self.assertFalse(self.loader.failed)
+        self.window.matching_cards=lambda stack:stack['cards'];self.loader.refresh(self.snapshot,1)
+        deadline=time.monotonic()+2
+        while len(self.calls)<4 and time.monotonic()<deadline:time.sleep(.005)
+        self.assertGreaterEqual(len(self.calls),4)

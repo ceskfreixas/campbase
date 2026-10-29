@@ -84,7 +84,7 @@ class NotificationsDialog(Adw.Dialog):
                 title=_("No s'han pogut carregar els avisos") if problem else _("No hi ha notificacions"),
                 icon_name='network-error-symbolic' if problem else 'preferences-system-notifications-symbolic',
                 description=_("Torna-ho a provar amb el botó d'actualització.") if problem else
-                    _("Aquí veuràs comparticions, comentaris, mencions i assignacions dels teus taulers.")))
+                    _("Aquí veuràs comparticions, comentaris, mencions, assignacions i avisos de Talk.")))
         for item in rows:
             row = Gtk.Box()
             row.add_css_class('notification-row')
@@ -100,7 +100,7 @@ class NotificationsDialog(Adw.Dialog):
                 body = label(item['body'], 'notification-body', xalign=0, wrap=True, lines=4)
                 tokens = list(item.get('mentions') or [])
                 for board in self.window.snapshot.get('boards', []):
-                    if not item.get('board_id') or item['board_id'] == board['id']:
+                    if not item.get('talk_token') and (not item.get('board_id') or item['board_id'] == board['id']):
                         tokens.extend(board_tokens(self.window, board['id']))
                 MentionStyle(body, tokens)
                 text.append(body)

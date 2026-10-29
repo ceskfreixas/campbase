@@ -15,6 +15,14 @@ def identifier(value):
 
 
 def destination(item):
+    # Talk object IDs can include a message suffix. Never interpret them as Deck IDs.
+    if item.get('app') == 'spreed' or item.get('talk_token'):
+        candidate = item.get('talk_token') or str(item.get('object_id') or '').split('/')[0]
+        if not re.fullmatch(r'[A-Za-z0-9]{1,64}', candidate):
+            return {}
+        if item.get('talk_token') or (item.get('object_type') or item.get('kind')) in {'chat', 'room', 'call', 'reminder'}:
+            return {'talk_token': candidate}
+        return {}
     target = {key: item[key] for key in ('board_id', 'card_id', 'stack_id', 'comment_id', 'section',
                                        'comment_text', 'comment_time', 'comment_actor') if item.get(key)}
     rich = item.get('subject_rich')

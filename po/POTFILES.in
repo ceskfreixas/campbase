@@ -16,6 +16,11 @@ campbase/card_tiles.py
 campbase/choosers.py
 campbase/clipboard.py
 campbase/collaboration.py
+campbase/chat.py
+campbase/conversations.py
+campbase/federation.py
+campbase/talk.py
+campbase/talk_widgets.py
 campbase/column_menu.py
 campbase/comments.py
 campbase/date_picker.py

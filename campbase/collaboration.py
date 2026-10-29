@@ -113,17 +113,21 @@ class CollaborationAPI:
                 users[uid] = {'uid': uid, 'displayname': item.get('label') or uid}
         return list(users.values())
 
-    def share_board(self, board_id, uid, permissions):
+    def share_board(self, board_id, uid, permissions, share_type=0, before_send=None):
         from .deck import DeckError
+        if share_type not in (0, 6):
+            raise ValueError('Unsupported board share type')
         board = self.check_board(board_id)
         if not board.get('permissions', {}).get('PERMISSION_SHARE', False):
             raise DeckError(_("No tens permís per compartir aquest tauler."))
         # A retry after a lost response must never create a duplicate ACL.
-        if any(acl.get('type') == 0 and person(acl.get('participant'))['uid'] == uid for acl in board.get('acl') or []):
+        if any(acl.get('type') == share_type and person(acl.get('participant'))['uid'] == uid for acl in board.get('acl') or []):
             return board
-        self.request('POST', f'/boards/{int(board_id)}/acl', {'type': 0, 'participant': uid, **permissions})
+        if before_send:
+            before_send()
+        self.request('POST', f'/boards/{int(board_id)}/acl', {'type': share_type, 'participant': uid, **permissions})
         board = self.check_board(board_id)
-        if not any(acl.get('type') == 0 and person(acl.get('participant'))['uid'] == uid for acl in board.get('acl') or []):
+        if not any(acl.get('type') == share_type and person(acl.get('participant'))['uid'] == uid for acl in board.get('acl') or []):
             raise DeckError(_("Deck no ha confirmat la compartició. Revisa els membres abans de tornar-ho a provar."))
         return board
 
@@ -140,11 +144,13 @@ class CollaborationAPI:
             raise DeckError(_("Deck no ha confirmat els permisos. Torna a carregar els membres."))
         return board
 
-    def update_assignments(self, board_id, stack_id, card_id, desired, base):
+    def update_assignments(self, board_id, stack_id, card_id, desired, base, current=None):
         from .deck import DeckError
         before, after = assignment_ids(base), assignment_ids(desired)
         changed = before ^ after
-        current = self.get_card(board_id, stack_id, card_id)
+        current = current if current is not None else self.get_card(board_id, stack_id, card_id)
+        if not changed:
+            return current
         actual = assignment_ids(current.get('assignedUsers'))
         path = self.card_path(board_id, current['stackId'], card_id)
         for uid in sorted(changed):

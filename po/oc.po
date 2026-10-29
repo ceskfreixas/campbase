@@ -1101,8 +1101,8 @@ msgstr "Compartís eth taulèr"
 msgid "Comparteix el tauler per assignar targetes als seus membres."
 msgstr "Compartís eth taulèr entà assignar targes as sòns membres."
 
-msgid "Convida usuaris del mateix servidor de Nextcloud."
-msgstr "Convida usatgèrs deth madeish servidor de Nextcloud."
+msgid "Convida usuaris d'aquest servidor o d'altres servidors de Nextcloud."
+msgstr "Convida usuaris d'aguest servidor o d'auti servidors de Nextcloud."
 
 msgid "Creat per {name} (@{username})"
 msgstr "Creat per {name} (@{username})"
@@ -1574,3 +1574,196 @@ msgstr "Ligams e seleccion"
 
 msgid "Copia l'enllaç d'un tauler per enviar-lo als membres autoritzats. El selector de reaccions s'obre sense cap emoji seleccionat. Més espai entre el checkbox i l'avatar en assignar targetes, i recompte de comentaris alineat amb la icona. L'enllaç de suport segueix l'idioma de l'aplicació. Els botons d'edició i de reaccions mantenen un estat neutre, i el botó de copiar conserva marges verticals."
 msgstr "Còpia eth ligam d'un tablèu entà enviar-lo as membres autorizadi. Eth selector de reaccions se daurís sense cap emoji seleccionat. Mès espaci entre era casa de seleccion e er avatar en assignar targetes, e recompte de comentaris alinhat damb era icòna. Eth ligam de supòrt seguís era lengua dera aplicacion. Es botons d'edicion e de reaccions manten un estat neutre, e eth boton de copiar consèrve marges verticaus."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Altres servidors"
+msgstr "D'auti servidors"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Identificador federat"
+msgstr "Identificador federat"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Convida al tauler"
+msgstr "Convida ath tablèu"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Usuari@servidor. Cal que tots dos servidors tinguin Deck i la compartició federada habilitada."
+msgstr "Usuari@servidor. Cau que toti dus servidors agen Deck e era comparticion federada activada."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Escriu l'identificador federat complet: usuari@servidor."
+msgstr "Escriu er identificador federat complet: usuari@servidor."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Aquest servidor no té habilitada la compartició de Deck amb altres servidors."
+msgstr "Aguest servidor non a activada era comparticion de Deck damb d'auti servidors."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Aquest servidor no té Nextcloud Talk habilitat."
+msgstr "Aguest servidor non a Nextcloud Talk activat."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Gestiona aquesta conversa des de Nextcloud Talk."
+msgstr "Gestiona aguesta convèrsa des de Nextcloud Talk."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Només el responsable pot crear el xat del tauler."
+msgstr "Sonque eth responsable pòt crear eth chat deth tablèu."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Els membres han canviat. Revisa'ls abans de crear el xat."
+msgstr "Es membres an cambiat. Revisa-les abans de crear eth chat."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Converses"
+msgstr "Convèrses"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Conversa"
+msgstr "Convèrsa"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Obre a Talk"
+msgstr "Daurís en Talk"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Revisa l'enviament"
+msgstr "Revisa er enviament"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Missatges anteriors"
+msgstr "Messatges anteriors"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Escriu un missatge…"
+msgstr "Escriu un messatge…"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Envia el missatge"
+msgstr "Envia eth messatge"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+#, python-brace-format
+msgid "Participants: {names}"
+msgstr "Participants: {names}"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "El missatge és a Talk?"
+msgstr "Eth messatge ei en Talk?"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Comprova-ho abans de tornar-lo a enviar per evitar duplicats."
+msgstr "Verifica'c abans de tornar-lo a enviar entà evitar duplicats."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Ja s'ha enviat"
+msgstr "Ja s'a enviat"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "No s'ha enviat"
+msgstr "Non s'a enviat"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "No s'ha pogut confirmar l'enviament. Comprova la conversa a Talk abans de tornar-lo a enviar."
+msgstr "Non s'a podut confirmar er enviament. Verifica era convèrsa en Talk abans de tornar-lo a enviar."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Missatgeria amb Nextcloud Talk"
+msgstr "Messatgeria damb Nextcloud Talk"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Xat del tauler"
+msgstr "Chat deth tablèu"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Missatges directes"
+msgstr "Messatges dirèctes"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Converses de Talk"
+msgstr "Convèrses de Talk"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Comprova la creació del xat a Talk abans de tornar-ho a provar."
+msgstr "Verifica era creacion deth chat en Talk abans de tornar a provar."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Crea el xat del tauler"
+msgstr "Crèa eth chat deth tablèu"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Vols crear el xat del tauler?"
+msgstr "Vòs crear eth chat deth tablèu?"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Crea el xat"
+msgstr "Crèa eth chat"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+#, python-brace-format
+msgid "Es convidaran aquests membres del servidor: {names}. Els participants del xat es gestionen a Talk; els canvis al tauler no els modifiquen automàticament."
+msgstr "Se convidaràn aguesti membres deth servidor: {names}. Es participants deth chat se gestionen en Talk; es cambiaments en tablèu non les modifiquen automaticament."
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Compartició federada i converses"
+msgstr "Comparticion federada e convèrses"
+
+#: campbase/conversations.py campbase/chat.py campbase/federation.py campbase/talk.py campbase/sharing.py campbase/releases.py
+msgid "Convida usuaris d'altres servidors amb el seu identificador federat quan Deck ho permet. Obre les converses de Talk des del tauler, escriu missatges directes als membres i crea un xat de grup. Els participants del xat es gestionen a Talk. Els esborranys es conserven i els enviaments dubtosos es revisen abans de repetir-los."
+msgstr "Convida usuaris d'auti servidors damb eth sòn identificador federat quan Deck ac permet. Daurís es convèrses de Talk des deth tablèu, escriu messatges dirèctes as membres e crèa un chat de grop. Es participants deth chat se gestionen en Talk. Es borrolhons se consèrven e es enviaments dobtuosi se revissen abans de repetir-les."
+
+#: campbase/conversations.py
+msgid "Actualitza"
+msgstr "Actualiza"
+
+#: campbase/chat.py
+msgid "Missatges recents"
+msgstr "Messatges recents"
+
+#: campbase/conversations.py
+msgid "Has comprovat si el xat existeix?"
+msgstr "As verificat s'eth chat existís?"
+
+#: campbase/conversations.py
+msgid "Revisa les converses a Talk. Reinicia l'intent només si el xat no s'ha creat."
+msgstr "Revisa es convèrses en Talk. Reinicia er intent sonque s'eth chat non s'a creat."
+
+#: campbase/conversations.py
+msgid "No s'ha creat"
+msgstr "Non s'a creat"
+
+#: campbase/sharing.py
+msgid "Revisa la invitació"
+msgstr "Revisa era invitacion"
+
+#: campbase/sharing.py
+msgid "No s'ha pogut confirmar la invitació. Comprova si s'ha rebut abans de tornar-la a enviar."
+msgstr "Non s'a podut confirmar era invitacion. Verifica s'a estat recebuda abans de tornar-la a enviar."
+
+#: campbase/releases.py
+msgid "Convida usuaris d'altres servidors amb el seu identificador federat quan Deck ho permet. Obre les converses de Talk des del tauler, escriu missatges directes als membres i crea un xat de grup. Els participants del xat es gestionen a Talk. Els esborranys es conserven i els enviaments dubtosos es revisen abans de repetir-los. Accions del tauler agrupades, icona de conversa pròpia i modal de Converses ajustat al contingut."
+msgstr "Convida usuaris d'auti servidors damb eth sòn identificador federat quan Deck ac permet. Daurís es convèrses de Talk des deth tablèu, escriu messatges dirèctes as membres e crèa un chat de grop. Es participants deth chat se gestionen en Talk. Es borrolhons se consèrven e es enviaments dobtuosi se revissen abans de repetir-les. Accions deth tablèu amassades, icòna de convèrsa pròpria e modau de Convèrses ajustat ath contengut."
+
+#: campbase/releases.py
+msgid "Convida usuaris d'altres servidors amb el seu identificador federat quan Deck ho permet. Obre les converses de Talk des del tauler, escriu missatges directes als membres i crea un xat de grup. Els participants del xat es gestionen a Talk. Els esborranys es conserven i els enviaments dubtosos es revisen abans de repetir-los. Accions del tauler agrupades, icona de conversa pròpia i modal de Converses ajustat al contingut. Les lectures del xat no endarrereixen els enviaments. S'eviten confirmacions repetides, les cues grans es llegeixen amb menys cost i els recomptes s'actualitzen de seguida quan es mostren les arxivades."
+msgstr "Convida usuaris d'auti servidors damb eth sòn identificador federat quan Deck ac permet. Daurís es convèrses de Talk des deth tablèu, escriu messatges dirèctes as membres e crèa un chat de grop. Es participants deth chat se gestionen en Talk. Es borrolhons se consèrven e es enviaments dobtuosi se revissen abans de repetir-les. Accions deth tablèu amassades, icòna de convèrsa pròpria e modau de Convèrses ajustat ath contengut. Es lectures deth chat non retarden es enviaments. S'eviten confirmacions repetides, es cues granes requerissen mens lectures locaus e es recomptes s'actualizen de seguida quan se mòstren es targetes arxivades."
+
+#: campbase/talk.py
+msgid "Talk no ha confirmat tots els participants. Revisa el xat a Talk."
+msgstr "Talk non a confirmat toti es participants. Revisa eth chat en Talk."
+
+msgid "Convida membres"
+msgstr "Convide membres"
+
+msgid "Aquest servidor"
+msgstr "Aguest servidor"
+
+msgid "No s'ha pogut obrir la conversa."
+msgstr "Non s'a pogut daurir era convèrsa."
+
+msgid "Aquí veuràs comparticions, comentaris, mencions, assignacions i avisos de Talk."
+msgstr "Ací veiràs comparticions, comentaris, mencions, assignacions e avisi de Talk."
+
+msgid "Invitacions agrupades per servidor i enllaç del tauler visible. Els avisos de Talk apareixen a Notificacions i obren la conversa, segons les preferències de Talk, sense afegir consultes periòdiques."
+msgstr "Invitacions agropades per servidor e ligam deth taulèr visible. Es avisi de Talk apareishen en Notificacions e daurissen era convèrsa, segontes es preferéncies de Talk, sense híger consultes periodiques."

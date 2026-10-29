@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
-"""Explicit same-server board sharing with per-member permissions."""
+"""Explicit local and federated board sharing with per-member permissions."""
 from gi.repository import Adw, Gtk
 from . import localization as ui
 from .i18n import _
@@ -10,6 +10,7 @@ from .widgets import label, clear, icon_button
 from .people import identity, avatar
 from .alerts import message
 from .links import board_url
+from .federation import share_remote, cloud_id
 
 PERMISSIONS = ('permissionEdit', 'permissionShare', 'permissionManage')
 
@@ -27,10 +28,10 @@ class SharingDialog(Adw.Dialog):
         self.form = dialog_form()
         intro = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
         intro.append(label(board['title'], 'title-3', xalign=0, wrap=True))
-        intro.append(label(_("Convida usuaris del mateix servidor de Nextcloud."), 'dim-label', xalign=0, wrap=True))
+        intro.append(label(_("Convida usuaris d'aquest servidor o d'altres servidors de Nextcloud."), 'dim-label', xalign=0, wrap=True))
         self.form.append(intro)
         self.link_row = ui.create(Adw.ActionRow, title=_("Enllaç del tauler"),
-            subtitle=_("Només hi poden accedir els membres amb permís. L'enllaç no convida usuaris ni fa públic el tauler."),
+            subtitle=board_url(window.account.server, board['id']) if window.account and board['id'] > 0 else '',
             subtitle_lines=0)
         self.copy_button = icon_button('edit-copy-symbolic', _("Copia l'enllaç"), self.copy_link)
         self.copy_button.set_valign(Gtk.Align.CENTER)
@@ -51,15 +52,33 @@ class SharingDialog(Adw.Dialog):
         search_section.append(search_line)
         search_section.append(label(_("Cerca pel nom o identificador. També pots provar el correu complet si el servidor ho permet."),
                                     'caption', xalign=0, wrap=True))
-        self.form.append(search_section)
+        self.results = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, visible=False)
+        search_section.append(self.results)
         self.initial_permission = ui.create(Adw.ComboRow, title=_("Permís inicial"),
                                             model=ui.strings([_("Només lectura"), _("Pot editar targetes")]))
         self.initial_permission.set_selected(1)
         permissions_group = Adw.PreferencesGroup()
         permissions_group.add(self.initial_permission)
-        self.form.append(permissions_group)
-        self.results = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, visible=False)
-        self.form.append(self.results)
+        self.remote_group = Adw.PreferencesGroup()
+        self.remote = ui.create(Adw.EntryRow, title=_("Identificador federat"))
+        self.remote_button = icon_button('list-add-symbolic', _("Convida al tauler"), self.invite_remote)
+        self.remote_button.set_valign(Gtk.Align.CENTER)
+        self.remote.add_suffix(self.remote_button)
+        self.remote.connect('entry-activated', self.invite_remote)
+        self.remote_group.add(self.remote)
+        self.remote_group.add(ui.create(Adw.ActionRow,
+            title=_("Usuari@servidor. Cal que tots dos servidors tinguin Deck i la compartició federada habilitada."), title_lines=0))
+        invitations = self.invitations = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        invitations.append(label(_("Convida membres"), 'heading', xalign=0))
+        self.invitation_stack = Gtk.Stack(vhomogeneous=False, hhomogeneous=False)
+        ui.stack_title(self.invitation_stack, search_section, 'local', _("Aquest servidor"))
+        ui.stack_title(self.invitation_stack, self.remote_group, 'remote', _("Altres servidors"))
+        self.invitation_switcher = Gtk.StackSwitcher(stack=self.invitation_stack, halign=Gtk.Align.CENTER)
+        invitations.append(self.invitation_switcher)
+        invitations.append(self.invitation_stack)
+        invitations.append(permissions_group)
+        self.invitation_stack.connect('notify::visible-child', lambda *_: self.fit_contents())
+        self.form.append(invitations)
         self.status = label('', 'dim-label', xalign=0, wrap=True, visible=False)
         self.form.append(self.status)
         self.member_group = ui.create(Adw.PreferencesGroup, title=_("Membres del tauler"))
@@ -86,10 +105,14 @@ class SharingDialog(Adw.Dialog):
         self.member_group.add(row)
         self.rows.append(row)
         allowed = board.get('permissions', {}).get('PERMISSION_SHARE', False)
+        self.invitations.set_sensitive(allowed)
         self.search.set_sensitive(allowed)
         self.initial_permission.set_sensitive(allowed)
+        self.remote_group.set_sensitive(allowed)
         for acl in board.get('acl') or []:
             user = person(acl.get('participant'))
+            if acl.get('type') == 6 and self.window.account:
+                self.window.store.put(self.invitation_key(user['uid']), None)
             row = ui.create(Adw.ExpanderRow, title=user['displayname'], subtitle='@'+user['uid'])
             row.add_prefix(avatar(self.window, user, 32))
             row.connect('notify::expanded', lambda *_unused: self.fit_contents())
@@ -130,6 +153,36 @@ class SharingDialog(Adw.Dialog):
 
     def fit_contents(self):
         fit_dialog_contents(self)
+
+    def invite_remote(self, *_unused):
+        if self.busy or not self.window.account:
+            return
+        try:
+            address = cloud_id(self.remote.get_text())
+        except (ValueError, UnicodeError):
+            self.set_status(_("Escriu l'identificador federat complet: usuari@servidor."))
+            return
+        key = self.invitation_key(address)
+        if self.window.store.get(key):
+            prompt = ui.create(Adw.AlertDialog, heading=_("Revisa la invitació"),
+                body=_("No s'ha pogut confirmar la invitació. Comprova si s'ha rebut abans de tornar-la a enviar."))
+            ui.response(prompt, 'cancel', _("Cancel·la"))
+            ui.response(prompt, 'reset', _("No s'ha enviat"))
+            prompt.set_default_response('cancel')
+            prompt.set_close_response('cancel')
+            prompt.connect('response', lambda _, response: self.window.store.put(key, None) if response == 'reset' else None)
+            prompt.present(self)
+            return
+        permissions = dict(zip(PERMISSIONS, [self.initial_permission.get_selected() == 1, False, False]))
+        def send(api):
+            board = share_remote(api, self.board['id'], address, permissions,
+                before_send=lambda: self.window.store.put(key, True))
+            self.window.store.put(key, None)
+            return board
+        self.perform(send)
+
+    def invitation_key(self, address):
+        return 'federated_invitation:' + self.window.account.server + ':' + str(self.board['id']) + ':' + address
 
     def perform(self, action):
         if self.busy:

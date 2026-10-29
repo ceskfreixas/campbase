@@ -82,7 +82,9 @@ class Deck(CollaborationAPI):
         if service:
             prefix = {"cloud": "/ocs/v1.php/cloud", "sharing": "/ocs/v1.php/apps/files_sharing/api/v1",
                       "notifications": "/ocs/v1.php/apps/notifications/api/v2",
-                      "activity": "/ocs/v1.php/apps/activity/api/v2"}[service]
+                      "activity": "/ocs/v1.php/apps/activity/api/v2",
+                      "talk": "/ocs/v2.php/apps/spreed/api/v4",
+                      "chat": "/ocs/v2.php/apps/spreed/api/v1"}[service]
         payload = body if isinstance(body, bytes) else json.dumps(body).encode() if body is not None else None
         request = Request(self.server + prefix + path, data=payload, method=method,
                           headers={"Authorization": self._auth, "OCS-APIRequest": "true",
@@ -94,6 +96,8 @@ class Deck(CollaborationAPI):
         except HTTPError as error:
             code = error.code
             error.close()
+            if code == 304 and service == 'chat':
+                return []
             if code == 404 and service in {'activity', 'notifications'}:
                 raise ServiceUnavailable() from None
             messages = {401: _("El compte no s'ha pogut autenticar. Revisa'l a Comptes en línia de GNOME."),
@@ -111,7 +115,7 @@ class Deck(CollaborationAPI):
                 status = data["ocs"]["meta"].get("statuscode")
                 if status in (404, 998) and service in {'activity', 'notifications'}:
                     raise ServiceUnavailable()
-                if status not in (100, 200, 204, 304):
+                if status not in (100, 200, 201, 204, 304):
                     raise DeckError(_("Nextcloud no ha pogut completar l'operació."))
                 return data["ocs"]["data"]
             return data
@@ -226,7 +230,8 @@ class Deck(CollaborationAPI):
             equal = same_due if key == 'duedate' else lambda a, b: a == b
             if not force and base and not any(equal(current.get(key), value) for value in (base.get(key), desired)):
                 raise ConflictError(_("El contingut d'aquesta targeta ha canviat a Deck. El teu esborrany s'ha conservat."))
-        written = any(current.get(key) != value for key, value in fields.items())
+        written = any(not (same_due(current.get(key), value) if key == 'duedate'
+                          else current.get(key) == value) for key, value in fields.items())
         if written:
             archive_change = fields.get('archived') if fields.get('archived') != current.get('archived') else None
             self._write_card(board_id, card_id, current | fields, archived=archive_change)
@@ -237,7 +242,7 @@ class Deck(CollaborationAPI):
             result = self.get_card(board_id, fields.get('stackId', current["stackId"]), card_id) if written else current
         if "assignedUsers" in changes:
             result = self.update_assignments(board_id, result["stackId"], card_id, changes["assignedUsers"],
-                                             (base or {}).get("assignedUsers", current.get("assignedUsers")))
+                                             (base or {}).get("assignedUsers", current.get("assignedUsers")), current=result)
         for key, desired in fields.items():
             # The server may normalize the timezone component of due dates.
             actual = result.get(key)

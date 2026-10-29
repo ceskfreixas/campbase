@@ -52,6 +52,7 @@ def board_header(window, board, count_text):
     from .collaboration import person, members
     from .people import avatar
     from .sharing import SharingDialog
+    from .conversations import ConversationsDialog
 
     header = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6, hexpand=True)
     header.add_css_class('board-header')
@@ -76,13 +77,20 @@ def board_header(window, board, count_text):
         ('view-dual-symbolic', _("Crea una columna"), lambda: window.new_column(), 'PERMISSION_MANAGE'),
         ('system-users-symbolic', _("Comparteix el tauler"),
          lambda: SharingDialog(window, board).present(window), None),
+        ('cat.cesk.Campbase-conversations-symbolic', _("Converses"),
+         lambda: ConversationsDialog(window, board).present(window), None),
     ]
     for index, (icon, title, callback, permission) in enumerate(controls):
+        if index == 2:
+            actions.append(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL, margin_start=4, margin_end=4,
+                                         margin_top=6, margin_bottom=6))
         button = icon_button(icon, title, lambda *_unused, action=callback: action())
         if index == 0:
             button.add_css_class('suggested-action')
         if permission:
             button.set_sensitive(window.demo or board.get('permissions', {}).get(permission, True))
+        elif icon == 'cat.cesk.Campbase-conversations-symbolic':
+            button.set_sensitive(not window.demo and window.engine.api is not None)
         actions.append(button)
     actions.append(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL, margin_start=4, margin_end=4,
                                  margin_top=6, margin_bottom=6))

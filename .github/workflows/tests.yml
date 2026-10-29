@@ -36,7 +36,7 @@ jobs:
       - name: Check archive, collaboration and dialog workflows
         run: |
           failed=0
-          for test in archive_preferences_drop archived_columns board_deletion card_controls comment_deletion dialog_layout notification_navigation workspace_refresh sync_interaction reactions; do
+          for test in archive_preferences_drop archived_columns board_deletion card_controls comment_deletion dialog_layout notification_navigation workspace_refresh sync_interaction reactions talk; do
             xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=.:tests .venv/bin/python tests/${test}_smoke.py || failed=1
           done
           exit "$failed"
