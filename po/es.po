@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.4\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.6\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Guardar"
@@ -2033,3 +2033,84 @@ msgstr "Interfaz más compacta"
 
 msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
 msgstr "Unificamos el margen interior de las tarjetas y acortamos las etiquetas de los menús."
+
+msgid "Paperera"
+msgstr "Papelera"
+
+msgid "Opcions del tauler"
+msgstr "Opciones del tablero"
+
+msgid "Deck no ha pogut carregar la paperera."
+msgstr "Deck no ha podido cargar la papelera."
+
+msgid "No es poden restaurar targetes en aquest tauler."
+msgstr "No se pueden restaurar tarjetas en este tablero."
+
+msgid "La targeta ha canviat. Actualitza la paperera."
+msgstr "La tarjeta ha cambiado. Actualiza la papelera."
+
+msgid "La columna original ja no està disponible."
+msgstr "La columna original ya no está disponible."
+
+msgid "Deck no ha confirmat la restauració de la targeta."
+msgstr "Deck no ha confirmado la restauración de la tarjeta."
+
+msgid "Resol els canvis pendents d'aquesta targeta abans de restaurar-la."
+msgstr "Resuelve los cambios pendientes de esta tarjeta antes de restaurarla."
+
+msgid "Pots restaurar les targetes mentre Nextcloud encara les conservi."
+msgstr "Puedes restaurar las tarjetas mientras Nextcloud las conserve."
+
+msgid "Columna no disponible"
+msgstr "Columna no disponible"
+
+msgid "La paperera és buida."
+msgstr "La papelera está vacía."
+
+msgid "S'està restaurant…"
+msgstr "Restaurando…"
+
+msgid "Paperera del tauler"
+msgstr "Papelera del tablero"
+
+msgid "Recupera les targetes esborrades des de la paperera de cada tauler, amb la columna original i la data d’eliminació."
+msgstr "Recupera las tarjetas eliminadas desde la papelera de cada tablero, con la columna original y la fecha de eliminación."
+
+msgid "Restaura"
+msgstr "Restaura"
+
+msgid "S'està carregant…"
+msgstr "Cargando…"
+
+msgid "Targetes esborrades"
+msgstr "Tarjetas eliminadas"
+
+msgid "No hi ha targetes esborrades."
+msgstr "No hay tarjetas eliminadas."
+
+msgid "Elements esborrats"
+msgstr "Elementos eliminados"
+
+msgid "Esborra el tauler…"
+msgstr "Elimina el tablero…"
+
+msgid "Columnes"
+msgstr "Columnas"
+
+msgid "No es poden restaurar columnes en aquest tauler."
+msgstr "No se pueden restaurar columnas en este tablero."
+
+msgid "Deck no ha confirmat la restauració de la columna."
+msgstr "Deck no ha confirmado la restauración de la columna."
+
+msgid "Resol els canvis pendents d'aquesta columna abans de restaurar-la."
+msgstr "Resuelve los cambios pendientes de esta columna antes de restaurarla."
+
+msgid "Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."
+msgstr "Puedes restaurar tarjetas y columnas mientras Nextcloud las conserve."
+
+msgid "No hi ha elements esborrats."
+msgstr "No hay elementos eliminados."
+
+msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
+msgstr "Recupera tarjetas y columnas desde los elementos eliminados de cada tablero."

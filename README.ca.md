@@ -6,7 +6,8 @@ El Campbase és una app kanban nativa de GNOME, feta amb GTK4 i libadwaita i
 sincronitzada amb **Nextcloud Deck**. Organitza projectes amb targetes i columnes,
 treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 
-**Versió actual: 0.1.4 — versió de desenvolupament.**
+**Versió del codi: 0.1.6 — en desenvolupament, encara no publicada.**
+La darrera versió disponible per descarregar és la **0.1.4**.
 
 [Descarrega la darrera versió](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Codi font](https://github.com/ceskfreixas/campbase) ·
@@ -28,7 +29,7 @@ treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
   descripcions i etiquetes; crear i canviar el nom de taulers i columnes.
 - Mostrar les arxivades independentment a cada columna i esborrar-les individualment
   o en grup des d'una secció pròpia, amb confirmació. El nom i el color de columna
-  tenen accions separades. Esborrar els taulers propis des de la barra lateral.
+  tenen accions separades. Esborrar els taulers propis des del menú dels tres punts de la barra lateral.
 - Triar a Preferències si les arxivades es mostren a totes les columnes i reiniciar
   les excepcions; després, ajustar cada columna per separat. Arrossegar-hi una targeta per arxivar-la, també
   quan la secció és buida.
@@ -191,6 +192,10 @@ fitxers de GNOME (fins a 64 MiB). Els enviaments sense confirmar es revisen
 abans de repetir-los. El gestor d'etiquetes permet canviar-ne el nom i el color
 o esborrar-les amb confirmació. Els taulers esborrats recentment es poden
 recuperar mentre Deck els conservi, també amb la icona i els colors locals.
+El menú dels tres punts de cada tauler permet recuperar-ne targetes i columnes
+esborrades. La consulta es fa només en obrir-lo, conserva les targetes arxivades
+i comprova els permisos i els canvis pendents. L'eliminació definitiva depèn
+del període de conservació del servidor.
 A Talk es poden editar i esborrar missatges propis segons les capacitats i els
 terminis del servidor. La memòria cau amb ETag és limitada i independent per
 compte; s'invalida en escriure i no substitueix les comprovacions dels canvis.

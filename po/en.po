@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.4\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.6\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Save"
@@ -2033,3 +2033,84 @@ msgstr "More compact interface"
 
 msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
 msgstr "Cards have consistent inner spacing and shorter menu labels."
+
+msgid "Paperera"
+msgstr "Trash"
+
+msgid "Opcions del tauler"
+msgstr "Board options"
+
+msgid "Deck no ha pogut carregar la paperera."
+msgstr "Deck could not load the trash."
+
+msgid "No es poden restaurar targetes en aquest tauler."
+msgstr "Cards cannot be restored on this board."
+
+msgid "La targeta ha canviat. Actualitza la paperera."
+msgstr "The card has changed. Refresh the trash."
+
+msgid "La columna original ja no està disponible."
+msgstr "The original column is no longer available."
+
+msgid "Deck no ha confirmat la restauració de la targeta."
+msgstr "Deck did not confirm the card restoration."
+
+msgid "Resol els canvis pendents d'aquesta targeta abans de restaurar-la."
+msgstr "Resolve pending changes to this card before restoring it."
+
+msgid "Pots restaurar les targetes mentre Nextcloud encara les conservi."
+msgstr "You can restore cards while Nextcloud still retains them."
+
+msgid "Columna no disponible"
+msgstr "Column unavailable"
+
+msgid "La paperera és buida."
+msgstr "The trash is empty."
+
+msgid "S'està restaurant…"
+msgstr "Restoring…"
+
+msgid "Paperera del tauler"
+msgstr "Board trash"
+
+msgid "Recupera les targetes esborrades des de la paperera de cada tauler, amb la columna original i la data d’eliminació."
+msgstr "Recover deleted cards from each board’s trash, with their original column and deletion date."
+
+msgid "Restaura"
+msgstr "Restore"
+
+msgid "S'està carregant…"
+msgstr "Loading…"
+
+msgid "Targetes esborrades"
+msgstr "Deleted cards"
+
+msgid "No hi ha targetes esborrades."
+msgstr "There are no deleted cards."
+
+msgid "Elements esborrats"
+msgstr "Deleted items"
+
+msgid "Esborra el tauler…"
+msgstr "Delete board…"
+
+msgid "Columnes"
+msgstr "Columns"
+
+msgid "No es poden restaurar columnes en aquest tauler."
+msgstr "Columns cannot be restored on this board."
+
+msgid "Deck no ha confirmat la restauració de la columna."
+msgstr "Deck did not confirm the column restoration."
+
+msgid "Resol els canvis pendents d'aquesta columna abans de restaurar-la."
+msgstr "Resolve pending changes to this column before restoring it."
+
+msgid "Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."
+msgstr "You can restore cards and columns while Nextcloud still retains them."
+
+msgid "No hi ha elements esborrats."
+msgstr "There are no deleted items."
+
+msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
+msgstr "Recover cards and columns from each board’s deleted items."

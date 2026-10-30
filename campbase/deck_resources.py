@@ -24,6 +24,70 @@ def attachment_name(item):
 
 
 class DeckResources:
+    def deleted_stacks(self, board_id):
+        from .deck import DeckError
+        rows = self.request('GET', f'/{int(board_id)}/stacks/deleted', internal=True)
+        if not isinstance(rows, list):
+            raise DeckError(_("Deck no ha pogut carregar la paperera."))
+        return sorted((stack for stack in rows if isinstance(stack, dict) and stack.get('id')
+                       and stack.get('boardId') == board_id and stack.get('deletedAt')),
+                      key=lambda stack: (stack['deletedAt'], stack['id']), reverse=True)
+
+    def restore_stack(self, board_id, stack_id):
+        from .deck import ConflictError, DeckError
+        board = self.check_board(board_id)
+        if board.get('archived') or board.get('deletedAt') or not board.get('permissions', {}).get('PERMISSION_MANAGE', False):
+            raise ConflictError(_("No es poden restaurar columnes en aquest tauler."))
+        current = next((stack for stack in self.deleted_stacks(board_id) if stack['id'] == stack_id), None)
+        if current is not None:
+            self.request('PUT', f'/boards/{int(board_id)}/stacks/{int(stack_id)}',
+                         {'title': current['title'], 'order': current.get('order', 0)})
+        stacks = self.request('GET', f'/boards/{int(board_id)}/stacks')
+        result = next((stack for stack in stacks if stack['id'] == stack_id and not stack.get('deletedAt')), None)
+        if result is None:
+            raise DeckError(_("Deck no ha confirmat la restauració de la columna."))
+        archived = self.request('GET', f'/boards/{int(board_id)}/stacks/archived')
+        cards = {card['id']: card for card in result.get('cards', []) if not card.get('deletedAt')}
+        for stack in archived:
+            if stack['id'] == stack_id:
+                cards.update({card['id']: card for card in stack.get('cards', []) if not card.get('deletedAt')})
+        result = dict(result)
+        result['cards'] = [dict(card, boardId=board_id) for card in cards.values()]
+        return result
+
+    def deleted_cards(self, board_id):
+        from .deck import DeckError
+        rows = self.request('GET', f'/{int(board_id)}/cards/deleted', internal=True)
+        if not isinstance(rows, list):
+            raise DeckError(_("Deck no ha pogut carregar la paperera."))
+        cards = [card for card in rows if isinstance(card, dict) and card.get('id')
+                 and card.get('stackId') and isinstance(card.get('deletedAt'), (int, float))
+                 and card['deletedAt'] > 0]
+        return sorted(cards, key=lambda card: (card['deletedAt'], card['id']), reverse=True)
+
+    def restore_card(self, board_id, stack_id, card_id):
+        from .deck import DeckError, ConflictError
+        board = self.check_board(board_id)
+        if board.get('archived') or board.get('deletedAt') or not board.get('permissions', {}).get('PERMISSION_EDIT', False):
+            raise ConflictError(_("No es poden restaurar targetes en aquest tauler."))
+        current = next((card for card in self.deleted_cards(board_id) if card['id'] == card_id), None)
+        if current is None:
+            result = self.get_card(board_id, stack_id, card_id)
+            if result.get('deletedAt') or result.get('stackId') != stack_id:
+                raise ConflictError(_("La targeta ha canviat. Actualitza la paperera."))
+            return result
+        if current['stackId'] != stack_id:
+            raise ConflictError(_("La targeta ha canviat. Actualitza la paperera."))
+        stacks = self.request('GET', f'/boards/{int(board_id)}/stacks')
+        if not any(stack['id'] == stack_id and not stack.get('deletedAt') for stack in stacks):
+            raise ConflictError(_("La columna original ja no està disponible."))
+        self._write_card(board_id, card_id, current)
+        result = self.get_card(board_id, stack_id, card_id)
+        if (result.get('deletedAt') or result.get('stackId') != stack_id
+                or bool(result.get('archived')) != bool(current.get('archived'))):
+            raise DeckError(_("Deck no ha confirmat la restauració de la targeta."))
+        return result
+
     def restore_board(self, board_id):
         from .deck import DeckError, NotFoundError
         try:

@@ -10,7 +10,7 @@ from .i18n import _
 from .collaboration import person
 from .people import current_person
 from .dialog_widgets import dialog_form
-from .widgets import label, icon_button
+from .widgets import label
 from .deck import ConflictError
 from .alerts import message
 
@@ -18,18 +18,6 @@ from .alerts import message
 def is_board_owner(window, board):
     uid = current_person(window)['uid']
     return bool(uid and uid == person(board.get('owner'))['uid'])
-
-
-def board_delete_button(window, board):
-    if not is_board_owner(window, board):
-        return None
-    button = icon_button('user-trash-symbolic', _("Esborra el tauler"),
-                         lambda *_unused: BoardDeletionDialog(window, board).present(window))
-    button.add_css_class('flat')
-    button.add_css_class('destructive-action')
-    button.add_css_class('hover-action')
-    button.set_valign(Gtk.Align.CENTER)
-    return button
 
 
 class BoardDeletionDialog(Adw.Dialog):

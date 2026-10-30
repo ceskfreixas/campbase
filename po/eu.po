@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.4\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.6\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Gorde"
@@ -2033,3 +2033,84 @@ msgstr "Interfaze trinkoagoa"
 
 msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
 msgstr "Txartelen barneko tarteak bateratu eta menuetako etiketak laburtu ditugu."
+
+msgid "Paperera"
+msgstr "Zakarrontzia"
+
+msgid "Opcions del tauler"
+msgstr "Taularen aukerak"
+
+msgid "Deck no ha pogut carregar la paperera."
+msgstr "Deck-ek ezin izan du zakarrontzia kargatu."
+
+msgid "No es poden restaurar targetes en aquest tauler."
+msgstr "Ezin dira txartelak leheneratu taula honetan."
+
+msgid "La targeta ha canviat. Actualitza la paperera."
+msgstr "Txartela aldatu egin da. Eguneratu zakarrontzia."
+
+msgid "La columna original ja no està disponible."
+msgstr "Jatorrizko zutabea ez dago erabilgarri."
+
+msgid "Deck no ha confirmat la restauració de la targeta."
+msgstr "Deck-ek ez du txartelaren leheneratzea baieztatu."
+
+msgid "Resol els canvis pendents d'aquesta targeta abans de restaurar-la."
+msgstr "Ebatzi txartel honen zain dauden aldaketak leheneratu aurretik."
+
+msgid "Pots restaurar les targetes mentre Nextcloud encara les conservi."
+msgstr "Txartelak lehenera ditzakezu Nextcloud-ek gordetzen dituen bitartean."
+
+msgid "Columna no disponible"
+msgstr "Zutabea ez dago erabilgarri"
+
+msgid "La paperera és buida."
+msgstr "Zakarrontzia hutsik dago."
+
+msgid "S'està restaurant…"
+msgstr "Leheneratzen…"
+
+msgid "Paperera del tauler"
+msgstr "Taularen zakarrontzia"
+
+msgid "Recupera les targetes esborrades des de la paperera de cada tauler, amb la columna original i la data d’eliminació."
+msgstr "Berreskuratu ezabatutako txartelak taula bakoitzaren zakarrontzitik, jatorrizko zutabearekin eta ezabatze-datarekin."
+
+msgid "Restaura"
+msgstr "Leheneratu"
+
+msgid "S'està carregant…"
+msgstr "Kargatzen…"
+
+msgid "Targetes esborrades"
+msgstr "Ezabatutako txartelak"
+
+msgid "No hi ha targetes esborrades."
+msgstr "Ez dago ezabatutako txartelik."
+
+msgid "Elements esborrats"
+msgstr "Ezabatutako elementuak"
+
+msgid "Esborra el tauler…"
+msgstr "Ezabatu taula…"
+
+msgid "Columnes"
+msgstr "Zutabeak"
+
+msgid "No es poden restaurar columnes en aquest tauler."
+msgstr "Ezin dira zutabeak leheneratu taula honetan."
+
+msgid "Deck no ha confirmat la restauració de la columna."
+msgstr "Deck-ek ez du zutabearen leheneratzea baieztatu."
+
+msgid "Resol els canvis pendents d'aquesta columna abans de restaurar-la."
+msgstr "Ebatzi zutabe honen zain dauden aldaketak leheneratu aurretik."
+
+msgid "Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."
+msgstr "Txartelak eta zutabeak lehenera ditzakezu Nextcloud-ek gordetzen dituen bitartean."
+
+msgid "No hi ha elements esborrats."
+msgstr "Ez dago ezabatutako elementurik."
+
+msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
+msgstr "Berreskuratu txartelak eta zutabeak taula bakoitzeko ezabatutako elementuetatik."

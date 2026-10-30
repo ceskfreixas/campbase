@@ -61,7 +61,7 @@ with tempfile.TemporaryDirectory() as directory:
   d.force_close();settle()
  w.set_default_size(1100,900);settle()
  menu=w.main_menu;menu.popup();settle()
- assert menu.get_menu_model().get_n_items()==2
+ assert menu.get_menu_model().get_n_items()==3
  assert any(isinstance(node,Gtk.Separator) for node in descendants(menu.get_popover()))
  shortcuts=[node.get_text() for node in descendants(menu.get_popover()) if isinstance(node,Gtk.Label)]
  assert {'Ctrl+,','Ctrl+?'}<=set(shortcuts)

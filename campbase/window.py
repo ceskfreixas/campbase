@@ -340,10 +340,8 @@ class Window(Adw.ApplicationWindow):
                 metadata = self.store.get('board_metadata', {}).get(str(board['id']), {})
                 line.append(project_image(self, metadata, 20))
                 line.append(label(board["title"], xalign=0, hexpand=True, ellipsize=3))
-                from .board_deletion import board_delete_button
-                remove = board_delete_button(self, board)
-                if remove is not None:
-                    line.append(remove)
+                from .board_menu import board_options_button
+                line.append(board_options_button(self, board))
                 row.set_child(line)
                 self.board_list.append(row)
                 if board["id"] == self.board_id:

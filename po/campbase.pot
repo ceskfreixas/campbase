@@ -2491,3 +2491,84 @@ msgstr ""
 
 msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
 msgstr ""
+
+msgid "Paperera"
+msgstr ""
+
+msgid "Opcions del tauler"
+msgstr ""
+
+msgid "Deck no ha pogut carregar la paperera."
+msgstr ""
+
+msgid "No es poden restaurar targetes en aquest tauler."
+msgstr ""
+
+msgid "La targeta ha canviat. Actualitza la paperera."
+msgstr ""
+
+msgid "La columna original ja no està disponible."
+msgstr ""
+
+msgid "Deck no ha confirmat la restauració de la targeta."
+msgstr ""
+
+msgid "Resol els canvis pendents d'aquesta targeta abans de restaurar-la."
+msgstr ""
+
+msgid "Pots restaurar les targetes mentre Nextcloud encara les conservi."
+msgstr ""
+
+msgid "Columna no disponible"
+msgstr ""
+
+msgid "La paperera és buida."
+msgstr ""
+
+msgid "S'està restaurant…"
+msgstr ""
+
+msgid "Paperera del tauler"
+msgstr ""
+
+msgid "Recupera les targetes esborrades des de la paperera de cada tauler, amb la columna original i la data d’eliminació."
+msgstr ""
+
+msgid "Restaura"
+msgstr ""
+
+msgid "S'està carregant…"
+msgstr ""
+
+msgid "Targetes esborrades"
+msgstr ""
+
+msgid "No hi ha targetes esborrades."
+msgstr ""
+
+msgid "Elements esborrats"
+msgstr ""
+
+msgid "Esborra el tauler…"
+msgstr ""
+
+msgid "Columnes"
+msgstr ""
+
+msgid "No es poden restaurar columnes en aquest tauler."
+msgstr ""
+
+msgid "Deck no ha confirmat la restauració de la columna."
+msgstr ""
+
+msgid "Resol els canvis pendents d'aquesta columna abans de restaurar-la."
+msgstr ""
+
+msgid "Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."
+msgstr ""
+
+msgid "No hi ha elements esborrats."
+msgstr ""
+
+msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
+msgstr ""

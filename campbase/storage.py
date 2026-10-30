@@ -65,6 +65,38 @@ class Store:
             records[key] = value
             self._put(db, 'creators', records)
 
+    def cache_restored_stack(self, board_id, stack):
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()
+            snapshot = json.loads(row[0]) if row else {}
+            if str(board_id) not in snapshot.get('stacks', {}):
+                return False
+            stacks = snapshot['stacks'][str(board_id)]
+            ids = {card['id'] for card in stack.get('cards', [])}
+            stacks = [item for item in stacks if item['id'] != stack['id']]
+            for item in stacks:
+                item['cards'] = [card for card in item.get('cards', []) if card['id'] not in ids]
+            stacks.append(stack)
+            snapshot['stacks'][str(board_id)] = sorted(stacks, key=lambda item: (item.get('order', 0), item['id']))
+            self._put(db, 'snapshot', snapshot)
+            return True
+
+    def cache_restored_card(self, board_id, card):
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()
+            snapshot = json.loads(row[0]) if row else {}
+            stacks = snapshot.get('stacks', {}).get(str(board_id), [])
+            target = next((stack for stack in stacks if stack['id'] == card['stackId']), None)
+            if target is None:
+                return False
+            for stack in stacks:
+                stack['cards'] = [item for item in stack.get('cards', []) if item['id'] != card['id']]
+            target['cards'].append(card)
+            self._put(db, 'snapshot', snapshot)
+            return True
+
     def remove_card(self, board_id, card_id):
         with self.connect() as db:
             db.execute('BEGIN IMMEDIATE')

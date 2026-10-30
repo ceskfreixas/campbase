@@ -6,7 +6,8 @@ Campbase is a native kanban app for GNOME, built with GTK4 and libadwaita and
 synchronized with **Nextcloud Deck**. Organize projects with cards and columns,
 work with other people and keep the same boards available in the Android Deck app.
 
-**Current version: 0.1.4 — development preview.**
+**Source version: 0.1.6 — development preview, not released yet.**
+The latest downloadable release is **0.1.4**.
 
 [Download the latest release](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Source](https://github.com/ceskfreixas/campbase) ·
@@ -185,7 +186,10 @@ Cards support file uploads and downloads through native GNOME file dialogs (up
 to 64 MiB). Uncertain uploads require review before retrying. Board labels can
 be renamed, recolored or deleted with permission and conflict checks. Recent
 board deletions can be undone while Deck retains them; recovery also restores
-local icons and colors. Own Talk messages can be edited or deleted when the
+local icons and colors. Each board's sidebar menu also opens its deleted cards
+and columns. Recovery preserves archived cards and checks permissions and pending
+changes; the trash is loaded only on demand. Permanent removal follows Deck's
+server retention policy. Own Talk messages can be edited or deleted when the
 server capabilities and time limits allow it. Conditional ETag reads use a
 bounded account-specific cache; writes invalidate it and verification reads
 always contact the server.

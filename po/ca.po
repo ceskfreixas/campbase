@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.4\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: ca\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.6\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: ca\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Desa"
@@ -2033,3 +2033,84 @@ msgstr "Interfície més compacta"
 
 msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
 msgstr "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
+
+msgid "Paperera"
+msgstr "Paperera"
+
+msgid "Opcions del tauler"
+msgstr "Opcions del tauler"
+
+msgid "Deck no ha pogut carregar la paperera."
+msgstr "Deck no ha pogut carregar la paperera."
+
+msgid "No es poden restaurar targetes en aquest tauler."
+msgstr "No es poden restaurar targetes en aquest tauler."
+
+msgid "La targeta ha canviat. Actualitza la paperera."
+msgstr "La targeta ha canviat. Actualitza la paperera."
+
+msgid "La columna original ja no està disponible."
+msgstr "La columna original ja no està disponible."
+
+msgid "Deck no ha confirmat la restauració de la targeta."
+msgstr "Deck no ha confirmat la restauració de la targeta."
+
+msgid "Resol els canvis pendents d'aquesta targeta abans de restaurar-la."
+msgstr "Resol els canvis pendents d'aquesta targeta abans de restaurar-la."
+
+msgid "Pots restaurar les targetes mentre Nextcloud encara les conservi."
+msgstr "Pots restaurar les targetes mentre Nextcloud encara les conservi."
+
+msgid "Columna no disponible"
+msgstr "Columna no disponible"
+
+msgid "La paperera és buida."
+msgstr "La paperera és buida."
+
+msgid "S'està restaurant…"
+msgstr "S'està restaurant…"
+
+msgid "Paperera del tauler"
+msgstr "Paperera del tauler"
+
+msgid "Recupera les targetes esborrades des de la paperera de cada tauler, amb la columna original i la data d’eliminació."
+msgstr "Recupera les targetes esborrades des de la paperera de cada tauler, amb la columna original i la data d’eliminació."
+
+msgid "Restaura"
+msgstr "Restaura"
+
+msgid "S'està carregant…"
+msgstr "S'està carregant…"
+
+msgid "Targetes esborrades"
+msgstr "Targetes esborrades"
+
+msgid "No hi ha targetes esborrades."
+msgstr "No hi ha targetes esborrades."
+
+msgid "Elements esborrats"
+msgstr "Elements esborrats"
+
+msgid "Esborra el tauler…"
+msgstr "Esborra el tauler…"
+
+msgid "Columnes"
+msgstr "Columnes"
+
+msgid "No es poden restaurar columnes en aquest tauler."
+msgstr "No es poden restaurar columnes en aquest tauler."
+
+msgid "Deck no ha confirmat la restauració de la columna."
+msgstr "Deck no ha confirmat la restauració de la columna."
+
+msgid "Resol els canvis pendents d'aquesta columna abans de restaurar-la."
+msgstr "Resol els canvis pendents d'aquesta columna abans de restaurar-la."
+
+msgid "Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."
+msgstr "Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."
+
+msgid "No hi ha elements esborrats."
+msgstr "No hi ha elements esborrats."
+
+msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
+msgstr "Recupera targetes i columnes des dels elements esborrats de cada tauler."

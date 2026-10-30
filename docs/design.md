@@ -326,3 +326,18 @@ Routine board activity, local own-action records and unread-comment summaries
 are excluded, including previously cached records. Activity reads remain only
 as authorship evidence. Suppressing an entry never deletes unrelated server
 notifications.
+
+## Board trash
+
+The sidebar has one hover control per board, with keyboard-visible focus and an
+open-menu state. Deleted items and owner-only board deletion occupy separate menu
+sections. Mouse focus alone does not keep the control visible.
+
+The deleted-items dialog reads cards and columns only when opened or refreshed,
+with at most two concurrent reads. Recovery runs on the existing card worker and
+checks current permissions, pending changes, and server confirmation. Card and
+column results update the cached board incrementally without replacing the outbox
+or reloading other boards. Restoring a column preserves its surviving active and
+archived cards; independently deleted cards remain deleted. Permanent removal is
+left to Deck's retention policy. Stale callbacks cannot update a closed dialog or
+another account.

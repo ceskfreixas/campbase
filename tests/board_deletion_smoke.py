@@ -22,6 +22,12 @@ def settle(until=None):
   time.sleep(.005)
  if until:assert until(),'Synthetic deletion timed out'
 
+def drawn(widget):
+ snapshot=Gtk.Snapshot()
+ widget.get_parent().snapshot_child(widget,snapshot)
+ paintable=snapshot.to_paintable(None)
+ return paintable is not None and paintable.get_intrinsic_width()>0
+
 def children(widget):
  child=widget.get_first_child()
  while child:
@@ -44,11 +50,27 @@ try:
   api=Deck(SimpleNamespace(server=f'http://127.0.0.1:{server.server_port}',username='login@example.invalid',password='dummy',goa_id='test'),allow_local=True)
   window.engine.api=api;window.account=SimpleNamespace(username='login@example.invalid',goa_id='test',server=api.server);window.render();settle()
   own,other=[window.board_list.get_row_at_index(i).get_child() for i in range(2)]
-  assert any(isinstance(w,Gtk.Button) and w.get_tooltip_text()=='Esborra el tauler' for w in children(own))
+  assert not any(isinstance(w,Gtk.Button) for w in children(own))
   assert not any(isinstance(w,Gtk.Button) for w in children(other))
-  trash=own.get_last_child();trash.grab_focus();settle();assert trash.has_focus()
-  assert trash.has_css_class('destructive-action')
+  more=own.get_last_child();assert isinstance(more,Gtk.MenuButton) and more.has_css_class('hover-action')
+  other_menu=other.get_last_child();assert isinstance(other_menu,Gtk.MenuButton)
+  assert not any(isinstance(w,Gtk.Separator) for w in children(other_menu.get_popover().get_child()))
+  row=own.get_parent()
+  window.set_focus(None)
+  row.set_state_flags(Gtk.StateFlags.FOCUSED | Gtk.StateFlags.FOCUS_WITHIN,False)
+  row.unset_state_flags(Gtk.StateFlags.FOCUS_VISIBLE | Gtk.StateFlags.PRELIGHT)
+  settle();assert not drawn(more)
+  row.set_state_flags(Gtk.StateFlags.PRELIGHT,False)
+  settle();assert drawn(more)
+  row.unset_state_flags(Gtk.StateFlags.PRELIGHT)
+  settle();assert not drawn(more)
+  more.popup();settle();assert more.has_css_class('menu-open')
+  menu_items=list(children(more.get_popover().get_child()))
+  assert isinstance(menu_items[1],Gtk.Separator)
+  trash=menu_items[-1];assert trash.has_css_class('destructive-action')
+  assert isinstance(trash.get_child().get_first_child(),Gtk.Image)
   trash.emit('clicked');settle();dialog=window.get_visible_dialog()
+  assert not more.has_css_class('menu-open')
   assert isinstance(dialog,BoardDeletionDialog) and dialog.action.get_sensitive()
   wait_presented(dialog)
   assert dialog.cancel_button.has_focus() and dialog.get_default_widget() is dialog.cancel_button

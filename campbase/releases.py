@@ -3,7 +3,7 @@
 """Current release notes shared by the application and release exporter."""
 from .i18n import _
 
-RELEASE_VERSION = '0.1.5'
+RELEASE_VERSION = '0.1.6'
 
 
 def introduction():
@@ -12,6 +12,7 @@ def introduction():
 
 def sections():
     return [
+        (_("Paperera del tauler"), _("Recupera targetes i columnes des dels elements esborrats de cada tauler.")),
         (_("Arxivament en bloc"), _("Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta.")),
         (_("Interfície més compacta"), _("Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús.")),
     ]
