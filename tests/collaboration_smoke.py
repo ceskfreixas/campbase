@@ -239,7 +239,8 @@ try:
     tile=next(w for w in descendants(window) if isinstance(w,Card) and w.card['id']==99)
     title=next(w for w in descendants(tile) if isinstance(w,Gtk.Label) and w.has_css_class('card-title'))
     user_avatar=next(w for w in descendants(tile.get_parent()) if isinstance(w,Adw.Avatar))
-    assert user_avatar.get_parent().get_parent() is tile.get_parent()
+    assert user_avatar.get_parent() is tile.assignee_avatars
+    assert tile.assignee_avatars.get_parent() is tile.get_parent().indicators
     ok,t=title.compute_bounds(tile);ok,a=user_avatar.compute_bounds(tile)
     assert abs(t.origin.y+t.size.height/2-a.origin.y-a.size.height/2)<2
     assert not any('/assignUser' in path for _,path,_ in server.writes)
