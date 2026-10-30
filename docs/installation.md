@@ -1,11 +1,11 @@
-# Install Campbase 0.1.3
+# Install Campbase 0.1.4
 
 [English](#english) · [Català](#català) · [Castellano](#castellano) · [Galego](#galego) · [Euskara](#euskara) · [Aranés](#aranés)
 
 ## English
 
-Download `Campbase-0.1.3-x86_64.flatpak` and its `.sha256` file from the
-[official release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Download `Campbase-0.1.4-x86_64.flatpak` and its `.sha256` file from the
+[official release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 This development preview is for Linux x86_64. It requires Flatpak and a Nextcloud
 account with Deck configured in GNOME Online Accounts. Conversations additionally
 require Nextcloud Talk.
@@ -13,8 +13,8 @@ require Nextcloud Talk.
 In the download directory, verify the file, install it and open Campbase:
 
 ```sh
-sha256sum -c Campbase-0.1.3-x86_64.flatpak.sha256
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+sha256sum -c Campbase-0.1.4-x86_64.flatpak.sha256
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 
@@ -31,8 +31,8 @@ files from the official release page.
 
 ## Català
 
-Descarrega `Campbase-0.1.3-x86_64.flatpak` i el fitxer `.sha256` de la
-[versió oficial](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Descarrega `Campbase-0.1.4-x86_64.flatpak` i el fitxer `.sha256` de la
+[versió oficial](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 És una versió de desenvolupament per a Linux x86_64. Cal tenir Flatpak i un compte
 de Nextcloud amb Deck configurat als Comptes en línia del GNOME. Les converses
 requereixen també Nextcloud Talk.
@@ -40,8 +40,8 @@ requereixen també Nextcloud Talk.
 A la carpeta de descàrregues, comprova el fitxer, instal·la'l i obre el Campbase:
 
 ```sh
-sha256sum -c Campbase-0.1.3-x86_64.flatpak.sha256
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+sha256sum -c Campbase-0.1.4-x86_64.flatpak.sha256
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 
@@ -58,8 +58,8 @@ integritat del fitxer; descarrega tots dos fitxers de la pàgina oficial de la v
 
 ## Castellano
 
-Descarga `Campbase-0.1.3-x86_64.flatpak` y el archivo `.sha256` de la
-[versión oficial](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Descarga `Campbase-0.1.4-x86_64.flatpak` y el archivo `.sha256` de la
+[versión oficial](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 Es una versión de desarrollo para Linux x86_64. Requiere Flatpak y una cuenta de
 Nextcloud con Deck configurada en las Cuentas en línea de GNOME. Las conversaciones
 requieren también Nextcloud Talk.
@@ -67,8 +67,8 @@ requieren también Nextcloud Talk.
 En la carpeta de descargas, comprueba el archivo, instálalo y abre Campbase:
 
 ```sh
-sha256sum -c Campbase-0.1.3-x86_64.flatpak.sha256
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+sha256sum -c Campbase-0.1.4-x86_64.flatpak.sha256
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 
@@ -85,8 +85,8 @@ integridad del archivo; descarga ambos archivos de la página oficial de la vers
 
 ## Galego
 
-Descarrega `Campbase-0.1.3-x86_64.flatpak` e o ficheiro `.sha256` da
-[versão oficial](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Descarrega `Campbase-0.1.4-x86_64.flatpak` e o ficheiro `.sha256` da
+[versão oficial](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 É uma versão de desenvolvimento para Linux x86_64. Requer Flatpak e uma conta de
 Nextcloud com Deck configurada nas Contas em linha do GNOME. As conversas requerem
 também Nextcloud Talk.
@@ -94,8 +94,8 @@ também Nextcloud Talk.
 Na pasta de descargas, verifica o ficheiro, instala-o e abre o Campbase:
 
 ```sh
-sha256sum -c Campbase-0.1.3-x86_64.flatpak.sha256
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+sha256sum -c Campbase-0.1.4-x86_64.flatpak.sha256
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 
@@ -112,8 +112,8 @@ do ficheiro; descarrega ambos os ficheiros da página oficial da versão.
 
 ## Euskara
 
-Deskargatu `Campbase-0.1.3-x86_64.flatpak` eta `.sha256` fitxategia
-[bertsio ofizialetik](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Deskargatu `Campbase-0.1.4-x86_64.flatpak` eta `.sha256` fitxategia
+[bertsio ofizialetik](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 Linux x86_64rako garapen-bertsioa da. Flatpak eta Deck duen Nextcloud kontu bat
 behar dira, GNOMEren lineako kontuetan konfiguratuta. Elkarrizketetarako Nextcloud
 Talk ere behar da.
@@ -121,8 +121,8 @@ Talk ere behar da.
 Deskargen karpetan, egiaztatu fitxategia, instalatu eta ireki Campbase:
 
 ```sh
-sha256sum -c Campbase-0.1.3-x86_64.flatpak.sha256
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+sha256sum -c Campbase-0.1.4-x86_64.flatpak.sha256
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 
@@ -139,8 +139,8 @@ egiaztatzen du; deskargatu bi fitxategiak bertsioaren orri ofizialetik.
 
 ## Aranés
 
-Descarrega `Campbase-0.1.3-x86_64.flatpak` e eth fichèr `.sha256` dera
-[version oficiau](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Descarrega `Campbase-0.1.4-x86_64.flatpak` e eth fichèr `.sha256` dera
+[version oficiau](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 Ei ua version de desvolopament entà Linux x86_64. Cau auer Flatpak e un compde de
 Nextcloud damb Deck configurat enes Compdes en linha de GNOME. Es convèrses
 requerissen tanben Nextcloud Talk.
@@ -148,8 +148,8 @@ requerissen tanben Nextcloud Talk.
 Ena carpeta de descargues, verifica eth fichèr, installa-lo e daurís eth Campbase:
 
 ```sh
-sha256sum -c Campbase-0.1.3-x86_64.flatpak.sha256
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+sha256sum -c Campbase-0.1.4-x86_64.flatpak.sha256
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 

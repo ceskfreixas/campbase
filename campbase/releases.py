@@ -3,7 +3,7 @@
 """Current release notes shared by the application and release exporter."""
 from .i18n import _
 
-RELEASE_VERSION = '0.1.3'
+RELEASE_VERSION = '0.1.4'
 
 
 def introduction():
@@ -12,7 +12,5 @@ def introduction():
 
 def sections():
     return [
-        (_("Fitxa de l'aplicació"), _("La presentació del Campbase s'ha actualitzat amb descripcions i captures en sis idiomes.")),
-        (_('Estabilitat dels diàlegs'), _("S'ha millorat el tancament dels diàlegs d'etiquetes i d'esborrament de taulers, i la compatibilitat del disseny adaptable amb versions anteriors d'Adwaita.")),
-        (_("Identificador de l'aplicació"), _("El Campbase utilitza l'identificador cat.ceskfreixas.Campbase, vinculat al domini ceskfreixas.cat, per preparar la distribució pública.")),
+        (_('Estats buits i desplegables'), _("Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats.")),
     ]

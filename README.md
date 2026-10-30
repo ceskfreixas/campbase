@@ -6,7 +6,7 @@ Campbase is a native kanban app for GNOME, built with GTK4 and libadwaita and
 synchronized with **Nextcloud Deck**. Organize projects with cards and columns,
 work with other people and keep the same boards available in the Android Deck app.
 
-**Current version: 0.1.3 — development preview.**
+**Current version: 0.1.4 — development preview.**
 
 [Download the latest release](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Source](https://github.com/ceskfreixas/campbase) ·
@@ -112,13 +112,13 @@ while its dialog is open and does not block card synchronization.
 
 ## Install and run
 
-Download **Campbase-0.1.3-x86_64.flatpak** from the [0.1.3 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+Download **Campbase-0.1.4-x86_64.flatpak** from the [0.1.4 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.4).
 This preview is for Linux x86_64 and requires Flatpak plus a Nextcloud account
 with Deck configured in GNOME Online Accounts. Flatpak can download the GNOME
 runtime from Flathub during installation; Campbase itself is not listed there.
 
 ```sh
-flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+flatpak install --user ./Campbase-0.1.4-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 

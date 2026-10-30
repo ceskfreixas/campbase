@@ -40,12 +40,8 @@ class CommentsPanel(Gtk.Box):
         self.loading.append(self.spinner)
         self.loading.append(label(_("S'estan carregant els comentaris…"), "dim-label", wrap=True))
         self.state.add_named(self.loading, "loading")
-        empty = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12,
-                        halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
-        image = Gtk.Image(icon_name="user-status-pending-symbolic", pixel_size=32)
-        image.add_css_class("dim-label")
-        empty.append(image)
-        empty.append(label(_("Encara no hi ha comentaris."), "dim-label", wrap=True))
+        empty = label(_("Encara no hi ha comentaris."), "dim-label", xalign=0,
+                      wrap=True, valign=Gtk.Align.START)
         self.state.add_named(empty, "empty")
         error = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12,
                         halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
@@ -71,8 +67,10 @@ class CommentsPanel(Gtk.Box):
         self.mention_search.connect('search-changed', lambda *_: self.show_members())
         chooser.append(self.mention_search)
         self.mention_list = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
-        chooser.append(Gtk.ScrolledWindow(child=self.mention_list, min_content_height=80, max_content_height=260,
-                                          propagate_natural_height=True, hscrollbar_policy=Gtk.PolicyType.NEVER))
+        self.mention_scroll = Gtk.ScrolledWindow(child=self.mention_list, max_content_height=260,
+            propagate_natural_height=True, hscrollbar_policy=Gtk.PolicyType.NEVER,
+            vscrollbar_policy=Gtk.PolicyType.NEVER)
+        chooser.append(self.mention_scroll)
         self.mention_popover.set_child(chooser)
         self.mention_popover.connect('map', lambda *_: self.show_members())
         line.append(self.mention)
@@ -217,6 +215,11 @@ class CommentsPanel(Gtk.Box):
             found.append(user)
         if not found:
             self.mention_list.append(label(_("No hi ha membres que coincideixin amb la cerca."), 'dim-label', wrap=True))
+        # Even an automatic, hidden scrollbar imposes its own minimum height.
+        # Only enable it when the results actually need to scroll.
+        height = self.mention_list.measure(Gtk.Orientation.VERTICAL, -1).natural
+        self.mention_scroll.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC
+            if height > self.mention_scroll.get_max_content_height() else Gtk.PolicyType.NEVER)
 
     def insert_mention(self, uid):
         text = self.entry.get_text()

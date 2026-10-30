@@ -2453,3 +2453,15 @@ msgstr ""
 
 msgid "La presentació del Campbase s'ha actualitzat amb descripcions i captures en sis idiomes."
 msgstr ""
+
+msgid "Comentaris sense contingut"
+msgstr ""
+
+msgid "L'estat sense comentaris és més compacte, sense la icona gran i amb el text alineat com el dels adjunts."
+msgstr ""
+
+msgid "Estats buits i desplegables"
+msgstr ""
+
+msgid "Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats."
+msgstr ""

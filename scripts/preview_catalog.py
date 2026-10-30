@@ -5,8 +5,11 @@
 from html import escape
 import json
 from pathlib import Path
+import sys
 
 root = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(root))
+from campbase import VERSION
 catalog = root / 'docs/catalog'
 copy = json.loads((catalog / 'copy.json').read_text())
 names = {'ca': 'Català', 'es': 'Castellano', 'en': 'English', 'gl': 'Galego', 'eu': 'Euskara', 'oc': 'Aranés'}
@@ -23,8 +26,8 @@ figure{margin:28px 0}figure img{display:block;width:100%;height:auto}figcaption{
 .requirement{padding:16px;border-radius:8px;background:#f0f4f5}a{overflow-wrap:anywhere}
 </style>
 <header><img src="../../data/icons/cat.ceskfreixas.Campbase.svg" alt=""><div><h1>Campbase</h1>
-<p class="notice">Revisió local de la fitxa · 0.1.3 · Dades de demostració</p></div></header>
-<p class="notice">Previsualització de la fitxa. Encara no enviada a Flathub.</p><nav>''']
+<p class="notice">Revisió local de la fitxa · @VERSION@ · Dades de demostració</p></div></header>
+<p class="notice">Previsualització de la fitxa. Encara no enviada a Flathub.</p><nav>'''.replace('@VERSION@', escape(VERSION))]
 for lang, name in names.items():
     parts.append(f'<a href="#{lang}" lang="{lang}">{name}</a>')
 parts.append('</nav>')

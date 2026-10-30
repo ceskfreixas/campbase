@@ -68,12 +68,15 @@ class BoardRecoveryDialog(Adw.Dialog):
         outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         outer.append(Adw.HeaderBar())
         self.form = dialog_form()
-        self.form.append(label(_("Pots recuperar els taulers mentre Nextcloud encara els conservi."),
-                               'dim-label', xalign=0, wrap=True))
+        self.explanation = label(_("Pots recuperar els taulers mentre Nextcloud encara els conservi."),
+                                 'dim-label', xalign=0, wrap=True)
+        self.form.append(self.explanation)
         # ActionRow inherits ListBoxRow and needs a ListBox for keyboard focus.
         self.rows = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
         self.rows.add_css_class('boxed-list')
         self.form.append(self.rows)
+        self.empty_status = label(_("No hi ha taulers per recuperar."), 'dim-label', xalign=0, wrap=True)
+        self.form.append(self.empty_status)
         outer.append(Gtk.ScrolledWindow(child=self.form, propagate_natural_height=True,
             max_content_height=560, hscrollbar_policy=Gtk.PolicyType.NEVER))
         self.set_child(outer)
@@ -84,6 +87,9 @@ class BoardRecoveryDialog(Adw.Dialog):
         clear(self.rows)
         api = self.window.engine.api
         records = self.window.store.deleted_boards(api.server, api.username) if api else []
+        self.explanation.set_visible(bool(records))
+        self.rows.set_visible(bool(records))
+        self.empty_status.set_visible(not records)
         for key, item in records:
             row = Adw.ActionRow(title=item['title'], use_markup=False)
             button = icon_button('edit-undo-symbolic', _("Restaura el tauler"),
@@ -93,9 +99,6 @@ class BoardRecoveryDialog(Adw.Dialog):
             button.set_margin_bottom(8)
             row.add_suffix(button)
             self.rows.append(row)
-        if not records:
-            self.rows.append(label(_("No hi ha taulers per recuperar."), 'dim-label', xalign=0, wrap=True))
-
     def start(self, key):
         self.form.set_sensitive(False)
         self.set_can_close(False)
