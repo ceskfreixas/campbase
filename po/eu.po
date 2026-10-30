@@ -2007,3 +2007,29 @@ msgstr "Egoera hutsak eta goitibeherako zerrendak"
 
 msgid "Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats."
 msgstr "Iruzkinik gabeko eta ezabatutako taularik gabeko egoerak trinkoagoak dira, eta aipamenen zerrenda emaitzetara egokitzen da."
+
+msgid "Arxiva-les totes"
+msgstr "Artxibatu guztiak"
+
+msgid "Arxiva"
+msgstr "Artxibatu"
+
+msgid "S'arxivarà {count} targeta de «{column}», encara que hi hagi filtres actius."
+msgid_plural "S'arxivaran {count} targetes de «{column}», encara que hi hagi filtres actius."
+msgstr[0] "«{column}» zutabeko txartel {count} artxibatuko da, iragazkiak aktibatuta egon arren."
+msgstr[1] "«{column}» zutabeko {count} txartel artxibatuko dira, iragazkiak aktibatuta egon arren."
+
+msgid "Taulers esborrats"
+msgstr "Ezabatutako taulak"
+
+msgid "Arxivament en bloc"
+msgstr "Aldi berean artxibatzea"
+
+msgid "Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta."
+msgstr "Artxibatu zutabe bateko txartel guztiak haren menutik, berrespenarekin eta sinkronizazio bakarrean."
+
+msgid "Interfície més compacta"
+msgstr "Interfaze trinkoagoa"
+
+msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
+msgstr "Txartelen barneko tarteak bateratu eta menuetako etiketak laburtu ditugu."

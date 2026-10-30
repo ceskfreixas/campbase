@@ -101,7 +101,7 @@ class SyncEngine:
                         checked_boards.add(board_id)
                     self.store.begin_send(operation["id"])
                     creation_attempted = True
-                if operation['kind'] in ('move', 'archive'):
+                if operation['kind'] in ('move', 'archive') and not payload.get('batch_archive'):
                     self.store.mark_undo_attempted(operation['id'])
                 result = self.perform(operation)
                 if operation["kind"] == "create":
@@ -115,7 +115,8 @@ class SyncEngine:
                         continue
                     result = self.perform(operation)
                 self.store.complete(operation, result)
-                self.notify()
+                if not payload.get('batch_archive'):
+                    self.notify()
             except OfflineError:
                 if creation_attempted and operation["kind"] == "create":
                     self.store.block(operation["id"], _("No es pot confirmar si Deck ha creat la targeta. Obre Deck i comprova-ho abans de tornar-la a enviar."))
@@ -176,6 +177,13 @@ class SyncEngine:
         self.notify()
         self.sync(automatic=True)
         return op_id
+
+    def archive_cards(self, board_id, stack_id, card_ids):
+        count = self.store.archive_cards(board_id, stack_id, card_ids)
+        if count:
+            self.notify()
+            self.sync(automatic=True)
+        return count
 
     def undo(self, operation_id, done):
         def task():

@@ -3,7 +3,7 @@
 """Current release notes shared by the application and release exporter."""
 from .i18n import _
 
-RELEASE_VERSION = '0.1.4'
+RELEASE_VERSION = '0.1.5'
 
 
 def introduction():
@@ -12,5 +12,6 @@ def introduction():
 
 def sections():
     return [
-        (_('Estats buits i desplegables'), _("Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats.")),
+        (_("Arxivament en bloc"), _("Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta.")),
+        (_("Interfície més compacta"), _("Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús.")),
     ]

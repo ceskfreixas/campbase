@@ -157,14 +157,15 @@ class Window(Adw.ApplicationWindow):
         self.notifications_button.set_child(bell)
         self.notifications_button.connect('clicked', lambda *_: NotificationsDialog(self).present(self))
         header.pack_end(self.notifications_button)
-        menu, work, application = Gio.Menu(), Gio.Menu(), Gio.Menu()
+        menu, work, application, help_menu = Gio.Menu(), Gio.Menu(), Gio.Menu(), Gio.Menu()
         ui.menu_append(work, _("Canvis pendents"), "win.pending")
-        ui.menu_append(work, _("Taulers esborrats recentment"), "win.recover-boards")
+        ui.menu_append(work, _("Taulers esborrats"), "win.recover-boards")
         ui.menu_append(application, _("Preferències"), "win.preferences", '<Control>comma')
-        ui.menu_append(application, _("Dreceres de teclat"), "win.shortcuts", '<Control>question')
-        ui.menu_append(application, _("Quant al Campbase"), "win.about")
+        ui.menu_append(help_menu, _("Dreceres de teclat"), "win.shortcuts", '<Control>question')
+        ui.menu_append(help_menu, _("Quant al Campbase"), "win.about")
         menu.append_section(None, work)
         menu.append_section(None, application)
+        menu.append_section(None, help_menu)
         more = ui.create(Gtk.MenuButton, icon_name="open-menu-symbolic", menu_model=menu, tooltip_text=_("Menú del Campbase"))
         self.main_menu = more
         header.pack_end(more)
@@ -286,6 +287,10 @@ class Window(Adw.ApplicationWindow):
     def filter_mine(self, button):
         self.only_mine = button.get_active()
         self.render()
+
+    def archive_column_cards(self, stack):
+        from .column_archiving import confirm_archive_column
+        return confirm_archive_column(self, stack)
 
     def delete_archived_cards(self, stack, cards=None, parent=None, after=None):
         from .card_deletion import CardDeletionDialog

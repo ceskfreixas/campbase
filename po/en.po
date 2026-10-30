@@ -2007,3 +2007,29 @@ msgstr "Empty states and popovers"
 
 msgid "Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats."
 msgstr "Comments and deleted boards have more compact empty states, and the mention popover adapts to its results."
+
+msgid "Arxiva-les totes"
+msgstr "Archive all"
+
+msgid "Arxiva"
+msgstr "Archive"
+
+msgid "S'arxivarà {count} targeta de «{column}», encara que hi hagi filtres actius."
+msgid_plural "S'arxivaran {count} targetes de «{column}», encara que hi hagi filtres actius."
+msgstr[0] "{count} card in “{column}” will be archived, including cards hidden by filters."
+msgstr[1] "{count} cards in “{column}” will be archived, including cards hidden by filters."
+
+msgid "Taulers esborrats"
+msgstr "Deleted boards"
+
+msgid "Arxivament en bloc"
+msgstr "Bulk archiving"
+
+msgid "Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta."
+msgstr "Archive all cards in a column from its menu, with confirmation and a single synchronization."
+
+msgid "Interfície més compacta"
+msgstr "More compact interface"
+
+msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
+msgstr "Cards have consistent inner spacing and shorter menu labels."

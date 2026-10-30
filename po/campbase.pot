@@ -2465,3 +2465,29 @@ msgstr ""
 
 msgid "Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats."
 msgstr ""
+
+msgid "Arxiva-les totes"
+msgstr ""
+
+msgid "Arxiva"
+msgstr ""
+
+msgid "S'arxivarà {count} targeta de «{column}», encara que hi hagi filtres actius."
+msgid_plural "S'arxivaran {count} targetes de «{column}», encara que hi hagi filtres actius."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Taulers esborrats"
+msgstr ""
+
+msgid "Arxivament en bloc"
+msgstr ""
+
+msgid "Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta."
+msgstr ""
+
+msgid "Interfície més compacta"
+msgstr ""
+
+msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
+msgstr ""

@@ -15,20 +15,24 @@ def column_menu(window, stack, button=None):
     group = Gio.SimpleActionGroup()
     button.insert_action_group('column', group)
     board = next((b for b in window.snapshot.get('boards', []) if b['id'] == window.board_id), {})
-    model, commands, view = Gio.Menu(), Gio.Menu(), Gio.Menu()
+    model, create, commands, view = Gio.Menu(), Gio.Menu(), Gio.Menu(), Gio.Menu()
     actions = [
-        ('new', _("Afegeix una targeta"), lambda: window.new_card(stack['id']), 'PERMISSION_EDIT', commands),
+        ('new', _("Afegeix una targeta"), lambda: window.new_card(stack['id']), 'PERMISSION_EDIT', create),
         ('rename', _("Canvia el nom"), lambda: window.edit_column(stack), 'PERMISSION_MANAGE', commands),
         ('color', _("Canvia el color"), lambda: window.edit_column_color(stack), None, commands),
+        ('archive-all', _("Arxiva-les totes"), lambda: window.archive_column_cards(stack), 'PERMISSION_EDIT', view),
         ('archives', _("Amaga les arxivades") if window.shows_archived(stack['id']) else _("Mostra les arxivades"),
          lambda: window.show_archived(stack['id'], not window.shows_archived(stack['id'])), None, view),
     ]
     for name, title, callback, permission, section in actions:
         action = Gio.SimpleAction.new(name, None)
         action.set_enabled(window.demo or not permission or board.get('permissions', {}).get(permission, True))
+        if name == 'archive-all' and not any(not card.get('archived') for card in stack.get('cards', [])):
+            action.set_enabled(False)
         action.connect('activate', lambda *_unused, callback=callback: callback())
         group.add_action(action)
         ui.menu_append(section, title, 'column.'+name)
+    model.append_section(None, create)
     model.append_section(None, commands)
     model.append_section(None, view)
     popover = Gtk.PopoverMenu.new_from_model(model)

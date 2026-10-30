@@ -2007,3 +2007,29 @@ msgstr "Estados vazios e listas desdobráveis"
 
 msgid "Els comentaris i els taulers esborrats mostren estats buits més compactes, i el desplegable de mencions s'adapta als resultats."
 msgstr "Os comentários e os quadros eliminados mostram estados vazios mais compactos, e a lista de menções adapta-se aos resultados."
+
+msgid "Arxiva-les totes"
+msgstr "Arquiva-as todas"
+
+msgid "Arxiva"
+msgstr "Arquiva"
+
+msgid "S'arxivarà {count} targeta de «{column}», encara que hi hagi filtres actius."
+msgid_plural "S'arxivaran {count} targetes de «{column}», encara que hi hagi filtres actius."
+msgstr[0] "Arquivarase {count} cartão de «{column}», mesmo que haja filtros ativos."
+msgstr[1] "Arquivarão-se {count} cartões de «{column}», mesmo que haja filtros ativos."
+
+msgid "Taulers esborrats"
+msgstr "Quadros eliminados"
+
+msgid "Arxivament en bloc"
+msgstr "Arquivamento em bloco"
+
+msgid "Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta."
+msgstr "Arquiva todos os cartões de uma coluna a partir do seu menu, com confirmação e sincronização conjunta."
+
+msgid "Interfície més compacta"
+msgstr "Interface mais compacta"
+
+msgid "Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús."
+msgstr "Unificamos a margem interior dos cartões e encurtamos as etiquetas dos menus."

@@ -219,6 +219,25 @@ class Store:
                 action['attempted'] = True
                 self._put(db, 'undo_action', action)
 
+    def archive_cards(self, board_id, stack_id, card_ids):
+        selected = set(card_ids)
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()
+            view = self.project(json.loads(row[0]) if row else {}, self._operations(db))
+            board = next((board for board in view.get('boards', []) if board['id'] == board_id), None)
+            if not board or not board.get('permissions', {}).get('PERMISSION_EDIT', True):
+                return 0
+            stack = next((stack for stack in view.get('stacks', {}).get(str(board_id), [])
+                          if stack['id'] == stack_id), {})
+            cards = [card for card in stack.get('cards', [])
+                     if card['id'] in selected and not card.get('archived')]
+            for card in cards:
+                payload = {'board_id': board_id, 'stack_id': stack_id, 'card_id': card['id'],
+                           'changes': {'archived': True}, 'base': {'archived': False}, 'batch_archive': True}
+                db.execute('INSERT INTO outbox(kind,payload) VALUES (?,?)', ('archive', json.dumps(payload)))
+            return len(cards)
+
     def checkpoint_move(self, op_id, fields):
         with self.connect() as db:
             db.execute('BEGIN IMMEDIATE')
