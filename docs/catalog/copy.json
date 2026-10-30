@@ -1,0 +1,224 @@
+{
+  "en": {
+    "summary": "Organize projects with Nextcloud Deck",
+    "intro": "Campbase brings your Nextcloud Deck boards to the GNOME desktop. Plan work with cards and columns in a native GTK and Adwaita interface.",
+    "features": [
+      "Create, edit, move and archive cards, with an undo action for moves and archiving.",
+      "Organize work with labels, due dates and assignments, and filter cards assigned to you.",
+      "Read and write comments, add reactions, and upload or save card attachments.",
+      "Share boards and open individual or board conversations when the Nextcloud server supports them.",
+      "Keep pending card changes locally when offline and review their synchronization status."
+    ],
+    "requirement": "Requires a Nextcloud account with Deck, configured in GNOME Online Accounts. Conversations require Nextcloud Talk. Available features depend on server capabilities and your permissions.",
+    "captions": [
+      "Plan work with cards and columns",
+      "Write card descriptions and organize their details",
+      "Keep an overview of the board in dark mode"
+    ],
+    "board": "Community workshop",
+    "subtitle": "A shared space to plan our next workshop",
+    "columns": [
+      "Ideas",
+      "Preparing",
+      "In progress",
+      "Done"
+    ],
+    "cards": [
+      "Choose the next topic",
+      "Collect suggestions",
+      "Prepare the programme",
+      "Book the room",
+      "Design the poster",
+      "Publish the invitation",
+      "Create the checklist",
+      "Agree on the date",
+      "Outline the workshop"
+    ],
+    "description": "## Preparing the programme\n\nLet’s build a practical workshop together.\n\n- Welcome and introductions\n- Small group activities\n- Shared conclusions\n\n**Next step:** agree on the activities and timing."
+  },
+  "ca": {
+    "summary": "Organitza projectes amb Nextcloud Deck",
+    "intro": "El Campbase porta els teus taulers de Nextcloud Deck a l’escriptori del GNOME. Planifica la feina amb targetes i columnes en una interfície nativa amb GTK i Adwaita.",
+    "features": [
+      "Crea, edita, mou i arxiva targetes, amb l’opció de desfer els moviments i l’arxivament.",
+      "Organitza la feina amb etiquetes, terminis i assignacions, i filtra les targetes assignades a tu.",
+      "Llegeix i escriu comentaris, afegeix reaccions i puja o desa adjunts de les targetes.",
+      "Comparteix taulers i obre converses individuals o de tauler quan el servidor Nextcloud ho admeti.",
+      "Conserva localment els canvis pendents de les targetes sense connexió i revisa’n l’estat de sincronització."
+    ],
+    "requirement": "Cal un compte de Nextcloud amb Deck, configurat als Comptes en línia del GNOME. Les converses requereixen Nextcloud Talk. Les funcions disponibles depenen del servidor i dels teus permisos.",
+    "captions": [
+      "Planifica la feina amb targetes i columnes",
+      "Escriu descripcions i organitza els detalls de les targetes",
+      "Mantén una visió general del tauler en mode fosc"
+    ],
+    "board": "Taller comunitari",
+    "subtitle": "Un espai compartit per preparar el proper taller",
+    "columns": [
+      "Idees",
+      "En preparació",
+      "En marxa",
+      "Fet"
+    ],
+    "cards": [
+      "Triar el proper tema",
+      "Recollir propostes",
+      "Preparar el programa",
+      "Reservar la sala",
+      "Dissenyar el cartell",
+      "Publicar la invitació",
+      "Crear la llista de tasques",
+      "Acordar la data",
+      "Definir el taller"
+    ],
+    "description": "## Preparació del programa\n\nConstruïm plegats un taller pràctic.\n\n- Benvinguda i presentacions\n- Activitats en grups petits\n- Conclusions compartides\n\n**Proper pas:** acordar les activitats i els horaris."
+  },
+  "es": {
+    "summary": "Organiza proyectos con Nextcloud Deck",
+    "intro": "Campbase lleva tus tableros de Nextcloud Deck al escritorio de GNOME. Planifica el trabajo con tarjetas y columnas en una interfaz nativa con GTK y Adwaita.",
+    "features": [
+      "Crea, edita, mueve y archiva tarjetas, con la opción de deshacer los movimientos y el archivado.",
+      "Organiza el trabajo con etiquetas, plazos y asignaciones, y filtra las tarjetas asignadas a ti.",
+      "Lee y escribe comentarios, añade reacciones y sube o guarda adjuntos de las tarjetas.",
+      "Comparte tableros y abre conversaciones individuales o del tablero cuando el servidor Nextcloud lo admita.",
+      "Conserva localmente los cambios pendientes de las tarjetas sin conexión y revisa su estado de sincronización."
+    ],
+    "requirement": "Requiere una cuenta de Nextcloud con Deck, configurada en las Cuentas en línea de GNOME. Las conversaciones requieren Nextcloud Talk. Las funciones disponibles dependen del servidor y de tus permisos.",
+    "captions": [
+      "Planifica el trabajo con tarjetas y columnas",
+      "Escribe descripciones y organiza los detalles de las tarjetas",
+      "Mantén una visión general del tablero en modo oscuro"
+    ],
+    "board": "Taller comunitario",
+    "subtitle": "Un espacio compartido para preparar el próximo taller",
+    "columns": [
+      "Ideas",
+      "En preparación",
+      "En marcha",
+      "Hecho"
+    ],
+    "cards": [
+      "Elegir el próximo tema",
+      "Recoger propuestas",
+      "Preparar el programa",
+      "Reservar la sala",
+      "Diseñar el cartel",
+      "Publicar la invitación",
+      "Crear la lista de tareas",
+      "Acordar la fecha",
+      "Definir el taller"
+    ],
+    "description": "## Preparación del programa\n\nConstruyamos juntos un taller práctico.\n\n- Bienvenida y presentaciones\n- Actividades en grupos pequeños\n- Conclusiones compartidas\n\n**Próximo paso:** acordar las actividades y los horarios."
+  },
+  "gl": {
+    "summary": "Organiza projetos com Nextcloud Deck",
+    "intro": "O Campbase leva os teus quadros de Nextcloud Deck ao ambiente de trabalho do GNOME. Planifica o trabalho com cartões e colunas numa interface nativa com GTK e Adwaita.",
+    "features": [
+      "Cria, edita, move e arquiva cartões, com a opção de desfazer os movimentos e o arquivamento.",
+      "Organiza o trabalho com etiquetas, prazos e atribuições, e filtra os cartões atribuídos a ti.",
+      "Lê e escreve comentários, acrescenta reações e envia ou guarda anexos dos cartões.",
+      "Partilha quadros e abre conversas individuais ou do quadro quando o servidor Nextcloud o permitir.",
+      "Conserva localmente as mudanças pendentes dos cartões sem ligação e revê o seu estado de sincronização."
+    ],
+    "requirement": "É necessária uma conta de Nextcloud com Deck, configurada nas Contas em linha do GNOME. As conversas requerem Nextcloud Talk. As funções disponíveis dependem do servidor e das tuas permissões.",
+    "captions": [
+      "Planifica o trabalho com cartões e colunas",
+      "Escreve descrições e organiza os detalhes dos cartões",
+      "Mantém uma visão geral do quadro em modo escuro"
+    ],
+    "board": "Obradoiro comunitário",
+    "subtitle": "Um espaço partilhado para preparar o próximo obradoiro",
+    "columns": [
+      "Ideias",
+      "Em preparação",
+      "Em curso",
+      "Feito"
+    ],
+    "cards": [
+      "Escolher o próximo tema",
+      "Recolher propostas",
+      "Preparar o programa",
+      "Reservar a sala",
+      "Desenhar o cartaz",
+      "Publicar o convite",
+      "Criar a lista de tarefas",
+      "Acordar a data",
+      "Definir o obradoiro"
+    ],
+    "description": "## Preparação do programa\n\nConstruamos em conjunto um obradoiro prático.\n\n- Boas-vindas e apresentações\n- Atividades em grupos pequenos\n- Conclusões partilhadas\n\n**Próximo passo:** acordar as atividades e os horários."
+  },
+  "eu": {
+    "summary": "Antolatu proiektuak Nextcloud Deck-ekin",
+    "intro": "Campbasek zure Nextcloud Deck taulak GNOME mahaigainera ekartzen ditu. Antolatu lana txartel eta zutabeekin, GTK eta Adwaita erabiltzen dituen jatorrizko interfaze batean.",
+    "features": [
+      "Sortu, editatu, mugitu eta artxibatu txartelak; mugimenduak eta artxibatzea desegin ditzakezu.",
+      "Antolatu lana etiketa, epe eta esleipenekin, eta iragazi zuri esleitutako txartelak.",
+      "Irakurri eta idatzi iruzkinak, gehitu erreakzioak eta igo edo gorde txartelen eranskinak.",
+      "Partekatu taulak eta ireki banakako edo taulako elkarrizketak, Nextcloud zerbitzariak onartzen baditu.",
+      "Gorde txartelen zain dauden aldaketak lokalean konexiorik gabe eta berrikusi sinkronizazioaren egoera."
+    ],
+    "requirement": "Deck duen Nextcloud kontu bat behar da, GNOMEren lineako kontuetan konfiguratuta. Elkarrizketetarako Nextcloud Talk behar da. Erabilgarri dauden funtzioak zerbitzariaren eta zure baimenen araberakoak dira.",
+    "captions": [
+      "Antolatu lana txartel eta zutabeekin",
+      "Idatzi deskribapenak eta antolatu txartelen xehetasunak",
+      "Ikusi taularen ikuspegi orokorra modu ilunean"
+    ],
+    "board": "Auzoko tailerra",
+    "subtitle": "Hurrengo tailerra prestatzeko gune partekatua",
+    "columns": [
+      "Ideiak",
+      "Prestatzen",
+      "Abian",
+      "Eginda"
+    ],
+    "cards": [
+      "Hurrengo gaia aukeratu",
+      "Proposamenak bildu",
+      "Egitaraua prestatu",
+      "Aretoa erreserbatu",
+      "Kartela diseinatu",
+      "Gonbidapena argitaratu",
+      "Zereginen zerrenda sortu",
+      "Data adostu",
+      "Tailerra zehaztu"
+    ],
+    "description": "## Egitaraua prestatzea\n\nPresta dezagun elkarrekin tailer praktiko bat.\n\n- Ongietorria eta aurkezpenak\n- Talde txikietako jarduerak\n- Ondorio partekatuak\n\n**Hurrengo urratsa:** jarduerak eta ordutegiak adostea."
+  },
+  "oc": {
+    "summary": "Organiza projèctes damb Nextcloud Deck",
+    "intro": "Eth Campbase pòrte es tòns taulèrs de Nextcloud Deck ar escritòri de GNOME. Planifica eth trabalh damb tarjes e colomnes en ua interfícia nativa damb GTK e Adwaita.",
+    "features": [
+      "Crèa, edita, mòu e arquiva tarjes, damb era opcion de des·hèr es moviments e er arquivament.",
+      "Organiza eth trabalh damb etiquetes, tèrmes e assignacions, e filtre es tarjes assignades a tu.",
+      "Lieig e escriu comentaris, ahig reaccions e puja o sauva es documents adjunti des tarjes.",
+      "Compartís taulèrs e daurís convèrses individuaus o deth taulèr quan eth servidor Nextcloud ac permete.",
+      "Consèrva locaument es cambis pendenti des tarjes sense connexion e revisa eth sòn estat de sincronizacion."
+    ],
+    "requirement": "Cau un compde de Nextcloud damb Deck, configurat enes Compdes en linha de GNOME. Es convèrses requerissen Nextcloud Talk. Es foncions disponibles depenen deth servidor e des tòns permisi.",
+    "captions": [
+      "Planifica eth trabalh damb tarjes e colomnes",
+      "Escriu descripcions e organiza es detalhs des tarjes",
+      "Mantengues ua vista generau deth taulèr en mòde escur"
+    ],
+    "board": "Talhèr comunitari",
+    "subtitle": "Un espaci compartit entà preparar eth pròplèu talhèr",
+    "columns": [
+      "Idèes",
+      "En preparacion",
+      "En cors",
+      "Hèt"
+    ],
+    "cards": [
+      "Trigar eth pròplèu tèma",
+      "Recuelher prepauses",
+      "Preparar eth programa",
+      "Reservar era sala",
+      "Dessenhar eth cartèl",
+      "Publicar era invitacion",
+      "Crear era lista de prètzhèts",
+      "Acordar era data",
+      "Definir eth talhèr"
+    ],
+    "description": "## Preparacion deth programa\n\nBastim amassa un talhèr practic.\n\n- Benvinguda e presentacions\n- Activitats en grops petiti\n- Conclusions compartides\n\n**Pròplèu pas:** acordar es activitats e es oraris."
+  }
+}

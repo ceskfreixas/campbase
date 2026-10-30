@@ -33,6 +33,9 @@ from .widgets import Column, clear, icon_button, label
 class Window(Adw.ApplicationWindow):
     def __init__(self, application, store, demo=False):
         super().__init__(application=application, title="Campbase")
+        # Breakpoint containers need an explicit minimum on every supported
+        # libadwaita version; a default window size does not provide one.
+        self.set_size_request(360, 360)
         ui.widget(self, title="Campbase")
         self.store = store
         self.assets = Assets(store.directory, store.get("asset_account", ""))

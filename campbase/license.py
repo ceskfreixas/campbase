@@ -12,7 +12,7 @@ from .dialog_widgets import dialog_form
 
 def license_file(name):
     source = Path(__file__).resolve().parents[1] / name
-    installed = Path(__file__).resolve().parents[2] / 'licenses/cat.cesk.Campbase' / name
+    installed = Path(__file__).resolve().parents[2] / 'licenses/cat.ceskfreixas.Campbase' / name
     return (source if source.exists() else installed).read_text()
 
 

@@ -14,7 +14,7 @@ from campbase.card_dialog import CardDialog
 from campbase.project import ProjectDialog
 from campbase.preferences import Preferences
 from campbase import i18n
-app=Adw.Application(application_id='cat.cesk.Campbase.LiveLanguageCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.LiveLanguageCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'));Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():
  end=time.monotonic()+.15

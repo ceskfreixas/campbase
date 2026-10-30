@@ -15,6 +15,7 @@ from campbase.board_deletion import BoardDeletionDialog
 from campbase.board_recovery import BoardRecoveryDialog,recovery_key
 from campbase.chat import ChatDialog
 from campbase.chat_actions import MessageEditDialog,confirm_delete
+from gui_helpers import present
 
 
 def settle(until=None):
@@ -85,7 +86,7 @@ class API(Deck):
         return {}
 
 
-app=Adw.Application(application_id='cat.cesk.Campbase.ResourcesCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.ResourcesCheck');app.register(None)
 provider=Gtk.CssProvider();provider.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path.cwd()/'data/icons'))
@@ -95,8 +96,8 @@ with tempfile.TemporaryDirectory() as directory:
     store.put('board_metadata',{'1':{'icon':'folder-symbolic'}});store.set_setting('colors',{'10':'#ff0000'})
     window=Window(app,store,True);window.set_default_size(1100,1000);window.present();settle()
     window.engine.api=api;window.account=SimpleNamespace(server=api.server,username='alice',goa_id='synthetic');window.demo=False
-    card=CardDialog(window,10,copy.deepcopy(api.card));card.present(window)
-    settle(lambda:not card.attachments.worker.busy);settle()
+    card=CardDialog(window,10,copy.deepcopy(api.card));present(card,window)
+    settle(lambda:card.get_mapped() and not card.attachments.worker.busy);settle()
     card.title_entry.set_text('Preserved card draft')
     local=Path(directory)/'attachment.txt';local.write_text('Synthetic content')
     panel=card.attachments;panel.upload(Gio.File.new_for_path(str(local)))
@@ -112,41 +113,49 @@ with tempfile.TemporaryDirectory() as directory:
     respond(window,'cancel')
     panel.load();settle(lambda:not panel.worker.busy)
     assert len(api.files)==2 and store.get(panel.key)
-    manager=LabelManagerDialog(card.labels);manager.present(card);settle(lambda:not manager.busy)
-    editor=LabelEditDialog(manager,api.label);editor.present(manager)
+    manager=LabelManagerDialog(card.labels);present(manager,card)
+    settle(lambda:manager.get_mapped() and not manager.busy)
+    editor=LabelEditDialog(manager,api.label);present(editor,manager)
+    settle(lambda:editor.get_mapped())
     editor.name.set_text('Renamed');editor.color.selected_color='#ff0000';editor.perform()
-    settle(lambda:not editor.busy);settle()
+    settle(lambda:not editor.busy and window.get_visible_dialog() is manager)
     assert card.labels.labels[4]['title']=='Renamed'
     assert card.title_entry.get_text()=='Preserved card draft'
-    editor=LabelEditDialog(manager,api.label);editor.present(manager)
+    editor=LabelEditDialog(manager,api.label);present(editor,manager)
+    settle(lambda:editor.get_mapped())
     op=store.enqueue('update',{'board_id':1,'stack_id':10,'card_id':99,'changes':{'title':'Pending'}})
     editor.perform(delete=True);assert editor.status.get_visible() and not editor.busy
     store.discard(op);editor.confirm_delete();settle();respond(window,'cancel')
     assert api.board['labels']
-    editor.perform(delete=True);settle(lambda:not editor.busy);settle()
+    editor.perform(delete=True);settle(lambda:not editor.busy and window.get_visible_dialog() is manager)
     assert not card.labels.labels and not store.get('snapshot')['stacks']['1'][0]['cards'][0]['labels']
-    manager.force_close();card.force_close();settle()
-    deletion=BoardDeletionDialog(window,api.board);deletion.present(window);deletion.start()
-    settle(lambda:not store.get('snapshot')['boards']);settle()
-    assert window.get_visible_dialog() is None
+    manager.force_close();settle(lambda:not manager.get_mapped())
+    card.force_close();settle(lambda:window.get_visible_dialog() is None)
+    deletion=BoardDeletionDialog(window,api.board);present(deletion,window)
+    settle(lambda:deletion.get_mapped());deletion.start()
+    settle(lambda:not store.get('snapshot')['boards'] and window.get_visible_dialog() is None)
     key=recovery_key(api,1);assert store.get(key) and not store.get('snapshot')['boards']
-    recovery=BoardRecoveryDialog(window);recovery.present(window);recovery.start('missing-record')
+    recovery=BoardRecoveryDialog(window);present(recovery,window)
+    assert recovery.rows.get_first_child().grab_focus(), 'Recovery actions must be keyboard reachable'
+    settle(lambda:recovery.get_mapped());recovery.start('missing-record')
     assert recovery.get_can_close() and recovery.form.get_sensitive()
     recovery.start(key)
     settle(lambda:recovery.get_can_close());settle()
     assert not store.get(key) and window.board_id==1
     assert store.get('board_metadata')['1']['icon']=='folder-symbolic'
     assert store.settings()['colors']['10']=='#ff0000'
-    recovery.force_close();settle()
-    chat=ChatDialog(window,api.room);chat.present(window)
+    recovery.force_close();settle(lambda:window.get_visible_dialog() is None)
+    chat=ChatDialog(window,api.room);present(chat,window)
     settle(lambda:len(chat.message_rows)==2 and not chat.worker.busy and not chat.writer.busy)
     assert len([w for w in api.writes if w[0]=='PUT' and w[1].startswith('/chat/')])==0
-    editor=MessageEditDialog(chat,chat.messages[2]);editor.present(chat)
+    editor=MessageEditDialog(chat,chat.messages[2]);present(editor,chat)
+    settle(lambda:editor.get_mapped())
     api.lost_edit=True;editor.text.get_buffer().set_text('Edited message');editor.submit()
     settle(lambda:not editor.busy)
     assert editor.status.get_visible() and editor.text.get_editable()
     writes=len([w for w in api.writes if w[0]=='PUT' and w[1].startswith('/chat/')])
-    api.lost_edit=False;editor.submit();settle(lambda:not editor.busy);settle()
+    api.lost_edit=False;editor.submit()
+    settle(lambda:not editor.busy and window.get_visible_dialog() is chat)
     assert chat.messages[2]['message']=='Edited message'
     assert len([w for w in api.writes if w[0]=='PUT' and w[1].startswith('/chat/')])==writes
     confirm_delete(chat,chat.messages[2]);settle();respond(window,'cancel')

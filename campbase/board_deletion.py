@@ -4,7 +4,7 @@
 import gi
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
-from gi.repository import Adw, Gtk
+from gi.repository import Adw, GLib, Gtk
 from . import localization as ui
 from .i18n import _
 from .collaboration import person
@@ -94,10 +94,14 @@ class BoardDeletionDialog(Adw.Dialog):
         self.window.engine.run(remove, self.finished)
 
     def finished(self, _result, error):
+        self.connect('closed', lambda *_: GLib.idle_add(self.after_close, error))
         self.force_close()
+
+    def after_close(self, error):
         self.window.render()
         if not error:
             from .board_recovery import offer_undo
             offer_undo(self.window, self.board)
         if error:
             message(self.window, _("No s'ha pogut esborrar el tauler"), error)
+        return GLib.SOURCE_REMOVE

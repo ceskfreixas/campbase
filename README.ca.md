@@ -6,7 +6,7 @@ El Campbase és una app kanban nativa de GNOME, feta amb GTK4 i libadwaita i
 sincronitzada amb **Nextcloud Deck**. Organitza projectes amb targetes i columnes,
 treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 
-**Versió actual: 0.1.2 — versió de desenvolupament.**
+**Versió actual: 0.1.3 — versió de desenvolupament.**
 
 [Codi font](https://github.com/ceskfreixas/campbase) ·
 [Errors i suggeriments](https://github.com/ceskfreixas/campbase/issues) ·
@@ -132,8 +132,8 @@ El projecte es publica com a codi font i inclou un manifest Flatpak. Encara no
 està publicat a Flathub.
 
 ```sh
-flatpak-builder --user --install --force-clean build cat.cesk.Campbase.json
-flatpak run cat.cesk.Campbase
+flatpak-builder --user --install --force-clean build cat.ceskfreixas.Campbase.json
+flatpak run cat.ceskfreixas.Campbase
 ```
 
 Per treballar des del codi font, consulta les dependències del [README anglès](README.md).
@@ -146,7 +146,7 @@ python3 -m campbase --demo
 python3 -m unittest discover -s tests -v
 ```
 
-Les dades privades del Flatpak es desen a `~/.var/app/cat.cesk.Campbase/`. Les
+Les dades privades del Flatpak es desen a `~/.var/app/cat.ceskfreixas.Campbase/`. Les
 credencials les gestiona GNOME i les peticions autenticades no segueixen
 redireccions. Les proves d'escriptura utilitzen un servidor HTTP local de prova.
 

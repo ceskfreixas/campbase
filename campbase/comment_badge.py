@@ -30,7 +30,7 @@ def comment_badge(count):
     box.add_css_class('card-comment-count')
     box.add_css_class('dim-label')
     ui.accessible(box, [Gtk.AccessibleProperty.LABEL], [text])
-    box.append(Gtk.Image(icon_name='cat.cesk.Campbase-comments-symbolic', pixel_size=13,
+    box.append(Gtk.Image(icon_name='cat.ceskfreixas.Campbase-comments-symbolic', pixel_size=13,
                          valign=Gtk.Align.CENTER))
     number = Gtk.Label(label=str(count) if count < 100 else '99+', valign=Gtk.Align.CENTER)
     number.add_css_class('caption')

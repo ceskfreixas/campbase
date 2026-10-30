@@ -8,7 +8,7 @@ gi.require_version('Gtk','4.0');gi.require_version('Adw','1')
 from gi.repository import Adw,Gtk,GLib
 from campbase.license import LicenseDialog,license_file
 from campbase import COPYRIGHT,i18n
-app=Adw.Application(application_id='cat.cesk.Campbase.LicenseCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.LicenseCheck');app.register(None)
 window=Adw.ApplicationWindow(application=app,default_width=1100,default_height=900);window.present()
 def settle():
  end=time.monotonic()+.15

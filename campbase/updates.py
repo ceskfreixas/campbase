@@ -75,7 +75,7 @@ def entries(store):
                      'title': title, 'body': item.get('message') or '',
                      'datetime': item.get('datetime', ''), 'link': item.get('link') or '',
                      'app': item.get('app'), 'kind': item.get('object_type'), 'object_id': item.get('object_id'),
-                     'icon': 'cat.cesk.Campbase-conversations-symbolic' if item.get('app') == 'spreed' else 'preferences-system-notifications-symbolic'})
+                     'icon': 'cat.ceskfreixas.Campbase-conversations-symbolic' if item.get('app') == 'spreed' else 'preferences-system-notifications-symbolic'})
     hidden = set(store.get('updates_hidden', []))
     rows = [row for row in rows if row['key'] not in hidden]
     seen = set(store.get('updates_read', []))

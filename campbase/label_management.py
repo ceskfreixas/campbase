@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Small, confirmed board-label manager; changes preserve open card drafts."""
-from gi.repository import Adw, Gtk
+from gi.repository import Adw, GLib, Gtk
 from . import localization as ui
 from .i18n import _
 from .widgets import label, icon_button, color_dot
@@ -140,7 +140,9 @@ class LabelEditDialog(Adw.Dialog):
                 ui.text(self.status, 'text', error)
                 self.status.set_visible(True)
             else:
-                self.manager.confirmed(board)
+                # Let Adwaita restore focus before replacing the row that
+                # opened this dialog (notably on libadwaita 1.5).
+                self.connect('closed', lambda *_: GLib.idle_add(self.manager.confirmed, board))
                 self.force_close()
         window.engine.run(lambda api: api.manage_label(board_id, self.original,
             title=title, color=color, delete=delete), done)

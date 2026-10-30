@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.2\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.3\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Desa"
@@ -1977,3 +1977,21 @@ msgstr "Edita e escafa es tòns messatges quan eth servidor ac permet, damb veri
 
 msgid "Es reutilitzen les dades quan Nextcloud confirma que no han canviat. La memòria cau és limitada, es renova després d'escriure i no substitueix les comprovacions dels canvis al servidor."
 msgstr "Se reutilizen es donades quan Nextcloud confirme que non an cambiat. Era memòria temporau ei limitada, se renauís dempús d'escríuer e non substituís es verificacions des cambiaments en servidor."
+
+msgid "Identificador de l'aplicació"
+msgstr "Identificador dera aplicacion"
+
+msgid "El Campbase utilitza l'identificador cat.ceskfreixas.Campbase, vinculat al domini ceskfreixas.cat, per preparar la distribució pública."
+msgstr "Eth Campbase utilize er identificador cat.ceskfreixas.Campbase, restacat ath domeni ceskfreixas.cat, entà preparar era distribucion publica."
+
+msgid "Estabilitat dels diàlegs"
+msgstr "Estabilitat des dialògs"
+
+msgid "S'ha millorat el tancament dels diàlegs d'etiquetes i d'esborrament de taulers, i la compatibilitat del disseny adaptable amb versions anteriors d'Adwaita."
+msgstr "S'a melhorat eth barrament des dialògs d'etiquetes e d'esborrament de taulèrs, e era compatibilitat deth dessenh adaptable damb versions anteriores d'Adwaita."
+
+msgid "Fitxa de l'aplicació"
+msgstr "Ficha dera aplicacion"
+
+msgid "La presentació del Campbase s'ha actualitzat amb descripcions i captures en sis idiomes."
+msgstr "Era presentacion deth Campbase s'a actualizat damb descripcions e captures en sies idiòmes."

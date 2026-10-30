@@ -12,7 +12,7 @@ from campbase.window import Window
 from campbase.widgets import Column
 from campbase.preferences import Preferences
 from campbase.card_dialog import CardDialog
-app=Adw.Application(application_id='cat.cesk.Campbase.ArchivePreferencesCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.ArchivePreferencesCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle(until=None):
@@ -49,7 +49,7 @@ with tempfile.TemporaryDirectory() as folder:
  w.show_archived(10,False);settle();assert not w.shows_archived(10) and w.shows_archived(20)
  w.show_archived(10,True);settle()
  assert w.mine_filter.get_parent().has_css_class('board-actions')
- assert w.mine_filter.get_icon_name()=='cat.cesk.Campbase-assigned-symbolic'
+ assert w.mine_filter.get_icon_name()=='cat.ceskfreixas.Campbase-assigned-symbolic'
  w.mine_filter.set_active(True);settle();assert [c['id'] for c in w.filtered_cards(w.stacks()[0])]==[99]
  w.mine_filter.set_active(False);settle();assert len(w.filtered_cards(w.stacks()[0]))==2
  source=column(w,10).drop.widgets[0];destination=column(w,20)

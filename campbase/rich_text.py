@@ -67,7 +67,7 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
                  ("format-text-strikethrough-symbolic", _("Ratllat"), lambda: self.toggle("strike")),
                  ("view-list-bullet-symbolic", _("Llista amb pics"), lambda: self.list_format(False)),
                  ("view-list-ordered-symbolic", _("Llista numerada"), lambda: self.list_format(True)),
-                 ("cat.cesk.Campbase-link-symbolic", _("Insereix un enllaç"), self.insert_link_dialog),
+                 ("cat.ceskfreixas.Campbase-link-symbolic", _("Insereix un enllaç"), self.insert_link_dialog),
                  ("image-x-generic-symbolic", _("Insereix una imatge"), self.choose_image),
                  ("edit-undo-symbolic", _("Desfés · Ctrl+Z"), self.undo),
                  ("edit-redo-symbolic", _("Refés · Ctrl+Maj+Z"), self.redo)]

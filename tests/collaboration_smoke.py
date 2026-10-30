@@ -21,7 +21,7 @@ from campbase.people import author_text
 from campbase import i18n
 from campbase.updates import collect_updates, entries
 
-app=Adw.Application(application_id='cat.cesk.Campbase.CollaborationCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.CollaborationCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
@@ -67,7 +67,7 @@ try:
         store.put('board_metadata', {'1': metadata});window.render();settle()
         picture=window.board_list.get_row_at_index(0).get_child().get_first_child()
         assert picture.get_icon_name()==expected and picture.get_pixel_size()==20
-    record=window.assets.import_bytes(Path('data/icons/cat.cesk.Campbase.svg').read_bytes(), 'Projecte.svg', icon=True)
+    record=window.assets.import_bytes(Path('data/icons/cat.ceskfreixas.Campbase.svg').read_bytes(), 'Projecte.svg', icon=True)
     store.put('board_metadata', {'1': {'image':record['path']}});window.render();settle()
     picture=window.board_list.get_row_at_index(0).get_child().get_first_child()
     assert picture.get_gicon() and picture.get_icon_name() is None and picture.get_pixel_size()==20

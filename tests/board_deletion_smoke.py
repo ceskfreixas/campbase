@@ -12,6 +12,7 @@ from campbase.storage import Store
 from campbase.window import Window
 from campbase.deck import Deck
 from campbase.board_deletion import BoardDeletionDialog
+from gui_helpers import present,wait_presented
 
 def settle(until=None):
  end=time.monotonic()+(5 if until else .2)
@@ -26,7 +27,7 @@ def children(widget):
  while child:
   yield child;child=child.get_next_sibling()
 
-app=Adw.Application(application_id='cat.cesk.Campbase.BoardDeletionCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.BoardDeletionCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 server=http.server.ThreadingHTTPServer(('127.0.0.1',0),Fixture)
@@ -49,23 +50,24 @@ try:
   assert trash.has_css_class('destructive-action')
   trash.emit('clicked');settle();dialog=window.get_visible_dialog()
   assert isinstance(dialog,BoardDeletionDialog) and dialog.action.get_sensitive()
+  wait_presented(dialog)
   assert dialog.cancel_button.has_focus() and dialog.get_default_widget() is dialog.cancel_button
   dialog.cancel_button.emit('clicked');settle(lambda:window.get_visible_dialog() is None)
   assert not server.writes
   operation=store.enqueue('update',{'board_id':1,'stack_id':10,'card_id':99,'changes':{'title':'Keep'}})
-  dialog=BoardDeletionDialog(window,server.board);dialog.present(window);settle()
+  dialog=BoardDeletionDialog(window,server.board);present(dialog,window)
   assert not dialog.action.get_sensitive() and dialog.status.get_visible()
   dialog.start();assert not dialog.started and not server.writes
   dialog.force_close();store.discard(operation);settle()
   window.demo=False
   server.board_delete_error=403
-  dialog=BoardDeletionDialog(window,server.board);dialog.present(window);settle();dialog.start()
+  dialog=BoardDeletionDialog(window,server.board);present(dialog,window);dialog.start()
   settle(lambda:not dialog.get_mapped());settle()
   assert len(store.view()['boards'])==2 and not server.board.get('deletedAt')
   window.get_visible_dialog().force_close();settle()
   server.board_delete_error=0
   draft=store.enqueue('update',{'board_id':2,'stack_id':20,'card_id':200,'changes':{'title':'Unrelated draft'}})
-  dialog=BoardDeletionDialog(window,server.board);dialog.present(window);settle();dialog.start()
+  dialog=BoardDeletionDialog(window,server.board);present(dialog,window);dialog.start()
   settle(lambda:not dialog.get_mapped());settle()
   assert server.board['deletedAt'] and [b['id'] for b in store.view()['boards']]==[2]
   assert [o['id'] for o in store.operations()]==[draft] and window.board_id==2

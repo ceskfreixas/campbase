@@ -11,7 +11,7 @@ from campbase.window import Window
 from campbase.storage import Store
 from campbase.preferences import Preferences
 from campbase.widgets import Column
-app=Adw.Application(application_id='cat.cesk.Campbase.ColumnLayoutCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.ColumnLayoutCheck');app.register(None)
 provider=Gtk.CssProvider();provider.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():

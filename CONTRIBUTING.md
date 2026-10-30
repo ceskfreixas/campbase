@@ -41,3 +41,9 @@ Live language changes use `i18n.Message` strings and the native text bindings in
 for changing owned interface text, and `ui.selection` for translated preference
 models. Keep user-entered titles, descriptions, labels and comments as literal
 content; never infer translations from their visible wording.
+
+Native dialog tests use `tests/gui_helpers.py` to wait for mapping, allocation
+and frame delivery before interacting with a dialog. Headless CI uses Cairo
+software rendering. Native drag tests retain real X11/XTest input and continuous
+motion so GTK 4.14 can satisfy its drag-start timer as well as its distance
+threshold; do not replace these with programmatic move calls or gesture retries.

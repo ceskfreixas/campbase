@@ -6,7 +6,7 @@ Campbase is a native kanban app for GNOME, built with GTK4 and libadwaita and
 synchronized with **Nextcloud Deck**. Organize projects with cards and columns,
 work with other people and keep the same boards available in the Android Deck app.
 
-**Current version: 0.1.2 — development preview.**
+**Current version: 0.1.3 — development preview.**
 
 [Source](https://github.com/ceskfreixas/campbase) ·
 [Issues and suggestions](https://github.com/ceskfreixas/campbase/issues) ·
@@ -108,13 +108,13 @@ This preview is published as source and includes a Flatpak manifest. It is not
 yet listed on Flathub.
 
 ```sh
-flatpak-builder --user --install --force-clean build cat.cesk.Campbase.json
-flatpak run cat.cesk.Campbase
+flatpak-builder --user --install --force-clean build cat.ceskfreixas.Campbase.json
+flatpak run cat.ceskfreixas.Campbase
 ```
 
 The manifest uses GNOME 50. It requests network/display/GPU access and D-Bus access
 to GNOME Online Accounts and its settings panel. It does not request home-directory
-access. The application ID is `cat.cesk.Campbase`.
+access. The application ID is `cat.ceskfreixas.Campbase`.
 
 ## Development and testing
 
@@ -150,7 +150,7 @@ when preparing a new version.
 - GNOME manages credentials. Campbase obtains them in memory through GOA and stores
   only the selected account ID in `$XDG_CONFIG_HOME/campbase/account.json`.
 - The private cache/outbox is `$XDG_DATA_HOME/campbase/cache.sqlite3`. In Flatpak,
-  application data lives below `~/.var/app/cat.cesk.Campbase/`.
+  application data lives below `~/.var/app/cat.ceskfreixas.Campbase/`.
 - Authenticated requests require HTTPS outside loopback tests and do not follow
   redirects. Image downloads are restricted to the account's origin.
 - Project descriptions, images and column colors are local presentation settings;

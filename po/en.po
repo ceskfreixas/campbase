@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.2\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.3\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Save"
@@ -1977,3 +1977,21 @@ msgstr "Edit and delete your own messages when the server allows it, checking re
 
 msgid "Es reutilitzen les dades quan Nextcloud confirma que no han canviat. La memòria cau és limitada, es renova després d'escriure i no substitueix les comprovacions dels canvis al servidor."
 msgstr "Data is reused when Nextcloud confirms it has not changed. The cache is bounded, invalidated on writes and never replaces server-side verification of changes."
+
+msgid "Identificador de l'aplicació"
+msgstr "Application identifier"
+
+msgid "El Campbase utilitza l'identificador cat.ceskfreixas.Campbase, vinculat al domini ceskfreixas.cat, per preparar la distribució pública."
+msgstr "Campbase uses the identifier cat.ceskfreixas.Campbase, linked to the ceskfreixas.cat domain, to prepare for public distribution."
+
+msgid "Estabilitat dels diàlegs"
+msgstr "Dialog stability"
+
+msgid "S'ha millorat el tancament dels diàlegs d'etiquetes i d'esborrament de taulers, i la compatibilitat del disseny adaptable amb versions anteriors d'Adwaita."
+msgstr "Closing label and board deletion dialogs is more reliable, and the adaptive layout works better with older Adwaita versions."
+
+msgid "Fitxa de l'aplicació"
+msgstr "Application listing"
+
+msgid "La presentació del Campbase s'ha actualitzat amb descripcions i captures en sis idiomes."
+msgstr "The Campbase presentation has been updated with descriptions and screenshots in six languages."

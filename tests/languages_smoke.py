@@ -19,7 +19,7 @@ from campbase.license import LicenseDialog
 from campbase.release_dialog import ReleaseNotesDialog
 from campbase.shortcuts import shortcuts_dialog
 from unittest.mock import patch
-app=Adw.Application(application_id='cat.cesk.Campbase.LanguageTest');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.LanguageTest');app.register(None)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path(__file__).resolve().parents[1]/'data/icons'))
 
 def settle():

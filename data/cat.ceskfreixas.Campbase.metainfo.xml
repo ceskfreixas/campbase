@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>cat.ceskfreixas.Campbase</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Campbase</name>
+  <developer id="cat.ceskfreixas">
+    <name>Cesk Freixas</name>
+  </developer>
+  <launchable type="desktop-id">cat.ceskfreixas.Campbase.desktop</launchable>
+  <url type="homepage">https://ceskfreixas.cat</url>
+  <url type="vcs-browser">https://github.com/ceskfreixas/campbase</url>
+  <url type="bugtracker">https://github.com/ceskfreixas/campbase/issues</url>
+  <url type="donation">https://ceskfreixas.aixeta.cat/ca/subscriptions</url>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="0.1.3" date="2026-10-30" type="development" />
+    <release version="0.1.2" date="2026-10-30" type="development" />
+    <release version="0.1.1" date="2026-10-29" type="development" />
+    <release version="0.1.0" date="2026-10-28" type="development" />
+  </releases>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <summary>Organize projects with Nextcloud Deck</summary>
+  <description>
+    <p>Campbase brings your Nextcloud Deck boards to the GNOME desktop. Plan work with cards and columns in a native GTK and Adwaita interface.</p>
+    <p xml:lang="ca">El Campbase porta els teus taulers de Nextcloud Deck a l’escriptori del GNOME. Planifica la feina amb targetes i columnes en una interfície nativa amb GTK i Adwaita.</p>
+    <p xml:lang="es">Campbase lleva tus tableros de Nextcloud Deck al escritorio de GNOME. Planifica el trabajo con tarjetas y columnas en una interfaz nativa con GTK y Adwaita.</p>
+    <p xml:lang="gl">O Campbase leva os teus quadros de Nextcloud Deck ao ambiente de trabalho do GNOME. Planifica o trabalho com cartões e colunas numa interface nativa com GTK e Adwaita.</p>
+    <p xml:lang="eu">Campbasek zure Nextcloud Deck taulak GNOME mahaigainera ekartzen ditu. Antolatu lana txartel eta zutabeekin, GTK eta Adwaita erabiltzen dituen jatorrizko interfaze batean.</p>
+    <p xml:lang="oc">Eth Campbase pòrte es tòns taulèrs de Nextcloud Deck ar escritòri de GNOME. Planifica eth trabalh damb tarjes e colomnes en ua interfícia nativa damb GTK e Adwaita.</p>
+    <ul>
+      <li>Create, edit, move and archive cards, with an undo action for moves and archiving.</li>
+      <li xml:lang="ca">Crea, edita, mou i arxiva targetes, amb l’opció de desfer els moviments i l’arxivament.</li>
+      <li xml:lang="es">Crea, edita, mueve y archiva tarjetas, con la opción de deshacer los movimientos y el archivado.</li>
+      <li xml:lang="gl">Cria, edita, move e arquiva cartões, com a opção de desfazer os movimentos e o arquivamento.</li>
+      <li xml:lang="eu">Sortu, editatu, mugitu eta artxibatu txartelak; mugimenduak eta artxibatzea desegin ditzakezu.</li>
+      <li xml:lang="oc">Crèa, edita, mòu e arquiva tarjes, damb era opcion de des·hèr es moviments e er arquivament.</li>
+      <li>Organize work with labels, due dates and assignments, and filter cards assigned to you.</li>
+      <li xml:lang="ca">Organitza la feina amb etiquetes, terminis i assignacions, i filtra les targetes assignades a tu.</li>
+      <li xml:lang="es">Organiza el trabajo con etiquetas, plazos y asignaciones, y filtra las tarjetas asignadas a ti.</li>
+      <li xml:lang="gl">Organiza o trabalho com etiquetas, prazos e atribuições, e filtra os cartões atribuídos a ti.</li>
+      <li xml:lang="eu">Antolatu lana etiketa, epe eta esleipenekin, eta iragazi zuri esleitutako txartelak.</li>
+      <li xml:lang="oc">Organiza eth trabalh damb etiquetes, tèrmes e assignacions, e filtre es tarjes assignades a tu.</li>
+      <li>Read and write comments, add reactions, and upload or save card attachments.</li>
+      <li xml:lang="ca">Llegeix i escriu comentaris, afegeix reaccions i puja o desa adjunts de les targetes.</li>
+      <li xml:lang="es">Lee y escribe comentarios, añade reacciones y sube o guarda adjuntos de las tarjetas.</li>
+      <li xml:lang="gl">Lê e escreve comentários, acrescenta reações e envia ou guarda anexos dos cartões.</li>
+      <li xml:lang="eu">Irakurri eta idatzi iruzkinak, gehitu erreakzioak eta igo edo gorde txartelen eranskinak.</li>
+      <li xml:lang="oc">Lieig e escriu comentaris, ahig reaccions e puja o sauva es documents adjunti des tarjes.</li>
+      <li>Share boards and open individual or board conversations when the Nextcloud server supports them.</li>
+      <li xml:lang="ca">Comparteix taulers i obre converses individuals o de tauler quan el servidor Nextcloud ho admeti.</li>
+      <li xml:lang="es">Comparte tableros y abre conversaciones individuales o del tablero cuando el servidor Nextcloud lo admita.</li>
+      <li xml:lang="gl">Partilha quadros e abre conversas individuais ou do quadro quando o servidor Nextcloud o permitir.</li>
+      <li xml:lang="eu">Partekatu taulak eta ireki banakako edo taulako elkarrizketak, Nextcloud zerbitzariak onartzen baditu.</li>
+      <li xml:lang="oc">Compartís taulèrs e daurís convèrses individuaus o deth taulèr quan eth servidor Nextcloud ac permete.</li>
+      <li>Keep pending card changes locally when offline and review their synchronization status.</li>
+      <li xml:lang="ca">Conserva localment els canvis pendents de les targetes sense connexió i revisa’n l’estat de sincronització.</li>
+      <li xml:lang="es">Conserva localmente los cambios pendientes de las tarjetas sin conexión y revisa su estado de sincronización.</li>
+      <li xml:lang="gl">Conserva localmente as mudanças pendentes dos cartões sem ligação e revê o seu estado de sincronização.</li>
+      <li xml:lang="eu">Gorde txartelen zain dauden aldaketak lokalean konexiorik gabe eta berrikusi sinkronizazioaren egoera.</li>
+      <li xml:lang="oc">Consèrva locaument es cambis pendenti des tarjes sense connexion e revisa eth sòn estat de sincronizacion.</li>
+    </ul>
+    <p>Requires a Nextcloud account with Deck, configured in GNOME Online Accounts. Conversations require Nextcloud Talk. Available features depend on server capabilities and your permissions.</p>
+    <p xml:lang="ca">Cal un compte de Nextcloud amb Deck, configurat als Comptes en línia del GNOME. Les converses requereixen Nextcloud Talk. Les funcions disponibles depenen del servidor i dels teus permisos.</p>
+    <p xml:lang="es">Requiere una cuenta de Nextcloud con Deck, configurada en las Cuentas en línea de GNOME. Las conversaciones requieren Nextcloud Talk. Las funciones disponibles dependen del servidor y de tus permisos.</p>
+    <p xml:lang="gl">É necessária uma conta de Nextcloud com Deck, configurada nas Contas em linha do GNOME. As conversas requerem Nextcloud Talk. As funções disponíveis dependem do servidor e das tuas permissões.</p>
+    <p xml:lang="eu">Deck duen Nextcloud kontu bat behar da, GNOMEren lineako kontuetan konfiguratuta. Elkarrizketetarako Nextcloud Talk behar da. Erabilgarri dauden funtzioak zerbitzariaren eta zure baimenen araberakoak dira.</p>
+    <p xml:lang="oc">Cau un compde de Nextcloud damb Deck, configurat enes Compdes en linha de GNOME. Es convèrses requerissen Nextcloud Talk. Es foncions disponibles depenen deth servidor e des tòns permisi.</p>
+  </description>
+  <summary xml:lang="ca">Organitza projectes amb Nextcloud Deck</summary>
+  <summary xml:lang="es">Organiza proyectos con Nextcloud Deck</summary>
+  <summary xml:lang="gl">Organiza projetos com Nextcloud Deck</summary>
+  <summary xml:lang="eu">Antolatu proiektuak Nextcloud Deck-ekin</summary>
+  <summary xml:lang="oc">Organiza projèctes damb Nextcloud Deck</summary>
+  <languages>
+    <lang percentage="100">en</lang>
+    <lang percentage="100">ca</lang>
+    <lang percentage="100">es</lang>
+    <lang percentage="100">gl</lang>
+    <lang percentage="100">eu</lang>
+    <lang percentage="100">oc</lang>
+  </languages>
+</component>

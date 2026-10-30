@@ -70,7 +70,9 @@ class BoardRecoveryDialog(Adw.Dialog):
         self.form = dialog_form()
         self.form.append(label(_("Pots recuperar els taulers mentre Nextcloud encara els conservi."),
                                'dim-label', xalign=0, wrap=True))
-        self.rows = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        # ActionRow inherits ListBoxRow and needs a ListBox for keyboard focus.
+        self.rows = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
+        self.rows.add_css_class('boxed-list')
         self.form.append(self.rows)
         outer.append(Gtk.ScrolledWindow(child=self.form, propagate_natural_height=True,
             max_content_height=560, hscrollbar_policy=Gtk.PolicyType.NEVER))
@@ -84,7 +86,6 @@ class BoardRecoveryDialog(Adw.Dialog):
         records = self.window.store.deleted_boards(api.server, api.username) if api else []
         for key, item in records:
             row = Adw.ActionRow(title=item['title'], use_markup=False)
-            row.add_css_class('card')
             button = icon_button('edit-undo-symbolic', _("Restaura el tauler"),
                 lambda *_, key=key: self.start(key))
             button.set_valign(Gtk.Align.CENTER)

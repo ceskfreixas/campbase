@@ -16,7 +16,7 @@ from campbase.date_picker import DatePicker
 from campbase.widgets import Card
 from campbase.card_dialog import CardDialog
 from campbase.about import about_dialog
-app=Adw.Application(application_id='cat.cesk.Campbase.RefinementCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.RefinementCheck');app.register(None)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path.cwd()/'data/icons'))
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)

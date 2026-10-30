@@ -13,7 +13,7 @@ from campbase.project import ProjectDialog,project_image
 from campbase.dialogs import TextDialog, ColumnColorDialog
 from campbase.choosers import ColorChooser,IconChooser
 from campbase.widgets import Card
-app=Adw.Application(application_id='cat.cesk.Campbase.SelectorsCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.SelectorsCheck');app.register(None)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path(__file__).resolve().parents[1]/"data/icons"))
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)

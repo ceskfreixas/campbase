@@ -44,11 +44,11 @@ class API(CollaborationAPI):
             return [copy.deepcopy(m) for m in self.messages if m['id']>after]
         return {}
 
-app=Adw.Application(application_id='cat.cesk.Campbase.TalkCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.TalkCheck');app.register(None)
 theme=Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
 icon_root=Path('/app/share/icons') if Path('/app/share/campbase/campbase/talk.py').exists() else Path.cwd()/'data/icons'
 theme.add_search_path(str(icon_root))
-assert theme.has_icon('cat.cesk.Campbase-conversations-symbolic')
+assert theme.has_icon('cat.ceskfreixas.Campbase-conversations-symbolic')
 def settle(until=lambda:True):
     limit=time.monotonic()+6
     while time.monotonic()<limit:

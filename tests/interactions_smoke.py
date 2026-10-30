@@ -14,7 +14,7 @@ from campbase.card_dialog import CardDialog
 from campbase.comments import CommentsPanel
 from campbase.about import about_dialog
 
-app=Adw.Application(application_id='cat.cesk.Campbase.InteractionsCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.InteractionsCheck');app.register(None)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path.cwd()/'data/icons'))
 provider=Gtk.CssProvider();provider.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)

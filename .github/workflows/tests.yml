@@ -5,6 +5,8 @@ permissions:
 jobs:
   tests:
     runs-on: ubuntu-24.04
+    env:
+      GSK_RENDERER: cairo
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update && sudo apt-get install -y python3-gi gir1.2-gtk-4.0 gir1.2-adw-1 xvfb python3-venv libxtst6 gettext
@@ -16,7 +18,8 @@ jobs:
       - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/selectors_smoke.py
       - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/interactions_smoke.py
       - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
-      - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_ARCHIVE_DROP=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
+      - name: Check archive dragging after repositioning the window
+        run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_ARCHIVE_DROP=1 CAMPBASE_TEST_RELOCATE_WINDOW=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
       - name: Check archived-card dragging
         run: |
           for archive in 0 1; do

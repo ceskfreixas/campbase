@@ -12,7 +12,8 @@ from campbase.__main__ import demo_snapshot
 from campbase.window import Window
 from campbase.storage import Store
 from campbase.widgets import Column
-app=Adw.Application(application_id='cat.cesk.Campbase.RealDragTest');app.register(None)
+from gui_helpers import wait_presented
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.RealDragTest');app.register(None)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path(campbase.__file__).resolve().parents[1]/'data/icons'))
 provider=Gtk.CssProvider();provider.load_from_path(str(Path(campbase.__file__).parent/'style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
@@ -57,13 +58,43 @@ if os.environ.get('CAMPBASE_TEST_DISPLAY_TOKEN'):
  assert fmt.value==8 and ctypes.string_at(data,count.value).decode()==os.environ['CAMPBASE_TEST_DISPLAY_TOKEN'], 'Refusing input: wrong display'
  x11.XFree.argtypes=[ctypes.c_void_p];x11.XFree(data)
  print('PASS isolated display marker verified before input',flush=True)
-origin_x=origin_y=0
-input_scale=1
+x11.XDefaultRootWindow.argtypes=[ctypes.c_void_p];x11.XDefaultRootWindow.restype=ctypes.c_ulong
+x11.XTranslateCoordinates.argtypes=[ctypes.c_void_p,ctypes.c_ulong,ctypes.c_ulong,ctypes.c_int,ctypes.c_int,ctypes.POINTER(ctypes.c_int),ctypes.POINTER(ctypes.c_int),ctypes.POINTER(ctypes.c_ulong)]
+x11.XMoveWindow.argtypes=[ctypes.c_void_p,ctypes.c_ulong,ctypes.c_int,ctypes.c_int]
+
+def root_point(x,y):
+ # Dialog presentation, resizing and the window manager can change the native
+ # origin. Resolve it for each event instead of caching it before opening a card.
+ root_x=ctypes.c_int();root_y=ctypes.c_int();child=ctypes.c_ulong()
+ assert x11.XTranslateCoordinates(display,GdkX11.X11Surface.get_xid(w.get_surface()),
+   x11.XDefaultRootWindow(display),0,0,ctypes.byref(root_x),ctypes.byref(root_y),ctypes.byref(child))
+ transform=w.get_surface_transform();scale=w.get_scale_factor()
+ return round(root_x.value+(x+transform.x)*scale),round(root_y.value+(y+transform.y)*scale)
 
 def motion(x,y):
- xtest.XTestFakeMotionEvent(display,-1,round(x*input_scale+origin_x),round(y*input_scale+origin_y),0);x11.XFlush(display);settle(.05)
+ root_x,root_y=root_point(x,y)
+ xtest.XTestFakeMotionEvent(display,-1,root_x,root_y,0);x11.XFlush(display);settle(.05)
 def button(down):
  xtest.XTestFakeButtonEvent(display,1,int(down),0);x11.XFlush(display);settle(.1)
+
+def start_point(widget,center=False):
+ # A closed Adw.Dialog can still be animating out and intercepting input.
+ # Wait for the actual native input target, not a fixed animation duration.
+ deadline=time.monotonic()+3
+ while time.monotonic()<deadline:
+  ok,bounds=widget.compute_bounds(w)
+  if ok and widget.get_mapped():
+   x=bounds.origin.x+(bounds.size.width/2 if center else 40)
+   y=bounds.origin.y+bounds.size.height/2
+   picked=w.pick(x,y,Gtk.PickFlags.DEFAULT)
+   while picked and picked is not widget:
+    picked=picked.get_parent()
+   if picked is widget:
+    return x,y
+   # Reveal contextual handles through a real hover before pressing them.
+   motion(x,y)
+  settle(.02)
+ raise AssertionError('The drag source did not become an input target after closing the dialog')
 xtest.XTestFakeButtonEvent(display,1,0,0);x11.XFlush(display);settle(.1)
 try:
  with tempfile.TemporaryDirectory() as path:
@@ -74,15 +105,7 @@ try:
   store.put('snapshot',snapshot);w=Window(app,store,True);w.set_default_size(1240,1000);w.present();settle(.5)
   # Native shadow extents differ between GTK versions. Translate widget
   # coordinates into X11 root coordinates before injecting pointer events.
-  x11.XDefaultRootWindow.argtypes=[ctypes.c_void_p];x11.XDefaultRootWindow.restype=ctypes.c_ulong
-  x11.XTranslateCoordinates.argtypes=[ctypes.c_void_p,ctypes.c_ulong,ctypes.c_ulong,ctypes.c_int,ctypes.c_int,ctypes.POINTER(ctypes.c_int),ctypes.POINTER(ctypes.c_int),ctypes.POINTER(ctypes.c_ulong)]
-  x11.XMoveWindow.argtypes=[ctypes.c_void_p,ctypes.c_ulong,ctypes.c_int,ctypes.c_int]
   x11.XMoveWindow(display,GdkX11.X11Surface.get_xid(w.get_surface()),0,0);x11.XFlush(display);settle(.2)
-  root_x=ctypes.c_int();root_y=ctypes.c_int();child=ctypes.c_ulong()
-  x11.XTranslateCoordinates(display,GdkX11.X11Surface.get_xid(w.get_surface()),x11.XDefaultRootWindow(display),0,0,ctypes.byref(root_x),ctypes.byref(root_y),ctypes.byref(child))
-  transform=w.get_surface_transform()
-  input_scale=w.get_scale_factor()
-  origin_x,origin_y=root_x.value+transform.x*input_scale,root_y.value+transform.y*input_scale
   triage=w.board_body.get_first_child().get_next_sibling()
   workflow=triage.get_next_sibling();target_column=workflow.get_first_child().get_child()
   if archived_source:w.show_archived(triage.stack['id'],True);settle()
@@ -96,11 +119,12 @@ try:
   origin=source.drag_handle if use_handle else source
   ok,s=origin.compute_bounds(w);assert ok
   ok,t=target.compute_bounds(w);assert ok
-  sx,sy=s.origin.x+s.size.width/2,s.origin.y+s.size.height/2
+  sx,sy=start_point(origin,center=True)
   tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if archive_drop else 4)
   if not use_handle:
    motion(sx,sy);button(True);button(False);settle(.2)
    opened=w.get_visible_dialog();assert isinstance(opened,CardDialog)
+   wait_presented(opened)
    closed=[];opened.connect('closed',lambda *_unused:closed.append(True))
    opened.force_close()
    deadline=time.monotonic()+3
@@ -109,13 +133,21 @@ try:
    # This is a separate gesture, after closing the editor. Respect the desktop's
    # multi-click interval rather than accidentally synthesizing a double-click.
    settle(Gtk.Settings.get_default().get_property('gtk-double-click-time')/1000+.05)
-   ok,s=origin.compute_bounds(w);assert ok
    ok,t=target.compute_bounds(w);assert ok
    # Start the distinct drag away from the click point: opening/closing the
    # editor immediately must not turn this synthetic press into a double-click.
-   sx,sy=s.origin.x+40,s.origin.y+s.size.height/2
+   sx,sy=start_point(origin)
    tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if archive_drop else 4)
-  motion(sx,sy);button(True);motion(sx+24,sy+5)
+  if os.environ.get('CAMPBASE_TEST_RELOCATE_WINDOW')=='1':
+   x11.XMoveWindow(display,GdkX11.X11Surface.get_xid(w.get_surface()),100,35);x11.XFlush(display);settle(.2)
+  motion(sx,sy);button(True)
+  # GTK 4.14 starts a drag only after both a distance threshold and a 100 ms
+  # gesture timer. A single early motion is ignored, even if we wait afterward.
+  # Keep moving within this same press, as a person does, until GTK starts DnD.
+  for step in range(1,7):
+   motion(sx+4*step,sy+step)
+   if w.dragged_card:
+    break
   deadline=time.monotonic()+2
   while not w.dragged_card and time.monotonic()<deadline:settle(.05)
   assert w.dragged_card and w.dragged_card['id']==101

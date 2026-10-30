@@ -77,7 +77,7 @@ def board_header(window, board, count_text):
         ('view-dual-symbolic', _("Crea una columna"), lambda: window.new_column(), 'PERMISSION_MANAGE'),
         ('system-users-symbolic', _("Comparteix el tauler"),
          lambda: SharingDialog(window, board).present(window), None),
-        ('cat.cesk.Campbase-conversations-symbolic', _("Converses"),
+        ('cat.ceskfreixas.Campbase-conversations-symbolic', _("Converses"),
          lambda: ConversationsDialog(window, board).present(window), None),
     ]
     for index, (icon, title, callback, permission) in enumerate(controls):
@@ -89,13 +89,13 @@ def board_header(window, board, count_text):
             button.add_css_class('suggested-action')
         if permission:
             button.set_sensitive(window.demo or board.get('permissions', {}).get(permission, True))
-        elif icon == 'cat.cesk.Campbase-conversations-symbolic':
+        elif icon == 'cat.ceskfreixas.Campbase-conversations-symbolic':
             button.set_sensitive(not window.demo and window.engine.api is not None)
         actions.append(button)
     actions.append(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL, margin_start=4, margin_end=4,
                                  margin_top=6, margin_bottom=6))
     window.mine_filter = ui.create(Gtk.ToggleButton,
-        icon_name='cat.cesk.Campbase-assigned-symbolic', tooltip_text=_("Assignades a mi"))
+        icon_name='cat.ceskfreixas.Campbase-assigned-symbolic', tooltip_text=_("Assignades a mi"))
     window.mine_filter.set_active(window.only_mine)
     ui.accessible(window.mine_filter, [Gtk.AccessibleProperty.LABEL], [_("Assignades a mi")])
     window.mine_filter.connect('toggled', window.filter_mine)

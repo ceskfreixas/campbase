@@ -17,7 +17,7 @@ def focus_picker(popover):
 
 
 def selector(panel, parent, rows):
-    button = ui.create(Gtk.MenuButton, icon_name='cat.cesk.Campbase-reaction-symbolic', tooltip_text=_("Reacciona al comentari"))
+    button = ui.create(Gtk.MenuButton, icon_name='cat.ceskfreixas.Campbase-reaction-symbolic', tooltip_text=_("Reacciona al comentari"))
     button.add_css_class('flat')
     button.add_css_class('reaction-selector')
     # Keep keyboard navigation available without making the first emoji look

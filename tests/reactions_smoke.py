@@ -14,7 +14,7 @@ from campbase.deck import Deck, OfflineError
 from campbase.comment_reactions import group_comments
 from campbase.reaction_widgets import react
 
-app=Adw.Application(application_id='cat.cesk.Campbase.ReactionCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.ReactionCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle(until=lambda:True):

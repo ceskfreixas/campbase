@@ -11,7 +11,7 @@ from gi.repository import Adw, GLib, Gtk
 from campbase.storage import Store
 from campbase.window import Window
 
-app = Adw.Application(application_id='cat.cesk.Campbase.SyncInteractionCheck')
+app = Adw.Application(application_id='cat.ceskfreixas.Campbase.SyncInteractionCheck')
 app.register(None)
 
 

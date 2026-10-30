@@ -26,7 +26,7 @@ def settle():
         time.sleep(.005)
 
 
-app = Adw.Application(application_id="cat.cesk.Campbase.UITest")
+app = Adw.Application(application_id="cat.ceskfreixas.Campbase.UITest")
 app.register(None)
 Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path(__file__).resolve().parents[1]/"data/icons"))
 provider = Gtk.CssProvider()
@@ -75,7 +75,7 @@ with tempfile.TemporaryDirectory() as path:
     settle()
     project.name.set_text("Projecte editat")
     project.description.get_buffer().set_text("Descripció nova")
-    record = window.assets.import_file(Gio.File.new_for_path(str(Path(__file__).resolve().parents[1]/"data/icons/cat.cesk.Campbase.svg")), icon=True)
+    record = window.assets.import_file(Gio.File.new_for_path(str(Path(__file__).resolve().parents[1]/"data/icons/cat.ceskfreixas.Campbase.svg")), icon=True)
     project.metadata["image"] = record["path"]
     project.refresh_preview()
     project.changed()

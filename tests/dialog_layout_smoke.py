@@ -16,7 +16,7 @@ from campbase.dialogs import AccountDialog
 from campbase.widgets import Card
 from campbase import i18n,localization
 
-app=Adw.Application(application_id='cat.cesk.Campbase.DialogLayoutCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.DialogLayoutCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():

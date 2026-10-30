@@ -14,7 +14,7 @@ from campbase.labels import NewLabelDialog
 from campbase.project import ProjectDialog
 from campbase.dialogs import PendingDialog
 
-app=Adw.Application(application_id='cat.cesk.Campbase.LabelCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.LabelCheck');app.register(None)
 provider=Gtk.CssProvider();provider.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():

@@ -13,7 +13,7 @@ from campbase.widgets import Column
 from campbase.active_cards import ActiveCard
 from campbase.card_dialog import CardDialog
 from campbase.collaboration import remember_creator
-app=Adw.Application(application_id='cat.cesk.Campbase.CardControlsCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.CardControlsCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():

@@ -13,7 +13,7 @@ from campbase.window import Window
 from campbase.dialogs import Preferences
 from campbase.account import Account
 
-app=Adw.Application(application_id='cat.cesk.Campbase.PreferencesCheck');app.register(None)
+app=Adw.Application(application_id='cat.ceskfreixas.Campbase.PreferencesCheck');app.register(None)
 provider=Gtk.CssProvider();provider.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),provider,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():
