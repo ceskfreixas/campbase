@@ -12,6 +12,13 @@ work with other people and keep the same boards available in the Android Deck ap
 [Issues and suggestions](https://github.com/ceskfreixas/campbase/issues) ·
 [Support the project](https://ceskfreixas.aixeta.cat/en/subscriptions)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/catalog/screenshots/en-board-dark.png">
+  <img src="docs/catalog/screenshots/en-board-light.png" alt="Plan work with cards and columns">
+</picture>
+
+[More screenshots in all six languages](docs/screenshots.md)
+
 ## Features
 
 - Responsive boards, with an optional first column above the workflow and a
@@ -104,12 +111,25 @@ while its dialog is open and does not block card synchronization.
 
 ## Install and run
 
-This preview is published as source and includes a Flatpak manifest. It is not
-yet listed on Flathub.
+Download **Campbase-0.1.3-x86_64.flatpak** from the [0.1.3 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.3).
+This preview is for Linux x86_64 and requires Flatpak plus a Nextcloud account
+with Deck configured in GNOME Online Accounts. Flatpak can download the GNOME
+runtime from Flathub during installation; Campbase itself is not listed there.
+
+```sh
+flatpak install --user ./Campbase-0.1.3-x86_64.flatpak
+flatpak run --user --branch=master cat.ceskfreixas.Campbase
+```
+
+GitHub bundles require manual Campbase updates. Download a newer bundle and
+install it with `flatpak install --user --reinstall ./FILE.flatpak`; this retains
+the application's data. See the [installation guide in six languages](docs/installation.md)
+for checksum verification and updates.
+
+To build from source:
 
 ```sh
 flatpak-builder --user --install --force-clean build cat.ceskfreixas.Campbase.json
-flatpak run cat.ceskfreixas.Campbase
 ```
 
 The manifest uses GNOME 50. It requests network/display/GPU access and D-Bus access
