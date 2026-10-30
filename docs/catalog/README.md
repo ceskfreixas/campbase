@@ -17,7 +17,8 @@ its own synthetic X11 surface; it never captures the desktop, opens a real
 account, reads passwords or sends network requests. It creates a temporary
 Store and uses Campbase's existing demo mode. The application layout is set to
 three columns per row so the entire workshop is visible at 1000 × 700 pixels.
-The application icon and native UI are unchanged. Screenshots are not retouched.
+Screenshots show native widgets and are not retouched. The catalog uses the
+current application icon directly from `data/icons/cat.ceskfreixas.Campbase.svg`.
 
 Run `scripts/capture_screenshots.py --language LANGUAGE --output DIRECTORY`
 in the Campbase Flatpak with the checkout accessible, `DISPLAY=:98`,

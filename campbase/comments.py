@@ -130,6 +130,7 @@ class CommentsPanel(Gtk.Box):
                     remove = icon_button('user-trash-symbolic', _("Esborra el comentari"),
                                          lambda *_unused, item=item: self.confirm_delete(item))
                     remove.add_css_class('flat')
+                    remove.add_css_class('destructive-action')
                     remove.set_valign(Gtk.Align.CENTER)
                     controls.append(remove)
                 controls.append(selector(self, item, replies))

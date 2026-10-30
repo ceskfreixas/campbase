@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
-"""A stable shared slot for assignee avatars and contextual card controls."""
+"""A shared right-hand slot for comments, assignees and contextual actions."""
 import gi
 gi.require_version('Gtk', '4.0')
 from gi.repository import Gtk
@@ -11,14 +11,26 @@ class CardTileLayout(Gtk.OverlayLayout):
     def do_allocate(self, tile, width, height, baseline):
         Gtk.OverlayLayout.do_allocate(self, tile, width, height, baseline)
         heading = tile.card_widget.get_child().get_first_child()
-        ok, bounds = heading.compute_bounds(tile)
+        ok, _ = heading.compute_bounds(tile)
         if not ok:
             return
+        title = heading.get_first_child()
+        _, title_bounds = title.compute_bounds(tile)
+        _, offset = title.get_layout_offsets()
+        ink, _ = title.get_layout().get_pixel_extents()
+        center = title_bounds.origin.y+offset+ink.y+ink.height/2
         changed = False
-        for child in (tile.assignee_avatars, tile.controls):
+        for child in (tile.indicators, tile.controls):
             if child is None:
                 continue
-            top = max(0, round(bounds.origin.y+bounds.size.height/2-child.get_height()/2))
+            anchor = child.get_height()/2
+            if child is tile.indicators and tile.card_widget.comment_badge:
+                number = tile.card_widget.comment_badge.get_last_child()
+                _, text_bounds = number.compute_bounds(child)
+                _, text_offset = number.get_layout_offsets()
+                text_ink, _ = number.get_layout().get_pixel_extents()
+                anchor = text_bounds.origin.y+text_offset+text_ink.y+text_ink.height/2
+            top = max(0, round(center-anchor))
             if child.get_margin_top() != top:
                 child.set_margin_top(top)
                 changed = True
@@ -35,13 +47,16 @@ class CardTile(Gtk.Overlay):
         self.controls = None
         self.assignee_avatars = self.card_widget.assignee_avatars
         self.set_layout_manager(CardTileLayout())
-        if self.assignee_avatars:
-            self.assignee_avatars.add_css_class('card-assignees')
-            self.assignee_avatars.set_margin_end(14)
-            self.assignee_avatars.set_valign(Gtk.Align.START)
-            self.add_overlay(self.assignee_avatars)
-            count = min(3, len(card.get('assignedUsers') or []))
-            self.card_widget.get_child().set_margin_end(count*28+4)
+        self.indicators = None
+        indicators = [widget for widget in (self.card_widget.comment_badge, self.assignee_avatars) if widget]
+        if indicators:
+            self.indicators = Gtk.Box(spacing=8, halign=Gtk.Align.END, valign=Gtk.Align.START, margin_end=14)
+            self.indicators.add_css_class('card-indicators')
+            for widget in indicators:
+                self.indicators.append(widget)
+            self.add_overlay(self.indicators)
+            width = sum(widget.measure(Gtk.Orientation.HORIZONTAL, -1)[1] for widget in indicators)
+            self.card_widget.get_child().set_margin_end(width+8*len(indicators))
 
     def add_actions(self, *buttons):
         self.add_css_class('has-card-controls')

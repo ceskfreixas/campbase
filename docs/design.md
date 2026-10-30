@@ -341,3 +341,10 @@ or reloading other boards. Restoring a column preserves its surviving active and
 archived cards; independently deleted cards remain deleted. Permanent removal is
 left to Deck's retention policy. Stale callbacks cannot update a closed dialog or
 another account.
+
+## Application icon
+
+The app uses a freestanding yellow tent with two simple faces and a dark entrance,
+on a transparent 128 px canvas. It uses flat colors and a shallow front profile. The 16 px symbolic variant uses the same silhouette with a
+transparent entrance. Both are installed through the same application identity;
+the catalog and About dialog use the official app icon.

@@ -1,4 +1,4 @@
-project('campbase', version: '0.1.6', meson_version: '>= 1.0')
+project('campbase', version: '0.1.7', meson_version: '>= 1.0')
 
 pkgdatadir = get_option('prefix') / get_option('datadir') / 'campbase'
 configuration = configuration_data()
@@ -10,6 +10,8 @@ install_subdir('campbase', install_dir: get_option('datadir') / 'campbase',
 install_data('data/cat.ceskfreixas.Campbase.desktop', install_dir: get_option('datadir') / 'applications')
 install_data('data/cat.ceskfreixas.Campbase.metainfo.xml', install_dir: get_option('datadir') / 'metainfo')
 install_data('data/icons/cat.ceskfreixas.Campbase.svg', install_dir: get_option('datadir') / 'icons/hicolor/scalable/apps')
+install_subdir('data/icons/hicolor/symbolic/apps',
+               install_dir: get_option('datadir') / 'icons/hicolor/symbolic')
 install_subdir('data/icons/hicolor/scalable/actions',
                install_dir: get_option('datadir') / 'icons/hicolor/scalable')
 install_data('LICENSE', 'NOTICE', install_dir: get_option('datadir') / 'licenses/cat.ceskfreixas.Campbase')

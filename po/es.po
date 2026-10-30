@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.6\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Guardar"
@@ -2114,3 +2114,18 @@ msgstr "No hay elementos eliminados."
 
 msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
 msgstr "Recupera tarjetas y columnas desde los elementos eliminados de cada tablero."
+
+msgid "Columna restaurada"
+msgstr "Columna restaurada"
+
+msgid "Nova icona"
+msgstr "Nuevo icono"
+
+msgid "Estrenem una tenda groga com a icona del Campbase, amb una versió simbòlica per a GNOME."
+msgstr "Estrenamos una tienda amarilla como icono de Campbase, con una versión simbólica para GNOME."
+
+msgid "Indicadors de les targetes"
+msgstr "Indicadores de las tarjetas"
+
+msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
+msgstr "Los comentarios y las asignaciones se muestran a la derecha de la tarjeta y se ocultan al pasar el puntero."

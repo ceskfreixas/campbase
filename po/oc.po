@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.6\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Desa"
@@ -2114,3 +2114,18 @@ msgstr "Non i a elements suprimidi."
 
 msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
 msgstr "Recupèra targes e colomnes des elements suprimidi de cada taulèr."
+
+msgid "Columna restaurada"
+msgstr "Colomna restaurada"
+
+msgid "Nova icona"
+msgstr "Naua icòna"
+
+msgid "Estrenem una tenda groga com a icona del Campbase, amb una versió simbòlica per a GNOME."
+msgstr "Estrenam ua tenda auriòla coma icòna deth Campbase, damb ua version simbolica entà GNOME."
+
+msgid "Indicadors de les targetes"
+msgstr "Indicadors des tarjes"
+
+msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
+msgstr "Es comentaris e es assignacions se mòstren ara dreta dera tarja e s'amaguen en passar-i eth puntèr."

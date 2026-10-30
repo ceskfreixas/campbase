@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 """Native trash loading, retry, restoration and close races use synthetic data."""
 import copy
+from pathlib import Path
+import campbase
 import tempfile
 import threading
 import time
@@ -9,7 +11,7 @@ from types import SimpleNamespace
 from unittest.mock import Mock
 import gi
 gi.require_version('Gtk', '4.0');gi.require_version('Adw', '1')
-from gi.repository import Adw, GLib
+from gi.repository import Adw, GLib, Gdk, Gtk
 from campbase.__main__ import demo_snapshot
 from campbase.storage import Store
 from campbase.window import Window
@@ -26,6 +28,8 @@ def settle():
 
 
 app = Adw.Application(application_id='cat.ceskfreixas.Campbase.TrashCheck');app.register(None)
+css = Gtk.CssProvider();css.load_from_path(str(Path(campbase.__file__).parent/'style.css'))
+Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 with tempfile.TemporaryDirectory() as directory:
     store = Store(directory);store.set_setting('auto_sync', False)
     snapshot = demo_snapshot();board = snapshot['boards'][0]
@@ -45,9 +49,11 @@ with tempfile.TemporaryDirectory() as directory:
     assert dialog.content_box.get_width() >= 500, dialog.content_box.get_width()
     release.set();wait_until(lambda: not dialog.busy)
     assert dialog.rows.get_first_child().get_subtitle().startswith(stack['title'])
+    assert dialog.explanation.get_visible()
     before = len(store.view()['stacks'][str(board['id'])][0]['cards'])
     dialog.restore(card);wait_until(lambda: not dialog.busy)
     assert dialog.items == [] and dialog.status.get_label() == 'No hi ha elements esborrats.'
+    assert not dialog.explanation.get_visible()
     assert len(store.view()['stacks'][str(board['id'])][0]['cards']) == before+1
     assert window.find_card(999)['archived']
     api.restore_card.assert_called_once_with(board['id'], stack['id'], 999)

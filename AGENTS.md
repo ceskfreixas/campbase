@@ -1,7 +1,8 @@
 # Campbase project guidance
 
 Keep the app, documentation and release metadata under the Campbase name.
-Preserve the original yellow square and tent icon unless a new design is approved.
+Use the approved freestanding yellow tent icon and its matching symbolic variant.
+Keep its silhouette and colors unless a new design is approved.
 Starting with the next application update after 0.1.0, increment the patch
 version for every application update: 0.1.1, 0.1.2, and so on. This replaces
 the earlier instruction to keep the initial review at 0.1.0. Do not change

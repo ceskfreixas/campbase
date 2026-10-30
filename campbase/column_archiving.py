@@ -6,6 +6,10 @@ from . import localization as ui
 from .i18n import _, ngettext
 
 
+def archive_action_title(count):
+    return _("Arxiva la targeta") if count == 1 else _("Arxiva-les totes")
+
+
 def confirm_archive_column(window, stack):
     board_id, stack_id = window.board_id, stack['id']
     cards = [card['id'] for card in window.cards_in_stack(stack_id) if not card.get('archived')]
@@ -15,7 +19,7 @@ def confirm_archive_column(window, stack):
     body = ngettext("S'arxivarà {count} targeta de «{column}», encara que hi hagi filtres actius.",
                     "S'arxivaran {count} targetes de «{column}», encara que hi hagi filtres actius.",
                     len(cards)).format(count=len(cards), column=stack['title'])
-    prompt = ui.create(Adw.AlertDialog, heading=_("Arxiva-les totes"), body=body)
+    prompt = ui.create(Adw.AlertDialog, heading=archive_action_title(len(cards)), body=body)
     ui.response(prompt, 'cancel', _("Cancel·la"))
     ui.response(prompt, 'archive', _("Arxiva"))
     prompt.set_default_response('cancel')

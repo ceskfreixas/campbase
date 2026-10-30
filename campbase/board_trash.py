@@ -26,8 +26,9 @@ class BoardTrashDialog(Adw.Dialog):
         outer.append(header)
         self.form = dialog_form(spacing=16)
         self.form.append(label(board['title'], 'title-3', xalign=0, wrap=True))
-        self.form.append(label(_("Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."),
-                               'dim-label', xalign=0, wrap=True))
+        self.explanation = label(_("Pots restaurar targetes i columnes mentre Nextcloud encara les conservi."),
+                                 'dim-label', xalign=0, wrap=True)
+        self.form.append(self.explanation)
         self.spinner = Gtk.Spinner(width_request=24, height_request=24, halign=Gtk.Align.CENTER)
         self.form.append(self.spinner)
         self.status = label('', 'dim-label', xalign=0, wrap=True)
@@ -45,7 +46,10 @@ class BoardTrashDialog(Adw.Dialog):
         self.form.append(self.rows)
         outer.append(Gtk.ScrolledWindow(child=self.form, propagate_natural_height=True,
             max_content_height=520, hscrollbar_policy=Gtk.PolicyType.NEVER))
-        self.set_child(outer)
+        self.toast_overlay = Adw.ToastOverlay()
+        self.toast_overlay.add_css_class('recovery-feedback')
+        self.toast_overlay.set_child(outer)
+        self.set_child(self.toast_overlay)
         self.connect('closed', self.closed)
         self.load()
 
@@ -112,6 +116,7 @@ class BoardTrashDialog(Adw.Dialog):
             button.set_sensitive(allowed and card['stackId'] in names)
             self.rows.append(row)
         self.rows.set_visible(bool(self.items))
+        self.explanation.set_visible(bool(self.items or self.columns))
         self.show_status('' if self.items or self.columns else _("No hi ha elements esborrats."))
 
     def recovery_row(self, item, prefix, callback):
@@ -155,6 +160,8 @@ class BoardTrashDialog(Adw.Dialog):
                 self.columns = [stack for stack in self.columns if stack['id'] != item['id']]
             self.window.render()
             self.display()
+            title = _("Targeta restaurada") if kind == 'card' else _("Columna restaurada")
+            self.toast_overlay.add_toast(ui.create(Adw.Toast, title=title, timeout=3))
             if not cached:
                 self.window.engine.sync(read_only=True)
         action = restore_deleted_card if kind == 'card' else restore_deleted_stack

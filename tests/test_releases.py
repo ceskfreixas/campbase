@@ -25,6 +25,9 @@ class ReleaseTests(unittest.TestCase):
         desktop = (ROOT / f'data/{APP_ID}.desktop').read_text()
         self.assertIn(f'Icon={APP_ID}\n', desktop)
         self.assertTrue((ROOT / f'data/icons/{APP_ID}.svg').is_file())
+        symbolic = ROOT / f'data/icons/hicolor/symbolic/apps/{APP_ID}-symbolic.svg'
+        self.assertTrue(symbolic.is_file())
+        self.assertEqual(ET.parse(symbolic).getroot().get('viewBox'), '0 0 16 16')
         for name in ['comments', 'assigned', 'conversations', 'link', 'reaction']:
             self.assertTrue((ROOT / f'data/icons/hicolor/scalable/actions/{APP_ID}-{name}-symbolic.svg').is_file())
 

@@ -99,9 +99,10 @@ class Card(Gtk.Button):
             indicator.add_css_class("card-sync-warning" if card.get("_blocked") else "card-sync-pending")
             heading.append(indicator)
         count = card.get('_textCommentsCount', card.get('commentsCount') if window.demo else None)
+        self.comment_badge = None
         if isinstance(count, int) and count > 0:
             from .comment_badge import comment_badge
-            heading.append(comment_badge(count))
+            self.comment_badge = comment_badge(count)
         box.append(heading)
         metadata = (Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, column_spacing=6, row_spacing=4,
                                 min_children_per_line=1, max_children_per_line=4, valign=Gtk.Align.CENTER)
@@ -128,9 +129,12 @@ class Card(Gtk.Button):
             for user in users[:3]:
                 avatars.append(avatar(window, user, 24))
             self.assignee_avatars = avatars
-            if inline_assignees:
-                heading.append(Gtk.Box(hexpand=True))
-                heading.append(avatars)
+        if inline_assignees and (self.comment_badge or self.assignee_avatars):
+            heading.append(Gtk.Box(hexpand=True))
+            if self.comment_badge:
+                heading.append(self.comment_badge)
+            if self.assignee_avatars:
+                heading.append(self.assignee_avatars)
         if metadata.get_first_child():
             box.append(metadata)
         self.connect("clicked", lambda *_unused: window.open_card(card))

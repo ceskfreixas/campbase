@@ -2572,3 +2572,18 @@ msgstr ""
 
 msgid "Recupera targetes i columnes des dels elements esborrats de cada tauler."
 msgstr ""
+
+msgid "Columna restaurada"
+msgstr ""
+
+msgid "Nova icona"
+msgstr ""
+
+msgid "Estrenem una tenda groga com a icona del Campbase, amb una versió simbòlica per a GNOME."
+msgstr ""
+
+msgid "Indicadors de les targetes"
+msgstr ""
+
+msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
+msgstr ""

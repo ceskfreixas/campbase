@@ -16,11 +16,19 @@ from campbase.collaboration import remember_creator
 app=Adw.Application(application_id='cat.ceskfreixas.Campbase.CardControlsCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-def settle():
- end=time.monotonic()+.3
+def settle(until=None):
+ end=time.monotonic()+(3 if until else .3)
  while time.monotonic()<end:
   while GLib.MainContext.default().pending():GLib.MainContext.default().iteration(False)
+  if until and until():return
   time.sleep(.005)
+ if until:assert until()
+def drawn(widget):
+ snapshot=Gtk.Snapshot()
+ widget.get_parent().snapshot_child(widget,snapshot)
+ paintable=snapshot.to_paintable(None)
+ return paintable is not None and paintable.get_intrinsic_width()>0
+
 def descendants(widget):
  yield widget
  child=widget.get_first_child()
@@ -44,16 +52,18 @@ with tempfile.TemporaryDirectory() as folder:
  assert isinstance(first_card,ActiveCard)
  controls=first_card.drag_handle.get_parent()
  assert controls.get_first_child() is first_card.archive_button and controls.get_last_child() is first_card.drag_handle
- assert first_card.assignee_avatars.get_parent() is first_card
+ assert first_card.assignee_avatars.get_parent() is first_card.indicators
  ok,avatar_bounds=first_card.assignee_avatars.compute_bounds(first_card);assert ok
  assert abs(first_card.get_width()-avatar_bounds.origin.x-avatar_bounds.size.width-14)<2
  assert first_card.drag and first_card.handle_drag and first_card.handle_drag.widget is first_card
  badge=next(node for node in descendants(first_card) if node.has_css_class('card-comment-count'))
  assert badge.get_tooltip_text()=='12 comentaris' and badge.get_last_child().get_text()=='12'
  heading=first_card.card_widget.get_child().get_first_child();title=heading.get_first_child()
- assert badge.get_parent() is heading and first_card.card_widget.get_child().get_first_child() is heading
+ assert badge.get_parent() is first_card.indicators and first_card.card_widget.get_child().get_first_child() is heading
  ok,t=title.compute_bounds(first_card);assert ok
  ok,c=badge.compute_bounds(first_card);assert ok
+ assert first_card.indicators.get_first_child() is badge and first_card.indicators.get_last_child() is first_card.assignee_avatars
+ assert c.origin.x+c.size.width<=avatar_bounds.origin.x
  def ink_center(text,root=first_card):
   ok,b=text.compute_bounds(root);assert ok
   _,y=text.get_layout_offsets();ink,_=text.get_layout().get_pixel_extents()
@@ -74,6 +84,24 @@ with tempfile.TemporaryDirectory() as folder:
   assert abs(ink_center(counter.get_last_child(),sample)-image.origin.y-image.size.height*7/16)<=.5
   w.board_body.remove(sample)
  settings.set_property('gtk-font-name',original_font);settle()
+ animations=settings.get_property('gtk-enable-animations');settings.set_property('gtk-enable-animations',False)
+ for assigned in ([], [{'participant':owner}]):
+  sample=ActiveCard(dict(first_card.card,assignedUsers=assigned),w)
+  indicator_window=Gtk.Window(application=app,default_width=400,default_height=160)
+  indicator_window.set_child(sample);indicator_window.present();settle()
+  _,indicator=sample.indicators.compute_bounds(sample)
+  assert abs(sample.get_width()-indicator.origin.x-indicator.size.width-14)<2
+  assert drawn(sample.indicators)
+  sample.set_state_flags(Gtk.StateFlags.PRELIGHT,False);settle()
+  assert not drawn(sample.indicators)
+  sample.unset_state_flags(Gtk.StateFlags.PRELIGHT);settle()
+  assert drawn(sample.indicators)
+  sample.add_css_class('keyboard-actions');settle()
+  assert not drawn(sample.indicators)
+  sample.remove_css_class('keyboard-actions');settle()
+  assert drawn(sample.indicators)
+  indicator_window.destroy();settle()
+ settings.set_property('gtk-enable-animations',animations)
  adjustment=w.scroll.get_vadjustment();ok,bounds=column.compute_bounds(w.board_body);assert ok
  adjustment.set_value(bounds.origin.y-80);settle();position=adjustment.get_value();assert position>200
  for visible in (True,False,True):
@@ -82,7 +110,7 @@ with tempfile.TemporaryDirectory() as folder:
   assert abs(adjustment.get_value()-position)<1,(position,adjustment.get_value())
   assert column.drop.widgets[0] is first_card and column.get_first_child().get_last_child() is menu
  archived=next(tile for tile in column.archived_section.cards if tile.card['id']==2019)
- assert archived.assignee_avatars.get_parent() is archived
+ assert archived.assignee_avatars.get_parent() is archived.indicators
  assert archived.restore_button.get_parent() is archived.delete_button.get_parent()
  # The reported title fits the available card width without an avoidable wrap.
  sample=ActiveCard(dict(first_card.card,title='Aixeta: codi obert i codi obert i',assignedUsers=[],_pending=True),w,min_width=0)
@@ -94,7 +122,7 @@ with tempfile.TemporaryDirectory() as folder:
  assert abs(t.origin.y+t.size.height/2-c.origin.y-c.size.height/2)<1
  w.board_body.remove(sample);settle()
  # Archiving is queued, opens no editor, and preserves its identity and stack.
- first_card.archive_button.emit('clicked');settle()
+ first_card.archive_button.emit('clicked');settle(lambda:w.find_card(2001).get('archived') and w.get_visible_dialog() is None)
  op=store.operations()[0]
  assert op['kind']=='archive' and op['payload']['changes']=={'archived':True}
  assert op['payload']['card_id']==2001 and op['payload']['stack_id']==20

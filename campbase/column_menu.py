@@ -6,6 +6,7 @@ gi.require_version('Gtk', '4.0')
 from gi.repository import Gdk, Gio, GLib, Gtk
 from . import localization as ui
 from .i18n import _
+from .column_archiving import archive_action_title
 
 
 def column_menu(window, stack, button=None):
@@ -16,18 +17,19 @@ def column_menu(window, stack, button=None):
     button.insert_action_group('column', group)
     board = next((b for b in window.snapshot.get('boards', []) if b['id'] == window.board_id), {})
     model, create, commands, view = Gio.Menu(), Gio.Menu(), Gio.Menu(), Gio.Menu()
+    active_count = sum(not card.get('archived') for card in stack.get('cards', []))
     actions = [
         ('new', _("Afegeix una targeta"), lambda: window.new_card(stack['id']), 'PERMISSION_EDIT', create),
         ('rename', _("Canvia el nom"), lambda: window.edit_column(stack), 'PERMISSION_MANAGE', commands),
         ('color', _("Canvia el color"), lambda: window.edit_column_color(stack), None, commands),
-        ('archive-all', _("Arxiva-les totes"), lambda: window.archive_column_cards(stack), 'PERMISSION_EDIT', view),
+        ('archive-all', archive_action_title(active_count), lambda: window.archive_column_cards(stack), 'PERMISSION_EDIT', view),
         ('archives', _("Amaga les arxivades") if window.shows_archived(stack['id']) else _("Mostra les arxivades"),
          lambda: window.show_archived(stack['id'], not window.shows_archived(stack['id'])), None, view),
     ]
     for name, title, callback, permission, section in actions:
         action = Gio.SimpleAction.new(name, None)
         action.set_enabled(window.demo or not permission or board.get('permissions', {}).get(permission, True))
-        if name == 'archive-all' and not any(not card.get('archived') for card in stack.get('cards', [])):
+        if name == 'archive-all' and not active_count:
             action.set_enabled(False)
         action.connect('activate', lambda *_unused, callback=callback: callback())
         group.add_action(action)
