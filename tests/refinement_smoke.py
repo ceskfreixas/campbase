@@ -68,7 +68,12 @@ with tempfile.TemporaryDirectory() as d:
    if child.__gtype__.name=='GtkModelButton':yield child
    yield from menu_items(child)
    child=child.get_next_sibling()
- items=list(menu_items(popover));assert len(items)==4
+ items=list(menu_items(popover));assert len(items)==5
+ model=popover.get_menu_model()
+ sections=[model.get_item_link(index,'section') for index in range(model.get_n_items())]
+ actions=[[section.get_item_attribute_value(index,'action',None).get_string()
+           for index in range(section.get_n_items())] for section in sections]
+ assert actions==[['column.new'],['column.rename','column.color'],['column.archive-all','column.archives']]
  items[-1].grab_focus();assert items[-1].has_focus()
  popover.popdown();settle();menu.popup();settle()
  assert popover.get_child().has_focus() and not any(item.has_focus() for item in items)
