@@ -13,7 +13,7 @@
 .board-column.tint-77767b { background-color: alpha(#77767b, .08); }
 .board-column flowboxchild { padding: 0; border: 0; background: transparent; }
 .workflow-grid > flowboxchild { padding: 0; border: 0; background: transparent; }
-.campbase-card { padding: 14px; border-radius: 12px; background: @card_bg_color; color: @card_fg_color; border: 1px solid alpha(@window_fg_color, .08); box-shadow: 0 1px 2px alpha(black, .035); }
+.campbase-card { padding: 10px; border-radius: 12px; background: @card_bg_color; color: @card_fg_color; border: 1px solid alpha(@window_fg_color, .08); box-shadow: 0 1px 2px alpha(black, .035); }
 .campbase-card:hover { background: mix(@card_bg_color, @window_fg_color, .035); }
 .campbase-card:focus-visible { outline: 2px solid @accent_color; outline-offset: 2px; }
 .card-title { font-weight: 600; font-size: 15px; }
@@ -103,7 +103,6 @@ button.color-swatch.swatch-c7a600, button.color-swatch.swatch-62a0ea { color: #1
 button.label-choice { min-height: 24px; padding: 4px 8px; }
 .fixed-columns .board-column { padding: 10px; }
 .fixed-columns .column-header > flowboxchild { padding: 0; }
-.fixed-columns .campbase-card { padding: 10px; }
 .card-metadata > flowboxchild { padding: 0; }
 .license-web-link { padding-left: 0; padding-right: 0; }
 
