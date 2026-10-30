@@ -19,6 +19,8 @@ from .account import Account, normalize_server
 from . import VERSION
 from .collaboration import CollaborationAPI
 from .due_dates import same_due, server_due
+from .conditional_cache import ConditionalCache
+from .deck_resources import DeckResources
 
 
 class DeckError(Exception):
@@ -46,13 +48,14 @@ class NoRedirect(HTTPRedirectHandler):
         return None
 
 
-class Deck(CollaborationAPI):
+class Deck(DeckResources, CollaborationAPI):
     def __init__(self, account, allow_local=False):
         self.server = normalize_server(account.server, allow_local=allow_local)
         self.username = account.username
         self.goa_id = getattr(account, "goa_id", "")
         self._auth = "Basic " + base64.b64encode(f"{account.username}:{account.password}".encode()).decode()
         self._transport = threading.local()
+        self._cache = ConditionalCache()
 
     @property
     def opener(self):
@@ -75,7 +78,14 @@ class Deck(CollaborationAPI):
                 raise DeckError(_("El compte de GNOME ha canviat. Torna a seleccionar-lo a les preferències."))
             self._auth = "Basic " + base64.b64encode(f"{account.username}:{account.password}".encode()).decode()
 
-    def request(self, method, path, body=None, *, ocs=False, internal=False, version="1.0", content_type="application/json", service=None):
+    def cached_get(self, path):
+        self._transport.conditional = True
+        try:
+            return self.request('GET', path)
+        finally:
+            self._transport.conditional = False
+
+    def request(self, method, path, body=None, *, ocs=False, internal=False, version="1.0", content_type="application/json", service=None, timeout=None):
         prefix = "/ocs/v2.php/apps/deck/api/v1.0" if ocs else "/index.php/apps/deck"
         if not ocs and not internal:
             prefix += "/api/v" + version
@@ -90,12 +100,32 @@ class Deck(CollaborationAPI):
                           headers={"Authorization": self._auth, "OCS-APIRequest": "true",
                                    "Accept": "application/json", "Content-Type": content_type,
                                    "User-Agent": f"Campbase/{VERSION} (GNOME; Nextcloud Deck)"})
+        conditional = method == 'GET' and not service and getattr(self._transport, 'conditional', False)
+        generation, cached = self._cache.get(request.full_url) if conditional else (None, None)
+        if cached:
+            request.add_header('If-None-Match', cached[0])
+        # Invalidate before a write: even an interrupted response may mean it succeeded.
+        if method not in {'GET', 'HEAD'} and service is None:
+            self._cache.invalidate()
         try:
-            with self.opener.open(request, timeout=6 if service else 18) as response:
-                raw = response.read(32 * 1024 * 1024)
+            with self.opener.open(request, timeout=timeout or (6 if service else 18)) as response:
+                raw = response.read(32 * 1024 * 1024 + 1)
+                etag = response.headers.get('ETag')
+                if len(raw) > 32 * 1024 * 1024:
+                    raise DeckError(_("La resposta de Nextcloud és massa gran."))
         except HTTPError as error:
             code = error.code
             error.close()
+            if code == 304 and conditional and cached:
+                current_generation = self._cache.version()
+                if current_generation != generation:
+                    self._transport.conditional = False
+                    try:
+                        return self.request(method, path, body, ocs=ocs, internal=internal,
+                                            version=version, content_type=content_type, service=service, timeout=timeout)
+                    finally:
+                        self._transport.conditional = True
+                return cached[1]
             if code == 304 and service == 'chat':
                 return []
             if code == 404 and service in {'activity', 'notifications'}:
@@ -118,6 +148,8 @@ class Deck(CollaborationAPI):
                 if status not in (100, 200, 201, 204, 304):
                     raise DeckError(_("Nextcloud no ha pogut completar l'operació."))
                 return data["ocs"]["data"]
+            if conditional:
+                self._cache.put(request.full_url, etag, data, len(raw), generation)
             return data
         except (ValueError, KeyError, TypeError):
             raise DeckError(_("La resposta de Nextcloud no té el format esperat.")) from None
@@ -128,13 +160,13 @@ class Deck(CollaborationAPI):
         # Only independent GETs run in parallel. Writes and their verification
         # remain on the serialized sync worker; publish one complete snapshot.
         with ThreadPoolExecutor(max_workers=4, thread_name_prefix='campbase-read') as pool:
-            lists = list(pool.map(lambda path: self.request('GET', path),
+            lists = list(pool.map(lambda path: self.cached_get(path),
                                   ['/boards?details=1', '/boards?archived=1&details=1']))
             if any(not isinstance(rows, list) for rows in lists):
                 raise DeckError(_("Nextcloud no ha retornat una llista de taulers vàlida."))
             boards = {b['id']: b for rows in lists for b in rows if not b.get('deletedAt')}
             paths = [(board_id, suffix) for board_id in boards for suffix in ('', '/archived')]
-            results = list(pool.map(lambda item: self.request('GET', f'/boards/{item[0]}/stacks{item[1]}'), paths))
+            results = list(pool.map(lambda item: self.cached_get(f'/boards/{item[0]}/stacks{item[1]}'), paths))
         if any(not isinstance(rows, list) for rows in results):
             raise DeckError(_("No s'han pogut llegir les columnes del tauler."))
         fetched = dict(zip(paths, results))

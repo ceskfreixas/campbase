@@ -1,4 +1,4 @@
-project('campbase', version: '0.1.0', meson_version: '>= 1.0')
+project('campbase', version: '0.1.2', meson_version: '>= 1.0')
 
 pkgdatadir = get_option('prefix') / get_option('datadir') / 'campbase'
 configuration = configuration_data()

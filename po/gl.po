@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: gl\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.2\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: gl\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Guardar"
@@ -1806,3 +1806,174 @@ msgstr "Conversas mostra um indicador de carregamento enquanto aguarda a respost
 
 msgid "Rep mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk. Obre directament el lloc relacionat amb cada avís. Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia."
 msgstr "Recebe menções, reações aos teus comentários, atribuições, datas limite, quadros partilhados contigo e mensagens do Talk. Abre diretamente o local relacionado com cada aviso. As tuas ações e as mudanças de rotina do quadro não enchem a caixa de entrada."
+
+msgid "Novetats del Campbase {version}."
+msgstr "Novidades do Campbase {version}."
+
+msgid "Quant a, coherent amb GNOME"
+msgstr "Sobre, coerente com GNOME"
+
+msgid "El diàleg Quant a utilitza el component estàndard d'Adwaita: icona, nom del Campbase, desenvolupador i versió, amb les mides i els marges de GNOME. Els crèdits, el copyright i la llicència ocupen els seus apartats. Es conserven les novetats, el codi font, els enllaços de suport i la informació de Nextcloud Deck."
+msgstr "O diálogo Sobre utiliza o componente padrão do Adwaita: ícone, nome do Campbase, desenvolvedor e versão, com as dimensões e margens do GNOME. Os créditos, o copyright e a licença têm as suas secções. Mantêm-se as novidades, o código-fonte, as ligações de apoio e a informação do Nextcloud Deck."
+
+msgid "Actualitza els adjunts"
+msgstr "Atualiza os anexos"
+
+msgid "Adjunts"
+msgstr "Anexos"
+
+msgid "Afegeix un fitxer"
+msgstr "Acrescenta um ficheiro"
+
+msgid "Aquest servidor no permet modificar aquest missatge."
+msgstr "Este servidor não permite modificar esta mensagem."
+
+msgid "Comprova els adjunts abans de repetir l'enviament per evitar duplicats."
+msgstr "Verifica os anexos antes de repetir o envio para evitar duplicados."
+
+msgid "Deck no ha confirmat el canvi d'etiqueta. Torna a carregar-les."
+msgstr "Deck não confirmou a mudança da etiqueta. Volta a carregá-las."
+
+msgid "Deck no ha confirmat la restauració del tauler."
+msgstr "Deck não confirmou a recuperação do quadro."
+
+msgid "Desa l'adjunt"
+msgstr "Guarda o anexo"
+
+msgid "Edita el missatge"
+msgstr "Edita a mensagem"
+
+msgid "Edita l'etiqueta"
+msgstr "Edita a etiqueta"
+
+msgid "El fitxer supera el límit de 64 MiB."
+msgstr "O ficheiro ultrapassa o limite de 64 MiB."
+
+msgid "El missatge ha canviat a Talk. El teu text es conserva; revisa'l abans de desar."
+msgstr "A mensagem mudou no Talk. O teu texto conserva-se; revê-o antes de guardar."
+
+msgid "El missatge ja no és a la conversa. Actualitza-la."
+msgstr "A mensagem já não está na conversa. Atualiza-a."
+
+msgid "El missatge s'esborrarà de la conversa per a tots els participants."
+msgstr "A mensagem será eliminada da conversa para todos os participantes."
+
+msgid "Encara no hi ha adjunts."
+msgstr "Ainda não há anexos."
+
+msgid "Esborra el missatge"
+msgstr "Elimina a mensagem"
+
+msgid "Esborra l'etiqueta"
+msgstr "Elimina a etiqueta"
+
+msgid "Gestiona les etiquetes"
+msgstr "Gere as etiquetas"
+
+msgid "Ha passat el termini per modificar aquest missatge."
+msgstr "Terminou o prazo para modificar esta mensagem."
+
+msgid "Ja ho he comprovat"
+msgstr "Já verifiquei"
+
+msgid "L'etiqueta ha canviat a Deck. Revisa-la abans de desar."
+msgstr "A etiqueta mudou no Deck. Revê-a antes de guardar."
+
+msgid "L'etiqueta ja no és al tauler. Torna a carregar-les."
+msgstr "A etiqueta já não está no quadro. Volta a carregá-las."
+
+msgid "L'etiqueta «{title}» es retirarà de totes les targetes del tauler."
+msgstr "A etiqueta «{title}» será retirada de todos os cartões do quadro."
+
+msgid "La resposta de Nextcloud és massa gran."
+msgstr "A resposta do Nextcloud é demasiado grande."
+
+msgid "No hi ha taulers per recuperar."
+msgstr "Não há quadros para recuperar."
+
+msgid "No s'ha pogut confirmar l'adjunt. Revisa'l abans de repetir l'enviament."
+msgstr "Não foi possível confirmar o anexo. Verifica-o antes de repetir o envio."
+
+msgid "No s'ha pogut descarregar l'adjunt."
+msgstr "Não foi possível descarregar o anexo."
+
+msgid "No s'ha pogut restaurar el tauler"
+msgstr "Não foi possível recuperar o quadro"
+
+msgid "No s'han pogut llegir els adjunts."
+msgstr "Não foi possível ler os anexos."
+
+msgid "No tens permís per gestionar les etiquetes del tauler."
+msgstr "Não tens permissão para gerir as etiquetas do quadro."
+
+msgid "No tens permís per modificar aquesta targeta."
+msgstr "Não tens permissão para modificar este cartão."
+
+msgid "Només pots modificar els teus missatges."
+msgstr "Só podes modificar as tuas mensagens."
+
+msgid "Pots recuperar els taulers mentre Nextcloud encara els conservi."
+msgstr "Podes recuperar os quadros enquanto o Nextcloud os conservar."
+
+msgid "Restaura el tauler"
+msgstr "Recupera o quadro"
+
+msgid "Revisa el text del missatge."
+msgstr "Revê o texto da mensagem."
+
+msgid "Revisa l'adjunt pendent"
+msgstr "Revê o anexo pendente"
+
+msgid "S'estan carregant els adjunts…"
+msgstr "A carregar os anexos…"
+
+msgid "S'estan carregant les etiquetes…"
+msgstr "A carregar as etiquetas…"
+
+msgid "S'està descarregant l'adjunt…"
+msgstr "A descarregar o anexo…"
+
+msgid "S'està enviant l'adjunt…"
+msgstr "A enviar o anexo…"
+
+msgid "Sincronitza els canvis pendents del tauler abans de gestionar les etiquetes."
+msgstr "Sincroniza as mudanças pendentes do quadro antes de gerir as etiquetas."
+
+msgid "Talk no ha confirmat el canvi. Actualitza la conversa abans de repetir-lo."
+msgstr "Talk não confirmou a mudança. Atualiza a conversa antes de repetir."
+
+msgid "Tauler esborrat"
+msgstr "Quadro eliminado"
+
+msgid "Taulers esborrats recentment"
+msgstr "Quadros eliminados recentemente"
+
+msgid "Adjunts a les targetes"
+msgstr "Anexos nos cartões"
+
+msgid "Recuperació de taulers"
+msgstr "Recuperação de quadros"
+
+msgid "Gestió d'etiquetes"
+msgstr "Gestão de etiquetas"
+
+msgid "Missatges de Talk"
+msgstr "Mensagens do Talk"
+
+msgid "Sincronització més lleugera"
+msgstr "Sincronização mais ligeira"
+
+msgid "Afegeix i desa documents des de la targeta amb els selectors natius de GNOME. Els enviaments sense confirmar es revisen abans de repetir-los."
+msgstr "Acrescenta e guarda documentos a partir do cartão com os seletores nativos do GNOME. Os envios por confirmar são revistos antes de os repetir."
+
+msgid "Desfés l'esborrament d'un tauler o recupera'l des del menú de taulers esborrats recentment, mentre Nextcloud el conservi. També es recuperen la icona i els colors locals."
+msgstr "Desfaz a eliminação de um quadro ou recupera-o no menu de quadros eliminados recentemente, enquanto o Nextcloud o conservar. O ícone e as cores locais também são recuperados."
+
+msgid "Canvia el nom i el color de les etiquetes, o esborra-les amb confirmació. Els canvis s'apliquen a les targetes del tauler i respecten els permisos i els canvis pendents."
+msgstr "Muda o nome e a cor das etiquetas ou elimina-as com confirmação. As mudanças aplicam-se aos cartões do quadro e respeitam as permissões e as mudanças pendentes."
+
+msgid "Edita i esborra els teus missatges quan el servidor ho permet, amb comprovació dels canvis recents i confirmació abans d'esborrar. Els esborranys d'edició es mantenen si hi ha un error."
+msgstr "Edita e elimina as tuas mensagens quando o servidor o permitir, verificando as mudanças recentes e confirmando antes de eliminar. Os rascunhos de edição conservam-se se houver um erro."
+
+msgid "Es reutilitzen les dades quan Nextcloud confirma que no han canviat. La memòria cau és limitada, es renova després d'escriure i no substitueix les comprovacions dels canvis al servidor."
+msgstr "Os dados são reutilizados quando o Nextcloud confirma que não mudaram. A cache é limitada, renova-se após a escrita e não substitui a verificação das mudanças no servidor."

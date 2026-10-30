@@ -32,6 +32,8 @@ class ChatDialog(Adw.Dialog):
         self.worker = DialogWorker(self, window, name='campbase-talk-read')
         self.writer = DialogWorker(self, window, name='campbase-talk-write')
         self.talk = Talk(self.worker.api)
+        self.features = set()
+        self.uid = ''
         self.messages = {}
         self.message_rows = {}
         self.after = 0
@@ -83,13 +85,25 @@ class ChatDialog(Adw.Dialog):
             if error:
                 self.set_status(error)
                 return
-            names = ', '.join(p.get('displayName') or p.get('actorId') or '' for p in result)
+            caps, profile, participants = result
+            self.features = set(caps.get('features', []))
+            self.uid = profile['uid']
+            names = ', '.join(p.get('displayName') or p.get('actorId') or '' for p in participants)
             ui.text(self.participant_label, 'text', _("Participants: {names}").format(names=names))
             ui.text(self.participant_label, 'tooltip_text', _("Participants: {names}").format(names=names))
             if self.pending:
                 self.set_status(_("No s'ha pogut confirmar l'enviament. Comprova la conversa a Talk abans de tornar-lo a enviar."))
             self.refresh()
-        self.worker.run(lambda: self.talk.participants(self.room_token), loaded)
+        def initial():
+            caps = self.talk.capabilities()
+            profile = self.window.store.get('profile', {})
+            if not profile.get('uid') or profile.get('account') != getattr(self.worker.api, 'goa_id', ''):
+                profile = self.worker.api.profile()
+                if self.worker.active():
+                    import time
+                    self.window.store.put('profile', profile | {'account': getattr(self.worker.api, 'goa_id', ''), 'checked': time.time()})
+            return caps, profile, self.talk.participants(self.room_token)
+        self.worker.run(initial, loaded)
 
     def set_status(self, text):
         ui.text(self.status, 'text', text)
@@ -139,6 +153,10 @@ class ChatDialog(Adw.Dialog):
         contents.append(label(name + ' · ' + when, 'caption', xalign=0, wrap=True))
         contents.append(label(message_text(item), xalign=0, wrap=True, selectable=True))
         row.append(contents)
+        from .chat_actions import message_actions
+        actions = message_actions(self, item)
+        if actions:
+            row.append(actions)
         return row
 
     def add_messages(self, messages, older=False):
@@ -149,13 +167,13 @@ class ChatDialog(Adw.Dialog):
         if older or not self.follow_bottom:
             self.follow_bottom = False
             self.scroll_position.prepare(self.room_token)
-        for item in sorted(messages, key=lambda m: int(m['id'])):
+        for item in sorted(messages, key=lambda m: int(m.get('id') or (m.get('parent') or {}).get('id', 0))):
             # Talk sends edits/deletions as system events carrying the updated
             # original in parent. Do not retain deleted private message text.
             if item.get('systemMessage') in {'message_deleted', 'message_edited'} and isinstance(item.get('parent'), dict):
                 item = item['parent']
             key = int(item['id'])
-            if item.get('messageType') == 'comment_deleted':
+            if item.get('deleted') or item.get('messageType') == 'comment_deleted':
                 self.messages.pop(key, None)
                 row = self.message_rows.pop(key, None)
                 if row is not None:

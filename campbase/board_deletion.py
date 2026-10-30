@@ -87,6 +87,8 @@ class BoardDeletionDialog(Adw.Dialog):
         def remove(api):
             if self.pending():
                 raise ConflictError(_("Resol els canvis pendents d'aquest tauler abans d'esborrar-lo."))
+            from .board_recovery import remember_deletion
+            remember_deletion(self.window, self.board)
             api.delete_board(self.board['id'])
             self.window.store.remove_board(self.board['id'])
         self.window.engine.run(remove, self.finished)
@@ -94,5 +96,8 @@ class BoardDeletionDialog(Adw.Dialog):
     def finished(self, _result, error):
         self.force_close()
         self.window.render()
+        if not error:
+            from .board_recovery import offer_undo
+            offer_undo(self.window, self.board)
         if error:
             message(self.window, _("No s'ha pogut esborrar el tauler"), error)

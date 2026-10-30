@@ -104,49 +104,40 @@ with tempfile.TemporaryDirectory() as d:
  assert datetime.fromisoformat(store.operations()[-1]['payload']['duedate']).astimezone().strftime('%Y-%m-%d %H:%M')=='2027-02-03 12:00'
  about=about_dialog();assert about.get_title()=='Quant al Campbase'
  about.present(w);settle()
- form=about.get_child().get_last_child().get_child().get_child()
- groups=[];links=[];icons=[];labels=[]
- def collect(widget):
-  if isinstance(widget,Adw.PreferencesGroup):groups.append(widget.get_title())
-  if isinstance(widget,Adw.ActionRow) and (widget.get_tooltip_text() or '').startswith('https://'):
-   links.append(widget.get_tooltip_text())
-  if isinstance(widget,Gtk.Image):icons.append(widget.get_icon_name())
-  if isinstance(widget,Gtk.Label):labels.append(widget.get_text())
-  child=widget.get_first_child()
-  while child:collect(child);child=child.get_next_sibling()
- collect(about.get_child())
- assert groups==['Informació','Crèdits','Reconeixements','Suport']
- assert links==['https://github.com/ceskfreixas/campbase/issues',
-                'https://ceskfreixas.cat','https://ceskfreixas.aixeta.cat/ca/subscriptions']
- assert 'emote-love-symbolic' in icons and '0.1.0' in labels
- assert 'Cesk Freixas' in labels and 'GPL-3.0-or-later' in labels
- from campbase.about import details_dialog
- details=details_dialog(about);settle()
- links.clear();collect(details)
- assert 'https://github.com/ceskfreixas/campbase' in links
- assert any('especialment dissenyada per a GNOME' in text for text in labels)
- details.force_close();settle()
- def external_rows(widget):
-  if isinstance(widget,Adw.ActionRow) and (widget.get_tooltip_text() or '').startswith('https://'):
-   yield widget
+ from campbase import VERSION,COPYRIGHT
+ assert isinstance(about,Adw.AboutDialog)
+ assert about.get_application_name()=='Campbase'
+ assert about.get_developer_name()=='Cesk Freixas'
+ assert about.get_version()==VERSION and about.get_release_notes_version()==VERSION
+ assert about.get_copyright()==COPYRIGHT and about.get_license_type()==Gtk.License.GPL_3_0
+ assert about.get_website()=='https://github.com/ceskfreixas/campbase'
+ assert about.get_issue_url()=='https://github.com/ceskfreixas/campbase/issues'
+ assert 'Nextcloud Deck' in about.get_comments() and about.get_release_notes()
+ # Native layout, with the developer between the app name and version.
+ def descendants(widget):
+  yield widget
   child=widget.get_first_child()
   while child:
-   yield from external_rows(child);child=child.get_next_sibling()
- for row in external_rows(about.get_child()):
-  assert row.get_activatable()
-  with patch('campbase.dialog_widgets.Gtk.UriLauncher.new') as launcher:
-   row.emit('activated')
-   launcher.assert_called_once_with(row.get_tooltip_text())
-   launcher.return_value.launch.assert_called_once_with(w,None,None)
- # Support destinations update even when About stays open across languages.
+   yield from descendants(child);child=child.get_next_sibling()
+ visible=[item for item in descendants(about.get_child()) if isinstance(item,Gtk.Label) and item.get_mapped()]
+ app_name=next(item for item in visible if item.get_text()=='Campbase')
+ developer=next(item for item in visible if item.get_text()=='Cesk Freixas')
+ version=next(item for item in visible if item.get_text()==VERSION)
+ bounds=[item.compute_bounds(about.get_child())[1] for item in (app_name,developer,version)]
+ assert bounds[0].origin.y < bounds[1].origin.y < bounds[2].origin.y
+ assert not any(item.get_text()==COPYRIGHT for item in visible)
+ # Sponsorship follows the selected language without launching a real browser.
  from campbase import i18n
- support=next(row for row in external_rows(about.get_child()) if 'aixeta.cat' in row.get_tooltip_text())
  for language in ('es','en','eu','gl','oc','ca'):
   i18n.change_language(language);settle()
   expected=f'https://ceskfreixas.aixeta.cat/{language}/subscriptions'
-  assert support.get_tooltip_text()==expected
-  with patch('campbase.dialog_widgets.Gtk.UriLauncher.new') as launcher:
-   support.emit('activated');launcher.assert_called_once_with(expected)
+  with patch('campbase.about.Gtk.UriLauncher.new') as launcher:
+   assert about.emit('activate-link','campbase:support')
+   launcher.assert_called_once_with(expected)
+ about.emit('activate-link','campbase:license');settle()
+ from campbase.license import LicenseDialog
+ legal=w.get_visible_dialog();assert isinstance(legal,LicenseDialog)
+ legal.force_close();settle()
  about.force_close();settle()
  # Single-line and metadata-heavy cards stay vertically balanced.
  for extra in ({},{'duedate':'2027-02-03','labels':[{'title':'Etiqueta'}],'_pending':True}):

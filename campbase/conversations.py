@@ -75,7 +75,7 @@ class ConversationsDialog(Adw.Dialog):
         self.set_status('')
         self.set_loading(True)
         def read():
-            self.talk.capabilities()
+            self.talk.capabilities(force=bool(_unused))
             return self.worker.api.check_board(self.board['id']), self.worker.api.profile(), self.talk.conversations()
         self.worker.run(read, lambda result, error: self.loaded(result, error, after_error))
 

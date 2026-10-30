@@ -88,6 +88,11 @@ class CardDialog(Adw.Dialog):
         form.append(group)
         self.sections['due'] = group
         if card and card["id"] > 0:
+            from .attachments import AttachmentsPanel
+            self.attachments = AttachmentsPanel(window, self, board['id'], stack_id, card,
+                board.get('permissions', {}).get('PERMISSION_EDIT', False))
+            self.sections['attachments'] = self.attachments
+            form.append(self.attachments)
             section = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
             section.append(label(_("Comentaris"), "heading", xalign=0))
             self.comments = CommentsPanel(window, card, inline=True, target=self.target if self.target.get('section') == 'comments' else None)

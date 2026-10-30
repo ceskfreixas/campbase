@@ -156,6 +156,7 @@ class Window(Adw.ApplicationWindow):
         header.pack_end(self.notifications_button)
         menu, work, application = Gio.Menu(), Gio.Menu(), Gio.Menu()
         ui.menu_append(work, _("Canvis pendents"), "win.pending")
+        ui.menu_append(work, _("Taulers esborrats recentment"), "win.recover-boards")
         ui.menu_append(application, _("Preferències"), "win.preferences", '<Control>comma')
         ui.menu_append(application, _("Dreceres de teclat"), "win.shortcuts", '<Control>question')
         ui.menu_append(application, _("Quant al Campbase"), "win.about")
@@ -193,10 +194,12 @@ class Window(Adw.ApplicationWindow):
         self.split.set_content(toolbar)
 
     def _actions(self):
+        from .board_recovery import BoardRecoveryDialog
         callbacks = {"sidebar": lambda: self.split.set_show_sidebar(not self.split.get_show_sidebar()),
                      "search": lambda: self.show_search(True), "sync": self.manual_sync, "new-card": self.new_card,
                      "notifications": lambda: NotificationsDialog(self).present(self),
                      "pending": lambda: PendingDialog(self).present(self),
+                     "recover-boards": lambda: BoardRecoveryDialog(self).present(self),
                      "account": lambda: AccountDialog(self).present(self),
                      "preferences": lambda: Preferences(self).present(self), "shortcuts": self.show_shortcuts, "about": self.about}
         for name, callback in callbacks.items():
@@ -529,11 +532,7 @@ class Window(Adw.ApplicationWindow):
                         if card.get('archived'):
                             self.show_archived(stack['id'], True)
                         self.render()
-                        if target.get('section') == 'attachments' and self.account:
-                            uri = f'{self.account.server}/index.php/apps/deck/board/{bid}/card/{card_id}/attachments'
-                            Gtk.UriLauncher.new(uri).launch(self, None, None)
-                        else:
-                            self.open_card(card, target=target)
+                        self.open_card(card, target=target)
                         return
         elif board_id and any(board['id'] == board_id for board in self.snapshot['boards']):
             self.board_id = board_id

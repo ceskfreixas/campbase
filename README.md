@@ -6,7 +6,7 @@ Campbase is a native kanban app for GNOME, built with GTK4 and libadwaita and
 synchronized with **Nextcloud Deck**. Organize projects with cards and columns,
 work with other people and keep the same boards available in the Android Deck app.
 
-**Current version: 0.1.0 — development preview.**
+**Current version: 0.1.2 — development preview.**
 
 [Source](https://github.com/ceskfreixas/campbase) ·
 [Issues and suggestions](https://github.com/ceskfreixas/campbase/issues) ·
@@ -82,7 +82,7 @@ not guess a column's creator from its current board owner.
 
 The inbox includes native Talk alerts and opens their conversation directly.
 Activity reads provide authorship evidence only; they do not become inbox alerts.
-Notifications follow the Deck, Talk and Activity settings enabled on the server;
+Notifications follow the Deck and Talk settings enabled on the server;
 Talk alerts reuse the existing notification feed without extra periodic requests. Optional feed failures do not discard card edits. Feeds refresh at
 most once a minute during regular synchronization, or immediately from the inbox.
 Card synchronization defaults to 45 seconds, with 30-second to 10-minute intervals
@@ -160,8 +160,14 @@ when preparing a new version.
 - Descriptions use Markdown. Underline uses `<u>`, whose appearance depends on the
   other client. Campbase renders native text and never executes HTML.
 
-General attachment administration, label renaming/deletion and a dedicated trash
-view are not yet implemented.
+Cards support file uploads and downloads through native GNOME file dialogs (up
+to 64 MiB). Uncertain uploads require review before retrying. Board labels can
+be renamed, recolored or deleted with permission and conflict checks. Recent
+board deletions can be undone while Deck retains them; recovery also restores
+local icons and colors. Own Talk messages can be edited or deleted when the
+server capabilities and time limits allow it. Conditional ETag reads use a
+bounded account-specific cache; writes invalidate it and verification reads
+always contact the server.
 
 ## License and credits
 

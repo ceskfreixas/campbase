@@ -67,8 +67,11 @@ movement, ordering, archiving and restoration; board label creation and card mem
 Markdown descriptions; embedded image uploads and offline previews; due dates;
 comments and author-only comment deletion; per-column archive visibility and
 explicit archived-card deletion; synchronized project names and local project descriptions/icons.
-General attachment management, label renaming/deletion, a dedicated
-trash view and additional languages are follow-ups.
+Version 0.1.2 adds bounded attachment uploads/downloads, board-label editing and
+removal, recovery of recently deleted owned boards, and own-message editing and
+deletion through Talk. Board recovery retains local icons and colors. Uploads
+with uncertain responses require explicit review before repeating them.
+Attachments distinguish legacy `deck_file` IDs from modern Files share IDs.
 
 Images are uploaded using multipart API v1.1 with `type=file`, an empty `data`
 field (required by some server versions), and a binary `file` field. Deterministic
@@ -128,16 +131,16 @@ recognized conservatively from Deck activity's explicit creation icon and exact
 object parameters, independent of translated wording. Missing activity is never
 replaced with a guessed creator; server ownership is labeled as ownership.
 
-The notification inbox combines Deck-only Nextcloud notifications, available
-Deck activity and unread-comment counts from the board snapshot. Optional OCS
+The notification inbox shows targeted Deck and Talk notifications. Routine
+activity, unread-comment summaries and own-action records stay out of the inbox. Optional OCS
 reads have shorter timeouts, a separate error state and a one-minute polling
 limit; they cannot clear the card outbox. A separate serialized inbox worker
 keeps refresh and deletion ordered without delaying card synchronization. Opening
 the inbox shows cached entries immediately and reuses recent feed reads; explicit
 refresh bypasses the polling limit. Missing optional services back off for an hour,
 and the profile is cached for an hour. Account switching drains old inbox work
-before replacing account-bound state. Opening a notification dismisses only that Deck notification;
-activity read marks are local. Links navigate to cached boards/cards where
+before replacing account-bound state. Opening a notification dismisses only that
+specific server notification. Links navigate to cached boards/cards where
 possible and external fallback links are restricted to the account origin.
 
 Notification navigation uses object IDs, rich parameters and Deck deep links,
@@ -300,3 +303,26 @@ controlled by the Nextcloud provider.
 
 The support link resolves the current UI language at activation time, including
 when the About dialog remains open during a language change.
+
+## Conditional reads and confirmed writes (0.1.2)
+
+Deck workspace reads use a per-client ETag cache bounded to 64 entries and
+16 MiB. Cached JSON is copied before the snapshot merger can mutate it. Every
+Deck write invalidates the cache before being sent, including writes whose
+responses are lost. A cache generation prevents an older in-flight read from
+repopulating invalidated entries. Verification GETs do not use conditional
+headers. Talk read markers and notification dismissals do not invalidate Deck
+responses. Service failures are never cached as successful workspace data.
+
+Label management checks permissions and stale title/color values, verifies the
+server response and updates existing cached card labels in one transaction.
+Pending board writes must be resolved before label administration. Talk edit
+and deletion controls require native capabilities, current user identity and
+server time limits; context is read immediately before the write. Failed edits
+retain their text and successful repeated edits reconcile without another PUT.
+
+The notification inbox contains native Deck and Talk alerts that need attention.
+Routine board activity, local own-action records and unread-comment summaries
+are excluded, including previously cached records. Activity reads remain only
+as authorship evidence. Suppressing an entry never deletes unrelated server
+notifications.

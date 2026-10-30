@@ -6,7 +6,7 @@ El Campbase és una app kanban nativa de GNOME, feta amb GTK4 i libadwaita i
 sincronitzada amb **Nextcloud Deck**. Organitza projectes amb targetes i columnes,
 treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 
-**Versió actual: 0.1.0 — primera versió de desenvolupament.**
+**Versió actual: 0.1.2 — versió de desenvolupament.**
 
 [Codi font](https://github.com/ceskfreixas/campbase) ·
 [Errors i suggeriments](https://github.com/ceskfreixas/campbase/issues) ·
@@ -85,7 +85,7 @@ L'activitat de Deck només es consulta com a evidència d'autoria; no es mostra
 com a notificacions. Les accions pròpies tampoc no generen avisos locals.
 
 Notificacions també inclou els avisos natius de Talk i obre la conversa corresponent.
-Els avisos segueixen les preferències de Deck, Talk i Activitat del servidor;
+Els avisos segueixen les preferències de Deck i Talk del servidor;
 Talk aprofita la consulta existent, sense afegir peticions periòdiques.
 Es consulten com a màxim un cop per minut durant la sincronització habitual;
 des de la secció de notificacions pots actualitzar-les immediatament. L'app no
@@ -164,3 +164,12 @@ A «Quant al Campbase» trobaràs les novetats de la versió, els crèdits, la w
 Cesk Freixas i un enllaç per donar suport al projecte. Les novetats es mantenen a
 `campbase/releases.py` i s'exporten amb `scripts/release_notes.py`. El procés de
 cada versió està recollit a [AGENTS.md](AGENTS.md).
+
+Els adjunts es poden afegir i desar des de les targetes amb els selectors de
+fitxers de GNOME (fins a 64 MiB). Els enviaments sense confirmar es revisen
+abans de repetir-los. El gestor d'etiquetes permet canviar-ne el nom i el color
+o esborrar-les amb confirmació. Els taulers esborrats recentment es poden
+recuperar mentre Deck els conservi, també amb la icona i els colors locals.
+A Talk es poden editar i esborrar missatges propis segons les capacitats i els
+terminis del servidor. La memòria cau amb ETag és limitada i independent per
+compte; s'invalida en escriure i no substitueix les comprovacions dels canvis.

@@ -9,7 +9,7 @@ import unittest
 import xml.etree.ElementTree as ET
 
 from campbase import VERSION
-from campbase.releases import RELEASE_VERSION
+from campbase.releases import RELEASE_VERSION, sections
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,5 +28,5 @@ class ReleaseTests(unittest.TestCase):
                 result = subprocess.run([sys.executable, str(ROOT / 'scripts/release_notes.py'),
                                          '--language', language], check=True, capture_output=True, text=True)
                 self.assertIn('Campbase', result.stdout)
-                self.assertEqual(result.stdout.count('\n- **'), 12)
-                self.assertIn('Nextcloud Deck', result.stdout)
+                self.assertEqual(result.stdout.count('\n- **'), len(sections()))
+                self.assertIn(VERSION, result.stdout)

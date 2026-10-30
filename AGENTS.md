@@ -2,7 +2,11 @@
 
 Keep the app, documentation and release metadata under the Campbase name.
 Preserve the original yellow square and tent icon unless a new design is approved.
-The current version remains 0.1.0 during the initial development review.
+Starting with the next application update after 0.1.0, increment the patch
+version for every application update: 0.1.1, 0.1.2, and so on. This replaces
+the earlier instruction to keep the initial review at 0.1.0. Do not change
+the minor or major version unless explicitly requested. Give each published
+version its own tag and release; do not move an existing published tag.
 
 ## Every new version
 

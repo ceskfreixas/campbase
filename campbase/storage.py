@@ -141,6 +141,39 @@ class Store:
                 snapshot['boards'] = [board if item['id'] == board['id'] else item for item in snapshot['boards']]
                 self._put(db, 'snapshot', snapshot)
 
+    def deleted_boards(self, server, username):
+        prefix = 'deleted_board:' + server + '|' + username + ':'
+        with self.connect() as db:
+            rows = db.execute("SELECT key,value FROM state WHERE substr(key,1,?)=?", (len(prefix), prefix)).fetchall()
+        return [(row['key'], json.loads(row['value'])) for row in rows if json.loads(row['value'])]
+
+    def restore_board_presentation(self, record):
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute("SELECT value FROM state WHERE key='board_metadata'").fetchone()
+            metadata = json.loads(row[0]) if row else {}
+            if record.get('metadata') is not None:
+                metadata[str(record['id'])] = record['metadata']
+                self._put(db, 'board_metadata', metadata)
+            row = db.execute("SELECT value FROM state WHERE key='settings'").fetchone()
+            settings = json.loads(row[0]) if row else {}
+            settings.setdefault('colors', {}).update(record.get('colors', {}))
+            self._put(db, 'settings', settings)
+
+    def replace_board_labels(self, board):
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()
+            if not row:
+                return
+            snapshot = json.loads(row[0])
+            labels = {item['id']: item for item in board.get('labels') or []}
+            snapshot['boards'] = [board if item['id'] == board['id'] else item for item in snapshot['boards']]
+            for stack in snapshot.get('stacks', {}).get(str(board['id']), []):
+                for card in stack.get('cards') or []:
+                    card['labels'] = [labels[item['id']] for item in card.get('labels') or [] if item['id'] in labels]
+            self._put(db, 'snapshot', snapshot)
+
     def cache_label(self, board_id, label):
         with self.connect() as db:
             row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()

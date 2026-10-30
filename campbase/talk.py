@@ -2,6 +2,8 @@
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 """Native Talk conversations. A board link never grants conversation access."""
 import re
+import time
+import copy
 from urllib.parse import urlencode
 from .collaboration import members, person
 from .deck import DeckError
@@ -35,11 +37,15 @@ class Talk:
     def __init__(self, api):
         self.api = api
 
-    def capabilities(self):
+    def capabilities(self, force=False):
+        cached = getattr(self.api, '_talk_capabilities', None)
+        if not force and isinstance(cached, tuple) and time.monotonic()-cached[0] < 900:
+            return copy.deepcopy(cached[1])
         caps = self.api.request('GET', '/capabilities?format=json', service='cloud')
         result = caps.get('capabilities', {}).get('spreed', {})
         if 'conversation-v4' not in result.get('features', []):
             raise DeckError(_("Aquest servidor no té Nextcloud Talk habilitat."))
+        self.api._talk_capabilities = (time.monotonic(), copy.deepcopy(result))
         return result
 
     def conversations(self):
@@ -108,3 +114,37 @@ class Talk:
     def mark_read(self, room, message_id):
         return self.api.request('POST', '/chat/' + token(room) + '/read',
                                 {'lastReadMessage': int(message_id)}, service='chat')
+
+    def change_message(self, room, original, uid, features, *, text=None, delete=False):
+        from .deck import ConflictError
+        required = 'delete-messages' if delete else 'edit-messages'
+        if required not in features or 'chat-get-context' not in features:
+            raise DeckError(_("Aquest servidor no permet modificar aquest missatge."))
+        path = '/chat/' + token(room) + '/' + str(int(original['id']))
+        context = self.api.request('GET', path+'/context?limit=1', service='chat')
+        current = next((m for m in context if str(m.get('id')) == str(original['id'])), None) if isinstance(context, list) else None
+        if not current:
+            raise ConflictError(_("El missatge ja no és a la conversa. Actualitza-la."))
+        if current.get('deleted') or current.get('messageType') == 'comment_deleted':
+            if delete:
+                return {'systemMessage': 'message_deleted', 'parent': {'id': original['id'], 'deleted': True}}
+            raise ConflictError(_("El missatge ja no és a la conversa. Actualitza-la."))
+        if not uid or current.get('actorType') != 'users' or current.get('actorId') != uid or current.get('systemMessage'):
+            raise DeckError(_("Només pots modificar els teus missatges."))
+        if current.get('messageType', 'comment') != 'comment' or time.time()-current.get('timestamp', 0) > (6 if delete else 24)*3600:
+            raise DeckError(_("Ha passat el termini per modificar aquest missatge."))
+        if not delete and (not isinstance(text, str) or not text.strip() or len(text) > 32000):
+            raise DeckError(_("Revisa el text del missatge."))
+        if not delete and current.get('message') == text:
+            return current
+        if current.get('message') != original.get('message') or current.get('lastEditTimestamp') != original.get('lastEditTimestamp'):
+            raise ConflictError(_("El missatge ha canviat a Talk. El teu text es conserva; revisa'l abans de desar."))
+        result = self.api.request('DELETE' if delete else 'PUT', path, None if delete else {'message': text}, service='chat')
+        parent = result.get('parent') if isinstance(result, dict) else None
+        if not isinstance(parent, dict) or str(parent.get('id')) != str(original['id']):
+            raise DeckError(_("Talk no ha confirmat el canvi. Actualitza la conversa abans de repetir-lo."))
+        if delete and not (parent.get('deleted') or parent.get('messageType') == 'comment_deleted'):
+            raise DeckError(_("Talk no ha confirmat el canvi. Actualitza la conversa abans de repetir-lo."))
+        if not delete and (parent.get('message') != text or parent.get('deleted')):
+            raise DeckError(_("Talk no ha confirmat el canvi. Actualitza la conversa abans de repetir-lo."))
+        return result

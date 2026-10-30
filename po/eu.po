@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.0\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.2\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Gorde"
@@ -1806,3 +1806,174 @@ msgstr "Elkarrizketak atalak karga-adierazlea erakusten du erantzunaren zain dag
 
 msgid "Rep mencions, reaccions als teus comentaris, assignacions, venciments, taulers compartits amb tu i missatges de Talk. Obre directament el lloc relacionat amb cada avís. Les accions pròpies i els canvis rutinaris del tauler no omplen la bústia."
 msgstr "Jaso aipamenak, zure iruzkinen erreakzioak, esleipenak, epemugak, zurekin partekatutako taulak eta Talk mezuak. Ireki zuzenean abisu bakoitzari dagokion tokia. Zure ekintzek eta taularen ohiko aldaketek ez dute sarrera-ontzia betetzen."
+
+msgid "Novetats del Campbase {version}."
+msgstr "Campbase {version} bertsioaren berrikuntzak."
+
+msgid "Quant a, coherent amb GNOME"
+msgstr "GNOMErekin bat datorren Honi buruz atala"
+
+msgid "El diàleg Quant a utilitza el component estàndard d'Adwaita: icona, nom del Campbase, desenvolupador i versió, amb les mides i els marges de GNOME. Els crèdits, el copyright i la llicència ocupen els seus apartats. Es conserven les novetats, el codi font, els enllaços de suport i la informació de Nextcloud Deck."
+msgstr "Honi buruz elkarrizketa-koadroak Adwaitaren osagai estandarra erabiltzen du: ikonoa, Campbase izena, garatzailea eta bertsioa, GNOMEren neurriekin eta marjinekin. Kredituek, copyrightak eta lizentziak beren atalak dituzte. Berrikuntzek, iturburu-kodeak, laguntza-estekek eta Nextcloud Deck informazioak eskuragarri jarraitzen dute."
+
+msgid "Actualitza els adjunts"
+msgstr "Eguneratu eranskinak"
+
+msgid "Adjunts"
+msgstr "Eranskinak"
+
+msgid "Afegeix un fitxer"
+msgstr "Gehitu fitxategi bat"
+
+msgid "Aquest servidor no permet modificar aquest missatge."
+msgstr "Zerbitzari honek ez du mezu hau aldatzen uzten."
+
+msgid "Comprova els adjunts abans de repetir l'enviament per evitar duplicats."
+msgstr "Egiaztatu eranskinak berriz bidali aurretik, bikoizketak saihesteko."
+
+msgid "Deck no ha confirmat el canvi d'etiqueta. Torna a carregar-les."
+msgstr "Deck-ek ez du etiketaren aldaketa berretsi. Kargatu berriz etiketak."
+
+msgid "Deck no ha confirmat la restauració del tauler."
+msgstr "Deck-ek ez du taularen berreskuratzea berretsi."
+
+msgid "Desa l'adjunt"
+msgstr "Gorde eranskina"
+
+msgid "Edita el missatge"
+msgstr "Editatu mezua"
+
+msgid "Edita l'etiqueta"
+msgstr "Editatu etiketa"
+
+msgid "El fitxer supera el límit de 64 MiB."
+msgstr "Fitxategiak 64 MiB-ko muga gainditzen du."
+
+msgid "El missatge ha canviat a Talk. El teu text es conserva; revisa'l abans de desar."
+msgstr "Mezua aldatu egin da Talk-en. Zure testua gordeta dago; berrikusi gorde aurretik."
+
+msgid "El missatge ja no és a la conversa. Actualitza-la."
+msgstr "Mezua jada ez dago elkarrizketan. Eguneratu elkarrizketa."
+
+msgid "El missatge s'esborrarà de la conversa per a tots els participants."
+msgstr "Mezua elkarrizketatik ezabatuko da parte-hartzaile guztientzat."
+
+msgid "Encara no hi ha adjunts."
+msgstr "Oraindik ez dago eranskinik."
+
+msgid "Esborra el missatge"
+msgstr "Ezabatu mezua"
+
+msgid "Esborra l'etiqueta"
+msgstr "Ezabatu etiketa"
+
+msgid "Gestiona les etiquetes"
+msgstr "Kudeatu etiketak"
+
+msgid "Ha passat el termini per modificar aquest missatge."
+msgstr "Mezu hau aldatzeko epea amaitu da."
+
+msgid "Ja ho he comprovat"
+msgstr "Egiaztatu dut"
+
+msgid "L'etiqueta ha canviat a Deck. Revisa-la abans de desar."
+msgstr "Etiketa aldatu egin da Deck-en. Berrikusi gorde aurretik."
+
+msgid "L'etiqueta ja no és al tauler. Torna a carregar-les."
+msgstr "Etiketa jada ez dago taulan. Kargatu berriz etiketak."
+
+msgid "L'etiqueta «{title}» es retirarà de totes les targetes del tauler."
+msgstr "«{title}» etiketa taulako txartel guztietatik kenduko da."
+
+msgid "La resposta de Nextcloud és massa gran."
+msgstr "Nextcloud-en erantzuna handiegia da."
+
+msgid "No hi ha taulers per recuperar."
+msgstr "Ez dago berreskuratzeko taularik."
+
+msgid "No s'ha pogut confirmar l'adjunt. Revisa'l abans de repetir l'enviament."
+msgstr "Ezin izan da eranskina berretsi. Egiaztatu berriz bidali aurretik."
+
+msgid "No s'ha pogut descarregar l'adjunt."
+msgstr "Ezin izan da eranskina deskargatu."
+
+msgid "No s'ha pogut restaurar el tauler"
+msgstr "Ezin izan da taula berreskuratu"
+
+msgid "No s'han pogut llegir els adjunts."
+msgstr "Ezin izan dira eranskinak irakurri."
+
+msgid "No tens permís per gestionar les etiquetes del tauler."
+msgstr "Ez duzu taularen etiketak kudeatzeko baimenik."
+
+msgid "No tens permís per modificar aquesta targeta."
+msgstr "Ez duzu txartel hau aldatzeko baimenik."
+
+msgid "Només pots modificar els teus missatges."
+msgstr "Zure mezuak soilik alda ditzakezu."
+
+msgid "Pots recuperar els taulers mentre Nextcloud encara els conservi."
+msgstr "Taulak berreskura ditzakezu Nextcloud-ek gordetzen dituen bitartean."
+
+msgid "Restaura el tauler"
+msgstr "Berreskuratu taula"
+
+msgid "Revisa el text del missatge."
+msgstr "Berrikusi mezuaren testua."
+
+msgid "Revisa l'adjunt pendent"
+msgstr "Berrikusi zain dagoen eranskina"
+
+msgid "S'estan carregant els adjunts…"
+msgstr "Eranskinak kargatzen…"
+
+msgid "S'estan carregant les etiquetes…"
+msgstr "Etiketak kargatzen…"
+
+msgid "S'està descarregant l'adjunt…"
+msgstr "Eranskina deskargatzen…"
+
+msgid "S'està enviant l'adjunt…"
+msgstr "Eranskina bidaltzen…"
+
+msgid "Sincronitza els canvis pendents del tauler abans de gestionar les etiquetes."
+msgstr "Sinkronizatu taulan zain dauden aldaketak etiketak kudeatu aurretik."
+
+msgid "Talk no ha confirmat el canvi. Actualitza la conversa abans de repetir-lo."
+msgstr "Talk-ek ez du aldaketa berretsi. Eguneratu elkarrizketa berriz saiatu aurretik."
+
+msgid "Tauler esborrat"
+msgstr "Taula ezabatuta"
+
+msgid "Taulers esborrats recentment"
+msgstr "Duela gutxi ezabatutako taulak"
+
+msgid "Adjunts a les targetes"
+msgstr "Txartelen eranskinak"
+
+msgid "Recuperació de taulers"
+msgstr "Taulen berreskuratzea"
+
+msgid "Gestió d'etiquetes"
+msgstr "Etiketen kudeaketa"
+
+msgid "Missatges de Talk"
+msgstr "Talk mezuak"
+
+msgid "Sincronització més lleugera"
+msgstr "Sinkronizazio arinagoa"
+
+msgid "Afegeix i desa documents des de la targeta amb els selectors natius de GNOME. Els enviaments sense confirmar es revisen abans de repetir-los."
+msgstr "Gehitu eta gorde dokumentuak txarteletik GNOMEren fitxategi-hautatzaileekin. Berretsi gabeko bidalketak berrikusten dira berriz saiatu aurretik."
+
+msgid "Desfés l'esborrament d'un tauler o recupera'l des del menú de taulers esborrats recentment, mentre Nextcloud el conservi. També es recuperen la icona i els colors locals."
+msgstr "Desegin taula baten ezabatzea edo berreskuratu duela gutxi ezabatutako taulen menutik, Nextcloud-ek gordetzen duen bitartean. Tokiko ikonoa eta koloreak ere berreskuratzen dira."
+
+msgid "Canvia el nom i el color de les etiquetes, o esborra-les amb confirmació. Els canvis s'apliquen a les targetes del tauler i respecten els permisos i els canvis pendents."
+msgstr "Aldatu etiketen izena eta kolorea, edo ezabatu berrespenarekin. Aldaketak taulako txarteletan aplikatzen dira, baimenak eta zain dauden aldaketak errespetatuz."
+
+msgid "Edita i esborra els teus missatges quan el servidor ho permet, amb comprovació dels canvis recents i confirmació abans d'esborrar. Els esborranys d'edició es mantenen si hi ha un error."
+msgstr "Editatu eta ezabatu zure mezuak zerbitzariak uzten duenean, azken aldaketak egiaztatuz eta ezabatu aurretik berretsiz. Edizio-zirriborroak gordetzen dira erroreren bat badago."
+
+msgid "Es reutilitzen les dades quan Nextcloud confirma que no han canviat. La memòria cau és limitada, es renova després d'escriure i no substitueix les comprovacions dels canvis al servidor."
+msgstr "Datuak berrerabiltzen dira Nextcloud-ek aldatu ez direla berresten duenean. Cachea mugatua da, idatzi ondoren berritzen da eta ez ditu zerbitzariko aldaketen egiaztapenak ordezten."

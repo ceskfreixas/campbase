@@ -5,7 +5,7 @@ from . import localization as ui
 from gi.repository import Adw, GObject, Gtk, Pango
 from .i18n import _
 from .choosers import ColorChooser
-from .widgets import label, text_icon_button, clear, color_dot
+from .widgets import label, clear, color_dot, icon_button
 from .dialog_widgets import dialog_form
 
 
@@ -22,10 +22,15 @@ class LabelSelector(Gtk.Box):
         self.selected = {item["id"] for item in original if item.get("id")}
         header = Gtk.Box(spacing=12)
         header.append(label(_("Etiquetes"), "heading", xalign=0, hexpand=True))
-        create = text_icon_button("list-add-symbolic", _("Etiqueta nova"))
+        create = icon_button("list-add-symbolic", _("Etiqueta nova"),
+            lambda *_unused: NewLabelDialog(self).present(self.get_root()))
         create.add_css_class("flat")
-        create.connect("clicked", lambda *_unused: NewLabelDialog(self).present(self.get_root()))
         header.append(create)
+        from .label_management import LabelManagerDialog
+        manage = icon_button('emblem-system-symbolic', _("Gestiona les etiquetes"),
+            lambda *_: LabelManagerDialog(self).present(self.get_root()))
+        manage.set_sensitive(not window.demo and board.get('permissions', {}).get('PERMISSION_MANAGE', False))
+        header.append(manage)
         self.append(header)
         self.choices = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, homogeneous=True,
                                    column_spacing=6, row_spacing=6, min_children_per_line=1,

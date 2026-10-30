@@ -53,6 +53,14 @@ class TalkTests(unittest.TestCase):
         self.api = Mock(server='https://cloud.example')
         self.talk = Talk(self.api)
 
+    def test_capabilities_are_reused_between_dialogs_and_refresh_can_bypass_cache(self):
+        self.api.request.return_value={'capabilities':{'spreed':{'features':['conversation-v4']}}}
+        self.talk.capabilities()
+        Talk(self.api).capabilities()
+        self.api.request.assert_called_once()
+        self.talk.capabilities(force=True)
+        self.assertEqual(self.api.request.call_count,2)
+
     def test_missing_talk_is_optional(self):
         self.api.request.return_value = {'capabilities': {}}
         with self.assertRaises(DeckError):
