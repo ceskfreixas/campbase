@@ -8,6 +8,7 @@ treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 
 **Versió actual: 0.1.3 — versió de desenvolupament.**
 
+[Descarrega la darrera versió](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Codi font](https://github.com/ceskfreixas/campbase) ·
 [Errors i suggeriments](https://github.com/ceskfreixas/campbase/issues) ·
 [Dona suport al projecte](https://ceskfreixas.aixeta.cat/ca/subscriptions)

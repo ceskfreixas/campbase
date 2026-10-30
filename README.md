@@ -8,6 +8,7 @@ work with other people and keep the same boards available in the Android Deck ap
 
 **Current version: 0.1.3 — development preview.**
 
+[Download the latest release](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Source](https://github.com/ceskfreixas/campbase) ·
 [Issues and suggestions](https://github.com/ceskfreixas/campbase/issues) ·
 [Support the project](https://ceskfreixas.aixeta.cat/en/subscriptions)

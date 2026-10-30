@@ -20,6 +20,13 @@ version its own tag and release; do not move an existing published tag.
 - Use `scripts/release_notes.py --language en` to export the same notes for
   GitHub. Update the GitHub release as part of publishing the requested new
   version; its tag, title and application version must agree.
+- Publish normal numbered releases as GitHub's `Latest` using `--latest` and
+  `--prerelease=false`, including while the app is a development preview. Keep
+  that development status explicit in the release text and README. Only use
+  GitHub's prerelease flag when the user explicitly requests a separate
+  experimental release. Do not promote an older historical version over a
+  newer numbered release. Use `/releases/latest` for prominent links to the
+  current release; keep version-specific archive and asset links pinned.
 - Run the release metadata checks and appropriate application tests. A local
   UI tweak does not by itself require a new version, Git commit or publication.
 
