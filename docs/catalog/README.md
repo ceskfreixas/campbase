@@ -31,9 +31,9 @@ real accounts. Their captions and interface language must stay matched.
 ## Remaining publication work
 
 - Human review of the copy, especially the Basque and Aranese translations.
-- Publish the screenshots in a source commit. Only then add immutable, direct
-  image URLs pinned to that commit to the MetaInfo `screenshots` section.
-  No remote image URLs are invented in this local draft.
+- Screenshot assets are committed and the MetaInfo now links all 18 images and
+  their translated captions to immutable source commit `c6010713791baf67de977dcf39bcfab0f51872c7`.
+  Repeat exported-repository lint after publication and before submission.
 - Establish a visible relationship between the domain and Campbase; domain
   verification uses a token supplied by Flathub later. Preserve existing
   website redirects and mail services.

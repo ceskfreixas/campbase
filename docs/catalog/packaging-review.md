@@ -80,9 +80,10 @@ The clean single-application exported repository reports:
 - `appstream-screenshots-not-mirrored-in-ostree`
 - Warning: `runtime-update-available-to-org.gnome.Platform-51`
 
-The 18 local screenshots already exist. Publish them in a source commit, add
-immutable direct image URLs with the matching language and captions to MetaInfo,
-then rebuild and repeat repository lint. Do not invent URLs for a future commit.
+The 18 screenshots are now committed at `c6010713791baf67de977dcf39bcfab0f51872c7`.
+MetaInfo links the corresponding immutable image URLs and localized captions.
+The two screenshot errors above describe the pre-publication audit build;
+rebuild and repeat repository lint before a Flathub submission.
 
 The older shared local repository also contains the retired application ID and a
 build with AppStream composition disabled. Its errors are not evidence about the

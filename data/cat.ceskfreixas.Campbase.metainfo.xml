@@ -74,6 +74,50 @@
   <summary xml:lang="gl">Organiza projetos com Nextcloud Deck</summary>
   <summary xml:lang="eu">Antolatu proiektuak Nextcloud Deck-ekin</summary>
   <summary xml:lang="oc">Organiza projèctes damb Nextcloud Deck</summary>
+  <screenshots>
+    <screenshot type="default">
+      <image type="source" width="1000" height="700">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/en-board-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="ca">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/ca-board-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="es">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/es-board-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="gl">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/gl-board-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="eu">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/eu-board-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="oc">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/oc-board-light.png</image>
+      <caption>Plan work with cards and columns</caption>
+      <caption xml:lang="ca">Planifica la feina amb targetes i columnes</caption>
+      <caption xml:lang="es">Planifica el trabajo con tarjetas y columnas</caption>
+      <caption xml:lang="gl">Planifica o trabalho com cartões e colunas</caption>
+      <caption xml:lang="eu">Antolatu lana txartel eta zutabeekin</caption>
+      <caption xml:lang="oc">Planifica eth trabalh damb tarjes e colomnes</caption>
+    </screenshot>
+    <screenshot>
+      <image type="source" width="1000" height="700">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/en-card-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="ca">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/ca-card-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="es">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/es-card-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="gl">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/gl-card-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="eu">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/eu-card-light.png</image>
+      <image type="source" width="1000" height="700" xml:lang="oc">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/oc-card-light.png</image>
+      <caption>Write card descriptions and organize their details</caption>
+      <caption xml:lang="ca">Escriu descripcions i organitza els detalls de les targetes</caption>
+      <caption xml:lang="es">Escribe descripciones y organiza los detalles de las tarjetas</caption>
+      <caption xml:lang="gl">Escreve descrições e organiza os detalhes dos cartões</caption>
+      <caption xml:lang="eu">Idatzi deskribapenak eta antolatu txartelen xehetasunak</caption>
+      <caption xml:lang="oc">Escriu descripcions e organiza es detalhs des tarjes</caption>
+    </screenshot>
+    <screenshot>
+      <image type="source" width="1000" height="700">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/en-board-dark.png</image>
+      <image type="source" width="1000" height="700" xml:lang="ca">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/ca-board-dark.png</image>
+      <image type="source" width="1000" height="700" xml:lang="es">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/es-board-dark.png</image>
+      <image type="source" width="1000" height="700" xml:lang="gl">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/gl-board-dark.png</image>
+      <image type="source" width="1000" height="700" xml:lang="eu">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/eu-board-dark.png</image>
+      <image type="source" width="1000" height="700" xml:lang="oc">https://raw.githubusercontent.com/ceskfreixas/campbase/c6010713791baf67de977dcf39bcfab0f51872c7/docs/catalog/screenshots/oc-board-dark.png</image>
+      <caption>Keep an overview of the board in dark mode</caption>
+      <caption xml:lang="ca">Mantén una visió general del tauler en mode fosc</caption>
+      <caption xml:lang="es">Mantén una visión general del tablero en modo oscuro</caption>
+      <caption xml:lang="gl">Mantém uma visão geral do quadro em modo escuro</caption>
+      <caption xml:lang="eu">Ikusi taularen ikuspegi orokorra modu ilunean</caption>
+      <caption xml:lang="oc">Mantengues ua vista generau deth taulèr en mòde escur</caption>
+    </screenshot>
+  </screenshots>
   <languages>
     <lang percentage="100">en</lang>
     <lang percentage="100">ca</lang>
