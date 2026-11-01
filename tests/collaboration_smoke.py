@@ -86,7 +86,13 @@ try:
         assert left.origin.y+left.size.height <= right.origin.y
     prefs=Preferences(window);prefs.present(window);settle()
     rows=[w for w in descendants(prefs) if isinstance(w,Adw.ActionRow)]
-    assert any(r.get_title()=='Alícia' and r.get_subtitle()=="Nom d'usuari: alice" for r in rows)
+    assert any(r.get_title()=='Alícia' and r.get_subtitle()=='alice@example.invalid' and not r.get_use_markup() for r in rows)
+    profile=store.get('profile')
+    for replacement,expected in (({'email':''},'alice'), ({'account':'another'},'login@example.invalid')):
+        store.put('profile',profile|replacement)
+        fallback=prefs.account_group()
+        assert any(isinstance(r,Adw.ActionRow) and r.get_subtitle()=="Nom d'usuari: "+expected for r in descendants(fallback))
+    store.put('profile',profile)
     assert any(isinstance(w,Adw.Avatar) for w in descendants(prefs))
     prefs.force_close();settle()
     assert 'Alícia' in author_text(window,'board',server.board)

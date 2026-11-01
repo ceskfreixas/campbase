@@ -100,7 +100,9 @@ def activity_creators(store, activities):
 class CollaborationAPI:
     def profile(self):
         result = self.request('GET', '/user?format=json', service='cloud')
-        return person({'uid': result['id'], 'displayname': result.get('displayname') or result.get('display-name')})
+        user = person({'uid': result['id'], 'displayname': result.get('displayname') or result.get('display-name')})
+        email = result.get('email')
+        return user | {'email': email.strip() if isinstance(email, str) else ''}
 
     def search_users(self, query):
         params = urlencode({'search': query.strip(), 'itemType': '0', 'shareType': '0', 'lookup': 'false', 'perPage': 30, 'format': 'json'})

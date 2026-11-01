@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
-"""Shared spacing for custom dialog forms and native external-link rows."""
+"""Shared spacing and compact layouts for native dialogs."""
 from gi.repository import Adw, GLib, Gtk
 from . import localization as ui
 
@@ -46,3 +46,12 @@ def fit_dialog_contents(dialog):
             dialog.set_content_height(-1)
         return GLib.SOURCE_REMOVE
     dialog._fit_contents_idle = GLib.idle_add(resize)
+
+
+class ResourcePanelLayout(Gtk.BoxLayout):
+    def do_measure(self, widget, orientation, for_size):
+        minimum, natural, minimum_baseline, natural_baseline = Gtk.BoxLayout.do_measure(
+            self, widget, orientation, for_size)
+        if orientation == Gtk.Orientation.HORIZONTAL:
+            natural = minimum
+        return minimum, natural, minimum_baseline, natural_baseline

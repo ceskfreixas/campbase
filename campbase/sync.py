@@ -10,6 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from .deck import Deck, DeckError, OfflineError, ConflictError
 from .assets import Assets
+from .detail_reads import DetailCache
 
 
 class SyncEngine:
@@ -17,6 +18,8 @@ class SyncEngine:
         self.store = store
         self.api = Deck(account) if account else None
         self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="campbase-sync")
+        self.read_executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="campbase-details")
+        self.detail_cache = DetailCache()
         self.updates_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="campbase-updates")
         self.account_changing = False
         self.dispatch = dispatch or (lambda fn, *args: fn(*args))
@@ -130,6 +133,8 @@ class SyncEngine:
         self.closed = True
         self.executor.shutdown(wait=False, cancel_futures=True)
         self.updates_executor.shutdown(wait=False, cancel_futures=True)
+        self.read_executor.shutdown(wait=False, cancel_futures=True)
+        self.detail_cache.items.clear()
 
     def refresh_updates(self, done=None, *, force=False):
         """Serialize inbox refresh/deletion separately from Deck card writes."""
@@ -200,6 +205,20 @@ class SyncEngine:
             except Exception:
                 self.dispatch(done, _("No s'ha pogut desfer l'acció. Els canvis es conserven."))
         return self.executor.submit(task)
+
+    def run_read(self, action, done, *, current=lambda: True):
+        if self.closed or self.account_changing:
+            return None
+        api = self.api
+        def valid():
+            return not self.closed and not self.account_changing and api is self.api and current()
+        def read(current_api):
+            if valid():
+                return action(current_api)
+        def deliver(result, error):
+            if valid():
+                done(result, error)
+        return self._run(self.read_executor, read, deliver)
 
     def run(self, action, done):
         """Read details or perform a user-requested board operation on the same worker."""

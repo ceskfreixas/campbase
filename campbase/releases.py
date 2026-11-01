@@ -3,7 +3,7 @@
 """Current release notes shared by the application and release exporter."""
 from .i18n import _
 
-RELEASE_VERSION = '0.1.7'
+RELEASE_VERSION = '0.1.8'
 
 
 def introduction():
@@ -12,9 +12,10 @@ def introduction():
 
 def sections():
     return [
-        (_("Nova icona"), _("Estrenem una tenda groga com a icona del Campbase, amb una versió simbòlica per a GNOME.")),
-        (_("Indicadors de les targetes"), _("Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter.")),
-        (_("Paperera del tauler"), _("Recupera targetes i columnes des dels elements esborrats de cada tauler.")),
-        (_("Arxivament en bloc"), _("Arxiva totes les targetes d'una columna des del seu menú, amb confirmació i sincronització conjunta.")),
-        (_("Interfície més compacta"), _("Unifiquem el marge interior de les targetes i escurcem les etiquetes dels menús.")),
+        (_("Dependències de targetes"), _("Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti.")),
+        (_("Llistes de tasques"), _("Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés.")),
+        (_("Càrrega dels detalls"), _("Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen.")),
+        (_("Barra d'edició ordenada"), _("Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors.")),
+        (_("Navegació i compte"), _("En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte.")),
+        (_("Suport al projecte"), _("El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta.")),
     ]

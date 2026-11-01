@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: ca\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: ca\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Desa"
@@ -2129,3 +2129,96 @@ msgstr "Indicadors de les targetes"
 
 msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
 msgstr "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
+
+msgid "Marca o desmarca la tasca"
+msgstr "Marca o desmarca la tasca"
+
+msgid "Aquest servidor encara no admet les dependències de targetes."
+msgstr "Aquest servidor encara no admet les dependències de targetes."
+
+msgid "No s'han pogut llegir les dependències."
+msgstr "No s'han pogut llegir les dependències."
+
+msgid "Tria una altra targeta per a la dependència."
+msgstr "Tria una altra targeta per a la dependència."
+
+msgid "No es poden modificar les dependències d'aquesta targeta."
+msgstr "No es poden modificar les dependències d'aquesta targeta."
+
+msgid "La targeta dependent ja no està disponible."
+msgstr "La targeta dependent ja no està disponible."
+
+msgid "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+msgstr "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+
+msgid "Afegeix una dependència"
+msgstr "Afegeix una dependència"
+
+msgid "Actualitza les dependències"
+msgstr "Actualitza les dependències"
+
+msgid "S'estan carregant les dependències…"
+msgstr "S'estan carregant les dependències…"
+
+msgid "S'està desant la dependència…"
+msgstr "S'està desant la dependència…"
+
+msgid "Targetes dependents"
+msgstr "Targetes dependents"
+
+msgid "Encara no hi ha dependències."
+msgstr "Encara no hi ha dependències."
+
+msgid "Obre la targeta"
+msgstr "Obre la targeta"
+
+msgid "Treu la dependència"
+msgstr "Treu la dependència"
+
+msgid "Cerca una targeta…"
+msgstr "Cerca una targeta…"
+
+msgid "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+msgstr "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+
+msgid "No s'ha trobat cap targeta."
+msgstr "No s'ha trobat cap targeta."
+
+msgid "Dependències de targetes"
+msgstr "Dependències de targetes"
+
+msgid "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+msgstr "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+
+msgid "Llistes de tasques"
+msgstr "Llistes de tasques"
+
+msgid "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+msgstr "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+
+msgid "Llista de tasques"
+msgstr "Llista de tasques"
+
+msgid "Càrrega dels detalls"
+msgstr "Càrrega dels detalls"
+
+msgid "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+msgstr "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+
+msgid "Barra d'edició ordenada"
+msgstr "Barra d'edició ordenada"
+
+msgid "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+msgstr "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+
+msgid "Navegació i compte"
+msgstr "Navegació i compte"
+
+msgid "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+msgstr "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+
+msgid "Suport al projecte"
+msgstr "Suport al projecte"
+
+msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
+msgstr "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."

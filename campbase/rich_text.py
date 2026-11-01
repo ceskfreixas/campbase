@@ -12,12 +12,26 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import Adw, Gdk, Gio, GLib, GObject, Gtk, Pango
 from .rich_document import RichDocument, PARSER
 from .clipboard import ImageClipboard
+from .task_lists import TaskLists
 
 from .widgets import icon_button, label
 
 
+class FormatToolbar(Gtk.FlowBox):
+    def do_measure(self, orientation, for_size):
+        minimum, natural, minimum_baseline, natural_baseline = Gtk.FlowBox.do_measure(self, orientation, for_size)
+        if orientation == Gtk.Orientation.HORIZONTAL:
+            padding = self.get_style_context().get_padding()
+            natural = padding.left+padding.right
+            minimum_baseline = natural_baseline = -1
+            child = self.get_first_child()
+            while child:
+                natural += child.measure(orientation, -1)[1]
+                child = child.get_next_sibling()
+        return minimum, max(minimum, natural), minimum_baseline, natural_baseline
 
-class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
+
+class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard, TaskLists):
     __gsignals__ = {"changed": (GObject.SignalFlags.RUN_FIRST, None, ())}
 
     def __init__(self, window, text=""):
@@ -29,6 +43,8 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
         self.links = {}
         self.code_blocks = {}
         self.image_nodes = []
+        self.task_nodes = []
+        self.task_by_anchor = {}
         self.history = []
         self.history_index = 0
         self.history_timer = 0
@@ -49,6 +65,11 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
         self._toolbar()
         self.append(Gtk.ScrolledWindow(child=self.view, hscrollbar_policy=Gtk.PolicyType.NEVER,
                                        min_content_height=240, vexpand=True))
+        self.task_font_handlers = []
+        self.task_style_idle = 0
+        self.view.connect("map", self.task_mapped)
+        self.view.connect("unmap", self.task_unmapped)
+        self.view.connect("notify::scale-factor", self.align_tasks)
         self.set_markdown(text)
         self.history = [text]
         self.buffer.connect("changed", self._changed)
@@ -58,24 +79,44 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
         self.setup_clipboard()
 
     def _toolbar(self):
-        tools = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, column_spacing=0, row_spacing=0,
-                             min_children_per_line=1, max_children_per_line=30, halign=Gtk.Align.START)
+        tools = FormatToolbar(selection_mode=Gtk.SelectionMode.NONE, column_spacing=0, row_spacing=0,
+                             min_children_per_line=1, max_children_per_line=5, hexpand=False, halign=Gtk.Align.START)
         tools.add_css_class("format-toolbar")
-        specs = [("format-text-bold-symbolic", _("Negreta · Ctrl+B"), lambda: self.toggle("bold")),
-                 ("format-text-italic-symbolic", _("Cursiva · Ctrl+I"), lambda: self.toggle("italic")),
-                 ("format-text-underline-symbolic", _("Subratllat · Ctrl+U · La visualització en altres clients pot variar"), lambda: self.toggle("underline")),
-                 ("format-text-strikethrough-symbolic", _("Ratllat"), lambda: self.toggle("strike")),
-                 ("view-list-bullet-symbolic", _("Llista amb pics"), lambda: self.list_format(False)),
-                 ("view-list-ordered-symbolic", _("Llista numerada"), lambda: self.list_format(True)),
-                 ("cat.ceskfreixas.Campbase-link-symbolic", _("Insereix un enllaç"), self.insert_link_dialog),
-                 ("image-x-generic-symbolic", _("Insereix una imatge"), self.choose_image),
-                 ("edit-undo-symbolic", _("Desfés · Ctrl+Z"), self.undo),
-                 ("edit-redo-symbolic", _("Refés · Ctrl+Maj+Z"), self.redo)]
-        for icon, title, callback in specs:
-            button = icon_button(icon, title, lambda _unused, fn=callback: fn())
-            button.add_css_class("flat")
-            button.set_focus_on_click(False)
-            tools.insert(button, -1)
+        groups = [
+            [("format-text-bold-symbolic", _("Negreta · Ctrl+B"), lambda: self.toggle("bold")),
+             ("format-text-italic-symbolic", _("Cursiva · Ctrl+I"), lambda: self.toggle("italic")),
+             ("format-text-underline-symbolic", _("Subratllat · Ctrl+U · La visualització en altres clients pot variar"), lambda: self.toggle("underline")),
+             ("format-text-strikethrough-symbolic", _("Ratllat"), lambda: self.toggle("strike"))],
+            [self._format_menu()],
+            [("view-list-bullet-symbolic", _("Llista amb pics"), lambda: self.list_format(False)),
+             ("view-list-ordered-symbolic", _("Llista numerada"), lambda: self.list_format(True)),
+             ("cat.ceskfreixas.Campbase-task-list-symbolic", _("Llista de tasques"), self.task_list)],
+            [("cat.ceskfreixas.Campbase-link-symbolic", _("Insereix un enllaç"), self.insert_link_dialog),
+             ("image-x-generic-symbolic", _("Insereix una imatge"), self.choose_image)],
+            [("edit-undo-symbolic", _("Desfés · Ctrl+Z"), self.undo),
+             ("edit-redo-symbolic", _("Refés · Ctrl+Maj+Z"), self.redo)],
+        ]
+        for index, items in enumerate(groups):
+            group = Gtk.Box(halign=Gtk.Align.START, valign=Gtk.Align.CENTER)
+            for item in items:
+                if isinstance(item, Gtk.Widget):
+                    button = item
+                else:
+                    icon, title, callback = item
+                    button = icon_button(icon, title, lambda _unused, fn=callback: fn())
+                    button.add_css_class("flat")
+                    button.set_focus_on_click(False)
+                group.append(button)
+            if index < len(groups)-1:
+                group.append(Gtk.Separator(orientation=Gtk.Orientation.VERTICAL,
+                    margin_start=3, margin_end=3, height_request=16, valign=Gtk.Align.CENTER,
+                    can_target=False, focusable=False))
+            tools.insert(group, -1)
+            group.get_parent().set_focusable(False)
+        self.append(tools)
+        self.append(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+
+    def _format_menu(self):
         headings = ui.create(Gtk.MenuButton, icon_name="format-text-rich-symbolic", tooltip_text=_("Títols, citacions i codi"))
         headings.add_css_class("flat")
         popover = Gtk.Popover()
@@ -90,9 +131,7 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
             menu.append(button)
         popover.set_child(menu)
         headings.set_popover(popover)
-        tools.insert(headings, 4)
-        self.append(tools)
-        self.append(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
+        return headings
 
     def get_buffer(self):
         return self.buffer
@@ -100,6 +139,7 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
     def _changed(self, *_unused):
         if self.loading:
             return
+        self.refresh_task_completion()
         self.modified = True
         self.emit("changed")
         if self.history_timer:
@@ -181,10 +221,12 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
             end = start.copy()
             if not end.ends_line():
                 end.forward_to_line_end()
-            text = self.buffer.get_text(start, end, True)
+            text = self.buffer.get_slice(start, end, True)
             match = re.match(r"^(\s*)(?:• |\d+\. |[-*] |❯ )?", text)
             prefix = replacement(line-first+1, match[1])
             cut = self.buffer.get_iter_at_offset(start.get_offset()+len(match[0]))
+            if self.task_at(cut):
+                cut.forward_chars(2)
             self.buffer.delete(start, cut)
             self.buffer.insert(start, prefix)
         self.buffer.end_user_action()
@@ -306,6 +348,8 @@ class RichTextEditor(Gtk.Box, RichDocument, ImageClipboard):
         if key == Gdk.KEY_Return and not (state & Gdk.ModifierType.SHIFT_MASK):
             cursor = self.buffer.get_iter_at_mark(self.buffer.get_insert())
             start = cursor.copy(); start.set_line_offset(0)
+            if self.continue_task(cursor):
+                return True
             text = self.buffer.get_text(start, cursor, True)
             match = re.match(r"^(\s*)(• |\d+\. |❯ )",text)
             if match:

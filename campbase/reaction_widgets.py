@@ -68,6 +68,7 @@ def react(panel, parent, emoji, rows):
         return
     uid = current_person(panel.window)['uid']
     own = [item for item in rows if item.get('actorId') == uid and reaction(item) == emoji]
+    panel.invalidate_reads()
     panel.reacting = True
     panel.comments.set_sensitive(False)
     panel.send.set_sensitive(False)
@@ -81,6 +82,8 @@ def react(panel, parent, emoji, rows):
             result = api.add_comment(panel.card['id'], reaction_message(parent, emoji), parent_id=parent['id'])
             panel.window.store.comment_count(panel.board_id, panel.card['id'], delta=1, reaction_delta=1)
     def done(_result, error):
+        if not panel.reads.current():
+            return
         panel.reacting = False
         panel.comments.set_sensitive(True)
         panel.send.set_sensitive(True)

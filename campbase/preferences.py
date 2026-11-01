@@ -109,8 +109,10 @@ class Preferences(Adw.PreferencesDialog):
         if self.window.account:
             from .people import current_person, avatar
             user = current_person(self.window)
-            identity = ui.create(Adw.ActionRow, title=user['displayname'],
-                                 subtitle=_("Nom d'usuari: {username}").format(username=user['uid']))
+            profile = self.window.store.get('profile', {})
+            email = profile.get('email') if profile.get('account') == self.window.account.goa_id else ''
+            identity = ui.create(Adw.ActionRow, title=user['displayname'], use_markup=False,
+                                 subtitle=email or _("Nom d'usuari: {username}").format(username=user['uid']))
             identity.add_prefix(avatar(self.window, user, 40))
             group.add(identity)
         group.add(ui.create(Adw.ActionRow, title=_("Comptes en línia de GNOME"), subtitle=_("GNOME gestiona les credencials. El Campbase només desa quin compte has seleccionat.")))

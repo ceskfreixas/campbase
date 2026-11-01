@@ -59,6 +59,15 @@ class CommentCountTests(unittest.TestCase):
         self.assertFalse(self.store.comment_summary(1, 99, 3, 1, None))
         self.assertEqual(self.store.view()['stacks']['1'][0]['cards'][0]['_textCommentsCount'], 3)
 
+    def test_late_card_detail_read_cannot_overwrite_newer_server_metadata(self):
+        expected = (None, 3)
+        self.store.comment_count(1,99,count=5,text_count=4)
+        self.assertFalse(self.store.comment_count(1,99,count=2,text_count=1,expected=expected))
+        card = self.store.view()['stacks']['1'][0]['cards'][0]
+        self.assertEqual(card['commentsCount'],5)
+        self.assertEqual(card['_textCommentsCount'],4)
+        self.assertTrue(self.store.comment_count(1,99,count=6,text_count=5,expected=(None,5)))
+
     def test_count_pagination_uses_large_pages_and_rejects_inconsistent_reads(self):
         api = Deck(SimpleNamespace(server='https://cloud.example.invalid', username='alice', password='dummy'))
         rows = [{'id': key, 'message': 'Comment'} for key in range(300)]

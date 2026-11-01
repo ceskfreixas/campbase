@@ -2,7 +2,7 @@
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 """A non-modal member completion list that keeps typing in the comment field."""
 import re
-from gi.repository import Gdk, Gtk, Pango
+from gi.repository import Gdk, GLib, Gtk, Pango
 from .collaboration import members, mention_token
 from .people import avatar
 from .widgets import clear, label
@@ -18,6 +18,8 @@ class MentionCompletion:
         self.entry, self.window, self.board_id, self.insert = entry, window, board_id, insert
         self.popover = None
         self.matches = []
+        self.scroll_retry = 0
+        self.scroll_attempts = 0
         entry.connect('changed', self.changed)
         entry.connect('notify::cursor-position', self.changed)
         entry.connect('unrealize', self.dispose)
@@ -47,6 +49,8 @@ class MentionCompletion:
         fragment = mention_fragment(self.entry.get_text(), self.entry.get_position())
         if not fragment:
             self.hide()
+            return
+        if self.scroll_into_view():
             return
         query = fragment[1].casefold()
         board = next((b for b in self.window.snapshot.get('boards', []) if b['id'] == self.board_id), {})
@@ -79,6 +83,32 @@ class MentionCompletion:
         self.popover.popup()
         self.entry.grab_focus_without_selecting()
 
+    def scroll_into_view(self):
+        scroller = self.entry.get_ancestor(Gtk.ScrolledWindow)
+        if scroller is None:
+            return False
+        ok, bounds = self.entry.compute_bounds(scroller)
+        if not ok:
+            return False
+        top, bottom = bounds.origin.y, bounds.origin.y+bounds.size.height
+        if top >= 0 and bottom <= scroller.get_height():
+            self.scroll_attempts = 0
+            return False
+        if self.scroll_attempts >= 3:
+            return True
+        adjustment = scroller.get_vadjustment()
+        delta = top-12 if top < 0 else bottom-scroller.get_height()+12
+        adjustment.set_value(max(adjustment.get_lower(), min(adjustment.get_value()+delta,
+            adjustment.get_upper()-adjustment.get_page_size())))
+        if not self.scroll_retry:
+            self.scroll_attempts += 1
+            def retry():
+                self.scroll_retry = 0
+                self.changed()
+                return GLib.SOURCE_REMOVE
+            self.scroll_retry = GLib.timeout_add(20, retry)
+        return True
+
     def position_popup(self, position):
         """Anchor the list to the typed @, including horizontally scrolled text."""
         text = self.entry.get_delegate()
@@ -94,6 +124,10 @@ class MentionCompletion:
             self.popover.set_pointing_to(rectangle)
 
     def hide(self):
+        self.scroll_attempts = 0
+        if self.scroll_retry:
+            GLib.source_remove(self.scroll_retry)
+            self.scroll_retry = 0
         if self.popover:
             self.popover.popdown()
 
@@ -120,6 +154,7 @@ class MentionCompletion:
         return False
 
     def dispose(self, *_unused):
+        self.hide()
         if self.popover:
             self.popover.popdown()
             self.popover.unparent()

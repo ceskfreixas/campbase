@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Gorde"
@@ -2129,3 +2129,96 @@ msgstr "Txartelen adierazleak"
 
 msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
 msgstr "Iruzkinak eta esleipenak txartelaren eskuinean agertzen dira, eta erakuslea gainetik pasatzean ezkutatzen dira."
+
+msgid "Marca o desmarca la tasca"
+msgstr "Markatu edo desmarkatu zeregina"
+
+msgid "Aquest servidor encara no admet les dependències de targetes."
+msgstr "Zerbitzari honek oraindik ez ditu txartelen mendekotasunak onartzen."
+
+msgid "No s'han pogut llegir les dependències."
+msgstr "Ezin izan dira mendekotasunak irakurri."
+
+msgid "Tria una altra targeta per a la dependència."
+msgstr "Aukeratu beste txartel bat mendekotasunerako."
+
+msgid "No es poden modificar les dependències d'aquesta targeta."
+msgstr "Ezin dira txartel honen mendekotasunak aldatu."
+
+msgid "La targeta dependent ja no està disponible."
+msgstr "Mendeko txartela jada ez dago erabilgarri."
+
+msgid "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+msgstr "Deckek ez du mendekotasunaren aldaketa baieztatu. Freskatu zerrenda berriro saiatu aurretik."
+
+msgid "Afegeix una dependència"
+msgstr "Gehitu mendekotasuna"
+
+msgid "Actualitza les dependències"
+msgstr "Freskatu mendekotasunak"
+
+msgid "S'estan carregant les dependències…"
+msgstr "Mendekotasunak kargatzen…"
+
+msgid "S'està desant la dependència…"
+msgstr "Mendekotasuna gordetzen…"
+
+msgid "Targetes dependents"
+msgstr "Mendeko txartelak"
+
+msgid "Encara no hi ha dependències."
+msgstr "Oraindik ez dago mendekotasunik."
+
+msgid "Obre la targeta"
+msgstr "Ireki txartela"
+
+msgid "Treu la dependència"
+msgstr "Kendu mendekotasuna"
+
+msgid "Cerca una targeta…"
+msgstr "Bilatu txartela…"
+
+msgid "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+msgstr "Sinkronizatu txartel honen zain dauden aldaketak mendekotasunak aldatu aurretik."
+
+msgid "No s'ha trobat cap targeta."
+msgstr "Ez da txartelik aurkitu."
+
+msgid "Dependències de targetes"
+msgstr "Txartelen mendekotasunak"
+
+msgid "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+msgstr "Lotu, kontsultatu eta kendu mendeko txartelak, Deck zerbitzariak onartzen baditu."
+
+msgid "Llistes de tasques"
+msgstr "Zereginen zerrendak"
+
+msgid "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+msgstr "Idatzi markatu eta desmarka ditzakezun laukidun zerrendak, jarraipen automatikoarekin eta desegin/berregin aukerarekin."
+
+msgid "Llista de tasques"
+msgstr "Zereginen zerrenda"
+
+msgid "Càrrega dels detalls"
+msgstr "Xehetasunen karga"
+
+msgid "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+msgstr "Iruzkinak eta mendekotasunak paraleloan kargatzen dira, eta eguneratu bitartean azken datuak erakusten dituzte."
+
+msgid "Barra d'edició ordenada"
+msgstr "Edizio-barra antolatua"
+
+msgid "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+msgstr "Formatu-tresnak, zerrendak, txertaketak eta Desegin/Berregin aukerak bereizleen bidez taldekatzen dira."
+
+msgid "Navegació i compte"
+msgstr "Nabigazioa eta kontua"
+
+msgid "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+msgstr "Txartel bat ixtean, taularen kokapena eta fokua mantentzen dira. Hobespenek kontuaren helbide elektronikoa erakusten dute."
+
+msgid "Suport al projecte"
+msgstr "Proiektuari lagundu"
+
+msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
+msgstr "GitHubeko Sponsor botoiak Aixetako proiektuaren harpidetzetara eramaten du."

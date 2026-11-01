@@ -50,7 +50,7 @@ class Fixture(http.server.BaseHTTPRequestHandler):
             self.send_response(200);self.send_header('Content-Type','image/png');self.end_headers();self.wfile.write(data)
             return
         if path.endswith('/cloud/user'):
-            self.respond({'id': 'alice', 'displayname': 'Alícia'})
+            self.respond({'id': 'alice', 'displayname': 'Alícia', 'email': 'alice@example.invalid'})
         elif path.endswith('/sharees'):
             self.respond({'exact': {'users': [{'label': 'Robert', 'value': {'shareType': 0, 'shareWith': 'bob'}}]},
                           'users': [{'label': 'Robert', 'value': {'shareType': 0, 'shareWith': 'bob'}}]})
@@ -182,7 +182,7 @@ class CollaborationTests(unittest.TestCase):
                                       username='login@example.invalid', password='dummy', goa_id='test'), allow_local=True)
 
     def test_profile_is_canonical_uid_and_search_stays_local(self):
-        self.assertEqual(self.api.profile(), USERS[0])
+        self.assertEqual(self.api.profile(), USERS[0] | {'email': 'alice@example.invalid'})
         self.assertEqual(self.api.search_users('Robert'), [USERS[1]])
         params = parse_qs(urlsplit(self.server.reads[-1]).query)
         self.assertEqual(params['lookup'], ['false'])

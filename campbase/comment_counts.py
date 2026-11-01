@@ -35,12 +35,14 @@ def _summary(total, text, revision):
     return {'total': total, 'text': max(0, min(text, total)), 'revision': revision, 'checked': time.time()}
 
 
-def change_count(store, board_id, card_id, *, count=None, delta=0, text_count=None, reaction_delta=0):
+def change_count(store, board_id, card_id, *, count=None, delta=0, text_count=None, reaction_delta=0, expected=None):
     with store.connect() as db:
         db.execute('BEGIN IMMEDIATE')
         snapshot, card = _snapshot_card(db, board_id, card_id)
         if card is None:
-            return
+            return False
+        if expected is not None and (card.get('lastModified'), card.get('commentsCount')) != expected:
+            return False
         previous = card.get('commentsCount')
         if count is None and not isinstance(previous, int):
             return
@@ -55,6 +57,7 @@ def change_count(store, board_id, card_id, *, count=None, delta=0, text_count=No
         if text_count is not None:
             records[str(card_id)] = _summary(total, text_count, card.get('lastModified'))
             store._put(db, 'comment_counts', records)
+        return True
 
 
 def confirm_summary(store, board_id, card_id, total, text, revision):

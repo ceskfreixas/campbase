@@ -11,6 +11,7 @@ from .update_targets import matches_comment
 from .mentions import MentionCompletion, mention_fragment
 
 from .alerts import message
+from .detail_reads import DetailReads
 from .widgets import clear, icon_button, label
 
 
@@ -20,6 +21,7 @@ class CommentsPanel(Gtk.Box):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=12, margin_start=margin,
                          margin_end=margin, margin_top=margin, margin_bottom=margin)
         self.window, self.card = window, card
+        self.reads = DetailReads(window.engine)
         self.target = target or {}
         self.target_widget = None
         self.on_loaded = lambda: None
@@ -85,23 +87,50 @@ class CommentsPanel(Gtk.Box):
             self.loaded = True
             self.refresh()
 
-    def refresh(self):
-        self.spinner.set_spinning(True)
-        self.state.set_visible_child_name("loading")
-        self.window.engine.run(lambda api: api.comments_for_update(self.card['id'], self.target)
-                               if self.target else api.comments(self.card['id']), self.display)
+    def cache_key(self):
+        card = self.window.find_card(self.card['id']) or self.card
+        revision, total = card.get('lastModified'), card.get('commentsCount')
+        revision = revision if type(revision) in (int, float, str) and len(str(revision)) <= 128 else None
+        return ('comments', self.card['id'], revision, total if type(total) is int else None)
 
-    def display(self, result, error):
+    def invalidate_reads(self):
+        self.reads.invalidate()
+        self.window.engine.detail_cache.discard(self.reads.api, ('comments', self.card['id']))
+
+    def refresh(self):
+        self.reads.bind()
+        if not self.reads.current():
+            return
+        cached = None
+        if not self.target:
+            cached = self.window.engine.detail_cache.get(self.reads.api, self.cache_key())
+            if cached is not None:
+                self.display(cached, None, cached=True)
+        self.spinner.set_spinning(True)
+        if cached is None and self.state.get_visible_child_name() != 'comments':
+            self.state.set_visible_child_name("loading")
+        target = dict(self.target)
+        generation = self.reads.generation+1
+        requested_key = self.cache_key()
+        def loaded(result, error):
+            current = self.display(result, error, expected=requested_key[2:])
+            if not error and not target and current:
+                self.window.engine.detail_cache.put(self.reads.api, self.cache_key(), result or [])
+        self.reads.run(lambda api: api.comments_for_update(self.card['id'], target, keep_reading=lambda: self.reads.current() and self.reads.generation == generation)
+                       if target else api.comments(self.card['id']), loaded)
+
+    def display(self, result, error, *, cached=False, expected=None):
+        counts_current = True
         self.spinner.set_spinning(False)
         clear(self.comments)
         self.target_widget = None
         # A short first page is the complete count. A notification may load a
         # later page, and must never overwrite the server's total with its size.
-        if not self.window.demo and not error and not self.target and len(result or []) < 50:
+        if not cached and not self.window.demo and not error and not self.target and len(result or []) < 50:
             from .comment_reactions import reaction
-            self.window.store.comment_count(self.board_id, self.card['id'], count=len(result or []),
-                                            text_count=sum(reaction(item) is None for item in result or []))
-        if not error:
+            counts_current = self.window.store.comment_count(self.board_id, self.card['id'], count=len(result or []),
+                                            text_count=sum(reaction(item) is None for item in result or []), expected=expected)
+        if not error and not cached:
             self.window.sync_changed()
         if error:
             ui.text(self.error_label, 'text', error)
@@ -151,6 +180,7 @@ class CommentsPanel(Gtk.Box):
         ui.text(self.target_status, 'text', _("No s'ha pogut trobar el comentari indicat.") if missing else '')
         self.target_status.set_visible(missing)
         self.on_loaded()
+        return counts_current
 
     def owns_comment(self, item):
         uid = current_person(self.window)['uid']
@@ -172,6 +202,7 @@ class CommentsPanel(Gtk.Box):
     def delete_comment(self, item):
         if self.deleting or not self.owns_comment(item):
             return
+        self.invalidate_reads()
         self.deleting = True
         self.comments.set_sensitive(False)
         self.send.set_sensitive(False)
@@ -180,12 +211,15 @@ class CommentsPanel(Gtk.Box):
             self.window.store.comment_count(self.board_id, self.card['id'], delta=-1)
             self.window.store.dismiss_notice({'key': f'local:comment:{self.card["id"]}:{item["id"]}'})
         def done(_result, error):
+            if not self.reads.current():
+                return
             self.deleting = False
             self.comments.set_sensitive(True)
             self.send.set_sensitive(True)
             if error:
                 if self.get_root() is not None:
                     message(self.get_root(), _("No s'ha pogut esborrar el comentari"), error)
+                self.refresh()
                 return
             if str(self.target.get('comment_id')) == str(item['id']):
                 self.target = {}
@@ -243,8 +277,11 @@ class CommentsPanel(Gtk.Box):
         text = self.entry.get_text().strip()
         if not text or not self.send.get_sensitive():
             return
+        self.invalidate_reads()
         self.send.set_sensitive(False)
         def done(result, error):
+            if not self.reads.current():
+                return
             self.send.set_sensitive(True)
             if error:
                 message(self.get_root(), _("No s'ha pogut confirmar el comentari"),
@@ -252,8 +289,8 @@ class CommentsPanel(Gtk.Box):
             else:
                 if self.entry.get_text().strip() == text:
                     ui.text(self.entry, 'text', "")
-                self.refresh()
                 self.window.update_notification_badge()
+            self.refresh()
         board_id = self.card.get('boardId', self.window.board_id)
         def post(api):
             result = api.add_comment(self.card['id'], text)

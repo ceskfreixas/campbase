@@ -68,9 +68,10 @@ class AttachmentsPanel(Gtk.Box):
     def display(self, items):
         clear(self.rows)
         if not items:
-            self.rows.append(label(_("Encara no hi ha adjunts."), 'dim-label', xalign=0))
+            self.rows.append(label(_("Encara no hi ha adjunts."), 'dim-label', xalign=0, wrap=True))
         for item in items:
-            row = Adw.ActionRow(title=attachment_name(item), use_markup=False)
+            name = attachment_name(item)
+            row = Adw.ActionRow(title=name, tooltip_text=name, title_lines=2, subtitle_lines=1, use_markup=False)
             row.add_css_class('card')
             extended = item.get('extendedData')
             size = extended.get('filesize') if isinstance(extended, dict) else None

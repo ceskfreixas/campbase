@@ -10,13 +10,16 @@ from campbase.storage import Store
 from campbase.window import Window
 
 app=Adw.Application(application_id='cat.ceskfreixas.Campbase.RefreshPositionCheck');app.register(None)
+Gtk.Settings.get_default().set_property('gtk-enable-animations',False)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 def settle():
- end=time.monotonic()+.25
- while time.monotonic()<end:
+ start=time.monotonic()
+ while time.monotonic()-start<4:
   while GLib.MainContext.default().pending():GLib.MainContext.default().iteration(False)
+  if time.monotonic()-start>=.25 and ('w' not in globals() or not w.scroll_position.tick):return
   time.sleep(.005)
+ assert not w.scroll_position.tick
 def descendants(widget):
  yield widget
  child=widget.get_first_child()
@@ -35,6 +38,7 @@ with tempfile.TemporaryDirectory() as directory:
            'stacks':{'1':[{'id':10,'title':'Columna','cards':cards}],
                      '2':[{'id':20,'title':'Altra','cards':[dict(c,id=c['id']+100,stackId=20) for c in cards]}]}}
  store.put('snapshot',snapshot);w=Window(app,store,True);w.set_default_size(1000,700);w.present();settle()
+ w.set_focus(None);settle();w.scroll_position.cancel()
  adjustment=w.scroll.get_vadjustment();adjustment.set_value(1200);settle()
  anchor=min(tiles(w),key=lambda tile:abs(offset(w,tile.card['id'])))
  anchor.card_widget.grab_focus();settle();original=offset(w,anchor.card['id'])
@@ -49,13 +53,31 @@ with tempfile.TemporaryDirectory() as directory:
   assert adjustment.get_value()>900
  store.put('snapshot',snapshot);w.engine.notify();settle()
  assert abs(offset(w,anchor.card['id'])-original)<2
+ for action in ('close','save','discard'):
+  tile=next(tile for tile in tiles(w) if tile.card['id']==anchor.card['id'])
+  before=offset(w,tile.card['id'])
+  tile.card_widget.emit('clicked');settle()
+  editor=w.get_visible_dialog();assert editor is not None
+  if action=='save':
+   editor.title_entry.set_text('Títol actualitzat');editor.save()
+  elif action=='discard':
+   editor.title_entry.set_text('Esborrany descartat');w.render();settle();editor.force_close()
+  else:
+   editor.close()
+  settle();settle()
+  current=next(tile for tile in tiles(w) if tile.card['id']==anchor.card['id'])
+  assert w.get_focus() is current.card_widget,(action,w.get_focus())
+  assert abs(offset(w,current.card['id'])-before)<2,(action,before,offset(w,current.card['id']))
+ editor=w.open_card(w.find_card(anchor.card['id']));settle()
  # Intentional board navigation starts at the top rather than restoring another board.
  w.board_list.select_row(w.board_list.get_row_at_index(1));settle()
  assert w.board_id==2 and adjustment.get_value()==0
+ adjustment.set_value(900);settle();editor.force_close();settle();settle()
+ assert w.board_id==2 and abs(adjustment.get_value()-900)<2
  adjustment.set_value(900);settle();w.retranslate();settle()
  assert abs(adjustment.get_value()-900)<2
  updated=copy.deepcopy(snapshot);updated['stacks']['2'][0]['cards']=updated['stacks']['2'][0]['cards'][:2]
  store.put('snapshot',updated);w.engine.notify();settle()
  assert adjustment.get_value()==max(0,adjustment.get_upper()-adjustment.get_page_size())
  w.close();settle()
-print('PASS repeated refreshes, inserted cards, focused cards, board navigation and language refresh position')
+print('PASS refreshes, editor close/save/discard focus and viewport, board navigation and language refresh position')

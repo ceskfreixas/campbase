@@ -2587,3 +2587,96 @@ msgstr ""
 
 msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
 msgstr ""
+
+msgid "Marca o desmarca la tasca"
+msgstr ""
+
+msgid "Aquest servidor encara no admet les dependències de targetes."
+msgstr ""
+
+msgid "No s'han pogut llegir les dependències."
+msgstr ""
+
+msgid "Tria una altra targeta per a la dependència."
+msgstr ""
+
+msgid "No es poden modificar les dependències d'aquesta targeta."
+msgstr ""
+
+msgid "La targeta dependent ja no està disponible."
+msgstr ""
+
+msgid "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+msgstr ""
+
+msgid "Afegeix una dependència"
+msgstr ""
+
+msgid "Actualitza les dependències"
+msgstr ""
+
+msgid "S'estan carregant les dependències…"
+msgstr ""
+
+msgid "S'està desant la dependència…"
+msgstr ""
+
+msgid "Targetes dependents"
+msgstr ""
+
+msgid "Encara no hi ha dependències."
+msgstr ""
+
+msgid "Obre la targeta"
+msgstr ""
+
+msgid "Treu la dependència"
+msgstr ""
+
+msgid "Cerca una targeta…"
+msgstr ""
+
+msgid "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+msgstr ""
+
+msgid "No s'ha trobat cap targeta."
+msgstr ""
+
+msgid "Dependències de targetes"
+msgstr ""
+
+msgid "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+msgstr ""
+
+msgid "Llistes de tasques"
+msgstr ""
+
+msgid "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+msgstr ""
+
+msgid "Llista de tasques"
+msgstr ""
+
+msgid "Càrrega dels detalls"
+msgstr ""
+
+msgid "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+msgstr ""
+
+msgid "Barra d'edició ordenada"
+msgstr ""
+
+msgid "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+msgstr ""
+
+msgid "Navegació i compte"
+msgstr ""
+
+msgid "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+msgstr ""
+
+msgid "Suport al projecte"
+msgstr ""
+
+msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
+msgstr ""

@@ -22,15 +22,19 @@ class RichDocument:
 
     def set_markdown(self, source):
         self.loading = True
-        for node in self.image_nodes:
+        for node in self.image_nodes + self.task_nodes:
             widget = node["widget"]
             if widget.get_parent() is self.view:
                 self.view.remove(widget)
         self.image_nodes = []
+        self.task_nodes = []
+        self.task_by_anchor = {}
         ui.text(self.buffer, 'text', "")
         self.original = source or ""
         tokens, state = PARSER.parse(self.original)
         self._blocks(tokens, state)
+        self.realize_tasks()
+        self.refresh_task_completion()
         # Renderers use terminal newlines; the serialized document controls them.
         while self.buffer.get_char_count() and self.buffer.get_slice(self.buffer.get_iter_at_offset(self.buffer.get_char_count()-1), self.buffer.get_end_iter(), True) == "\n":
             self.buffer.delete(self.buffer.get_iter_at_offset(self.buffer.get_char_count()-1), self.buffer.get_end_iter())
@@ -121,7 +125,10 @@ class RichDocument:
         it = start.copy()
         while it.compare(end) < 0:
             anchor = it.get_child_anchor()
-            if anchor and anchor in images:
+            task = self.task_at(it)
+            if task:
+                chars.append(self.task_markdown(task)); formats.append(())
+            elif anchor and anchor in images:
                 node = images[anchor]
                 alt = node["alt"].replace("[", "\\[").replace("]", "\\]")
                 chars.append(f"![{alt}]({node['url']})"); formats.append(())
@@ -192,7 +199,6 @@ class RichDocument:
                     if "h"+str(n) in tags:text = "#"*n + " " + text;break
                 text = re.sub(r"^(\s*)• ", r"\1- ", text)
                 text = re.sub(r"^(\s*)❯ ", r"\1> ", text)
-                text = text.replace("- ☑ ", "- [x] ").replace("- ☐ ", "- [ ] ")
             lines.append(text)
         if code_open:lines.append(self.code_blocks[code_open][0])
         return "\n".join(lines)

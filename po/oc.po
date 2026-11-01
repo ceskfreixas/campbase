@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Desa"
@@ -2129,3 +2129,96 @@ msgstr "Indicadors des tarjes"
 
 msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
 msgstr "Es comentaris e es assignacions se mòstren ara dreta dera tarja e s'amaguen en passar-i eth puntèr."
+
+msgid "Marca o desmarca la tasca"
+msgstr "Marca o desmarca era tasca"
+
+msgid "Aquest servidor encara no admet les dependències de targetes."
+msgstr "Aguest servidor encara non admet es dependéncies de tarjes."
+
+msgid "No s'han pogut llegir les dependències."
+msgstr "Non s'an pogut liéger es dependéncies."
+
+msgid "Tria una altra targeta per a la dependència."
+msgstr "Triga ua auta tarja entara dependéncia."
+
+msgid "No es poden modificar les dependències d'aquesta targeta."
+msgstr "Non se pòden modificar es dependéncies d'aguesta tarja."
+
+msgid "La targeta dependent ja no està disponible."
+msgstr "Era tarja dependenta ja non ei disponibla."
+
+msgid "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+msgstr "Deck non a confirmat eth cambi de dependéncia. Actualiza era lista abans de repetir-lo."
+
+msgid "Afegeix una dependència"
+msgstr "Ahig ua dependéncia"
+
+msgid "Actualitza les dependències"
+msgstr "Actualiza es dependéncies"
+
+msgid "S'estan carregant les dependències…"
+msgstr "S'estàn cargant es dependéncies…"
+
+msgid "S'està desant la dependència…"
+msgstr "S'està sauvant era dependéncia…"
+
+msgid "Targetes dependents"
+msgstr "Tarjes dependentes"
+
+msgid "Encara no hi ha dependències."
+msgstr "Encara non i a dependéncies."
+
+msgid "Obre la targeta"
+msgstr "Daurís era tarja"
+
+msgid "Treu la dependència"
+msgstr "Trè era dependéncia"
+
+msgid "Cerca una targeta…"
+msgstr "Cèrca ua tarja…"
+
+msgid "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+msgstr "Sincroniza es cambis pendenti d'aguesta tarja abans de modificar-ne es dependéncies."
+
+msgid "No s'ha trobat cap targeta."
+msgstr "Non s'a trobat cap tarja."
+
+msgid "Dependències de targetes"
+msgstr "Dependéncies de tarjes"
+
+msgid "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+msgstr "Enlaça, consulta e trè es tarjes dependentes quan eth servidor Deck ac admete."
+
+msgid "Llistes de tasques"
+msgstr "Listes de tasques"
+
+msgid "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+msgstr "Escriu listes damb caselhes que pòs marcar e desmarcar, damb continuacion automatica e Des·hèr/Refèr."
+
+msgid "Llista de tasques"
+msgstr "Lista de tasques"
+
+msgid "Càrrega dels detalls"
+msgstr "Carga des detalhs"
+
+msgid "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+msgstr "Es comentaris e es dependéncies se carguen en parallèl e mòstren donades recentes mentre s'actualizen."
+
+msgid "Barra d'edició ordenada"
+msgstr "Barra d'edicion ordenada"
+
+msgid "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+msgstr "Es airines de format, es listes, es insercions e Des·hèr/Refèr s'agròpen damb separadors."
+
+msgid "Navegació i compte"
+msgstr "Navegacion e compde"
+
+msgid "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+msgstr "En barrar ua tarja, sauve era posicion deth taulèr e eth fòcus. Es preferéncies mòstren eth corrèu electronic deth compde."
+
+msgid "Suport al projecte"
+msgstr "Supòrt ath projècte"
+
+msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
+msgstr "Eth boton Sponsor de GitHub enlace damb es soscripcions deth projècte ena Aixeta."

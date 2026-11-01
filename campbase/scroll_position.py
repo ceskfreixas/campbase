@@ -9,6 +9,7 @@ class ScrollPosition:
         self.scroller, self.content = scroller, content
         self.context = None
         self.pending = None
+        self.focus_key = None
         self.tick = 0
         self.frames = 0
         wheel = Gtk.EventControllerScroll(flags=Gtk.EventControllerScrollFlags.BOTH_AXES,
@@ -52,7 +53,21 @@ class ScrollPosition:
             self.pending = (0, None)
         elif self.pending is None:
             self.pending = self.capture()
+            root = self.content.get_root()
+            focus = root.get_focus() if root else None
+            for key, widget in self.anchors():
+                if key[0] == 'card' and focus and (focus is widget or focus.is_ancestor(widget)):
+                    self.focus_key = key
+                    break
         self.context = context
+
+    def return_to_card(self, context, position, card_id):
+        if context != self.context:
+            return
+        self.cancel()
+        self.pending = position
+        self.focus_key = ('card', card_id)
+        self.restore()
 
     def restore(self):
         self.frames = 0
@@ -65,6 +80,12 @@ class ScrollPosition:
         if self.frames < 2 or not self.content.get_mapped():
             return True
         position, anchor = self.pending
+        if self.focus_key:
+            for key, widget in self.anchors():
+                if key == self.focus_key:
+                    self.content.get_root().set_focus(widget.card_widget)
+                    break
+            self.focus_key = None
         if anchor:
             key, offset = anchor
             for current, widget in self.anchors():
@@ -85,6 +106,7 @@ class ScrollPosition:
             self.content.remove_tick_callback(self.tick)
             self.tick = 0
         self.pending = None
+        self.focus_key = None
 
     def user_scroll(self, *_unused):
         self.cancel()

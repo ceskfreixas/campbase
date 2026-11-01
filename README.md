@@ -6,8 +6,8 @@ Campbase is a native kanban app for GNOME, built with GTK4 and libadwaita and
 synchronized with **Nextcloud Deck**. Organize projects with cards and columns,
 work with other people and keep the same boards available in the Android Deck app.
 
-**Version: 0.1.7 — development preview.**
-The latest downloadable release is **0.1.7**.
+**Source version: 0.1.8 — development preview.**
+The latest downloadable release is **0.1.8**.
 
 [Download the latest release](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Source](https://github.com/ceskfreixas/campbase) ·
@@ -64,6 +64,10 @@ The latest downloadable release is **0.1.7**.
   check includes the time, not just the calendar day.
 - Rich descriptions with bold, italic, underline, strikethrough, headings, lists,
   quotes, code, links, embedded images, clipboard image paste and undo/redo.
+- Interactive Markdown task lists with native checkboxes, Enter continuation and undo/redo.
+- Native Deck card dependencies with confirmed add/remove actions when supported
+  by the server. Dependency changes require a connection and no pending edits
+  for the source card.
 - Editable project names; local descriptions, images and a 32-icon Adwaita picker.
   Sixteen column colors with subtle background tints.
 - Automatic or manual synchronization, persistent offline cache, a durable outbox
@@ -113,13 +117,13 @@ while its dialog is open and does not block card synchronization.
 
 ## Install and run
 
-Download **Campbase-0.1.7-x86_64.flatpak** from the [0.1.7 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.7).
+Download **Campbase-0.1.8-x86_64.flatpak** from the [0.1.8 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.8).
 This preview is for Linux x86_64 and requires Flatpak plus a Nextcloud account
 with Deck configured in GNOME Online Accounts. Flatpak can download the GNOME
 runtime from Flathub during installation; Campbase itself is not listed there.
 
 ```sh
-flatpak install --user ./Campbase-0.1.7-x86_64.flatpak
+flatpak install --user ./Campbase-0.1.8-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 

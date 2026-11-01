@@ -21,6 +21,7 @@ from .collaboration import CollaborationAPI
 from .due_dates import same_due, server_due
 from .conditional_cache import ConditionalCache
 from .deck_resources import DeckResources
+from .card_dependencies import CardDependenciesAPI
 
 
 class DeckError(Exception):
@@ -48,7 +49,7 @@ class NoRedirect(HTTPRedirectHandler):
         return None
 
 
-class Deck(DeckResources, CollaborationAPI):
+class Deck(DeckResources, CollaborationAPI, CardDependenciesAPI):
     def __init__(self, account, allow_local=False):
         self.server = normalize_server(account.server, allow_local=allow_local)
         self.username = account.username
@@ -361,9 +362,12 @@ class Deck(DeckResources, CollaborationAPI):
                 break
         return text_count if len(seen) == expected_total else None
 
-    def comments_for_update(self, card_id, target):
+    def comments_for_update(self, card_id, target, *, keep_reading=lambda: True):
         from .update_targets import matches_comment
+        latest = []
         for offset in range(0, 1000, 50):
+            if not keep_reading():
+                break
             rows = self.comments(card_id, offset)
             if offset == 0:
                 latest = rows

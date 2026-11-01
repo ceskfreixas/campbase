@@ -12,7 +12,7 @@ from .date_picker import DatePicker
 from .due_dates import same_due
 from .labels import LabelSelector
 from .widgets import icon_button, label, text_icon_button
-from .dialog_widgets import dialog_form, scroll_to_widget
+from .dialog_widgets import ResourcePanelLayout, dialog_form, scroll_to_widget
 from .people import AssigneeSelector, card_author_text, current_person, creator, avatar
 from .collaboration import assignment_ids, person
 
@@ -21,6 +21,7 @@ class CardDialog(Adw.Dialog):
         super().__init__(title=_("Targeta") if card else _("Targeta nova"), content_width=680, follows_content_size=True)
         ui.widget(self, title=_("Targeta") if card else _("Targeta nova"))
         self.window, self.card, self.stack_id = window, card, stack_id
+        self.dependencies = None
         self.target = target or {}
         self.sections = {}
         self._focused_target = None
@@ -31,6 +32,7 @@ class CardDialog(Adw.Dialog):
         self.set_child(Adw.Clamp(maximum_size=680, tightening_threshold=680, child=outer))
         header = Adw.HeaderBar()
         save = ui.create(Gtk.Button, label=_("Desa") if card else _("Crea la targeta"))
+        self.save_button = save
         save.add_css_class("suggested-action")
         save.connect("clicked", lambda *_unused: self.save())
         header.pack_end(save)
@@ -88,14 +90,28 @@ class CardDialog(Adw.Dialog):
         form.append(group)
         self.sections['due'] = group
         if card and card["id"] > 0:
+            from .dependencies import DependenciesPanel
+            self.dependencies = DependenciesPanel(window, self, board, card)
+            self.sections['dependencies'] = self.dependencies
             from .attachments import AttachmentsPanel
             self.attachments = AttachmentsPanel(window, self, board['id'], stack_id, card,
                 board.get('permissions', {}).get('PERMISSION_EDIT', False))
             self.sections['attachments'] = self.attachments
-            form.append(self.attachments)
+            resources = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, homogeneous=True,
+                min_children_per_line=1, max_children_per_line=2, column_spacing=24, row_spacing=24,
+                hexpand=True, valign=Gtk.Align.START)
+            resources.add_css_class('card-resources')
+            for panel in (self.dependencies, self.attachments):
+                panel.set_layout_manager(ResourcePanelLayout(orientation=Gtk.Orientation.VERTICAL, spacing=12))
+                panel.set_size_request(280, -1)
+                panel.set_valign(Gtk.Align.START)
+                resources.insert(panel, -1)
+                panel.get_parent().set_focusable(False)
+            form.append(resources)
             section = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
             section.append(label(_("Comentaris"), "heading", xalign=0))
             self.comments = CommentsPanel(window, card, inline=True, target=self.target if self.target.get('section') == 'comments' else None)
+            self.connect('closed', self.comments.reads.close)
             self.comments.on_loaded = self.focus_target
             self.sections['comments'] = section
             section.append(self.comments)
@@ -176,9 +192,11 @@ class CardDialog(Adw.Dialog):
         dirty |= {item["id"] for item in current["labels"]} != {item["id"] for item in original.get("labels") or []}
         dirty |= assignment_ids(current["assignedUsers"]) != assignment_ids(original.get("assignedUsers"))
         dirty |= self.stacks[self.column.get_selected()]["id"] != self.stack_id
-        self.set_can_close(not dirty)
+        self.set_can_close(not dirty and not (self.dependencies and self.dependencies.writing))
 
     def close_attempt(self, *_unused):
+        if (self.dependencies and self.dependencies.writing):
+            return
         prompt = ui.create(Adw.AlertDialog, heading=_("Vols descartar els canvis?"), body=_("La targeta encara no s'ha desat."))
         ui.response(prompt, "keep", _("Continua editant"))
         ui.response(prompt, "discard", _("Descarta els canvis"))
@@ -188,6 +206,8 @@ class CardDialog(Adw.Dialog):
         prompt.present(self)
 
     def save(self, close=True):
+        if (self.dependencies and self.dependencies.writing):
+            return False
         values = self.contents()
         if not values["title"]:
             self.title_entry.add_css_class("error")

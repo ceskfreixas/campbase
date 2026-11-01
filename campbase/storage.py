@@ -82,6 +82,19 @@ class Store:
             self._put(db, 'snapshot', snapshot)
             return True
 
+    def cache_card_dependencies(self, board_id, card):
+        from .card_dependencies import dependency_ids
+        values = dependency_ids(card)
+        with self.connect() as db:
+            db.execute('BEGIN IMMEDIATE')
+            row = db.execute("SELECT value FROM state WHERE key='snapshot'").fetchone()
+            snapshot = json.loads(row[0]) if row else {}
+            for stack in snapshot.get('stacks', {}).get(str(board_id), []):
+                for current in stack.get('cards', []):
+                    if current['id'] == card['id']:
+                        current['dependentCards'] = values
+            self._put(db, 'snapshot', snapshot)
+
     def cache_restored_card(self, board_id, card):
         with self.connect() as db:
             db.execute('BEGIN IMMEDIATE')
@@ -426,11 +439,11 @@ class Store:
         snapshot = json.loads(state.get('snapshot', '{"boards":[],"stacks":{}}'))
         return decorate(self.project(snapshot, operations), json.loads(state.get('comment_counts', '{}')))
 
-    def comment_count(self, board_id, card_id, *, count=None, delta=0, text_count=None, reaction_delta=0):
+    def comment_count(self, board_id, card_id, *, count=None, delta=0, text_count=None, reaction_delta=0, expected=None):
         """Refresh just a confirmed comment count without replacing card drafts."""
         from .comment_counts import change_count
-        change_count(self, board_id, card_id, count=count, delta=delta,
-                     text_count=text_count, reaction_delta=reaction_delta)
+        return change_count(self, board_id, card_id, count=count, delta=delta,
+                            text_count=text_count, reaction_delta=reaction_delta, expected=expected)
 
     def comment_summary(self, board_id, card_id, total, text, revision):
         from .comment_counts import confirm_summary

@@ -22,7 +22,7 @@ def collect_updates(api, store, snapshot=None, force=False):
         state = {'account': account_key}
     errors = {}
     profile = store.get('profile', {})
-    if profile.get('account') != api.goa_id or time.time()-profile.get('checked', 0) >= 3600:
+    if profile.get('account') != api.goa_id or 'email' not in profile or time.time()-profile.get('checked', 0) >= 3600:
         try:
             store.put('profile', api.profile() | {'account': api.goa_id, 'checked': time.time()})
         except DeckError as error:

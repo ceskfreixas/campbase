@@ -348,3 +348,44 @@ The app uses a freestanding yellow tent with two simple faces and a dark entranc
 on a transparent 128 px canvas. It uses flat colors and a shallow front profile. The 16 px symbolic variant uses the same silhouette with a
 transparent entrance. Both are installed through the same application identity;
 the catalog and About dialog use the official app icon.
+
+## Tasks and dependencies
+
+Task lists use native check buttons anchored in the description buffer. Their
+states serialize as Markdown task items, including nesting and ordered markers.
+Checkbox anchors align with the text using the control height and Pango font
+metrics, including font and DPI updates. The same history stores text and checkbox
+edits. Checked task text is struck through and dimmed with a presentation-only
+tag; Markdown stores only the task state and any formatting chosen by the user.
+Enter continues a task list;
+Enter on an empty task ends it. Literal code blocks remain untouched. An anchor
+index keeps task lookup constant-time while serializing descriptions.
+
+Dependencies and attachments share equal-width columns in the card dialog,
+stacking when the available width cannot fit both panels.
+
+The card dependency section uses Deck's `dependentCards` IDs and its REST
+relationship endpoints. It loads one card on demand, searches cached cards, and
+shares the serialized card worker for writes. A missing dependency field leaves
+the feature disabled on older servers. Each mutation rechecks permissions,
+archival, location and target access, then confirms the requested relationship.
+An uncertain response is read back without repeating the write. Pending source
+card operations block relationship mutations. Only dependency metadata is merged
+into the private cache; descriptions, editor drafts and outbox entries remain
+intact. No extra workspace polling or full-board fetch is added.
+
+
+## Foreground detail reads
+
+Card comments and dependency refreshes share a lazy pool of at most two readers,
+separate from the serialized card-writing worker. Each view cancels queued reads
+when closed or superseded and rejects late results after an account change.
+Notification comment pagination also checks whether the originating read is still
+wanted before requesting another page. Writes remain serialized.
+
+Dependency metadata already in the snapshot appears immediately and is checked in
+the background. The first comment page can reuse an account-scoped memory preview
+for up to one minute. The cache holds at most 16 entries of at most 256 KiB each,
+uses card revision/count keys, and is invalidated by comment and reaction changes.
+Cached previews never overwrite server totals. Revalidation is driven by opening
+or explicitly refreshing a card; no startup requests or polling are added.

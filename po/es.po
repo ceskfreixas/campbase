@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Guardar"
@@ -2129,3 +2129,96 @@ msgstr "Indicadores de las tarjetas"
 
 msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
 msgstr "Los comentarios y las asignaciones se muestran a la derecha de la tarjeta y se ocultan al pasar el puntero."
+
+msgid "Marca o desmarca la tasca"
+msgstr "Marca o desmarca la tarea"
+
+msgid "Aquest servidor encara no admet les dependències de targetes."
+msgstr "Este servidor todavía no admite las dependencias de tarjetas."
+
+msgid "No s'han pogut llegir les dependències."
+msgstr "No se han podido leer las dependencias."
+
+msgid "Tria una altra targeta per a la dependència."
+msgstr "Elige otra tarjeta para la dependencia."
+
+msgid "No es poden modificar les dependències d'aquesta targeta."
+msgstr "No se pueden modificar las dependencias de esta tarjeta."
+
+msgid "La targeta dependent ja no està disponible."
+msgstr "La tarjeta dependiente ya no está disponible."
+
+msgid "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+msgstr "Deck no ha confirmado el cambio de dependencia. Actualiza la lista antes de repetirlo."
+
+msgid "Afegeix una dependència"
+msgstr "Añade una dependencia"
+
+msgid "Actualitza les dependències"
+msgstr "Actualiza las dependencias"
+
+msgid "S'estan carregant les dependències…"
+msgstr "Se están cargando las dependencias…"
+
+msgid "S'està desant la dependència…"
+msgstr "Se está guardando la dependencia…"
+
+msgid "Targetes dependents"
+msgstr "Tarjetas dependientes"
+
+msgid "Encara no hi ha dependències."
+msgstr "Todavía no hay dependencias."
+
+msgid "Obre la targeta"
+msgstr "Abre la tarjeta"
+
+msgid "Treu la dependència"
+msgstr "Quita la dependencia"
+
+msgid "Cerca una targeta…"
+msgstr "Busca una tarjeta…"
+
+msgid "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+msgstr "Sincroniza los cambios pendientes de esta tarjeta antes de modificar sus dependencias."
+
+msgid "No s'ha trobat cap targeta."
+msgstr "No se ha encontrado ninguna tarjeta."
+
+msgid "Dependències de targetes"
+msgstr "Dependencias de tarjetas"
+
+msgid "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+msgstr "Enlaza, consulta y quita las tarjetas dependientes cuando el servidor Deck lo admita."
+
+msgid "Llistes de tasques"
+msgstr "Listas de tareas"
+
+msgid "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+msgstr "Escribe listas con casillas que puedes marcar y desmarcar, con continuación automática y Deshacer/Rehacer."
+
+msgid "Llista de tasques"
+msgstr "Lista de tareas"
+
+msgid "Càrrega dels detalls"
+msgstr "Carga de los detalles"
+
+msgid "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+msgstr "Los comentarios y las dependencias se cargan en paralelo y muestran datos recientes mientras se actualizan."
+
+msgid "Barra d'edició ordenada"
+msgstr "Barra de edición ordenada"
+
+msgid "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+msgstr "Las herramientas de formato, las listas, las inserciones y Deshacer/Rehacer se agrupan con separadores."
+
+msgid "Navegació i compte"
+msgstr "Navegación y cuenta"
+
+msgid "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+msgstr "Al cerrar una tarjeta, conserva la posición del tablero y el foco. Las preferencias muestran el correo electrónico de la cuenta."
+
+msgid "Suport al projecte"
+msgstr "Apoyo al proyecto"
+
+msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
+msgstr "El botón Sponsor de GitHub enlaza con las suscripciones del proyecto en Aixeta."

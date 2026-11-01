@@ -591,7 +591,14 @@ class Window(Adw.ApplicationWindow):
         CardDialog(self, stack_id or self.stacks()[0]["id"]).present(self)
 
     def open_card(self, card, target=None):
+        context = (self.board_id, self.query, self.only_mine)
+        account = self.account
+        position = self.scroll_position.capture()
+        def return_to_card(*_unused):
+            if not self.engine.closed and self.account is account and self.board_id == context[0]:
+                self.scroll_position.return_to_card(context, position, card['id'])
         dialog = CardDialog(self, card["stackId"], card, target=target)
+        dialog.connect('closed', return_to_card)
         dialog.present(self)
         return dialog
 

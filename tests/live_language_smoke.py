@@ -45,7 +45,7 @@ with tempfile.TemporaryDirectory() as directory:
   assert card.get_title()==i18n._('Targeta').render(),(language,card.get_title())
   assert project.get_title()==i18n._('Edita el projecte').render()
   assert project.icons.buttons['weather-clear-night-symbolic'].get_tooltip_text()==i18n._('Nit').render()
-  assert card.description.get_first_child().get_first_child().get_child().get_tooltip_text()==i18n._('Negreta · Ctrl+B').render()
+  assert card.description.get_first_child().get_first_child().get_child().get_first_child().get_tooltip_text()==i18n._('Negreta · Ctrl+B').render()
   assert card.title_entry.get_text()=='Preferències' and card.description.get_markdown()==markdown
   assert card.description.buffer is buffer and buffer.get_iter_at_mark(buffer.get_insert()).get_offset()==5
   assert card.due.get_text()=='2027-02-03' and not card.get_can_close()

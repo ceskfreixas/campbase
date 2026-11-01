@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.7\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Save"
@@ -2129,3 +2129,96 @@ msgstr "Card indicators"
 
 msgid "Els comentaris i les assignacions es mostren a la dreta de la targeta i s'amaguen en passar-hi el punter."
 msgstr "Comments and assignments appear on the right of each card and hide when you hover over it."
+
+msgid "Marca o desmarca la tasca"
+msgstr "Check or uncheck the task"
+
+msgid "Aquest servidor encara no admet les dependències de targetes."
+msgstr "This server does not yet support card dependencies."
+
+msgid "No s'han pogut llegir les dependències."
+msgstr "The dependencies could not be read."
+
+msgid "Tria una altra targeta per a la dependència."
+msgstr "Choose another card for the dependency."
+
+msgid "No es poden modificar les dependències d'aquesta targeta."
+msgstr "The dependencies of this card cannot be changed."
+
+msgid "La targeta dependent ja no està disponible."
+msgstr "The dependent card is no longer available."
+
+msgid "Deck no ha confirmat el canvi de dependència. Actualitza la llista abans de repetir-lo."
+msgstr "Deck has not confirmed the dependency change. Refresh the list before trying again."
+
+msgid "Afegeix una dependència"
+msgstr "Add a dependency"
+
+msgid "Actualitza les dependències"
+msgstr "Refresh dependencies"
+
+msgid "S'estan carregant les dependències…"
+msgstr "Loading dependencies…"
+
+msgid "S'està desant la dependència…"
+msgstr "Saving the dependency…"
+
+msgid "Targetes dependents"
+msgstr "Dependent cards"
+
+msgid "Encara no hi ha dependències."
+msgstr "There are no dependencies yet."
+
+msgid "Obre la targeta"
+msgstr "Open card"
+
+msgid "Treu la dependència"
+msgstr "Remove dependency"
+
+msgid "Cerca una targeta…"
+msgstr "Search for a card…"
+
+msgid "Sincronitza els canvis pendents d'aquesta targeta abans de modificar-ne les dependències."
+msgstr "Synchronize the pending changes to this card before changing its dependencies."
+
+msgid "No s'ha trobat cap targeta."
+msgstr "No cards found."
+
+msgid "Dependències de targetes"
+msgstr "Card dependencies"
+
+msgid "Enllaça, consulta i treu les targetes dependents quan el servidor Deck ho admeti."
+msgstr "Link, view and remove dependent cards when the Deck server supports them."
+
+msgid "Llistes de tasques"
+msgstr "Task lists"
+
+msgid "Escriu llistes amb caselles que pots marcar i desmarcar, amb continuació automàtica i Desfés/Refés."
+msgstr "Write lists with checkboxes you can check and uncheck, with automatic continuation and undo/redo."
+
+msgid "Llista de tasques"
+msgstr "Task list"
+
+msgid "Càrrega dels detalls"
+msgstr "Detail loading"
+
+msgid "Els comentaris i les dependències es carreguen en paral·lel i mostren dades recents mentre s'actualitzen."
+msgstr "Comments and dependencies load in parallel and show recent data while refreshing."
+
+msgid "Barra d'edició ordenada"
+msgstr "Organized editing toolbar"
+
+msgid "Les eines de format, les llistes, les insercions i Desfés/Refés s'agrupen amb separadors."
+msgstr "Formatting tools, lists, insertions and undo/redo are grouped with separators."
+
+msgid "Navegació i compte"
+msgstr "Navigation and account"
+
+msgid "En tancar una targeta, conserva la posició del tauler i el focus. Les preferències mostren el correu electrònic del compte."
+msgstr "Closing a card preserves the board position and focus. Preferences show the account email address."
+
+msgid "Suport al projecte"
+msgstr "Project support"
+
+msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
+msgstr "GitHub's Sponsor button links to project subscriptions on Aixeta."
