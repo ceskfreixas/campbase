@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Size insertion cues with the destination card's real layout, without loading avatars."""
-from gi.repository import Gtk
+from gi.repository import Gtk, Pango
 from . import localization as ui
 from .i18n import _
 
@@ -26,8 +26,9 @@ def insertion_cue(drop, card):
     content.set_margin_end(max(80,content.get_margin_end()))
     marker=Gtk.Box(can_target=False,hexpand=True,vexpand=True)
     marker.add_css_class('drop-placeholder')
+    # A wrapped overlay can request more height than the card model provides.
     title=ui.create(Gtk.Label,label=_("Deixa anar aquí"),can_target=False,hexpand=True,vexpand=True,
-                    wrap=True,justify=Gtk.Justification.CENTER)
+                    ellipsize=Pango.EllipsizeMode.END,justify=Gtk.Justification.CENTER)
     title.add_css_class('drop-placeholder-label');marker.append(title)
     cue=Gtk.Overlay(child=tile,hexpand=True,vexpand=True,can_target=False)
     cue.add_overlay(marker)

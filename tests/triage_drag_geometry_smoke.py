@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""Deferred cards scroll within Triage's height instead of stretching the board."""
+"""Keep Triage cells stable and insertion previews fully inside their destination."""
 import copy
 import tempfile
 import time
@@ -40,6 +40,17 @@ Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYL
 def sizes(current):
     return [(tile.card['id'],tile.get_width(),tile.get_height()) for tile in current.drop.widgets if tile.get_mapped()]
 
+def check_preview_bounds(drop):
+    preview=drop.placeholder
+    marker=next(item for item in descendants(preview) if item.has_css_class('drop-placeholder'))
+    ok,bounds=marker.compute_bounds(preview)
+    assert ok
+    assert bounds.origin.x>=0 and bounds.origin.y>=0
+    assert bounds.origin.x+bounds.size.width<=preview.get_width()+1
+    assert bounds.origin.y+bounds.size.height<=preview.get_height()+1,(
+        bounds.origin.y,bounds.size.height,preview.get_height())
+
+
 def check_cell(current):
     expected=current.drop.cards_box.cell_width()
     assert all(abs(width-expected)<=1 for _,width,_ in sizes(current)),(expected,sizes(current))
@@ -67,6 +78,7 @@ with tempfile.TemporaryDirectory() as folder:
             current.drop.motion(None,20,70);settle(.2)
             check_cell(current)
             marker=current.drop.placeholder
+            check_preview_bounds(current.drop)
             assert marker is not None
             assert abs(marker.get_width()-current.drop.cards_box.cell_width())<=1
             heights=[height for _,_,height in sizes(current)]
@@ -143,5 +155,20 @@ with tempfile.TemporaryDirectory() as folder:
     w.drag_session.finish();settle()
     current=column(w,1);check_cell(current)
     assert all(abs(height-preview[1])<=1 for _,_,height in sizes(current)),(preview,sizes(current))
+    # An empty ordinary column must show the complete border too. Wrapping
+    # the overlay label used to give it a taller minimum than its card model.
+    fresh=store.get('snapshot')
+    fresh['stacks']['1'][0]['cards']=[dict(id=7000,stackId=1,title='+Aixeta',order=0,archived=False,labels=[])]
+    store.put('snapshot',fresh);w.render();settle()
+    from campbase import i18n
+    for language in ('ca','eu','gl','es','oc','en'):
+        i18n.change_language(language);settle(.15)
+        for target_id in (3,1):
+            source=next(tile for tile in column(w,1).drop.widgets if tile.card['id']==7000)
+            target=column(w,target_id)
+            w.drag_session.begin(source,source.card)
+            target.drop.motion(None,20,70);settle(.25)
+            check_preview_bounds(target.drop)
+            w.drag_session.finish();settle(.1)
     w.close()
-print('PASS stable Triage cells and matching drop preview before/during/after drag, sync acknowledgement and sparse lists')
+print('PASS stable Triage cells, complete preview borders in six languages, destination sizing, sync acknowledgement and sparse lists')
