@@ -45,6 +45,14 @@ def board_options_button(window, board):
                 return GLib.SOURCE_REMOVE
             GLib.idle_add(present)
     popover.connect('closed', closed)
+    workflow = Gtk.Button()
+    workflow.set_child(label(_("Flux de treball"), xalign=0))
+    workflow.add_css_class('flat');workflow.add_css_class('board-menu-action')
+    def configure():
+        from .workflow_dialog import configure_workflow
+        configure_workflow(window, board)
+    workflow.connect('clicked', lambda *_: open_after_close(configure))
+    box.append(workflow)
     recover = Gtk.Button()
     recover.set_child(label(_("Elements esborrats"), xalign=0))
     recover.add_css_class('flat')

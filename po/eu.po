@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.9\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: eu\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Gorde"
@@ -2222,3 +2222,147 @@ msgstr "Proiektuari lagundu"
 
 msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
 msgstr "GitHubeko Sponsor botoiak Aixetako proiektuaren harpidetzetara eramaten du."
+
+msgid "Tasques completades: {completed}/{total}"
+msgstr "Osatutako zereginak: {completed}/{total}"
+
+msgid "Progrés de les tasques"
+msgstr "Zereginen aurrerapena"
+
+msgid "Les targetes mostren quantes tasques de la llista estan completades, al costat dels comentaris i de les assignacions."
+msgstr "Txartelek zerrendako zenbat zeregin osatu diren erakusten dute, iruzkinen eta esleipenen ondoan."
+
+msgid "Barra lateral estable"
+msgstr "Alboko barra egonkorra"
+
+msgid "La barra lateral es manté tancada quan canvia la mida de la finestra o la pantalla."
+msgstr "Alboko barrak itxita jarraitzen du leihoaren tamaina edo pantaila aldatzean."
+
+msgid "Ara no"
+msgstr "Orain ez"
+
+msgid "En espera"
+msgstr "Zain"
+
+msgid "Flux de treball"
+msgstr "Lan-fluxua"
+
+msgid "Aparta la feina que ara no vols prioritzar."
+msgstr "Bereizi orain lehenetsi nahi ez duzun lana."
+
+msgid "Mostra l'espai «Ara no»"
+msgstr "Erakutsi «Orain ez» eremua"
+
+msgid "Crea una columna «Ara no»"
+msgstr "Sortu «Orain ez» zutabea"
+
+msgid "Separa les targetes pausades sense canviar-les de columna."
+msgstr "Bereizi pausatutako txartelak zutabez aldatu gabe."
+
+msgid "Etiqueta compartida"
+msgstr "Etiketa partekatua"
+
+msgid "Crea l'etiqueta «En espera»"
+msgstr "Sortu «Zain» etiketa"
+
+msgid "Activa «En espera» en aquesta columna"
+msgstr "Gaitu «Zain» zutabe honetan"
+
+msgid "Prepara l'etiqueta «En espera»"
+msgstr "Prestatu «Zain» etiketa"
+
+msgid "Als altres clients de Nextcloud es veuran com una columna i una etiqueta normals. Amagar els espais no elimina targetes."
+msgstr "Beste Nextcloud bezeroetan ohiko zutabe eta etiketa gisa agertuko dira. Eremuak ezkutatzeak ez ditu txartelak ezabatzen."
+
+msgid "S'està preparant el flux de treball…"
+msgstr "Lan-fluxua prestatzen…"
+
+msgid "Aquest tauler ja no es pot modificar."
+msgstr "Ezin da taula hau gehiago aldatu."
+
+msgid "Hi ha diverses etiquetes d'espera. Tria l'etiqueta que vols utilitzar."
+msgstr "Zain egoteko hainbat etiketa daude. Aukeratu erabili nahi duzuna."
+
+msgid "No tens permís per crear columnes en aquest tauler."
+msgstr "Ez duzu taula honetan zutabeak sortzeko baimenik."
+
+msgid "Hi ha diverses columnes amb aquest nom. Tria la columna que vols utilitzar."
+msgstr "Hainbat zutabek izen hau dute. Aukeratu erabili nahi duzuna."
+
+msgid "No s'ha pogut confirmar la columna nova. Sincronitza abans de tornar-ho a provar."
+msgstr "Ezin izan da zutabe berria baieztatu. Sinkronizatu berriro saiatu aurretik."
+
+msgid "Arrossega-hi una targeta per posar-la en espera."
+msgstr "Arrastatu txartel bat hona zain uzteko."
+
+msgid "Plega «Ara no»"
+msgstr "Tolestu «Orain ez»"
+
+msgid "Desplega «Ara no»"
+msgstr "Zabaldu «Orain ez»"
+
+msgid "Manté la targeta en aquesta columna mentre està pausada."
+msgstr "Mantendu txartela zutabe honetan pausatuta dagoen bitartean."
+
+msgid "Targeta en espera"
+msgstr "Txartela zain utzi da"
+
+msgid "Targeta represa"
+msgstr "Txartela berrabiarazi da"
+
+msgid "Amaga «En espera»"
+msgstr "Ezkutatu «Zain»"
+
+msgid "Mostra «En espera»"
+msgstr "Erakutsi «Zain»"
+
+msgid "Activa un espai plegable per a les targetes que ara no vols prioritzar, compartit amb Nextcloud."
+msgstr "Gaitu Nextcloud-ekin partekatutako eremu tolesgarria orain lehenetsi nahi ez dituzun txarteletarako."
+
+msgid "Pausa i reprèn targetes dins de cada columna, amb arrossegament, sincronització i Desfés."
+msgstr "Pausatu eta berrabiarazi txartelak zutabe bakoitzean, arrastatuz, sinkronizatuz eta Desegin erabiliz."
+
+msgid "Activa «En espera»"
+msgstr "Gaitu «Zain»"
+
+msgid "Separa les targetes pausades sense canviar-les de columna. Activa la secció des del menú de cada columna."
+msgstr "Bereizi pausatutako txartelak zutabez aldatu gabe. Gaitu atala zutabe bakoitzaren menutik."
+
+msgid "Desplega la secció"
+msgstr "Zabaldu atala"
+
+msgid "Plega la secció"
+msgstr "Tolestu atala"
+
+msgid "Opcions de la secció"
+msgstr "Atalaren aukerak"
+
+msgid "Reprèn la targeta"
+msgstr "Berrabiarazi txartela"
+
+msgid "Aquesta etiqueta forma part del flux de treball i no es pot editar aquí."
+msgstr "Etiketa hau lan-fluxuaren parte da eta ezin da hemen editatu."
+
+
+msgid "Targetes i arrossegament estables"
+msgstr "Txartel eta arrastatze egonkorrak"
+
+
+msgid "Triatge adapta les targetes a l'espai disponible, amb marques d'inserció de la mida de destinació i sense reajustos tardans després de sincronitzar."
+msgstr "Sailkapenak erabilgarri dagoen espaziora egokitzen ditu txartelak; txertatzeko markek helmugako tamaina dute, eta sinkronizazioaren ondoren ez da tamaina beranduago aldatzen."
+
+
+msgid "Transicions suaus"
+msgstr "Trantsizio leunak"
+
+
+msgid "Plega i desplega «Ara no», les arxivades i «En espera» amb moviments coordinats de les targetes i dels marges."
+msgstr "Tolestu eta zabaldu «Orain ez», artxibatutako txartelak eta «Zain», txartelak eta tarteak modu koordinatuan mugituz."
+
+
+msgid "Etiquetes del flux de treball"
+msgstr "Lan-fluxuaren etiketak"
+
+
+msgid "L'etiqueta «En espera» queda protegida i separada de les etiquetes habituals de les targetes."
+msgstr "«Zain» etiketa babestuta dago, eta txartelen ohiko etiketetatik bereizita."

@@ -4,8 +4,9 @@ This is a local review package for the application listing, not a Flathub
 submission or an accepted listing. It covers English, Catalan, Spanish,
 Galician AGAL, Basque and Aranese Occitan.
 
-Open `index.html` to review the descriptions, requirements, screenshot captions
-and three native screenshots per language. `copy.json` contains the listing
+Run `python3 scripts/preview_catalog.py`, then open the generated `index.html`
+to review the descriptions, requirements, screenshot captions and three native
+screenshots per language. The generated HTML is excluded from Git. `copy.json` contains the listing
 copy and the entirely fictional workshop content used for screenshots.
 The descriptions are also included in `data/cat.ceskfreixas.Campbase.metainfo.xml`.
 

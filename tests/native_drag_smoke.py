@@ -102,25 +102,43 @@ try:
   archived_source=os.environ.get('CAMPBASE_ARCHIVED_SOURCE')=='1'
   if archived_source:snapshot['stacks']['1'][0]['cards'][0]['archived']=True
   if os.environ.get('CAMPBASE_ARCHIVE_DESTINATION')=='1':snapshot['stacks']['1'][1]['cards'][0]['archived']=True
+  not_now_drop=os.environ.get('CAMPBASE_NOT_NOW_DROP')=='1'
+  if not_now_drop:
+   from campbase.workflow_state import save_options
+   snapshot['stacks']['1'][1]['title']='Ara no'
+   save_options(store,1,not_now_enabled=True,not_now_stack=2,not_now_expanded=os.environ.get('CAMPBASE_NOT_NOW_EXPANDED')=='1')
+  hold_drop=os.environ.get('CAMPBASE_HOLD_DROP')=='1'
+  if hold_drop:
+   from campbase.workflow_state import save_options
+   held={'id':9,'title':'En espera','color':'E9AD0C'}
+   snapshot['boards'][0]['labels']=[held]
+   if os.environ.get('CAMPBASE_HOLD_EMPTY')!='1':snapshot['stacks']['1'][1]['cards'][0]['labels']=[held]
+   save_options(store,1,hold_label=9,hold_columns=[2])
   store.put('snapshot',snapshot);w=Window(app,store,True);w.set_default_size(1240,1000);w.present();settle(.5)
   # Native shadow extents differ between GTK versions. Translate widget
   # coordinates into X11 root coordinates before injecting pointer events.
   x11.XMoveWindow(display,GdkX11.X11Surface.get_xid(w.get_surface()),0,0);x11.XFlush(display);settle(.2)
   triage=w.board_body.get_first_child().get_next_sibling()
-  workflow=triage.get_next_sibling();target_column=workflow.get_first_child().get_child()
+  if not_now_drop:
+   target_column=triage.get_last_child();triage=triage.get_first_child()
+  else:
+   workflow=triage.get_next_sibling();target_column=workflow.get_first_child().get_child()
   if archived_source:w.show_archived(triage.stack['id'],True);settle()
   source=triage.archived_section.cards[0] if archived_source else triage.drop.widgets[0]
-  target=target_column.drop.widgets[0]
+  expanded_deferred=not_now_drop and target_column.expanded
+  target=target_column if not_now_drop and not expanded_deferred else target_column.drop.widgets[0]
   archive_drop=os.environ.get('CAMPBASE_ARCHIVE_DROP')=='1'
   if archive_drop:
    w.show_archived(target_column.stack['id'],True);settle()
    target=target_column.archived_section
+  if hold_drop:target=target_column.hold_section
+  section_drop=archive_drop or hold_drop
   use_handle=os.environ.get('CAMPBASE_DRAG_HANDLE')=='1'
   origin=source.drag_handle if use_handle else source
   ok,s=origin.compute_bounds(w);assert ok
   ok,t=target.compute_bounds(w);assert ok
   sx,sy=start_point(origin,center=True)
-  tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if archive_drop else 4)
+  tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if section_drop or not_now_drop else 4)
   if not use_handle:
    motion(sx,sy);button(True);button(False);settle(.2)
    opened=w.get_visible_dialog();assert isinstance(opened,CardDialog)
@@ -137,7 +155,7 @@ try:
    # Start the distinct drag away from the click point: opening/closing the
    # editor immediately must not turn this synthetic press into a double-click.
    sx,sy=start_point(origin)
-   tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if archive_drop else 4)
+   tx,ty=t.origin.x+40,t.origin.y+(t.size.height/2 if section_drop or not_now_drop else 4)
   if os.environ.get('CAMPBASE_TEST_RELOCATE_WINDOW')=='1':
    x11.XMoveWindow(display,GdkX11.X11Surface.get_xid(w.get_surface()),100,35);x11.XFlush(display);settle(.2)
   motion(sx,sy);button(True)
@@ -156,24 +174,30 @@ try:
   assert Gtk.DragIcon.get_for_drag(drag).get_child() is not None
   for i in range(1,15):motion(sx+24+(tx-sx-24)*i/14,sy+5+(ty-sy-5)*i/14)
   settle(.2)
-  if archive_drop:
+  if section_drop:
    # Follow the destination after the active-card insertion marker appears.
    # Entering the archive itself must then preserve its on-screen position.
    ok,t=target.compute_bounds(w);assert ok
    motion(t.origin.x+40,t.origin.y+t.size.height/2);settle(.2)
-   if target.cards:
-    assert not target.has_css_class('archive-drop-active') and target.drop.placeholder.get_mapped()
-   else:assert target.has_css_class('archive-drop-active')
+   highlight='archive-drop-active' if archive_drop else 'hold-drop-active'
+   items=target.cards if archive_drop else target.widgets
+   if items:
+    assert not target.has_css_class(highlight) and target.drop.placeholder.get_mapped()
+   else:assert target.has_css_class(highlight)
    assert not target_column.has_css_class('drop-active')
    ok,stable=target.compute_bounds(w);assert ok
    assert abs(stable.origin.y-t.origin.y)<1
+  elif not_now_drop:
+   assert target_column.has_css_class('drop-active')
+   if not expanded_deferred:assert not target_column.expanded
   else:
    assert target_column.has_css_class('drop-active') and target_column.drop.placeholder.get_mapped()
   button(False);settle(.5)
   assert w.find_card(101)['stackId']==2
   assert not w.dragged_card and not w.drag_session.target
   assert len(store.operations())==1
-  if not archive_drop:assert w.cards_in_stack(2)[0]['id']==101
+  if not section_drop and not not_now_drop:assert w.cards_in_stack(2)[0]['id']==101
+  if hold_drop:assert w.find_card(101)['labels']==[held]
   assert bool(w.find_card(101).get('archived'))==archive_drop
   print('PASS actual native mouse drag, floating preview, insertion marker and queued move',flush=True)
   editor=CardDialog(w,1);editor.present(w);settle()

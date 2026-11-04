@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.9\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: es\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Guardar"
@@ -2222,3 +2222,147 @@ msgstr "Apoyo al proyecto"
 
 msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
 msgstr "El botón Sponsor de GitHub enlaza con las suscripciones del proyecto en Aixeta."
+
+msgid "Tasques completades: {completed}/{total}"
+msgstr "Tareas completadas: {completed}/{total}"
+
+msgid "Progrés de les tasques"
+msgstr "Progreso de las tareas"
+
+msgid "Les targetes mostren quantes tasques de la llista estan completades, al costat dels comentaris i de les assignacions."
+msgstr "Las tarjetas muestran cuántas tareas de la lista están completadas, junto a los comentarios y las asignaciones."
+
+msgid "Barra lateral estable"
+msgstr "Barra lateral estable"
+
+msgid "La barra lateral es manté tancada quan canvia la mida de la finestra o la pantalla."
+msgstr "La barra lateral permanece cerrada al cambiar el tamaño de la ventana o la pantalla."
+
+msgid "Ara no"
+msgstr "Ahora no"
+
+msgid "En espera"
+msgstr "En espera"
+
+msgid "Flux de treball"
+msgstr "Flujo de trabajo"
+
+msgid "Aparta la feina que ara no vols prioritzar."
+msgstr "Aparta el trabajo que ahora no quieres priorizar."
+
+msgid "Mostra l'espai «Ara no»"
+msgstr "Muestra el espacio «Ahora no»"
+
+msgid "Crea una columna «Ara no»"
+msgstr "Crea una columna «Ahora no»"
+
+msgid "Separa les targetes pausades sense canviar-les de columna."
+msgstr "Separa las tarjetas pausadas sin cambiarlas de columna."
+
+msgid "Etiqueta compartida"
+msgstr "Etiqueta compartida"
+
+msgid "Crea l'etiqueta «En espera»"
+msgstr "Crea la etiqueta «En espera»"
+
+msgid "Activa «En espera» en aquesta columna"
+msgstr "Activa «En espera» en esta columna"
+
+msgid "Prepara l'etiqueta «En espera»"
+msgstr "Prepara la etiqueta «En espera»"
+
+msgid "Als altres clients de Nextcloud es veuran com una columna i una etiqueta normals. Amagar els espais no elimina targetes."
+msgstr "En los demás clientes de Nextcloud se verán como una columna y una etiqueta normales. Ocultar los espacios no elimina tarjetas."
+
+msgid "S'està preparant el flux de treball…"
+msgstr "Preparando el flujo de trabajo…"
+
+msgid "Aquest tauler ja no es pot modificar."
+msgstr "Este tablero ya no se puede modificar."
+
+msgid "Hi ha diverses etiquetes d'espera. Tria l'etiqueta que vols utilitzar."
+msgstr "Hay varias etiquetas de espera. Elige la etiqueta que quieres utilizar."
+
+msgid "No tens permís per crear columnes en aquest tauler."
+msgstr "No tienes permiso para crear columnas en este tablero."
+
+msgid "Hi ha diverses columnes amb aquest nom. Tria la columna que vols utilitzar."
+msgstr "Hay varias columnas con este nombre. Elige la columna que quieres utilizar."
+
+msgid "No s'ha pogut confirmar la columna nova. Sincronitza abans de tornar-ho a provar."
+msgstr "No se ha podido confirmar la columna nueva. Sincroniza antes de volver a intentarlo."
+
+msgid "Arrossega-hi una targeta per posar-la en espera."
+msgstr "Arrastra aquí una tarjeta para ponerla en espera."
+
+msgid "Plega «Ara no»"
+msgstr "Pliega «Ahora no»"
+
+msgid "Desplega «Ara no»"
+msgstr "Despliega «Ahora no»"
+
+msgid "Manté la targeta en aquesta columna mentre està pausada."
+msgstr "Mantiene la tarjeta en esta columna mientras está pausada."
+
+msgid "Targeta en espera"
+msgstr "Tarjeta en espera"
+
+msgid "Targeta represa"
+msgstr "Tarjeta reanudada"
+
+msgid "Amaga «En espera»"
+msgstr "Oculta «En espera»"
+
+msgid "Mostra «En espera»"
+msgstr "Muestra «En espera»"
+
+msgid "Activa un espai plegable per a les targetes que ara no vols prioritzar, compartit amb Nextcloud."
+msgstr "Activa un espacio plegable para las tarjetas que ahora no quieres priorizar, compartido con Nextcloud."
+
+msgid "Pausa i reprèn targetes dins de cada columna, amb arrossegament, sincronització i Desfés."
+msgstr "Pausa y reanuda tarjetas dentro de cada columna, con arrastrar y soltar, sincronización y Deshacer."
+
+msgid "Activa «En espera»"
+msgstr "Activa «En espera»"
+
+msgid "Separa les targetes pausades sense canviar-les de columna. Activa la secció des del menú de cada columna."
+msgstr "Separa las tarjetas pausadas sin cambiarlas de columna. Activa la sección desde el menú de cada columna."
+
+msgid "Desplega la secció"
+msgstr "Despliega la sección"
+
+msgid "Plega la secció"
+msgstr "Pliega la sección"
+
+msgid "Opcions de la secció"
+msgstr "Opciones de la sección"
+
+msgid "Reprèn la targeta"
+msgstr "Reanuda la tarjeta"
+
+msgid "Aquesta etiqueta forma part del flux de treball i no es pot editar aquí."
+msgstr "Esta etiqueta forma parte del flujo de trabajo y no se puede editar aquí."
+
+
+msgid "Targetes i arrossegament estables"
+msgstr "Tarjetas y arrastre estables"
+
+
+msgid "Triatge adapta les targetes a l'espai disponible, amb marques d'inserció de la mida de destinació i sense reajustos tardans després de sincronitzar."
+msgstr "Triaje adapta las tarjetas al espacio disponible, con marcas de inserción del tamaño de destino y sin reajustes tardíos tras sincronizar."
+
+
+msgid "Transicions suaus"
+msgstr "Transiciones suaves"
+
+
+msgid "Plega i desplega «Ara no», les arxivades i «En espera» amb moviments coordinats de les targetes i dels marges."
+msgstr "Pliega y despliega «Ahora no», las archivadas y «En espera» con movimientos coordinados de las tarjetas y los márgenes."
+
+
+msgid "Etiquetes del flux de treball"
+msgstr "Etiquetas del flujo de trabajo"
+
+
+msgid "L'etiqueta «En espera» queda protegida i separada de les etiquetes habituals de les targetes."
+msgstr "La etiqueta «En espera» queda protegida y separada de las etiquetas habituales de las tarjetas."

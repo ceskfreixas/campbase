@@ -22,6 +22,7 @@ from .due_dates import same_due, server_due
 from .conditional_cache import ConditionalCache
 from .deck_resources import DeckResources
 from .card_dependencies import CardDependenciesAPI
+from .workflow_api import WorkflowAPI
 
 
 class DeckError(Exception):
@@ -49,7 +50,7 @@ class NoRedirect(HTTPRedirectHandler):
         return None
 
 
-class Deck(DeckResources, CollaborationAPI, CardDependenciesAPI):
+class Deck(DeckResources, CollaborationAPI, CardDependenciesAPI, WorkflowAPI):
     def __init__(self, account, allow_local=False):
         self.server = normalize_server(account.server, allow_local=allow_local)
         self.username = account.username

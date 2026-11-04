@@ -65,6 +65,15 @@ with tempfile.TemporaryDirectory() as directory:
  window=open_window(store)
  assert window.board_id==2 and not window.split.get_show_sidebar()
  assert 598<timer_seconds(window)<602
+ # Adwaita can close an open sidebar when entering its narrow layout. The
+ # regression is reopening a deliberately closed sidebar when widening again.
+ window.split.set_show_sidebar(False)
+ for width in (600,1100,600,1100):
+  window.set_default_size(width,850);settle()
+  assert window.split.get_collapsed()==(width<650)
+  assert not window.split.get_show_sidebar(),width
+  assert not window.toggle_sidebar.get_active()
+  assert not store.settings()['sidebar']
  window.split.set_show_sidebar(True)
  assert store.settings()['startup_sidebar'] is False
  preferences=Preferences(window);preferences.present(window);settle()

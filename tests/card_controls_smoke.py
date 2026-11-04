@@ -3,7 +3,7 @@
 """Hover actions, local archive visibility and footer identity with synthetic data."""
 import gi
 gi.require_version('Gtk','4.0');gi.require_version('Adw','1')
-from gi.repository import Adw,Gtk,Gdk,GLib
+from gi.repository import Adw,Gtk,Gdk,GLib,Pango
 import tempfile,time
 from unittest.mock import patch
 from pathlib import Path
@@ -16,6 +16,7 @@ from campbase.collaboration import remember_creator
 app=Adw.Application(application_id='cat.ceskfreixas.Campbase.CardControlsCheck');app.register(None)
 css=Gtk.CssProvider();css.load_from_path(str(Path.cwd()/'campbase/style.css'))
 Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(),css,Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).add_search_path(str(Path.cwd()/'data/icons'))
 def settle(until=None):
  end=time.monotonic()+(3 if until else .3)
  while time.monotonic()<end:
@@ -38,7 +39,7 @@ with tempfile.TemporaryDirectory() as folder:
  store=Store(folder);store.set_setting('auto_sync',False);store.set_setting('columns_per_row',1)
  owner={'uid':'alice','displayname':'Alícia Miró'}
  stacks=[{'id':sid,'title':f'Columna {sid}','cards':[
-  {'id':sid*100+i,'stackId':sid,'boardId':1,'title':f'Targeta {i}','description':'Text curt','labels':[],
+  {'id':sid*100+i,'stackId':sid,'boardId':1,'title':f'Targeta {i}','description':'- [x] Fet\n- [ ] Pendent' if i in (1,19) else 'Text curt','labels':[],
    'archived':i>18,'owner':owner,'order':i,'commentsCount':12 if i==1 else 0,
    'assignedUsers':[{'participant':owner}] if i in (1,19) else []} for i in range(1,21)]} for sid in (10,20,30)]
  store.put('snapshot',{'boards':[{'id':1,'title':'Tauler de prova','owner':owner}], 'stacks':{'1':stacks}})
@@ -62,17 +63,32 @@ with tempfile.TemporaryDirectory() as folder:
  assert badge.get_parent() is first_card.indicators and first_card.card_widget.get_child().get_first_child() is heading
  ok,t=title.compute_bounds(first_card);assert ok
  ok,c=badge.compute_bounds(first_card);assert ok
- assert first_card.indicators.get_first_child() is badge and first_card.indicators.get_last_child() is first_card.assignee_avatars
+ tasks=first_card.card_widget.task_badge
+ assert tasks.get_last_child().get_text()=='1/2'
+ assert tasks.get_tooltip_text()=='Tasques completades: 1/2'
+ assert Gtk.IconTheme.get_for_display(w.get_display()).has_icon(tasks.get_first_child().get_icon_name())
+ assert first_card.indicators.get_first_child() is tasks and tasks.get_next_sibling() is badge
+ assert first_card.indicators.get_last_child() is first_card.assignee_avatars
  assert c.origin.x+c.size.width<=avatar_bounds.origin.x
  def ink_center(text,root=first_card):
   ok,b=text.compute_bounds(root);assert ok
-  _,y=text.get_layout_offsets();ink,_=text.get_layout().get_pixel_extents()
-  return b.origin.y+y+ink.y+ink.height/2
+  _,y=text.get_layout_offsets();ink,_=text.get_layout().get_extents()
+  return b.origin.y+y+(ink.y+ink.height/2)/Pango.SCALE
  target_center=ink_center(title)
+ assert abs(target_center-ink_center(tasks.get_last_child()))<=1
+ ok,task_icon=tasks.get_first_child().compute_bounds(first_card);assert ok
+ assert abs(ink_center(tasks.get_last_child())-task_icon.origin.y-task_icon.size.height*7/16)<=.5
+ assert task_icon.size.height==13
+ assert tasks.get_spacing()==badge.get_spacing()
+ assert tasks.get_margin_top()==badge.get_margin_top()
+ assert tasks.get_last_child().get_css_classes()==badge.get_last_child().get_css_classes()
  assert abs(target_center-ink_center(badge.get_last_child()))<=1
  ok,p=badge.get_first_child().compute_bounds(first_card);assert ok
  assert abs(target_center-p.origin.y-p.size.height/2)<=1
- assert abs(ink_center(badge.get_last_child())-p.origin.y-p.size.height*7/16)<=.5
+ assert abs(ink_center(badge.get_last_child())-p.origin.y-p.size.height*7/16-.5)<=.5
+ assert abs(task_icon.origin.y-p.origin.y-.5)<.01
+ assert task_icon.size.height==p.size.height
+ assert abs(ink_center(tasks.get_last_child())-ink_center(badge.get_last_child()))<=.5
  # Cantarell has different line metrics from the isolated display's Sans font.
  settings=Gtk.Settings.get_default();original_font=settings.get_property('gtk-font-name')
  settings.set_property('gtk-font-name','Cantarell 11')
@@ -81,7 +97,11 @@ with tempfile.TemporaryDirectory() as folder:
   w.board_body.append(sample);settle()
   counter=next(node for node in descendants(sample) if node.has_css_class('card-comment-count'))
   _,image=counter.get_first_child().compute_bounds(sample)
-  assert abs(ink_center(counter.get_last_child(),sample)-image.origin.y-image.size.height*7/16)<=.5
+  assert abs(ink_center(counter.get_last_child(),sample)-image.origin.y-image.size.height*7/16-.5)<=.5
+  task_counter=sample.card_widget.task_badge
+  _,task_image=task_counter.get_first_child().compute_bounds(sample)
+  assert abs(task_image.origin.y-image.origin.y-.5)<.01
+  assert abs(ink_center(task_counter.get_last_child(),sample)-ink_center(counter.get_last_child(),sample))<=.5
   w.board_body.remove(sample)
  settings.set_property('gtk-font-name',original_font);settle()
  animations=settings.get_property('gtk-enable-animations');settings.set_property('gtk-enable-animations',False)
@@ -101,6 +121,17 @@ with tempfile.TemporaryDirectory() as folder:
   sample.remove_css_class('keyboard-actions');settle()
   assert drawn(sample.indicators)
   indicator_window.destroy();settle()
+ for description,expected in (('- [ ] A\n- [ ] B','0/2'),('- [x] A','1/1'),
+                              ('- [x] A\n'*3+'- [ ] B\n'*8,'3/11'),('Plain text',None)):
+  sample=ActiveCard(dict(first_card.card,description=description),w)
+  counter=sample.card_widget.task_badge
+  assert (counter.get_last_child().get_text() if counter else None)==expected
+  if counter:
+   w.board_body.append(sample);settle()
+   _,bounds=counter.get_first_child().compute_bounds(sample)
+   assert bounds.size.height==13
+   assert abs(ink_center(counter.get_last_child(),sample)-bounds.origin.y-bounds.size.height*7/16)<=.5
+   w.board_body.remove(sample)
  settings.set_property('gtk-enable-animations',animations)
  adjustment=w.scroll.get_vadjustment();ok,bounds=column.compute_bounds(w.board_body);assert ok
  adjustment.set_value(bounds.origin.y-80);settle();position=adjustment.get_value();assert position>200
@@ -110,6 +141,7 @@ with tempfile.TemporaryDirectory() as folder:
   assert abs(adjustment.get_value()-position)<1,(position,adjustment.get_value())
   assert column.drop.widgets[0] is first_card and column.get_first_child().get_last_child() is menu
  archived=next(tile for tile in column.archived_section.cards if tile.card['id']==2019)
+ assert archived.card_widget.task_badge.get_last_child().get_text()=='1/2'
  assert archived.assignee_avatars.get_parent() is archived.indicators
  assert archived.restore_button.get_parent() is archived.delete_button.get_parent()
  # The reported title fits the available card width without an avoidable wrap.
@@ -122,6 +154,11 @@ with tempfile.TemporaryDirectory() as folder:
  assert abs(t.origin.y+t.size.height/2-c.origin.y-c.size.height/2)<1
  w.board_body.remove(sample);settle()
  # Archiving is queued, opens no editor, and preserves its identity and stack.
+ ok,archive_bounds=first_card.archive_button.compute_bounds(w);assert ok
+ for fraction in (.2,.5,.8):
+  picked=w.pick(archive_bounds.origin.x+archive_bounds.size.width*fraction,
+                archive_bounds.origin.y+archive_bounds.size.height/2,Gtk.PickFlags.DEFAULT)
+  assert picked is first_card.archive_button or (picked and picked.is_ancestor(first_card.archive_button))
  first_card.archive_button.emit('clicked');settle(lambda:w.find_card(2001).get('archived') and w.get_visible_dialog() is None)
  op=store.operations()[0]
  assert op['kind']=='archive' and op['payload']['changes']=={'archived':True}

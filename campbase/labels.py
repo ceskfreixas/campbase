@@ -45,7 +45,9 @@ class LabelSelector(Gtk.Box):
     def refresh(self):
         clear(self.choices)
         self.buttons = {}
-        for item in sorted(self.labels.values(), key=lambda item: item["title"].casefold()):
+        from .workflow_state import visible_labels
+        visible=visible_labels(self.window,self.labels.values(),self.board_id)
+        for item in sorted(visible, key=lambda item: item["title"].casefold()):
             button = ui.create(Gtk.ToggleButton, tooltip_text=item["title"])
             button.add_css_class("label-choice")
             box = Gtk.Box(spacing=6)
@@ -57,8 +59,8 @@ class LabelSelector(Gtk.Box):
             button.connect("toggled", self.toggled, item["id"])
             self.buttons[item["id"]] = button
             self.choices.insert(button, -1)
-        self.choices.set_visible(bool(self.labels))
-        self.empty.set_visible(not self.labels)
+        self.choices.set_visible(bool(visible))
+        self.empty.set_visible(not visible)
 
     def toggled(self, button, label_id):
         if button.get_active():
@@ -117,6 +119,12 @@ class NewLabelDialog(Adw.Dialog):
         if not title:
             self.name.add_css_class("error")
             self.name.grab_focus()
+            return
+        from .workflow_state import reserved_label_ids
+        reserved=reserved_label_ids(self.selector.window,self.selector.board_id)
+        if any(item['id'] in reserved and item['title'].casefold()==title.casefold() for item in self.selector.labels.values()):
+            ui.text(self.status,'text',_("Aquesta etiqueta forma part del flux de treball i no es pot editar aquí."))
+            self.status.set_visible(True)
             return
         if self.selector.window.demo:
             item = {"id": max(self.selector.labels, default=0)+1, "title": title,

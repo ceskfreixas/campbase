@@ -1,5 +1,8 @@
 name: Tests
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
 permissions:
   contents: read
 jobs:
@@ -18,6 +21,16 @@ jobs:
       - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/selectors_smoke.py
       - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=. .venv/bin/python tests/interactions_smoke.py
       - run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
+      - name: Check deferred-work drop destinations
+        run: |
+          for expanded in 0 1; do
+            xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_NOT_NOW_DROP=1 CAMPBASE_NOT_NOW_EXPANDED=$expanded PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py || exit 1
+          done
+      - name: Check paused-card drop regions
+        run: |
+          for empty in 0 1; do
+            xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_HOLD_DROP=1 CAMPBASE_HOLD_EMPTY=$empty PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py || exit 1
+          done
       - name: Check archive dragging after repositioning the window
         run: xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca CAMPBASE_TEST_X11=1 CAMPBASE_ARCHIVE_DROP=1 CAMPBASE_TEST_RELOCATE_WINDOW=1 PYTHONPATH=. .venv/bin/python tests/native_drag_smoke.py
       - name: Check archived-card dragging
@@ -39,7 +52,7 @@ jobs:
       - name: Check archive, collaboration and dialog workflows
         run: |
           failed=0
-          for test in detail_loading task_lists dependencies board_trash bulk_archive archive_preferences_drop archived_columns board_deletion card_controls comment_deletion dialog_layout notification_navigation workspace_refresh sync_interaction reactions talk resources; do
+          for test in deferred_height deferred_transition triage_motion triage_drag_geometry section_motion workflow detail_loading task_lists dependencies board_trash bulk_archive archive_preferences_drop archived_columns board_deletion card_controls comment_deletion dialog_layout notification_navigation workspace_refresh sync_interaction reactions talk resources; do
             xvfb-run -a env GDK_BACKEND=x11 CAMPBASE_LANGUAGE=ca PYTHONPATH=.:tests .venv/bin/python tests/${test}_smoke.py || failed=1
           done
           exit "$failed"

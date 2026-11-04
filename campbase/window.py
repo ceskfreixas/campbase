@@ -56,6 +56,7 @@ class Window(Adw.ApplicationWindow):
         self._open_column_menu = None
         self._render_after_menu = False
         self.account = None
+        self.workflow = {}
         self.account_loading = not demo
         self._manual_account_sync = False
         self.engine = SyncEngine(store, self.account, GLib.idle_add, self.sync_changed)
@@ -71,7 +72,8 @@ class Window(Adw.ApplicationWindow):
         self.toast_overlay = Adw.ToastOverlay()
         self.set_content(self.toast_overlay)
         self.split = Adw.OverlaySplitView(sidebar_width_fraction=.22, min_sidebar_width=240,
-                                           max_sidebar_width=280, show_sidebar=settings.get("startup_sidebar", False))
+                                           max_sidebar_width=280, pin_sidebar=True,
+                                           show_sidebar=settings.get("startup_sidebar", False))
         self.toast_overlay.set_child(self.split)
         self._sidebar()
         self._content()
@@ -249,7 +251,8 @@ class Window(Adw.ApplicationWindow):
         return archives_visible(self.store.settings(), stack_id)
 
     def card_count_text(self):
-        count = sum(len(self.matching_cards(stack)) for stack in self.stacks())
+        from .workflow_state import displayed_stacks
+        count = sum(len(self.matching_cards(stack)) for stack in displayed_stacks(self))
         return ngettext('{count} targeta', '{count} targetes', count).format(count=count)
 
     def show_archived(self, stack_id, visible):
@@ -263,6 +266,9 @@ class Window(Adw.ApplicationWindow):
         self.refresh_archive_sections()
 
     def refresh_archive_sections(self, stack_id=None):
+        if self.dragged_card:
+            self.render()
+            return
         self.comment_counts.last_refresh = None
         self.scroll_position.prepare((self.board_id, self.query, self.only_mine))
         def refresh(widget):
@@ -358,15 +364,29 @@ class Window(Adw.ApplicationWindow):
             self.store.set_setting("board_id", self.board_id)
             self.scroll_position.prepare((self.board_id, self.query, self.only_mine))
             clear(self.board_body)
+            from .workflow_state import options, not_now_stack, not_now_ids
+            self.workflow = options(self.store, self.board_id)
             self.board_body.append(board_header(self, board, self.card_count_text()))
+            deferred = not_now_stack(self)
+            hidden_roles = not_now_ids(self)
+            visible_stacks = [stack for stack in self.stacks() if stack['id'] not in hidden_roles]
             upper, lower = [], []
-            for index, stack in enumerate(self.stacks()):
+            for index, stack in enumerate(visible_stacks):
                 is_triage = index == 0 and self.store.settings().get("triage", True)
                 (upper if is_triage else lower).append(stack)
-            for stack in upper:
-                self.board_body.append(Column(stack, self, triage=True))
+            deferred_column=Column(deferred,self,flexible=True,not_now=True) if deferred else None
+            triage_column=Column(upper[0],self,triage=True,flexible=bool(deferred)) if upper else None
+            triage_row=None
+            if triage_column:
+                if deferred_column:
+                    from .triage_layout import TriageRow
+                    triage_row=TriageRow(triage_column,deferred_column)
+                    self.board_body.append(triage_row)
+                else:
+                    self.board_body.append(triage_column)
             limit = self.store.settings().get("columns_per_row", 0)
             fixed = isinstance(limit, int) and 1 <= limit <= 6
+            if deferred_column and fixed:deferred_column.add_css_class('not-now-fixed')
             columns = (Gtk.Grid(column_homogeneous=True, column_spacing=14, row_spacing=14,
                                 valign=Gtk.Align.START, hexpand=True) if fixed else
                        Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, homogeneous=True,
@@ -375,13 +395,19 @@ class Window(Adw.ApplicationWindow):
             columns.add_css_class("workflow-grid")
             if fixed:
                 columns.add_css_class("fixed-columns")
+            reference_column=None
             for index, stack in enumerate(lower):
                 column = Column(stack, self, flexible=fixed)
+                if reference_column is None:reference_column=column
                 if fixed:
                     columns.attach(column, index % limit, index // limit, 1, 1)
                 else:
                     columns.insert(column, -1)
-            if lower:
+            if triage_row:triage_row.reference_column=reference_column
+            if deferred_column and not triage_column:
+                from .triage_layout import TriageRow
+                self.board_body.append(TriageRow(columns,deferred_column,reference_column))
+            elif lower:
                 self.board_body.append(columns)
             self.scroll_position.restore()
         finally:
@@ -585,10 +611,12 @@ class Window(Adw.ApplicationWindow):
                 _("Pot ser que s'hagi eliminat o que ja no hi tinguis accés."))
 
     def new_card(self, stack_id=None):
-        if not self.stacks():
+        from .workflow_state import displayed_stacks
+        available=displayed_stacks(self)
+        if not available:
             message(self, _("Crea una columna"), _("Afegeix una columna al tauler abans de crear la primera targeta."))
             return
-        CardDialog(self, stack_id or self.stacks()[0]["id"]).present(self)
+        CardDialog(self, stack_id or available[0]["id"]).present(self)
 
     def open_card(self, card, target=None):
         context = (self.board_id, self.query, self.only_mine)
@@ -611,13 +639,16 @@ class Window(Adw.ApplicationWindow):
         else:
             self.engine.enqueue(kind, payload)
 
-    def move_card(self, card, stack_id, before=None, archived=None):
+    def move_card(self, card, stack_id, before=None, archived=None, held=None):
         state = bool(card.get('archived')) if archived is None else bool(archived)
         all_cards = sorted(self.cards_in_stack(stack_id), key=lambda c:(c.get('order',0),c['id']))
         cards = [c for c in all_cards if c['id'] != card['id']]
         peers = [c for c in cards if bool(c.get('archived')) == state]
         index = next((i for i,c in enumerate(peers) if c['id'] == before),len(peers))
-        if stack_id == card['stackId'] and bool(card.get('archived')) == state:
+        from .workflow_state import held_labels
+        labels = held_labels(self, card, held) if held is not None else card.get('labels') or []
+        label_changed = {item['id'] for item in labels} != {item['id'] for item in card.get('labels') or []}
+        if stack_id == card['stackId'] and bool(card.get('archived')) == state and not label_changed:
             previous = [c['id'] for c in all_cards if bool(c.get('archived')) == state]
             if card['id'] in previous and previous.index(card['id']) == index:
                 return
@@ -626,6 +657,9 @@ class Window(Adw.ApplicationWindow):
                    "target_stack": stack_id, "order": order}
         payload.update(archived=state, base_archived=bool(card.get('archived')))
         title = _("Targeta moguda")
+        if label_changed:
+            payload['label_state'] = {'desired': labels, 'base': card.get('labels') or []}
+            title = _("Targeta en espera") if held else _("Targeta represa")
         if state != bool(card.get('archived')):
             title = _("Targeta arxivada") if state else _("Targeta restaurada")
         self.enqueue_card_action('move', payload, card, title)
@@ -636,6 +670,8 @@ class Window(Adw.ApplicationWindow):
                        key=lambda item:(item.get('order',0),item['id']))
         position = next((index for index,item in enumerate(peers) if item['id'] == card['id']),card.get('order',0))
         before = {'stack_id': card['stackId'], 'order': position, 'archived': bool(card.get('archived'))}
+        if payload.get('label_state'):
+            before['labels'] = card.get('labels') or []
         operation_id = self.engine.enqueue(kind, payload, undo={'before': before})
         previous = getattr(self, '_undo_toast', None)
         if previous:

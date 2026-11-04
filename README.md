@@ -6,8 +6,8 @@ Campbase is a native kanban app for GNOME, built with GTK4 and libadwaita and
 synchronized with **Nextcloud Deck**. Organize projects with cards and columns,
 work with other people and keep the same boards available in the Android Deck app.
 
-**Source version: 0.1.8 — development preview.**
-The latest downloadable release is **0.1.8**.
+**Version: 0.1.9 — development preview.**
+The latest downloadable release is **0.1.9**.
 
 [Download the latest release](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Source](https://github.com/ceskfreixas/campbase) ·
@@ -78,6 +78,25 @@ The latest downloadable release is **0.1.8**.
 - Catalan, Basque, Galician AGAL, Spanish, Aranese Occitan and English. Language
   changes apply immediately, preserve drafts and fall back to English.
 
+## Optional workflow spaces (0.1.9)
+
+Open **Workflow** from a board's sidebar menu to enable **Not now**, a narrow collapsible
+column to the right of Triage for deferred work. Choose an existing column or let Campbase create one.
+Enable **On hold** there, then use **Show “On hold”** in each column's menu to
+separate paused cards within that column. Drag a card into the section to pause
+it, or back into the active cards to resume it; both actions support Undo. The
+card editor also has an **On hold** switch. On hold and archived cards share
+section headings, persistent folding, visibility menus and drag destinations.
+
+The column, label and card changes synchronize through Deck. Other clients see
+an ordinary column and label. These presentation preferences stay local to the
+account and board; hiding a space keeps all its cards and labels. A hidden Not now column stays
+hidden instead of appearing among the regular columns. The workflow label is
+managed internally, outside the normal label picker and label editor. Existing
+resources can be configured offline, and card changes use the normal durable
+sync queue. Creating the shared column or label requires a connection and the
+corresponding board permissions. Both features start disabled.
+
 ## Collaboration and compatibility
 
 Use the same Nextcloud account and server as other Deck clients. Sharing and
@@ -117,13 +136,13 @@ while its dialog is open and does not block card synchronization.
 
 ## Install and run
 
-Download **Campbase-0.1.8-x86_64.flatpak** from the [0.1.8 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.8).
+Download **Campbase-0.1.9-x86_64.flatpak** from the [0.1.9 release](https://github.com/ceskfreixas/campbase/releases/tag/0.1.9).
 This preview is for Linux x86_64 and requires Flatpak plus a Nextcloud account
 with Deck configured in GNOME Online Accounts. Flatpak can download the GNOME
 runtime from Flathub during installation; Campbase itself is not listed there.
 
 ```sh
-flatpak install --user ./Campbase-0.1.8-x86_64.flatpak
+flatpak install --user ./Campbase-0.1.9-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 

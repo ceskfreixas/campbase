@@ -48,7 +48,8 @@ class LabelManagerDialog(Adw.Dialog):
             self.group.remove(row)
         self.rows = []
         allowed = board.get('permissions', {}).get('PERMISSION_MANAGE', False)
-        for item in sorted(board.get('labels') or [], key=lambda item: item['title'].casefold()):
+        from .workflow_state import visible_labels
+        for item in sorted(visible_labels(self.window,board.get('labels'),self.selector.board_id), key=lambda item: item['title'].casefold()):
             row = Adw.ActionRow(title=item['title'], use_markup=False)
             row.add_prefix(color_dot(item.get('color') or '77767b'))
             edit = icon_button('document-edit-symbolic', _("Edita l'etiqueta"),
@@ -123,6 +124,11 @@ class LabelEditDialog(Adw.Dialog):
             self.name.grab_focus()
             return
         window, board_id = self.manager.window, self.manager.selector.board_id
+        from .workflow_state import reserved_label_ids
+        if self.original['id'] in reserved_label_ids(window,board_id):
+            ui.text(self.status,'text',_("Aquesta etiqueta forma part del flux de treball i no es pot editar aquí."))
+            self.status.set_visible(True)
+            return
         if any(op['payload'].get('board_id') == board_id for op in window.store.operations()):
             ui.text(self.status, 'text', _("Sincronitza els canvis pendents del tauler abans de gestionar les etiquetes."))
             self.status.set_visible(True)

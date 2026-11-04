@@ -17,3 +17,4 @@ account.json
 *.pem
 *.key
 backups/
+docs/catalog/index.html

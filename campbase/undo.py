@@ -24,6 +24,12 @@ def undo_action(store, operation_id):
         expected_archived = payload.get('archived', payload.get('changes', {}).get('archived', before['archived']))
         if not card or card['stackId'] != expected_stack or bool(card.get('archived')) != expected_archived:
             raise ConflictError(_("La targeta ha canviat. Els altres canvis es conserven."))
+        if payload.get('label_state'):
+            desired = {item['id'] for item in payload['label_state']['desired']}
+            base = {item['id'] for item in payload['label_state']['base']}
+            actual = {item['id'] for item in card.get('labels') or []}
+            if any((key in actual) != (key in desired) for key in desired ^ base):
+                raise ConflictError(_("La targeta ha canviat. Els altres canvis es conserven."))
         own = next((op for op in operations if op['id'] == operation_id), None)
         later = any(op['id'] > operation_id and op['payload'].get('card_id') == card['id'] for op in operations)
         if own and own['state'] == 'pending' and not action['attempted'] and not later:
@@ -34,6 +40,8 @@ def undo_action(store, operation_id):
                 inverse.update(source_stack=card['stackId'], target_stack=before['stack_id'], order=before['order'])
                 if 'archived' in payload:
                     inverse.update(archived=before['archived'], base_archived=expected_archived)
+                if payload.get('label_state'):
+                    inverse['label_state'] = {'desired': before['labels'], 'base': payload['label_state']['desired']}
                 kind = 'move'
             else:
                 inverse.update(stack_id=card['stackId'], changes={'archived': before['archived']},

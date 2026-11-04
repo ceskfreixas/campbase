@@ -6,6 +6,16 @@ from .i18n import _
 
 
 def perform_move(api, store, operation):
+    current = _perform_move(api, store, operation)
+    payload = operation['payload']
+    if payload.get('label_state'):
+        state = payload['label_state']
+        current = api.update_labels(payload['board_id'], current['stackId'], payload['card_id'],
+                                    state['desired'], state['base'], current=current)
+    return current
+
+
+def _perform_move(api, store, operation):
     payload = operation['payload']
 
     def checkpoint(**fields):

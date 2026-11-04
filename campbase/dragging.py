@@ -1,8 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 """Native card dragging with a stable source, viewport and insertion cues."""
-from . import localization as ui
-from .i18n import _, ngettext
 import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gdk, GLib, GObject, Gtk
@@ -38,8 +36,14 @@ class DragSession:
         if column:
             self.source_column = column
             self.source_size = column.get_size_request()
-            column.set_size_request(self.source_size[0], round(column.compute_bounds(column)[1].size.height))
-            drop = column.archived_section.drop if card.get('archived') and column.archived_section else column.drop
+            if not getattr(column,'not_now',False):
+                column.set_size_request(self.source_size[0], round(column.compute_bounds(column)[1].size.height))
+            if card.get('archived') and column.archived_section:
+                drop = column.archived_section.drop
+            elif getattr(column,'hold_section',None) and source in column.hold_section.widgets:
+                drop = column.hold_section.drop
+            else:
+                drop = column.drop
             ok, bounds = source.compute_bounds(drop.widget)
             self.source_slot.set_visible(False)
             if ok:
@@ -52,7 +56,7 @@ class DragSession:
                 prepare(self.target)
             self.clear_target()
             self.target = target
-        if not target.archived:
+        if target.widget is target.column:
             target.column.add_css_class("drop-active")
         target.mark_position(x, y)
 
@@ -142,9 +146,9 @@ class CardDrag:
 
 
 class ColumnDrop:
-    def __init__(self, column, widgets, add_button, triage, cards_box, *, widget=None, archived=False):
+    def __init__(self, column, widgets, add_button, triage, cards_box, *, widget=None, archived=False, held=None, register_target=True):
         self.column, self.window = column, column.window
-        self.widget, self.archived = widget or column, archived
+        self.widget, self.archived, self.held = widget or column, archived, held
         self.widgets, self.add_button, self.triage = widgets, add_button, triage
         self.marked = None
         self.before = None
@@ -153,7 +157,7 @@ class ColumnDrop:
         self.placeholder = None
         # One native target owns the whole column. Archive insertion is routed
         # from it; nested targets can be invalidated by their own moving preview.
-        if not archived:
+        if not archived and register_target:
             target = Gtk.DropTarget.new(GObject.TYPE_STRING, Gdk.DragAction.MOVE)
             target.connect("accept", lambda *_unused: self.accepts())
             target.connect("enter", self.motion)
@@ -177,7 +181,7 @@ class ColumnDrop:
         result = []
         dragged = (self.window.dragged_card or {}).get("id")
         for widget in self.widgets:
-            if widget.card["id"] == dragged:
+            if widget.card["id"] == dragged or not widget.get_mapped():
                 continue
             ok, bounds = widget.compute_bounds(self.widget)
             if ok:
@@ -216,7 +220,7 @@ class ColumnDrop:
     def remove_placeholder(self):
         if self.placeholder and self.placeholder.get_parent():
             parent = self.placeholder.get_parent()
-            self.cards_box.remove(parent if self.triage else self.placeholder)
+            self.cards_box.remove(parent if isinstance(parent,Gtk.FlowBoxChild) else self.placeholder)
 
     def clear_mark(self):
         self.remove_placeholder()
@@ -226,6 +230,11 @@ class ColumnDrop:
         self.edge = None
 
     def mark_position(self, x, y):
+        # A folded rail has no insertion list. Keep the native drop surface
+        # stable instead of changing hidden children during drag-enter.
+        if getattr(self.column,'not_now',False) and not self.column.expanded:
+            self.before=self.marked=self.edge=None
+            return
         before, marked, edge = self.position(x, y)
         if self.placeholder and self.placeholder.get_parent() and before == self.before:
             return
@@ -233,22 +242,19 @@ class ColumnDrop:
         self.remove_placeholder()
         self.before, self.marked, self.edge = before, marked, edge
         if first:
-            source = self.window.drag_session.source
-            height = max(54, round(source.compute_bounds(source)[1].size.height) if source else 54)
-            content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=5,
-                              valign=Gtk.Align.FILL, halign=Gtk.Align.FILL)
-            content.add_css_class("drop-placeholder")
-            title = ui.create(Gtk.Label, label=_("Deixa anar aquí"), vexpand=True, valign=Gtk.Align.CENTER,
-                              wrap=True, justify=Gtk.Justification.CENTER)
-            title.add_css_class("drop-placeholder-label")
-            content.append(title)
-            content.set_size_request(252 if self.triage else -1, height)
+            from .drop_preview import insertion_cue
+            content=insertion_cue(self,self.window.dragged_card)
             self.placeholder = Gtk.Revealer(child=content, can_target=False,
                                             transition_duration=130,
                                             transition_type=Gtk.RevealerTransitionType.NONE if self.column.stack["id"] == (self.window.dragged_card or {}).get("stackId") else Gtk.RevealerTransitionType.CROSSFADE if self.triage else Gtk.RevealerTransitionType.SLIDE_DOWN)
         index = next((i for i, widget in enumerate(self.widgets) if widget.card["id"] == before), len(self.widgets))
         if self.triage:
             self.cards_box.insert(self.placeholder, index)
+            # FlowBox creates an input-capable wrapper even for a passive
+            # placeholder. GTK must never pick a preview that we can remove
+            # synchronously while crossing into another drop destination.
+            wrapper=self.placeholder.get_parent()
+            if isinstance(wrapper,Gtk.FlowBoxChild):wrapper.set_can_target(False)
         else:
             previous = self.widgets[index-1] if index else None
             self.cards_box.insert_child_after(self.placeholder, previous)
@@ -257,24 +263,24 @@ class ColumnDrop:
     def motion(self, _target, x, y):
         if not self.accepts():
             return Gdk.DragAction(0)
-        archive = self.archive_target(x, y)
+        archive = self.section_target(x, y)
         if archive:
             return archive.motion(_target, *archive.coordinates(self.column, x, y))
         self.window.drag_session.show(self, x, y)
         return Gdk.DragAction.MOVE
 
-    def archive_target(self, x, y):
-        if self.archived:
+    def section_target(self, x, y):
+        if self.widget is not self.column:
             return None
-        section = self.column.archived_section
-        if section:
-            ok, bounds = section.compute_bounds(self.column)
-            if ok and bounds.origin.x <= x <= bounds.origin.x+bounds.size.width and bounds.origin.y <= y <= bounds.origin.y+bounds.size.height:
-                return section.drop
+        for section in (getattr(self.column, 'hold_section', None), self.column.archived_section):
+            if section and section.get_mapped():
+                ok, bounds = section.revealer.compute_bounds(self.column)
+                if ok and bounds.origin.x <= x <= bounds.origin.x+bounds.size.width and bounds.origin.y <= y <= bounds.origin.y+bounds.size.height:
+                    return section.drop
         return None
 
     def drop(self, _target, value, x, y):
-        archive = self.archive_target(x, y)
+        archive = self.section_target(x, y)
         if archive:
             return archive.drop(_target, value, *archive.coordinates(self.column, x, y))
         active = self.window.dragged_card
@@ -287,6 +293,9 @@ class ColumnDrop:
         self.window.drag_session.drop_committed = True
         self.window.drag_session.clear_target()
         archived = self.archived if self.archived or card.get('archived') else None
-        self.window.move_card(card, self.column.stack["id"], before=before, archived=archived)
+        options = {'before': before, 'archived': archived}
+        if self.held is not None:
+            options['held'] = self.held
+        self.window.move_card(card, self.column.stack["id"], **options)
         self.window._render_after_drag = True
         return True

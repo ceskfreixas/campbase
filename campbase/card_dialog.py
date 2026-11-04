@@ -26,7 +26,9 @@ class CardDialog(Adw.Dialog):
         self.sections = {}
         self._focused_target = None
         self._initializing = True
-        self.stacks = window.stacks()
+        from .workflow_state import displayed_stacks
+        available={stack['id'] for stack in displayed_stacks(window)}
+        self.stacks=[stack for stack in window.stacks() if stack['id'] in available or card and stack['id']==card['stackId']]
         outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.content_box = outer
         self.set_child(Adw.Clamp(maximum_size=680, tightening_threshold=680, child=outer))
@@ -87,6 +89,22 @@ class CardDialog(Adw.Dialog):
         group = Adw.PreferencesGroup()
         group.add(self.due)
         group.add(self.due.time_row)
+        from .workflow_state import hold_label
+        paused_label = hold_label(window)
+        if paused_label:
+            self.hold_switch = ui.create(Adw.SwitchRow, title=_("En espera"),
+                subtitle=_("Manté la targeta en aquesta columna mentre està pausada."))
+            self.hold_switch.set_active(paused_label['id'] in self.labels.selected)
+            def held_changed(*_):
+                if self.hold_switch.get_active():
+                    self.labels.selected.add(paused_label['id'])
+                else:
+                    self.labels.selected.discard(paused_label['id'])
+                self.labels.emit('changed')
+            self.hold_switch.connect('notify::active',held_changed)
+            self.labels.connect('changed',lambda *_: self.hold_switch.set_active(paused_label['id'] in self.labels.selected))
+            self.hold_switch.set_sensitive(window.demo or board.get('permissions',{}).get('PERMISSION_EDIT',False))
+            group.add(self.hold_switch)
         form.append(group)
         self.sections['due'] = group
         if card and card["id"] > 0:

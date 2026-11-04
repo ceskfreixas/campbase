@@ -28,7 +28,7 @@ class ReleaseTests(unittest.TestCase):
         symbolic = ROOT / f'data/icons/hicolor/symbolic/apps/{APP_ID}-symbolic.svg'
         self.assertTrue(symbolic.is_file())
         self.assertEqual(ET.parse(symbolic).getroot().get('viewBox'), '0 0 16 16')
-        for name in ['comments', 'assigned', 'conversations', 'link', 'reaction', 'task-list']:
+        for name in ['comments', 'assigned', 'conversations', 'link', 'reaction', 'task-list', 'task-progress']:
             self.assertTrue((ROOT / f'data/icons/hicolor/scalable/actions/{APP_ID}-{name}-symbolic.svg').is_file())
 
     def test_current_version_has_matching_notes_and_package_metadata(self):

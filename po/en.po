@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.9\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: en\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Save"
@@ -2222,3 +2222,147 @@ msgstr "Project support"
 
 msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
 msgstr "GitHub's Sponsor button links to project subscriptions on Aixeta."
+
+msgid "Tasques completades: {completed}/{total}"
+msgstr "Completed tasks: {completed}/{total}"
+
+msgid "Progrés de les tasques"
+msgstr "Task progress"
+
+msgid "Les targetes mostren quantes tasques de la llista estan completades, al costat dels comentaris i de les assignacions."
+msgstr "Cards show how many checklist tasks are complete, alongside comments and assignments."
+
+msgid "Barra lateral estable"
+msgstr "Stable sidebar"
+
+msgid "La barra lateral es manté tancada quan canvia la mida de la finestra o la pantalla."
+msgstr "The sidebar stays closed when the window size or display changes."
+
+msgid "Ara no"
+msgstr "Not now"
+
+msgid "En espera"
+msgstr "On hold"
+
+msgid "Flux de treball"
+msgstr "Workflow"
+
+msgid "Aparta la feina que ara no vols prioritzar."
+msgstr "Set aside work you do not want to prioritize right now."
+
+msgid "Mostra l'espai «Ara no»"
+msgstr "Show “Not now”"
+
+msgid "Crea una columna «Ara no»"
+msgstr "Create a “Not now” column"
+
+msgid "Separa les targetes pausades sense canviar-les de columna."
+msgstr "Separate paused cards without moving them to another column."
+
+msgid "Etiqueta compartida"
+msgstr "Shared label"
+
+msgid "Crea l'etiqueta «En espera»"
+msgstr "Create an “On hold” label"
+
+msgid "Activa «En espera» en aquesta columna"
+msgstr "Enable “On hold” in this column"
+
+msgid "Prepara l'etiqueta «En espera»"
+msgstr "Set up the “On hold” label"
+
+msgid "Als altres clients de Nextcloud es veuran com una columna i una etiqueta normals. Amagar els espais no elimina targetes."
+msgstr "Other Nextcloud clients will show these as a regular column and label. Hiding these spaces does not delete cards."
+
+msgid "S'està preparant el flux de treball…"
+msgstr "Setting up the workflow…"
+
+msgid "Aquest tauler ja no es pot modificar."
+msgstr "This board can no longer be modified."
+
+msgid "Hi ha diverses etiquetes d'espera. Tria l'etiqueta que vols utilitzar."
+msgstr "There are several hold labels. Choose the label you want to use."
+
+msgid "No tens permís per crear columnes en aquest tauler."
+msgstr "You do not have permission to create columns on this board."
+
+msgid "Hi ha diverses columnes amb aquest nom. Tria la columna que vols utilitzar."
+msgstr "Several columns have this name. Choose the column you want to use."
+
+msgid "No s'ha pogut confirmar la columna nova. Sincronitza abans de tornar-ho a provar."
+msgstr "Could not confirm the new column. Sync before trying again."
+
+msgid "Arrossega-hi una targeta per posar-la en espera."
+msgstr "Drag a card here to put it on hold."
+
+msgid "Plega «Ara no»"
+msgstr "Collapse “Not now”"
+
+msgid "Desplega «Ara no»"
+msgstr "Expand “Not now”"
+
+msgid "Manté la targeta en aquesta columna mentre està pausada."
+msgstr "Keep the card in this column while it is on hold."
+
+msgid "Targeta en espera"
+msgstr "Card put on hold"
+
+msgid "Targeta represa"
+msgstr "Card resumed"
+
+msgid "Amaga «En espera»"
+msgstr "Hide “On hold”"
+
+msgid "Mostra «En espera»"
+msgstr "Show “On hold”"
+
+msgid "Activa un espai plegable per a les targetes que ara no vols prioritzar, compartit amb Nextcloud."
+msgstr "Enable a collapsible space for cards you do not want to prioritize right now, shared with Nextcloud."
+
+msgid "Pausa i reprèn targetes dins de cada columna, amb arrossegament, sincronització i Desfés."
+msgstr "Pause and resume cards within each column, with drag and drop, sync and Undo."
+
+msgid "Activa «En espera»"
+msgstr "Enable “On hold”"
+
+msgid "Separa les targetes pausades sense canviar-les de columna. Activa la secció des del menú de cada columna."
+msgstr "Separate paused cards without moving them to another column. Enable the section from each column’s menu."
+
+msgid "Desplega la secció"
+msgstr "Expand section"
+
+msgid "Plega la secció"
+msgstr "Collapse section"
+
+msgid "Opcions de la secció"
+msgstr "Section options"
+
+msgid "Reprèn la targeta"
+msgstr "Resume card"
+
+msgid "Aquesta etiqueta forma part del flux de treball i no es pot editar aquí."
+msgstr "This label is part of the workflow and cannot be edited here."
+
+
+msgid "Targetes i arrossegament estables"
+msgstr "Stable cards and drag and drop"
+
+
+msgid "Triatge adapta les targetes a l'espai disponible, amb marques d'inserció de la mida de destinació i sense reajustos tardans després de sincronitzar."
+msgstr "Triage fits cards to the available space, with insertion previews sized for their destination and no delayed resizing after synchronization."
+
+
+msgid "Transicions suaus"
+msgstr "Smooth transitions"
+
+
+msgid "Plega i desplega «Ara no», les arxivades i «En espera» amb moviments coordinats de les targetes i dels marges."
+msgstr "Collapse and expand “Not now”, archived cards and “On hold” with coordinated movement of cards and spacing."
+
+
+msgid "Etiquetes del flux de treball"
+msgstr "Workflow labels"
+
+
+msgid "L'etiqueta «En espera» queda protegida i separada de les etiquetes habituals de les targetes."
+msgstr "The “On hold” label is protected and kept separate from ordinary card labels."

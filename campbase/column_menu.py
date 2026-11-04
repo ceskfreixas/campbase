@@ -17,12 +17,16 @@ def column_menu(window, stack, button=None):
     button.insert_action_group('column', group)
     board = next((b for b in window.snapshot.get('boards', []) if b['id'] == window.board_id), {})
     model, create, commands, view = Gio.Menu(), Gio.Menu(), Gio.Menu(), Gio.Menu()
+    from .workflow_state import hold_enabled
+    from .workflow_dialog import toggle_hold_column
     active_count = sum(not card.get('archived') for card in stack.get('cards', []))
     actions = [
         ('new', _("Afegeix una targeta"), lambda: window.new_card(stack['id']), 'PERMISSION_EDIT', create),
         ('rename', _("Canvia el nom"), lambda: window.edit_column(stack), 'PERMISSION_MANAGE', commands),
         ('color', _("Canvia el color"), lambda: window.edit_column_color(stack), None, commands),
         ('archive-all', archive_action_title(active_count), lambda: window.archive_column_cards(stack), 'PERMISSION_EDIT', view),
+        ('hold', _("Amaga «En espera»") if hold_enabled(window, stack['id']) else _("Mostra «En espera»"),
+         lambda: toggle_hold_column(window, stack), None, view),
         ('archives', _("Amaga les arxivades") if window.shows_archived(stack['id']) else _("Mostra les arxivades"),
          lambda: window.show_archived(stack['id'], not window.shows_archived(stack['id'])), None, view),
     ]
@@ -37,6 +41,17 @@ def column_menu(window, stack, button=None):
     model.append_section(None, create)
     model.append_section(None, commands)
     model.append_section(None, view)
+    popover=button.get_popover()
+    if isinstance(popover,Gtk.PopoverMenu):
+        if popover.get_mapped():
+            def replace(*_unused):
+                popover.disconnect(handler)
+                popover.set_menu_model(model)
+            handler=popover.connect('closed',replace)
+            popover.popdown()
+        else:
+            popover.set_menu_model(model)
+        return button
     popover = Gtk.PopoverMenu.new_from_model(model)
     button.set_popover(popover)
     popover.connect('map', lambda *_unused: setattr(window, '_open_column_menu', popover))

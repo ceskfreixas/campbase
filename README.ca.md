@@ -6,8 +6,8 @@ El Campbase és una app kanban nativa de GNOME, feta amb GTK4 i libadwaita i
 sincronitzada amb **Nextcloud Deck**. Organitza projectes amb targetes i columnes,
 treballa amb altres persones i consulta els mateixos taulers amb Deck a Android.
 
-**Versió del codi: 0.1.8 — en desenvolupament.**
-La darrera versió disponible per descarregar és la **0.1.8**.
+**Versió: 0.1.9 — en desenvolupament.**
+La darrera versió disponible per descarregar és la **0.1.9**.
 
 [Descarrega la darrera versió](https://github.com/ceskfreixas/campbase/releases/latest) ·
 [Codi font](https://github.com/ceskfreixas/campbase) ·
@@ -79,6 +79,28 @@ amb Retorn i Desfés/Refés. Les targetes desades també poden enllaçar targete
 dependents si el servidor Deck ho admet. Modificar aquestes relacions requereix
 connexió i haver sincronitzat els canvis pendents de la targeta d'origen.
 
+## Espais opcionals de treball (0.1.9)
+
+Obre **Flux de treball** des del menú del tauler a la barra lateral per activar
+**Ara no**, una columna estreta i plegable a la dreta de Triatge per a la feina
+que deixes per més endavant. Pots
+triar una columna existent o crear-ne una. Activa-hi **En espera** i fes servir
+**Mostra «En espera»** al menú de cada columna per separar-ne les targetes
+pausades. Arrossega una targeta a la secció per pausar-la, o torna-la a les actives
+per reprendre-la; totes dues accions permeten Desfés. L'editor de la targeta també
+té un interruptor **En espera**. Les seccions En espera i Arxivades comparteixen
+capçaleres, plegat persistent, menús de visibilitat i zones d’arrossegament.
+
+La columna, l'etiqueta i els canvis de les targetes se sincronitzen amb Deck.
+Als altres clients es veuen com una columna i una etiqueta normals. La presentació
+és local per a cada compte i tauler; amagar un espai conserva les targetes i les
+etiquetes. Si amagues Ara no, tampoc no apareix entre les columnes normals.
+L'etiqueta del flux de treball es gestiona internament i no apareix al selector
+ni a l'editor d'etiquetes. Pots configurar recursos existents sense connexió i els canvis de les
+targetes fan servir la cua habitual de sincronització. Crear la columna o
+l'etiqueta compartides requereix connexió i els permisos corresponents al tauler.
+Les dues funcions comencen desactivades.
+
 ## Comptes, col·laboració i sincronització
 
 El Campbase utilitza el compte de **Comptes en línia de GNOME**. A Preferències
@@ -142,13 +164,13 @@ clients; el contingut HTML mai no s'executa.
 
 ## Instal·lació i proves
 
-Descarrega **Campbase-0.1.8-x86_64.flatpak** de la [versió 0.1.8](https://github.com/ceskfreixas/campbase/releases/tag/0.1.8).
+Descarrega **Campbase-0.1.9-x86_64.flatpak** de la [versió 0.1.9](https://github.com/ceskfreixas/campbase/releases/tag/0.1.9).
 Aquesta versió preliminar és per a Linux x86_64 i requereix Flatpak i un compte de
 Nextcloud amb Deck configurat als Comptes en línia del GNOME. Flatpak pot descarregar
 l'entorn del GNOME des de Flathub durant la instal·lació; el Campbase encara no hi està publicat.
 
 ```sh
-flatpak install --user ./Campbase-0.1.8-x86_64.flatpak
+flatpak install --user ./Campbase-0.1.9-x86_64.flatpak
 flatpak run --user --branch=master cat.ceskfreixas.Campbase
 ```
 

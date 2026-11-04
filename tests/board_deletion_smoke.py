@@ -66,7 +66,7 @@ try:
   settle();assert not drawn(more)
   more.popup();settle();assert more.has_css_class('menu-open')
   menu_items=list(children(more.get_popover().get_child()))
-  assert isinstance(menu_items[1],Gtk.Separator)
+  assert isinstance(menu_items[2],Gtk.Separator)
   trash=menu_items[-1];assert trash.has_css_class('destructive-action')
   assert isinstance(trash.get_child().get_first_child(),Gtk.Image)
   trash.emit('clicked');settle();dialog=window.get_visible_dialog()

@@ -43,7 +43,7 @@ with tempfile.TemporaryDirectory() as path:
         window.set_default_size(width, 1000)
         settle()
         triage = next(child for child in [window.board_body.get_first_child().get_next_sibling()] if isinstance(child, Column))
-        flow = triage.get_first_child().get_next_sibling()
+        flow = triage.drop.cards_box
         children = []
         child = flow.get_first_child()
         while child:
@@ -62,6 +62,7 @@ with tempfile.TemporaryDirectory() as path:
             child = child.get_next_sibling()
         print("PASS adaptive triage", width, "window", window.get_width(), "flow", flow.get_width(), flush=True)
     assert "F5" in app.get_accels_for_action("win.sync")
+    window.split.set_show_sidebar(True)
     shown = window.toggle_sidebar.get_icon_name()
     window.split.set_show_sidebar(False)
     assert window.toggle_sidebar.get_icon_name() != shown

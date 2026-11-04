@@ -22,7 +22,7 @@ campbase/choosers.py
 campbase/clipboard.py
 campbase/collaboration.py
 campbase/column_menu.py
-campbase/comment_badge.py
+campbase/card_badges.py
 campbase/comment_count_loader.py
 campbase/comment_counts.py
 campbase/comment_reactions.py
@@ -35,6 +35,7 @@ campbase/deck_resources.py
 campbase/dialog_widgets.py
 campbase/dialogs.py
 campbase/dragging.py
+campbase/drop_preview.py
 campbase/due_dates.py
 campbase/federation.py
 campbase/i18n.py
@@ -68,3 +69,8 @@ campbase/update_targets.py
 campbase/updates.py
 campbase/widgets.py
 campbase/window.py
+campbase/workflow_api.py
+campbase/workflow_dialog.py
+campbase/workflow_sections.py
+campbase/card_sections.py
+campbase/triage_layout.py

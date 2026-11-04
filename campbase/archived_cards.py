@@ -9,6 +9,7 @@ from .i18n import _
 from .widgets import label, icon_button
 from .card_tiles import CardTile
 from .dragging import CardDrag
+from .card_sections import CardSection
 
 
 class ArchivedCard(CardTile):
@@ -31,38 +32,19 @@ class ArchivedCard(CardTile):
             self.drag = CardDrag(self, card, window, handle=self.card_widget)
 
 
-class ArchivedCards(Gtk.Box):
+class ArchivedCards(CardSection):
     def __init__(self, window, stack, cards, *, triage=False, flexible=False, column=None):
-        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=10, margin_top=8)
-        self.add_css_class('archived-section')
-        self.append(Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL))
-        heading = Gtk.Box(spacing=8)
-        heading.append(label(_("Arxivades"), 'caption', xalign=0, hexpand=True))
-        heading.append(label(str(len(cards)), 'caption', xalign=1))
+        super().__init__(window,stack,cards,kind='archived',title=_("Arxivades"),icon='folder-symbolic',
+            empty=_("Arrossega-hi una targeta per arxivar-la."),triage=triage,
+            hide=lambda:window.show_archived(stack['id'],False),hide_title=_("Amaga les arxivades"),column=column)
         title = _("Esborra les arxivades visibles") if window.query else _("Esborra totes les arxivades")
-        self.delete_all = icon_button('user-trash-symbolic', title,
-            lambda *_unused: window.delete_archived_cards(stack, cards))
-        self.delete_all.add_css_class('flat')
-        self.delete_all.add_css_class('destructive-action')
-        board = next((board for board in window.snapshot.get('boards', []) if board['id'] == window.board_id), {})
-        editable = window.demo or board.get('permissions', {}).get('PERMISSION_EDIT', True)
-        self.delete_all.set_sensitive(bool(cards) and editable)
-        heading.append(self.delete_all)
-        self.append(heading)
-        self.cards = []
-        container = (Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, homogeneous=True,
-                                 column_spacing=12, row_spacing=10, min_children_per_line=1,
-                                 max_children_per_line=100, hexpand=True)
-                     if triage else Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10))
+        self.delete_all=icon_button('user-trash-symbolic',title,lambda *_:window.delete_archived_cards(stack,cards))
+        self.delete_all.add_css_class('flat');self.delete_all.add_css_class('destructive-action')
+        board=next((board for board in window.snapshot.get('boards',[]) if board['id']==window.board_id),{})
+        self.delete_all.set_sensitive(bool(cards) and (window.demo or board.get('permissions',{}).get('PERMISSION_EDIT',True)))
+        self.add_action(self.delete_all)
         for card in cards:
-            tile = ArchivedCard(window, stack, card, flexible=flexible)
-            self.cards.append(tile)
-            container.insert(tile, -1) if triage else container.append(tile)
-        if cards:
-            self.append(container)
-        else:
-            self.append(label(_("Arrossega-hi una targeta per arxivar-la."), 'dim-label',
-                              wrap=True, justify=Gtk.Justification.CENTER, margin_bottom=8))
+            self.add_card(ArchivedCard(window,stack,card,flexible=flexible))
         if column is not None:
             from .archive_drop import ArchiveDrop
-            self.drop = ArchiveDrop(self, column, self.cards, container, triage)
+            self.drop=ArchiveDrop(self,column,self.cards,self.cards_box,triage)

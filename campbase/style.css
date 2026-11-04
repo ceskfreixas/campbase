@@ -30,7 +30,7 @@
 .active-tile:hover .hover-action, .active-tile.keyboard-actions .hover-action,
 .board-list row:hover .hover-action, .board-list row:focus-visible .hover-action,
 .board-list .hover-action.keyboard-actions, .board-list .hover-action.menu-open { opacity: 1; }
-.archived-section > box > label { color: alpha(@window_fg_color, .65); }
+.card-section > box > label { color: alpha(@window_fg_color, .65); }
 .archived-section.archive-drop-active { background: alpha(@accent_bg_color, .14); outline: 2px dashed @accent_color; outline-offset: 4px; border-radius: 8px; }
 .column-color { font-size: 22px; font-weight: 900; }
 .count-badge { border-radius: 8px; padding: 2px 7px; background: alpha(@window_fg_color, .06); font-size: 12px; }
@@ -123,3 +123,24 @@ button.label-choice { min-height: 24px; padding: 4px 8px; }
 .board-options-menu .board-menu-action label { font-weight: 400; }
 
 .recovery-feedback toast { min-width: 0; }
+
+.not-now-column { background: alpha(@window_fg_color, .035); }
+.card-section { border-radius: 8px; }
+.not-now-rail > button { min-width: 0; padding: 6px; }
+.hold-drop-active { outline: 2px dashed @accent_color; outline-offset: 4px; }
+.held-tile .campbase-card { background: alpha(@card_bg_color, .8); }
+
+/* Put the reserved gutter in the column padding, preserving the card width. */
+.not-now-column.not-now-folded { padding: 14px 8px; }
+.not-now-folded.not-now-fixed { padding: 10px 8px; }
+.not-now-column.not-now-expanded { padding: 14px 4px 14px 14px; }
+.not-now-expanded.not-now-fixed { padding: 10px 0 10px 10px; }
+.not-now-expanded > .column-header { margin-right: 10px; }
+.deferred-scrollbar.vertical, .deferred-scrollbar.vertical range, .deferred-scrollbar.vertical trough {
+  min-width: 6px; margin: 0; padding: 0; border: 0;
+}
+.deferred-scrollbar.vertical slider { min-width: 4px; margin: 0 1px; padding: 0; border: 0; }
+.deferred-scrollbar.vertical:hover slider, .deferred-scrollbar.vertical:active slider { min-width: 6px; margin: 0; }
+
+/* The folding label stays quiet under the pointer; keyboard focus stays visible. */
+.not-now-rail > .not-now-toggle:not(:focus-visible) { background: transparent; box-shadow: none; }

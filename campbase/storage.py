@@ -474,6 +474,10 @@ class Store:
                 target = next((s for s in stacks if s["id"] == p["target_stack"]), None)
                 if target:
                     card["stackId"] = p["target_stack"]
+                    if p.get('label_state'):
+                        from .workflow_state import merge_labels
+                        state = p['label_state']
+                        card['labels'] = merge_labels(card.get('labels') or [], state['desired'], state['base'])
                     if 'archived' in p:
                         card['archived'] = p['archived']
                     peers = sorted((child for child in target.get('cards', [])

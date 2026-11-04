@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: 2026 Cesk Freixas
 msgid ""
-msgstr "Project-Id-Version: Campbase 0.1.8\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Project-Id-Version: Campbase 0.1.9\nReport-Msgid-Bugs-To: \nPOT-Creation-Date: 2026-10-27 12:00+0000\nPO-Revision-Date: 2026-10-27 12:00+0000\nLast-Translator: Campbase project\nLanguage-Team: Campbase\nLanguage: oc\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Desa"
 msgstr "Desa"
@@ -2222,3 +2222,147 @@ msgstr "Supòrt ath projècte"
 
 msgid "El botó Sponsor de GitHub enllaça amb les subscripcions del projecte a l'Aixeta."
 msgstr "Eth boton Sponsor de GitHub enlace damb es soscripcions deth projècte ena Aixeta."
+
+msgid "Tasques completades: {completed}/{total}"
+msgstr "Prètzhèts completadi: {completed}/{total}"
+
+msgid "Progrés de les tasques"
+msgstr "Progrès des prètzhèts"
+
+msgid "Les targetes mostren quantes tasques de la llista estan completades, al costat dels comentaris i de les assignacions."
+msgstr "Es tarjes mòstren guairi prètzhèts dera lista son completadi, ath costat des comentaris e des assignacions."
+
+msgid "Barra lateral estable"
+msgstr "Barra laterau establa"
+
+msgid "La barra lateral es manté tancada quan canvia la mida de la finestra o la pantalla."
+msgstr "Era barra laterau demore barrada quan càmbie era mida dera hièstra o era pantalha."
+
+msgid "Ara no"
+msgstr "Ara non"
+
+msgid "En espera"
+msgstr "En pausa"
+
+msgid "Flux de treball"
+msgstr "Flux de trabalh"
+
+msgid "Aparta la feina que ara no vols prioritzar."
+msgstr "Separa eth trabalh que non vòs priorizar ara."
+
+msgid "Mostra l'espai «Ara no»"
+msgstr "Mostra er espaci «Ara non»"
+
+msgid "Crea una columna «Ara no»"
+msgstr "Crea ua colomna «Ara non»"
+
+msgid "Separa les targetes pausades sense canviar-les de columna."
+msgstr "Separa es targetes en pausa sense cambiar-les de colomna."
+
+msgid "Etiqueta compartida"
+msgstr "Etiqueta compartida"
+
+msgid "Crea l'etiqueta «En espera»"
+msgstr "Crea era etiqueta «En pausa»"
+
+msgid "Activa «En espera» en aquesta columna"
+msgstr "Activa «En pausa» en aguesta colomna"
+
+msgid "Prepara l'etiqueta «En espera»"
+msgstr "Prepara era etiqueta «En pausa»"
+
+msgid "Als altres clients de Nextcloud es veuran com una columna i una etiqueta normals. Amagar els espais no elimina targetes."
+msgstr "Enes auti clients de Nextcloud se veiràn coma ua colomna e ua etiqueta normaus. Amagar es espacis non elimine targetes."
+
+msgid "S'està preparant el flux de treball…"
+msgstr "Se prepare eth flux de trabalh…"
+
+msgid "Aquest tauler ja no es pot modificar."
+msgstr "Aguest tablèu ja non se pòt modificar."
+
+msgid "Hi ha diverses etiquetes d'espera. Tria l'etiqueta que vols utilitzar."
+msgstr "I a diuèrses etiquetes de pausa. Triga era etiqueta que vòs utilizar."
+
+msgid "No tens permís per crear columnes en aquest tauler."
+msgstr "Non as permís entà crear colomnes en aguest tablèu."
+
+msgid "Hi ha diverses columnes amb aquest nom. Tria la columna que vols utilitzar."
+msgstr "I a diuèrses colomnes damb aguest nòm. Triga era colomna que vòs utilizar."
+
+msgid "No s'ha pogut confirmar la columna nova. Sincronitza abans de tornar-ho a provar."
+msgstr "Non s’a pogut confirmar era colomna naua. Sincroniza abans de tornar-ac a provar."
+
+msgid "Arrossega-hi una targeta per posar-la en espera."
+msgstr "Arrossèga ua targeta ací entà pausar-la."
+
+msgid "Plega «Ara no»"
+msgstr "Plega «Ara non»"
+
+msgid "Desplega «Ara no»"
+msgstr "Desplega «Ara non»"
+
+msgid "Manté la targeta en aquesta columna mentre està pausada."
+msgstr "Manten era targeta en aguesta colomna mentre ei en pausa."
+
+msgid "Targeta en espera"
+msgstr "Targeta en pausa"
+
+msgid "Targeta represa"
+msgstr "Targeta represa"
+
+msgid "Amaga «En espera»"
+msgstr "Amaga «En pausa»"
+
+msgid "Mostra «En espera»"
+msgstr "Mostra «En pausa»"
+
+msgid "Activa un espai plegable per a les targetes que ara no vols prioritzar, compartit amb Nextcloud."
+msgstr "Activa un espaci plegable entàs targetes que non vòs priorizar ara, compartit damb Nextcloud."
+
+msgid "Pausa i reprèn targetes dins de cada columna, amb arrossegament, sincronització i Desfés."
+msgstr "Pausa e repren targetes laguens de cada colomna, damb arrossegament, sincronizacion e Deshè."
+
+msgid "Activa «En espera»"
+msgstr "Activa «En pausa»"
+
+msgid "Separa les targetes pausades sense canviar-les de columna. Activa la secció des del menú de cada columna."
+msgstr "Separa es targetes en pausa sense cambiar-les de colomna. Activa era seccion deth menú de cada colomna."
+
+msgid "Desplega la secció"
+msgstr "Desplega era seccion"
+
+msgid "Plega la secció"
+msgstr "Plega era seccion"
+
+msgid "Opcions de la secció"
+msgstr "Opcions dera seccion"
+
+msgid "Reprèn la targeta"
+msgstr "Repren era targeta"
+
+msgid "Aquesta etiqueta forma part del flux de treball i no es pot editar aquí."
+msgstr "Aguesta etiqueta forme part deth flux de trabalh e non se pòt editar ací."
+
+
+msgid "Targetes i arrossegament estables"
+msgstr "Tarjes e arrossegament estables"
+
+
+msgid "Triatge adapta les targetes a l'espai disponible, amb marques d'inserció de la mida de destinació i sense reajustos tardans després de sincronitzar."
+msgstr "Triatge adapte es tarjes ar espaci disponible, damb marques d'insercion dera mida de destinacion e sense reajustaments tardius dempús de sincronizar."
+
+
+msgid "Transicions suaus"
+msgstr "Transicions suaus"
+
+
+msgid "Plega i desplega «Ara no», les arxivades i «En espera» amb moviments coordinats de les targetes i dels marges."
+msgstr "Plega e desplega «Ara non», es tarjes arxivades e «En pausa» damb moviments coordinats des tarjes e des marges."
+
+
+msgid "Etiquetes del flux de treball"
+msgstr "Etiquetes deth flux de trabalh"
+
+
+msgid "L'etiqueta «En espera» queda protegida i separada de les etiquetes habituals de les targetes."
+msgstr "Era etiqueta «En pausa» demore protegida e separada des etiquetes abituaus des tarjes."
