@@ -68,12 +68,12 @@ with tempfile.TemporaryDirectory() as d:
    if child.__gtype__.name=='GtkModelButton':yield child
    yield from menu_items(child)
    child=child.get_next_sibling()
- items=list(menu_items(popover));assert len(items)==5
+ items=list(menu_items(popover));assert len(items)==6
  model=popover.get_menu_model()
  sections=[model.get_item_link(index,'section') for index in range(model.get_n_items())]
  actions=[[section.get_item_attribute_value(index,'action',None).get_string()
            for index in range(section.get_n_items())] for section in sections]
- assert actions==[['column.new'],['column.rename','column.color'],['column.archive-all','column.archives']]
+ assert actions==[['column.new'],['column.rename','column.color'],['column.archive-all','column.hold','column.archives']]
  items[-1].grab_focus();assert items[-1].has_focus()
  popover.popdown();settle();menu.popup();settle()
  assert popover.get_child().has_focus() and not any(item.has_focus() for item in items)
@@ -145,7 +145,7 @@ with tempfile.TemporaryDirectory() as d:
  legal.force_close();settle()
  about.force_close();settle()
  # Single-line and metadata-heavy cards stay vertically balanced.
- for extra in ({},{'duedate':'2027-02-03','labels':[{'title':'Etiqueta'}],'_pending':True}):
+ for extra in ({},{'duedate':'2027-02-03','labels':[{'id':900,'title':'Etiqueta'}],'_pending':True}):
   c=Card(dict(w.find_card(101),**extra),w);w.board_body.append(c);settle()
   body=c.get_child();ok,b=body.compute_bounds(c);assert ok
   assert abs(b.origin.y-(c.get_height()-b.origin.y-b.size.height))<2

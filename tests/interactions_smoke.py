@@ -23,6 +23,12 @@ def settle(duration=.2):
  while time.monotonic()<end:
   while GLib.MainContext.default().pending():GLib.MainContext.default().iteration(False)
   time.sleep(.005)
+def descendants(widget):
+ yield widget
+ child=widget.get_first_child()
+ while child:
+  yield from descendants(child);child=child.get_next_sibling()
+
 def columns(window):
  result=[]
  def visit(widget):
@@ -78,7 +84,8 @@ with tempfile.TemporaryDirectory() as directory:
  source=triage.drop.widgets[0];window.drag_session.begin(source,source.card)
  done.drop.motion(None,20,20);settle()
  assert done.drop.placeholder.get_mapped()
- assert done.drop.placeholder.get_child().get_first_child().get_text()=='Deixa anar aquí'
+ assert any(isinstance(item,Gtk.Label) and item.get_text()=='Deixa anar aquí'
+            for item in descendants(done.drop.placeholder))
  assert done.drop.drop(None,'campbase-card:'+str(source.card['id']),20,20)
  window.drag_session.finish();settle()
  assert window.find_card(source.card['id'])['stackId']==4
